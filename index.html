@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волшебный Праздник - Агентство Аниматоров</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <span class="logo-text">✨ Волшебный Праздник</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link">Главная</a></li>
+                        <li><a href="#characters" class="nav-link">Персонажи</a></li>
+                        <li><a href="#programs" class="nav-link">Программы</a></li>
+                        <li><a href="#contact" class="nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">☰</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-title-main">Незабываемые праздники</span>
+                    <span class="hero-title-sub">для ваших детей</span>
+                </h1>
+                <p class="hero-description">Профессиональные аниматоры, яркие шоу-программы и море веселья!</p>
+                <a href="#characters" class="btn btn-primary">Выбрать персонажа</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="characters-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши персонажи</h2>
+                <p class="section-subtitle">Выберите любимого героя для вашего ребенка</p>
+            </div>
+
+            <div class="characters-grid">
+                <!-- Character Card 1 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-1">
+                            <span class="character-emoji">🦸‍♂️</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Супергерой</h3>
+                        <p class="character-description">Спасет праздник и подарит море приключений! Активные игры, конкурсы и супер-миссии.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">5-10 лет</span>
+                            <span class="feature-tag">Активные игры</span>
+                        </div>
+                        <div class="character-price">от 3500 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Character Card 2 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-2">
+                            <span class="character-emoji">👸</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Принцесса</h3>
+                        <p class="character-description">Волшебная принцесса из сказки создаст атмосферу настоящего бала и исполнит желания.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">3-8 лет</span>
+                            <span class="feature-tag">Танцы</span>
+                        </div>
+                        <div class="character-price">от 4000 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Character Card 3 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-3">
+                            <span class="character-emoji">🤡</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Клоун</h3>
+                        <p class="character-description">Веселый клоун развеселит всех гостей фокусами, жонглированием и смешными конкурсами.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">4-12 лет</span>
+                            <span class="feature-tag">Фокусы</span>
+                        </div>
+                        <div class="character-price">от 3000 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Character Card 4 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-4">
+                            <span class="character-emoji">🧚‍♀️</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Фея</h3>
+                        <p class="character-description">Волшебная фея с крыльями создаст сказочную атмосферу и проведет творческие мастер-классы.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">3-7 лет</span>
+                            <span class="feature-tag">Творчество</span>
+                        </div>
+                        <div class="character-price">от 3500 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Character Card 5 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-5">
+                            <span class="character-emoji">🦁</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Король лев</h3>
+                        <p class="character-description">Отважный король джунглей устроит настоящее сафари-приключение с играми и квестами.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">5-10 лет</span>
+                            <span class="feature-tag">Квесты</span>
+                        </div>
+                        <div class="character-price">от 4000 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Character Card 6 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <div class="character-avatar character-avatar-6">
+                            <span class="character-emoji">🧙‍♂️</span>
+                        </div>
+                        <div class="character-overlay">
+                            <button class="btn btn-secondary">Заказать</button>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Волшебник</h3>
+                        <p class="character-description">Мудрый волшебник покажет невероятные фокусы и научит детей магическим трюкам.</p>
+                        <div class="character-features">
+                            <span class="feature-tag">6-12 лет</span>
+                            <span class="feature-tag">Фокусы</span>
+                        </div>
+                        <div class="character-price">от 4500 ₽/час</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Шоу-программы</h2>
+                <p class="section-subtitle">Дополните праздник яркими развлечениями</p>
+            </div>
+
+            <div class="programs-grid">
+                <!-- Program Card 1 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🫧</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Шоу мыльных пузырей</h3>
+                        <p class="program-description">Завораживающее представление с гигантскими мыльными пузырями! Дети побывают внутри пузыря и научатся создавать собственные шедевры.</p>
+                        <ul class="program-includes">
+                            <li>Продолжительность: 30-40 минут</li>
+                            <li>Гигантские пузыри до 2 метров</li>
+                            <li>Интерактив с детьми</li>
+                            <li>Профессиональное оборудование</li>
+                        </ul>
+                        <div class="program-price">5000 ₽</div>
+                        <button class="btn btn-outline">Заказать шоу</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 2 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">✨</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Дискотека в серебре</h3>
+                        <p class="program-description">Яркая танцевальная программа с профессиональным светом, музыкой и серебряным декором. Создадим настоящую клубную атмосферу!</p>
+                        <ul class="program-includes">
+                            <li>Продолжительность: 1-2 часа</li>
+                            <li>Профессиональная аппаратура</li>
+                            <li>Светомузыка и дым-машина</li>
+                            <li>Ведущий-диджей</li>
+                        </ul>
+                        <div class="program-price">8000 ₽</div>
+                        <button class="btn btn-outline">Заказать шоу</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 3 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎨</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Творческая мастерская</h3>
+                        <p class="program-description">Увлекательные мастер-классы: аквагрим, лепка из глины, создание украшений. Каждый ребенок унесет свой шедевр домой!</p>
+                        <ul class="program-includes">
+                            <li>Продолжительность: 1 час</li>
+                            <li>Все материалы включены</li>
+                            <li>2-3 вида творчества</li>
+                            <li>Подарки всем участникам</li>
+                        </ul>
+                        <div class="program-price">4500 ₽</div>
+                        <button class="btn btn-outline">Заказать шоу</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 4 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎪</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Цирковое шоу</h3>
+                        <p class="program-description">Настоящее цирковое представление с жонглерами, акробатами и фокусниками. Незабываемое зрелище для всех гостей!</p>
+                        <ul class="program-includes">
+                            <li>Продолжительность: 45 минут</li>
+                            <li>3-4 артиста</li>
+                            <li>Жонглирование и акробатика</li>
+                            <li>Интерактивные номера</li>
+                        </ul>
+                        <div class="program-price">12000 ₽</div>
+                        <button class="btn btn-outline">Заказать шоу</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Закажите праздник</h2>
+                    <p class="contact-description">Свяжитесь с нами любым удобным способом, и мы организуем незабываемый праздник для вашего ребенка!</p>
+
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Телефон</h4>
+                                <p>+7 (999) 123-45-67</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@magic-party.ru</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-text">
+                                <h4>Режим работы</h4>
+                                <p>Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Телефон" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Расскажите о вашем празднике" class="form-input form-textarea" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">✨ Волшебный Праздник</span>
+                    <p>Создаем радость с 2020 года</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link">VK</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Волшебный Праздник. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
