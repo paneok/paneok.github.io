@@ -159,6 +159,7 @@ class CharacterEditor {
                     <div class="editor-cell cell-price">Цена, ₽/ч</div>
                     <div class="editor-cell cell-age">Возраст (фильтр)</div>
                     <div class="editor-cell cell-gender">Пол</div>
+                    <div class="editor-cell cell-activities">Активности (фильтр)</div>
                     <div class="editor-cell cell-category">Категория</div>
                     <div class="editor-cell cell-flags">Метки</div>
                     <div class="editor-cell cell-actions">Действия</div>
@@ -174,6 +175,14 @@ class CharacterEditor {
             { value: '12+', label: '12+' }
         ];
 
+        const activitiesOptions = [
+            { value: 'active', label: 'Активные игры' },
+            { value: 'creative', label: 'Творчество' },
+            { value: 'magic', label: 'Фокусы' },
+            { value: 'dance', label: 'Танцы' },
+            { value: 'quest', label: 'Квесты' }
+        ];
+
         const bodyHtml = this.characters.map((char, index) => {
             const ageSummary = this.formatAgeSummary(char.features?.age || '');
             const checkedAges = this.getAgeFilterValuesForCharacter(char.features?.age || '');
@@ -181,6 +190,16 @@ class CharacterEditor {
             const ageCheckboxesHtml = ageOptions.map(opt => `
                 <label class="editor-filter-checkbox">
                     <input type="checkbox" value="${opt.value}" ${checkedAges.includes(opt.value) ? 'checked' : ''}>
+                    <span>${opt.label}</span>
+                </label>
+            `).join('');
+
+            const currentActivities = Array.isArray(char.features?.activities) ? char.features.activities : [];
+            const activitiesSummary = this.formatActivitiesSummary(currentActivities, activitiesOptions);
+
+            const activitiesCheckboxesHtml = activitiesOptions.map(opt => `
+                <label class="editor-filter-checkbox">
+                    <input type="checkbox" value="${opt.value}" ${currentActivities.includes(opt.value) ? 'checked' : ''}>
                     <span>${opt.label}</span>
                 </label>
             `).join('');
@@ -215,6 +234,15 @@ class CharacterEditor {
                             <option value="boys" ${char.features?.gender === 'boys' ? 'selected' : ''}>Для мальчиков</option>
                             <option value="girls" ${char.features?.gender === 'girls' ? 'selected' : ''}>Для девочек</option>
                         </select>
+                    </div>
+                    <div class="editor-cell cell-activities">
+                        <div class="editor-filter-spoiler" data-type="activities">
+                            <button type="button" class="editor-filter-toggle">Активности</button>
+                            <div class="editor-filter-summary">${activitiesSummary || 'не заданы'}</div>
+                            <div class="editor-filter-body">
+                                ${activitiesCheckboxesHtml}
+                            </div>
+                        </div>
                     </div>
                     <div class="editor-cell cell-category">
                         <input type="text" class="cell-input cell-input-text" data-field="category" value="${char.category || ''}">
@@ -282,6 +310,14 @@ class CharacterEditor {
     formatAgeSummary(ageStr) {
         if (!ageStr) return '';
         return ageStr;
+    }
+
+    formatActivitiesSummary(activities, options) {
+        if (!Array.isArray(activities) || activities.length === 0) return '';
+        const labelsByValue = new Map(options.map(o => [o.value, o.label]));
+        return activities
+            .map(a => labelsByValue.get(a) || a)
+            .join(', ');
     }
 
     getAgeFilterValuesForCharacter(ageStr) {
@@ -355,7 +391,7 @@ class CharacterEditor {
                 spoiler.classList.toggle('open');
             });
 
-            // Обновление текста при изменении чекбоксов возраста
+            // Обновление текста при изменении чекбоксов возраста/активностей
             if (spoiler.dataset.type === 'age') {
                 body.querySelectorAll('input[type="checkbox"]').forEach(cb => {
                     cb.addEventListener('change', () => {
@@ -363,6 +399,20 @@ class CharacterEditor {
                         const summary = this.buildAgeFromSelectedFilters(checked);
                         const summaryEl = spoiler.querySelector('.editor-filter-summary');
                         summaryEl.textContent = summary || 'не задан';
+                    });
+                });
+            } else if (spoiler.dataset.type === 'activities') {
+                body.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.addEventListener('change', () => {
+                        const checked = Array.from(body.querySelectorAll('input[type="checkbox"]:checked')).map(i => i.value);
+                        const summaryEl = spoiler.querySelector('.editor-filter-summary');
+                        // Лейблы подтягиваем из текста рядом с чекбоксом
+                        const labels = Array.from(body.querySelectorAll('input[type="checkbox"]:checked')).map(i => {
+                            const labelEl = i.closest('label');
+                            return labelEl ? labelEl.querySelector('span')?.textContent || i.value : i.value;
+                        });
+                        const summary = labels.join(', ');
+                        summaryEl.textContent = summary || 'не заданы';
                     });
                 });
             }
@@ -409,6 +459,14 @@ class CharacterEditor {
             const ageStr = this.buildAgeFromSelectedFilters(checked);
             if (!character.features) character.features = {};
             character.features.age = ageStr;
+        }
+
+        // Активности по выбранным чекбоксам
+        const activitiesSpoiler = row.querySelector('.editor-filter-spoiler[data-type="activities"]');
+        if (activitiesSpoiler) {
+            const checkedActs = Array.from(activitiesSpoiler.querySelectorAll('input[type="checkbox"]:checked')).map(i => i.value);
+            if (!character.features) character.features = {};
+            character.features.activities = checkedActs;
         }
 
         this.showNotification('Изменения по строке сохранены. Не забудьте нажать "Сохранить" сверху для выгрузки JSON.');
