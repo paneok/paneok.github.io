@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- noUiSlider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,7 +22,7 @@
             <div class="container">
                 <div class="nav-content">
                     <div class="logo">
-                        <span class="logo-text">✨ Волшебный Праздник</span>
+                        <span class="logo-text">🎉 Holiday</span>
                     </div>
                     <ul class="nav-menu">
                         <li><a href="#home" class="nav-link">Главная</a></li>
@@ -32,6 +38,141 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Particles Container -->
+        <div id="particles-container" class="particles-container"></div>
+
+        <!-- Parallax Elements -->
+        <div class="parallax-container">
+            <!-- Balloons - NEAR (большие, быстрые) -->
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-1" data-speed="3.8" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-2" data-speed="4.2" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-3" data-speed="3.5" alt="">
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-4" data-speed="4.0" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-5" data-speed="3.9" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-6" data-speed="4.1" alt="">
+
+            <!-- Balloons - MID (средние) -->
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-7" data-speed="2.5" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-8" data-speed="2.3" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-9" data-speed="2.7" alt="">
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-10" data-speed="2.4" alt="">
+
+            <!-- Balloons - FAR (маленькие, медленные) -->
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-11" data-speed="1.2" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-12" data-speed="1.1" alt="">
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-13" data-speed="1.3" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-14" data-speed="1.0" alt="">
+
+            <!-- Cakes - NEAR (большие) -->
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-1" data-speed="4.3" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-2" data-speed="3.7" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-3" data-speed="4.0" alt="">
+
+            <!-- Cakes - MID -->
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-4" data-speed="2.6" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-5" data-speed="2.4" alt="">
+
+            <!-- Cakes - FAR (маленькие) -->
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-6" data-speed="1.3" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-7" data-speed="1.1" alt="">
+
+            <!-- Gifts - NEAR (большие) -->
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-1" data-speed="4.1" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-2" data-speed="3.8" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-3" data-speed="4.2" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-4" data-speed="3.9" alt="">
+
+            <!-- Gifts - MID -->
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-5" data-speed="2.5" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-6" data-speed="2.7" alt="">
+
+            <!-- Gifts - FAR (маленькие) -->
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-7" data-speed="1.2" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-8" data-speed="1.4" alt="">
+
+            <!-- Stars - NEAR (большие, яркие) -->
+            <img src="images/parallax/star.svg" class="parallax-item star star-1" data-speed="4.5" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-2" data-speed="4.3" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-3" data-speed="4.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-4" data-speed="4.4" alt="">
+
+            <!-- Stars - MID -->
+            <img src="images/parallax/star.svg" class="parallax-item star star-5" data-speed="2.8" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-6" data-speed="2.5" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-7" data-speed="2.6" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-8" data-speed="2.9" alt="">
+
+            <!-- Stars - FAR (маленькие, далекие) -->
+            <img src="images/parallax/star.svg" class="parallax-item star star-9" data-speed="1.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-10" data-speed="1.2" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-11" data-speed="0.9" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-12" data-speed="1.1" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-13" data-speed="1.3" alt="">
+
+            <!-- Hearts - NEAR (большие) -->
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-1" data-speed="4.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-2" data-speed="3.8" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-3" data-speed="4.2" alt="">
+
+            <!-- Hearts - MID -->
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-4" data-speed="2.6" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-5" data-speed="2.4" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-6" data-speed="2.8" alt="">
+
+            <!-- Hearts - FAR (маленькие) -->
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-7" data-speed="1.1" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-8" data-speed="1.3" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-9" data-speed="1.0" alt="">
+
+            <!-- Confetti Strips - NEAR (большие) -->
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-1" data-speed="4.1" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-2" data-speed="3.9" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-3" data-speed="4.3" alt="">
+
+            <!-- Confetti - MID -->
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-4" data-speed="2.5" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-5" data-speed="2.7" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-6" data-speed="2.3" alt="">
+
+            <!-- Confetti - FAR (маленькие) -->
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-7" data-speed="1.2" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-8" data-speed="1.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-9" data-speed="1.4" alt="">
+
+            <!-- Candies - NEAR (большие) -->
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-1" data-speed="4.0" alt="">
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-2" data-speed="3.8" alt="">
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-3" data-speed="4.2" alt="">
+
+            <!-- Candies - MID -->
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-4" data-speed="2.6" alt="">
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-5" data-speed="2.4" alt="">
+
+            <!-- Candies - FAR (маленькие) -->
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-6" data-speed="1.1" alt="">
+            <img src="images/parallax/candy.svg" class="parallax-item candy candy-7" data-speed="1.3" alt="">
+
+            <!-- Music Notes - NEAR (большие) -->
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-1" data-speed="4.1" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-2" data-speed="3.9" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-3" data-speed="4.3" alt="">
+
+            <!-- Music Notes - MID -->
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-4" data-speed="2.7" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-5" data-speed="2.5" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-6" data-speed="2.8" alt="">
+
+            <!-- Music Notes - FAR (маленькие) -->
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-7" data-speed="1.2" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-8" data-speed="1.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-9" data-speed="1.4" alt="">
+
+            <!-- Logo placeholder - will be added by user later -->
+            <div class="parallax-item logo-placeholder" data-speed="2.2">
+                <span class="logo-emoji">✨</span>
+            </div>
+        </div>
+
         <div class="hero-background">
             <div class="floating-shapes">
                 <div class="shape shape-1"></div>
@@ -41,14 +182,44 @@
                 <div class="shape shape-5"></div>
             </div>
         </div>
+
         <div class="container">
             <div class="hero-content">
+                <h2 class="hero-greeting">Здравствуй, искатель ярких событий!</h2>
                 <h1 class="hero-title">
-                    <span class="hero-title-main">Незабываемые праздники</span>
-                    <span class="hero-title-sub">для ваших детей</span>
+                    <span class="hero-title-main">Мастерская праздников</span>
+                    <span class="hero-title-sub">"Holiday"</span>
                 </h1>
-                <p class="hero-description">Профессиональные аниматоры, яркие шоу-программы и море веселья!</p>
-                <a href="#characters" class="btn btn-primary">Выбрать персонажа</a>
+                <p class="hero-description">Мы — команда детских аниматоров, которые любят своё дело и точно знают, что понравится вашему ребёнку!</p>
+                <p class="hero-tagline">Готовы отправиться в сказочное путешествие?</p>
+                <div class="hero-buttons">
+                    <a href="#programs" class="btn btn-primary">Каталог программ</a>
+                    <a href="#contact" class="btn btn-secondary">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4000</div>
+                    <div class="stat-label">проведенных праздников</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">138</div>
+                    <div class="stat-label">любимых персонажей</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8 лет</div>
+                    <div class="stat-label">профессиональной деятельности</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">штатных аниматоров</div>
+                </div>
             </div>
         </div>
     </section>
@@ -57,136 +228,128 @@
     <section id="characters" class="characters-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Наши персонажи</h2>
-                <p class="section-subtitle">Выберите любимого героя для вашего ребенка</p>
+                <h2 class="section-title">Популярные персонажи</h2>
+                <p class="section-subtitle">Мы точно знаем, что понравится вашему ребенку</p>
             </div>
 
-            <div class="characters-grid">
-                <!-- Character Card 1 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-1">
-                            <span class="character-emoji">🦸‍♂️</span>
-                        </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Супергерой</h3>
-                        <p class="character-description">Спасет праздник и подарит море приключений! Активные игры, конкурсы и супер-миссии.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">5-10 лет</span>
-                            <span class="feature-tag">Активные игры</span>
-                        </div>
-                        <div class="character-price">от 3500 ₽/час</div>
-                    </div>
+            <!-- Filters Panel -->
+            <div class="filters-panel">
+                <div class="filters-header">
+                    <h3 class="filters-title">Фильтры</h3>
+                    <button class="btn-reset-filters">Сбросить все</button>
                 </div>
 
-                <!-- Character Card 2 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-2">
-                            <span class="character-emoji">👸</span>
-                        </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
-                        </div>
+                <div class="filters-content">
+                    <!-- Search -->
+                    <div class="filter-group">
+                        <label class="filter-label">Поиск</label>
+                        <input type="text" id="search-input" class="filter-search" placeholder="Название персонажа...">
                     </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Принцесса</h3>
-                        <p class="character-description">Волшебная принцесса из сказки создаст атмосферу настоящего бала и исполнит желания.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">3-8 лет</span>
-                            <span class="feature-tag">Танцы</span>
-                        </div>
-                        <div class="character-price">от 4000 ₽/час</div>
-                    </div>
-                </div>
 
-                <!-- Character Card 3 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-3">
-                            <span class="character-emoji">🤡</span>
-                        </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
+                    <!-- Age Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label">Возраст ребенка</label>
+                        <div class="filter-checkboxes">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="0-3">
+                                <span>0-3 года</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="3-5">
+                                <span>3-5 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="5-8">
+                                <span>5-8 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="8-12">
+                                <span>8-12 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="12+">
+                                <span>12+ лет</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Клоун</h3>
-                        <p class="character-description">Веселый клоун развеселит всех гостей фокусами, жонглированием и смешными конкурсами.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">4-12 лет</span>
-                            <span class="feature-tag">Фокусы</span>
-                        </div>
-                        <div class="character-price">от 3000 ₽/час</div>
-                    </div>
-                </div>
 
-                <!-- Character Card 4 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-4">
-                            <span class="character-emoji">🧚‍♀️</span>
-                        </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
+                    <!-- Gender Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label">Для кого</label>
+                        <div class="filter-checkboxes">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="boys">
+                                <span>Для мальчиков</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="girls">
+                                <span>Для девочек</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="unisex">
+                                <span>Универсальные</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Фея</h3>
-                        <p class="character-description">Волшебная фея с крыльями создаст сказочную атмосферу и проведет творческие мастер-классы.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">3-7 лет</span>
-                            <span class="feature-tag">Творчество</span>
-                        </div>
-                        <div class="character-price">от 3500 ₽/час</div>
-                    </div>
-                </div>
 
-                <!-- Character Card 5 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-5">
-                            <span class="character-emoji">🦁</span>
-                        </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
+                    <!-- Activities Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label">Тип программы</label>
+                        <div class="filter-checkboxes">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="active">
+                                <span>Активные игры</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="creative">
+                                <span>Творчество</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="magic">
+                                <span>Фокусы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="dance">
+                                <span>Танцы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="quest">
+                                <span>Квесты</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Король лев</h3>
-                        <p class="character-description">Отважный король джунглей устроит настоящее сафари-приключение с играми и квестами.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">5-10 лет</span>
-                            <span class="feature-tag">Квесты</span>
-                        </div>
-                        <div class="character-price">от 4000 ₽/час</div>
-                    </div>
-                </div>
 
-                <!-- Character Card 6 -->
-                <div class="character-card">
-                    <div class="character-image">
-                        <div class="character-avatar character-avatar-6">
-                            <span class="character-emoji">🧙‍♂️</span>
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label">Цена (₽/час)</label>
+                        <div id="price-slider" class="price-slider"></div>
+                        <div class="price-values">
+                            <span id="price-min">0</span> - <span id="price-max">10000</span> ₽
                         </div>
-                        <div class="character-overlay">
-                            <button class="btn btn-secondary">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Волшебник</h3>
-                        <p class="character-description">Мудрый волшебник покажет невероятные фокусы и научит детей магическим трюкам.</p>
-                        <div class="character-features">
-                            <span class="feature-tag">6-12 лет</span>
-                            <span class="feature-tag">Фокусы</span>
-                        </div>
-                        <div class="character-price">от 4500 ₽/час</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Sort and Results Counter -->
+            <div class="characters-toolbar">
+                <div class="results-counter">
+                    Найдено персонажей: <span id="results-count">0</span>
+                </div>
+                <div class="sort-controls">
+                    <label>Сортировка:</label>
+                    <select id="sort-select" class="sort-select">
+                        <option value="popular">По популярности</option>
+                        <option value="price-asc">По цене (возр.)</option>
+                        <option value="price-desc">По цене (убыв.)</option>
+                        <option value="name">По названию</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Characters Grid (Dynamic) -->
+            <div class="characters-grid" id="characters-grid">
+                <!-- Cards will be generated dynamically from characters-data.json -->
+                <div class="loading-message">Загрузка персонажей...</div>
             </div>
         </div>
     </section>
@@ -195,8 +358,8 @@
     <section id="programs" class="programs-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Шоу-программы</h2>
-                <p class="section-subtitle">Дополните праздник яркими развлечениями</p>
+                <h2 class="section-title">Меню ярких впечатлений</h2>
+                <p class="section-subtitle">От велком зоны до финальной дискотеки</p>
             </div>
 
             <div class="programs-grid">
@@ -204,20 +367,13 @@
                 <div class="program-card">
                     <div class="program-icon">
                         <div class="icon-circle">
-                            <span class="program-emoji">🫧</span>
+                            <span class="program-emoji">🎮</span>
                         </div>
                     </div>
                     <div class="program-content">
-                        <h3 class="program-name">Шоу мыльных пузырей</h3>
-                        <p class="program-description">Завораживающее представление с гигантскими мыльными пузырями! Дети побывают внутри пузыря и научатся создавать собственные шедевры.</p>
-                        <ul class="program-includes">
-                            <li>Продолжительность: 30-40 минут</li>
-                            <li>Гигантские пузыри до 2 метров</li>
-                            <li>Интерактив с детьми</li>
-                            <li>Профессиональное оборудование</li>
-                        </ul>
-                        <div class="program-price">5000 ₽</div>
-                        <button class="btn btn-outline">Заказать шоу</button>
+                        <h3 class="program-name">Игровые программы</h3>
+                        <p class="program-description">С тематическими играми, музыкальным сопровождением и др</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
                     </div>
                 </div>
 
@@ -225,20 +381,13 @@
                 <div class="program-card">
                     <div class="program-icon">
                         <div class="icon-circle">
-                            <span class="program-emoji">✨</span>
+                            <span class="program-emoji">🎪</span>
                         </div>
                     </div>
                     <div class="program-content">
-                        <h3 class="program-name">Дискотека в серебре</h3>
-                        <p class="program-description">Яркая танцевальная программа с профессиональным светом, музыкой и серебряным декором. Создадим настоящую клубную атмосферу!</p>
-                        <ul class="program-includes">
-                            <li>Продолжительность: 1-2 часа</li>
-                            <li>Профессиональная аппаратура</li>
-                            <li>Светомузыка и дым-машина</li>
-                            <li>Ведущий-диджей</li>
-                        </ul>
-                        <div class="program-price">8000 ₽</div>
-                        <button class="btn btn-outline">Заказать шоу</button>
+                        <h3 class="program-name">Велком зона</h3>
+                        <p class="program-description">Бьюти бар, сахарная вата, тир, кольцеброс, аквагрим и др.</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
                     </div>
                 </div>
 
@@ -246,20 +395,13 @@
                 <div class="program-card">
                     <div class="program-icon">
                         <div class="icon-circle">
-                            <span class="program-emoji">🎨</span>
+                            <span class="program-emoji">🫧</span>
                         </div>
                     </div>
                     <div class="program-content">
-                        <h3 class="program-name">Творческая мастерская</h3>
-                        <p class="program-description">Увлекательные мастер-классы: аквагрим, лепка из глины, создание украшений. Каждый ребенок унесет свой шедевр домой!</p>
-                        <ul class="program-includes">
-                            <li>Продолжительность: 1 час</li>
-                            <li>Все материалы включены</li>
-                            <li>2-3 вида творчества</li>
-                            <li>Подарки всем участникам</li>
-                        </ul>
-                        <div class="program-price">4500 ₽</div>
-                        <button class="btn btn-outline">Заказать шоу</button>
+                        <h3 class="program-name">Шоу программы</h3>
+                        <p class="program-description">Шоу мыльных пузырей, научное шоу, фокусник, тесла шоу и др.</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
                     </div>
                 </div>
 
@@ -267,21 +409,186 @@
                 <div class="program-card">
                     <div class="program-icon">
                         <div class="icon-circle">
-                            <span class="program-emoji">🎪</span>
+                            <span class="program-emoji">🎨</span>
                         </div>
                     </div>
                     <div class="program-content">
-                        <h3 class="program-name">Цирковое шоу</h3>
-                        <p class="program-description">Настоящее цирковое представление с жонглерами, акробатами и фокусниками. Незабываемое зрелище для всех гостей!</p>
-                        <ul class="program-includes">
-                            <li>Продолжительность: 45 минут</li>
-                            <li>3-4 артиста</li>
-                            <li>Жонглирование и акробатика</li>
-                            <li>Интерактивные номера</li>
-                        </ul>
-                        <div class="program-price">12000 ₽</div>
-                        <button class="btn btn-outline">Заказать шоу</button>
+                        <h3 class="program-name">Мастер-классы</h3>
+                        <p class="program-description">На все возраста, от оригами до кулинарных творений</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
                     </div>
+                </div>
+
+                <!-- Program Card 5 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">✨</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Дискотеки</h3>
+                        <p class="program-description">Бумажная, цветная, серебряная, неоновая и даже золотая!</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 6 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎈</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Воздушные шары</h3>
+                        <p class="program-description">Гелиевые шары, оформление фотозон, шары-сюрпризы и др.</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 7 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎭</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Спектакли</h3>
+                        <p class="program-description">Детские интерактивные спектакли для детей от 2 до 8 лет</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 8 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎓</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Выпускные</h3>
+                        <p class="program-description">Проводим выпускные от детского сада, до начальной школы</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 9 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🚌</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Праздник в патибасе</h3>
+                        <p class="program-description">Интерактивные и экранные программы для детей и взрослых</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 10 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">📸</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Фото и видеосъемка</h3>
+                        <p class="program-description">Отличный способ отдохнуть на празднике, а не бегать с телефоном за детьми</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 11 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">👥</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Массовые мероприятия</h3>
+                        <p class="program-description">От 100 человек, в т.ч. работа в ТЦ, уличные гуляния, открытие кафе и тп</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Program Card 12 -->
+                <div class="program-card">
+                    <div class="program-icon">
+                        <div class="icon-circle">
+                            <span class="program-emoji">🎁</span>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-name">Дополнения к программам</h3>
+                        <p class="program-description">Хочется дополнить праздник? Как насчет пиньяты, салюта пузырей, фокусов и др?</p>
+                        <button class="btn btn-outline">Узнать подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши преимущества</h2>
+                <p class="section-subtitle">Агентств много, но мы такие одни! И вот почему:</p>
+            </div>
+
+            <div class="advantages-grid">
+                <!-- Advantage 1 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">👗</div>
+                    <h3 class="advantage-title">Своя костюмерная с образами</h3>
+                    <p class="advantage-description">Наша костюмерная постоянно пополняется новыми образами, чтобы соответствовать последним трендам и пожеланиям наших клиентов</p>
+                    <a href="#" class="advantage-link">Открыть каталог →</a>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">📚</div>
+                    <h3 class="advantage-title">Постоянное обучение сотрудников</h3>
+                    <p class="advantage-description">Мы стремимся к совершенству, поэтому постоянно проводим различные обучающие тренинги и мастер-классы для всех членов нашей дружной команды</p>
+                    <a href="#" class="advantage-link">Посмотреть сертификаты →</a>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">⭐</div>
+                    <h3 class="advantage-title">Собственный штат профессиональных аниматоров</h3>
+                    <p class="advantage-description">Мы не привлекаем сторонних исполнителей, поэтому контролируем качество каждого выступления</p>
+                    <a href="#" class="advantage-link">Познакомиться поближе →</a>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">⏰</div>
+                    <h3 class="advantage-title">Пунктуальность и следование договоренностям</h3>
+                    <p class="advantage-description">Мы ценим ваше время и спокойствие, поэтому приезжаем на локацию за 20 мин до начала каждого мероприятия</p>
+                    <a href="#" class="advantage-link">Узнать больше →</a>
+                </div>
+
+                <!-- Advantage 5 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎯</div>
+                    <h3 class="advantage-title">Тематический реквизит</h3>
+                    <p class="advantage-description">Правильно подобранный игровой реквизит помогает поддержать идею праздника и индивидуализировать программу под любимого персонажа</p>
+                    <a href="#" class="advantage-link">Узнать подробнее →</a>
+                </div>
+
+                <!-- Advantage 6 -->
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏢</div>
+                    <h3 class="advantage-title">Сотрудничаем с юр. лицами</h3>
+                    <p class="advantage-description">Проводим массовые мероприятия для садов, школ, управляющих компаний, торговых комплексов и организаций по безналичной оплате</p>
+                    <a href="#" class="advantage-link">Узнать условия →</a>
                 </div>
             </div>
         </div>
@@ -348,8 +655,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-text">✨ Волшебный Праздник</span>
-                    <p>Создаем радость с 2020 года</p>
+                    <span class="logo-text">🎉 Holiday</span>
+                    <p>Мастерская праздников с 2017 года</p>
                 </div>
                 <div class="footer-social">
                     <a href="#" class="social-link">VK</a>
@@ -358,11 +665,25 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Волшебный Праздник. Все права защищены.</p>
+                <p>&copy; 2024 Мастерская праздников "Holiday". Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- noUiSlider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/particles-config.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/characters-filter.js"></script>
+    <script src="js/characters-renderer.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

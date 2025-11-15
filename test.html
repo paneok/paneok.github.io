@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест загрузки данных</title>
+</head>
+<body>
+    <h1>Тест загрузки данных персонажей</h1>
+    <div id="results"></div>
+
+    <script>
+        async function testLoad() {
+            try {
+                console.log('Начинаем загрузку...');
+                const response = await fetch('data/characters-data.json');
+                console.log('Ответ получен, статус:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Данные загружены:', data);
+                
+                document.getElementById('results').innerHTML = `
+                    <p>✅ Успешно загружено персонажей: ${data.characters.length}</p>
+                    <ul>
+                        ${data.characters.map(char => `<li>${char.name} - ${char.emoji}</li>`).join('')}
+                    </ul>
+                `;
+            } catch (error) {
+                console.error('Ошибка загрузки:', error);
+                document.getElementById('results').innerHTML = `
+                    <p>❌ Ошибка: ${error.message}</p>
+                `;
+            }
+        }
+        
+        testLoad();
+    </script>
+</body>
+</html>

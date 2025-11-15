@@ -1,0 +1,14 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Сердечко -->
+  <path d="M40 70 C 40 70, 15 50, 15 35 C 15 25, 20 20, 27.5 20 C 32.5 20, 37.5 22.5, 40 27.5 C 42.5 22.5, 47.5 20, 52.5 20 C 60 20, 65 25, 65 35 C 65 50, 40 70, 40 70 Z"
+        fill="url(#heartGrad)"
+        stroke="#fff"
+        stroke-width="2"/>
+
+  <defs>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

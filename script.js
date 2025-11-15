@@ -322,3 +322,32 @@ document.querySelectorAll('.btn-secondary, .btn-outline').forEach(button => {
         }
     });
 });
+
+// ==================== CHARACTERS CATALOG INTEGRATION ====================
+// Initialize characters system when DOM is ready
+async function initializeCharactersCatalog() {
+    try {
+        // Load characters data
+        await charactersRenderer.loadCharacters();
+
+        // Initialize filter system
+        charactersFilter = new CharactersFilter(charactersRenderer);
+
+        // Initial render with all characters
+        charactersRenderer.renderCharacters();
+
+        console.log('Characters catalog initialized successfully!');
+    } catch (error) {
+        console.error('Error initializing characters catalog:', error);
+        charactersRenderer.showError();
+    }
+}
+
+// Initialize catalog if we're on a page with the characters grid
+if (document.getElementById('characters-grid')) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCharactersCatalog);
+    } else {
+        initializeCharactersCatalog();
+    }
+}

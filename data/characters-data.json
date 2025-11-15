@@ -1,0 +1,521 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Супергерой",
+      "slug": "superhero",
+      "category": "superheroes",
+      "emoji": "🦸‍♂️",
+      "images": {
+        "main": "anim/_atJxRVQTC6EqKfm9PERu52zmRDkYfH06PdAststEFJvKlVUaLAaPsT_vOIjNiAMUTzfW0dou8Sq-aH2q2MnGcNG.jpg",
+        "gallery": [
+          "anim/_atJxRVQTC6EqKfm9PERu52zmRDkYfH06PdAststEFJvKlVUaLAaPsT_vOIjNiAMUTzfW0dou8Sq-aH2q2MnGcNG.jpg",
+          "anim/_kpgn4vDXXo_h922JrH8wvwkxe-jD3GFSFvAxad5w7CNzL19a7dgKd0H22-aoN8M-89BTBzUC111By1JwwMH4pP7.jpg",
+          "anim/-sa5-FyEzv0nGLTfzm76ileCOBVEQ36w8E1sXj2DMN-QyWaM7Bt00sS2-8nWNnjqXdMvLR--qjE3Jr4IZOOHhFWZ.jpg"
+        ]
+      },
+      "description": {
+        "short": "Спасет праздник и подарит незабываемые приключения! Активные игры, квесты и супергеройские миссии.",
+        "full": "Настоящий супергерой придет на ваш праздник! Интерактивные игры, захватывающие квесты и супергеройская подготовка для всех гостей."
+      },
+      "features": {
+        "age": "5-10",
+        "gender": "boys",
+        "activities": ["active", "quest"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {"duration": 2, "price": 6500},
+          {"duration": 3, "price": 9000}
+        ]
+      },
+      "tags": ["мальчики", "активные", "герои", "популярное"],
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 2,
+      "name": "Принцесса",
+      "slug": "princess",
+      "category": "fairy-tale",
+      "emoji": "👸",
+      "images": {
+        "main": "anim/2pNkjRF7AHtthX3BYuuldTGNA8QBbKFTtZlqUoo2k-X6pOMyqvp-ihQDJaI_k-ziepVrDUXAJPvCAZvKUFzSZvC7.jpg",
+        "gallery": [
+          "anim/2pNkjRF7AHtthX3BYuuldTGNA8QBbKFTtZlqUoo2k-X6pOMyqvp-ihQDJaI_k-ziepVrDUXAJPvCAZvKUFzSZvC7.jpg",
+          "anim/4PWUghWACFzLuBBwuVEHsttnaKIyJDD4iWoFVQRH1BgKIEFsXaeL7FmPdpOxU4uqBEhWR8UJcWRgd1gUnVBh8OdA.jpg",
+          "anim/4Z_Lw-CbydTGBu2PIcOi87UFAUzaAf9PDz8GBe0cue1DzfJFkZPf0iuhK_Ym-mnQNdA7fuOi9xEqJFCt614KZi8P.jpg",
+          "anim/5MCAHzYDGgdyyhKiw5Ic1sPKpJcw9GTcVG6oXJ7rOPJLTk-htsQqQE6Hv6Eys2diiZ4CSE_f8x0Z7PFXHQ--WrL-.jpg"
+        ]
+      },
+      "description": {
+        "short": "Сказочная принцесса для маленьких леди! Бальные танцы, этикет и волшебство.",
+        "full": "Очаровательная принцесса научит этикету, проведет бальные танцы и устроит настоящий королевский праздник!"
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": ["dance", "creative"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 4000,
+        "packages": [
+          {"duration": 2, "price": 7500},
+          {"duration": 3, "price": 10500}
+        ]
+      },
+      "tags": ["девочки", "сказка", "танцы", "популярное"],
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 3,
+      "name": "Клоун",
+      "slug": "clown",
+      "category": "entertainment",
+      "emoji": "🤡",
+      "images": {
+        "main": "anim/8vp6nvDO3rVIoSvXcgC2WuWDSgzR50Ppdiuhmy2Sjb49y8eHwXPSgXqr8mDQpm24z0ajOF6Ea_4QM5lfIHPeR0Ez.jpg",
+        "gallery": [
+          "anim/8vp6nvDO3rVIoSvXcgC2WuWDSgzR50Ppdiuhmy2Sjb49y8eHwXPSgXqr8mDQpm24z0ajOF6Ea_4QM5lfIHPeR0Ez.jpg",
+          "anim/66Ni6pr3fjxLs092Soig2GA5USsjnRyYW7N7U6eZwvVRXBQQ_uh_6IunHIq4y1BbpVSD-V9pGyZVJ1UqdTsi0UP0.jpg"
+        ]
+      },
+      "description": {
+        "short": "Веселый клоун с фокусами и розыгрышами! Море смеха гарантировано.",
+        "full": "Профессиональный клоун развеселит любую компанию! Фокусы, игры, розыгрыши и создание фигурок из шаров."
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": ["magic", "active"],
+        "duration": [1, 2]
+      },
+      "pricing": {
+        "hourly": 3000,
+        "packages": [
+          {"duration": 2, "price": 5500}
+        ]
+      },
+      "tags": ["универсальное", "фокусы", "смех"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 4,
+      "name": "Фея",
+      "slug": "fairy",
+      "category": "fairy-tale",
+      "emoji": "🧚‍♀️",
+      "images": {
+        "main": "anim/ANLa0nnqeiuet0Nn2FIIBNH8lwus1vA33mfZ0ChpSxJI-RDqkWWY46Oc1Dzl3cZXBcM4PqdYZuBXooF_wMVkxVHz.jpg",
+        "gallery": [
+          "anim/ANLa0nnqeiuet0Nn2FIIBNH8lwus1vA33mfZ0ChpSxJI-RDqkWWY46Oc1Dzl3cZXBcM4PqdYZuBXooF_wMVkxVHz.jpg",
+          "anim/B56-6XpbwC74J5VVMI-WY_WXcVwd2-bSXOxP6-C5PXJOCTlq6GVxtgPyk7sELlekfeUAfBCthh-gJ2tmKOrZBLSz.jpg",
+          "anim/bbr9Dz4FbEvqlUnf7y40z-K4kDpsc7jfGX6IbUthYnRk4Yry0Ct9LJVCKlMfKhxOOxW9LyyRHYBg0SFHMBhnoh8m.jpg"
+        ]
+      },
+      "description": {
+        "short": "Волшебная фея исполнит желания! Творческие мастер-классы и сказочные игры.",
+        "full": "Добрая фея проведет волшебные мастер-классы, научит создавать украшения и расскажет сказочные истории."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": ["creative", "magic"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {"duration": 2, "price": 6500},
+          {"duration": 3, "price": 9000}
+        ]
+      },
+      "tags": ["девочки", "творчество", "волшебство"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 5,
+      "name": "Король Лев",
+      "slug": "lion-king",
+      "category": "animals",
+      "emoji": "🦁",
+      "images": {
+        "main": "anim/BRTpElho9UHaHh6y6sSJi-YyAgOo1bFd96avJmQk_dAGsG2Saj5T0mBg31g7aCrKRQLF0O2izr_0WASHxGrZrhXO.jpg",
+        "gallery": [
+          "anim/BRTpElho9UHaHh6y6sSJi-YyAgOo1bFd96avJmQk_dAGsG2Saj5T0mBg31g7aCrKRQLF0O2izr_0WASHxGrZrhXO.jpg",
+          "anim/C-0Z4-gcOqUIB-WKUUDQHdNi-B3sQhP3VpJGJNJO1O7kzZBxOlrZJ0In9MByQVFrkqfwKj63giVzEHn5e75s5Nwn.jpg",
+          "anim/cnPRGy3D3JE-5yQ0iSFKUXnKd-8j-gFtSdMRo2fphO5-l4WXz28y4RKX3CVfKTGTmqGVXK9SPiXxZKZL1-5Qo-06.jpg"
+        ]
+      },
+      "description": {
+        "short": "Храбрый лев из джунглей! Приключения в саванне и активные игры.",
+        "full": "Отважный лев проведет увлекательное сафари-путешествие с играми, танцами и приключениями в африканском стиле."
+      },
+      "features": {
+        "age": "5-10",
+        "gender": "unisex",
+        "activities": ["active", "dance"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 4000,
+        "packages": [
+          {"duration": 2, "price": 7500},
+          {"duration": 3, "price": 10500}
+        ]
+      },
+      "tags": ["универсальное", "животные", "приключения"],
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 6,
+      "name": "Волшебник",
+      "slug": "wizard",
+      "category": "fairy-tale",
+      "emoji": "🧙‍♂️",
+      "images": {
+        "main": "anim/czVePsXh3gd7yW9Gh4Q0YzKQmt8WirpEF77X_VmtRMj_atTIkf_8vosBl6YPmes-Ygzwl_423A_e0HcxkEWFzOrI.jpg",
+        "gallery": [
+          "anim/czVePsXh3gd7yW9Gh4Q0YzKQmt8WirpEF77X_VmtRMj_atTIkf_8vosBl6YPmes-Ygzwl_423A_e0HcxkEWFzOrI.jpg",
+          "anim/dd6tXvekla6AVu9luIngTZjJqD52Z13UDF0IkmRYEMYid4UCk_1MPiGqlTdacSxypnk8NiGAGRLFsb4z5QKcUa73.jpg"
+        ]
+      },
+      "description": {
+        "short": "Могущественный волшебник с магическими фокусами! Школа магии и чародейства.",
+        "full": "Мудрый волшебник откроет двери в школу магии! Обучение заклинаниям, магические эксперименты и волшебные фокусы."
+      },
+      "features": {
+        "age": "8-12",
+        "gender": "unisex",
+        "activities": ["magic", "quest"],
+        "duration": [2, 3]
+      },
+      "pricing": {
+        "hourly": 4500,
+        "packages": [
+          {"duration": 2, "price": 8500},
+          {"duration": 3, "price": 12000}
+        ]
+      },
+      "tags": ["универсальное", "магия", "квест"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 7,
+      "name": "Человек-паук",
+      "slug": "spiderman",
+      "category": "superheroes",
+      "emoji": "🕷️",
+      "images": {
+        "main": "anim/DGB6OtmnlNXj54AixRSSJBI0vjgM4SBDPS7rwSEtJaUX2gvhIMe9nCESimdNorm3e4p1-EIsOe43_5GgN0UBR-JL.jpg",
+        "gallery": [
+          "anim/DGB6OtmnlNXj54AixRSSJBI0vjgM4SBDPS7rwSEtJaUX2gvhIMe9nCESimdNorm3e4p1-EIsOe43_5GgN0UBR-JL.jpg",
+          "anim/disEfT-7H_ehnCrznZ6T3K8F63uBCycDHr6gCyzWhjmE5i6rXpnyna4UoR3jVLnyjn4G8QDnoggbUUWKib855H4V.jpg",
+          "anim/edzh-XYeE8-Mxy4jCJs15xtYjhwLJgOlpZ0HfHAarwGi6rEHu84S9x2Xs-o7Yc2l0C002Ulw2m5NxJULXBwkAUON.jpg"
+        ]
+      },
+      "description": {
+        "short": "Дружелюбный сосед Человек-паук! Акробатика, паутина и супергеройские задания.",
+        "full": "Легендарный Человек-паук научит ловкости и акробатике, проведет супергеройские тренировки и спасет праздник!"
+      },
+      "features": {
+        "age": "5-12",
+        "gender": "boys",
+        "activities": ["active", "quest"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 4000,
+        "packages": [
+          {"duration": 2, "price": 7500},
+          {"duration": 3, "price": 10500}
+        ]
+      },
+      "tags": ["мальчики", "супергерои", "активные", "новинка"],
+      "isPopular": true,
+      "isNew": true
+    },
+    {
+      "id": 8,
+      "name": "Эльза",
+      "slug": "elsa",
+      "category": "cartoon",
+      "emoji": "❄️",
+      "images": {
+        "main": "anim/fa0b2uf5EeWRYREnzPiWoz4eXkL6jFGIOXQXEvqVibk2OjSFRRpZe-mGuzPkf2BGQnCHHdbE1jDgeTRTgshb76pl.jpg",
+        "gallery": [
+          "anim/fa0b2uf5EeWRYREnzPiWoz4eXkL6jFGIOXQXEvqVibk2OjSFRRpZe-mGuzPkf2BGQnCHHdbE1jDgeTRTgshb76pl.jpg",
+          "anim/FJjoM3XkegIyng2asuVc3c3e24zOInAvbcbwCRZs1FzKozUUhzrgdiVvG6fErTvF44HbjAMLQs820x9wso0XAkv4.jpg",
+          "anim/FKgEdOtcLQUl2rLvcBhVKnY-8Vb59_arOW-bkyZ-zGAP_2Yx9SoxE6KcXxE9XleBo-2AjpCqqx4wexHNFbq4Dmph.jpg",
+          "anim/FYHENxevXKhsnD5RwesRGGaXLlq-jX9OVS2ezYP0R40NWwQ_z_HhWTxa_anTADtxvu2swp2C6ZPt_pNkduiq7cnv.jpg"
+        ]
+      },
+      "description": {
+        "short": "Ледяная королева Эльза! Создание снежинок, зимние танцы и волшебство.",
+        "full": "Прекрасная Эльза устроит настоящий зимний бал! Танцы, создание волшебных снежинок и исполнение любимых песен."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": ["dance", "creative"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 4500,
+        "packages": [
+          {"duration": 2, "price": 8500},
+          {"duration": 3, "price": 12000}
+        ]
+      },
+      "tags": ["девочки", "холодное сердце", "танцы", "популярное"],
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 9,
+      "name": "Пират",
+      "slug": "pirate",
+      "category": "adventure",
+      "emoji": "🏴‍☠️",
+      "images": {
+        "main": "anim/G799gpeT_oazO1dx1cbapPyJvxEPkKg_lUjwBFWPb81lFhhC3AtsOYMQkfPp_hd430LKkiq-QhR1CNSGWA-VA6id.jpg",
+        "gallery": [
+          "anim/G799gpeT_oazO1dx1cbapPyJvxEPkKg_lUjwBFWPb81lFhhC3AtsOYMQkfPp_hd430LKkiq-QhR1CNSGWA-VA6id.jpg",
+          "anim/G9ndG76d5qmqIPy5kHFo6tRdX-tEW3YrZmUw3WiumEP4TlY59N5roOK8ar-r2TyVoYzpyHgzKXC0Efl-WKp8a4Cy.jpg"
+        ]
+      },
+      "description": {
+        "short": "Отважный пират в поисках сокровищ! Квесты, загадки и морские приключения.",
+        "full": "Бесстрашный пират отправится с детьми на поиски сокровищ! Карты, загадки, конкурсы и настоящий пиратский корабль."
+      },
+      "features": {
+        "age": "5-10",
+        "gender": "boys",
+        "activities": ["quest", "active"],
+        "duration": [2, 3]
+      },
+      "pricing": {
+        "hourly": 3800,
+        "packages": [
+          {"duration": 2, "price": 7000},
+          {"duration": 3, "price": 10000}
+        ]
+      },
+      "tags": ["мальчики", "приключения", "квест"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 10,
+      "name": "Единорог",
+      "slug": "unicorn",
+      "category": "animals",
+      "emoji": "🦄",
+      "images": {
+        "main": "anim/GhcqgRdesnQYnHMqnc8DCWz1m304rlDnwbWKU-NAGoaiSIkEVSHfNLZ-36dpHIoW_wwd3j9DFZ3DMxccy5S6zhdh.jpg",
+        "gallery": [
+          "anim/GhcqgRdesnQYnHMqnc8DCWz1m304rlDnwbWKU-NAGoaiSIkEVSHfNLZ-36dpHIoW_wwd3j9DFZ3DMxccy5S6zhdh.jpg",
+          "anim/GSnSZspeh1zgXOUh8Sbl4GDADd2jVlp5s_eGiVfYuuLe0x-utNTJhpelln55fEIo2JVBupjEmfAhg22KX2KCAqnl.jpg",
+          "anim/H0sHMCKyKMyuq-he0LlAMs-RMfxQnp8wfg64wZMdth1U_7bi2vuxrTeAaDhT910hROU-_Ee6zrHssZK6Wey0ypDQ.jpg"
+        ]
+      },
+      "description": {
+        "short": "Волшебный единорог из сказочной страны! Радуга, блестки и творческие мастер-классы.",
+        "full": "Милый единорог принесет радость и волшебство! Создание радужных украшений, аквагрим и сказочные игры."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": ["creative", "magic"],
+        "duration": [1, 2]
+      },
+      "pricing": {
+        "hourly": 3800,
+        "packages": [
+          {"duration": 2, "price": 7000}
+        ]
+      },
+      "tags": ["девочки", "творчество", "волшебство", "новинка"],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 11,
+      "name": "Бэтмен",
+      "slug": "batman",
+      "category": "superheroes",
+      "emoji": "🦇",
+      "images": {
+        "main": "anim/iI2rhrBniJKyNsI_OArTyEeGYqo6qG2FOaPQEjX25MbNm5Zo5_46uZzntWstR6IjC-KACYE57SAuYFhRz-BtAd-0.jpg",
+        "gallery": [
+          "anim/iI2rhrBniJKyNsI_OArTyEeGYqo6qG2FOaPQEjX25MbNm5Zo5_46uZzntWstR6IjC-KACYE57SAuYFhRz-BtAd-0.jpg",
+          "anim/Iy1PXD8fMktaJwlFrugI_Pkxs0uMLhuTO-m8ldKySGSKidEld2-JvVvm1qUcr02wLNLRjldHoKZ0uXIShx6RbmqZ.jpg"
+        ]
+      },
+      "description": {
+        "short": "Темный рыцарь Готэма! Детективные загадки, квесты и тренировки супергероя.",
+        "full": "Легендарный Бэтмен научит детей быть настоящими героями! Детективные игры, квесты и супергеройские тренировки."
+      },
+      "features": {
+        "age": "8-12",
+        "gender": "boys",
+        "activities": ["quest", "active"],
+        "duration": [2, 3]
+      },
+      "pricing": {
+        "hourly": 4200,
+        "packages": [
+          {"duration": 2, "price": 8000},
+          {"duration": 3, "price": 11000}
+        ]
+      },
+      "tags": ["мальчики", "супергерои", "квест"],
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 12,
+      "name": "Минни Маус",
+      "slug": "minnie-mouse",
+      "category": "cartoon",
+      "emoji": "🎀",
+      "images": {
+        "main": "anim/kaaCehQrlwU5Y4_ekf-zKPnviN0LyDXi8xQJZu-SDdzyS3qtXIgl-pBcuhZ6qideBgn6hhXFJyf9WafdqCvTs5n4.jpg",
+        "gallery": [
+          "anim/kaaCehQrlwU5Y4_ekf-zKPnviN0LyDXi8xQJZu-SDdzyS3qtXIgl-pBcuhZ6qideBgn6hhXFJyf9WafdqCvTs5n4.jpg",
+          "anim/lWaI7AzMSBjX4iyTHanOYVW6FIylNGDZFwk3GnxqwmBJM2En4lOTQJJUThu10CaQ-zfjQHXgqDpmMmIFBo5Mfq1X.jpg",
+          "anim/m-kA4U3MCrxXY84pg_3sj_jVbh_VGNXuUnOELN78F83ddWVUUP_mQNnrnyql-MT-adevwqItqx1c1epF-qzGmrcV.jpg"
+        ]
+      },
+      "description": {
+        "short": "Очаровательная Минни Маус! Танцы, игры и модные показы.",
+        "full": "Милая Минни Маус устроит веселый праздник с танцами, модными играми и фотосессией в стиле Диснея!"
+      },
+      "features": {
+        "age": "3-7",
+        "gender": "girls",
+        "activities": ["dance", "active"],
+        "duration": [1, 2]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {"duration": 2, "price": 6500}
+        ]
+      },
+      "tags": ["девочки", "дисней", "танцы"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 13,
+      "name": "Динозавр",
+      "slug": "dinosaur",
+      "category": "animals",
+      "emoji": "🦖",
+      "images": {
+        "main": "anim/Mo7W-v8ysAXISEvn57v7AUXSWXHDEus6jJJmmDoZ5-5jS3TW5GL-Jvn9CzaRgqfR2edjXPOG0FL4xDh6Y3aZl307.jpg",
+        "gallery": [
+          "anim/Mo7W-v8ysAXISEvn57v7AUXSWXHDEus6jJJmmDoZ5-5jS3TW5GL-Jvn9CzaRgqfR2edjXPOG0FL4xDh6Y3aZl307.jpg",
+          "anim/MoWmzsjzFBdEsctJ-aYpY-UY871Mc1K3wrGwGLzH9mEMtjfAUK1LDjsB4qCa5E0ytsY7Bbtjx09fvwA49BSgRA1K.jpg"
+        ]
+      },
+      "description": {
+        "short": "Дружелюбный динозавр из юрского периода! Палеонтологические раскопки и приключения.",
+        "full": "Веселый динозавр отправит детей в доисторическое путешествие! Раскопки, игры и изучение древнего мира."
+      },
+      "features": {
+        "age": "5-10",
+        "gender": "boys",
+        "activities": ["quest", "active"],
+        "duration": [1, 2, 3]
+      },
+      "pricing": {
+        "hourly": 3800,
+        "packages": [
+          {"duration": 2, "price": 7000},
+          {"duration": 3, "price": 10000}
+        ]
+      },
+      "tags": ["мальчики", "динозавры", "приключения", "новинка"],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 14,
+      "name": "Русалочка",
+      "slug": "mermaid",
+      "category": "fairy-tale",
+      "emoji": "🧜‍♀️",
+      "images": {
+        "main": "anim/NOisHs-owFrBBxDDN8tToTzJzw6toGEt-_-HqmjImmBZytvH8DNne9RM5XUwxEkc6DXtVSIIN1Xv2co2CLkNzLs-.jpg",
+        "gallery": [
+          "anim/NOisHs-owFrBBxDDN8tToTzJzw6toGEt-_-HqmjImmBZytvH8DNne9RM5XUwxEkc6DXtVSIIN1Xv2co2CLkNzLs-.jpg",
+          "anim/OCxcwFXSV7bUpOFWvEppDE-Omw7Abc-6du7MSSsisfBDeRCNjGMp9Js8CBfPiwQfR9LPENOPOVteCq817sX60mGN.jpg",
+          "anim/p-CqNbmJwXbTxKoY2Xo-BAYPosmZTYsm_tCtjXXWXKw3GspniQ6b2Hs-f2iMxPgn9VG4h4SV0NQAhEsrmQGg8LaO.jpg"
+        ]
+      },
+      "description": {
+        "short": "Прекрасная русалочка из подводного царства! Морские игры и танцы.",
+        "full": "Очаровательная русалочка проведет подводное путешествие с морскими играми, танцами и творческими занятиями."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": ["dance", "creative"],
+        "duration": [1, 2]
+      },
+      "pricing": {
+        "hourly": 3800,
+        "packages": [
+          {"duration": 2, "price": 7000}
+        ]
+      },
+      "tags": ["девочки", "сказка", "море"],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 15,
+      "name": "Космонавт",
+      "slug": "astronaut",
+      "category": "adventure",
+      "emoji": "🚀",
+      "images": {
+        "main": "anim/pyDtEOjegWuZuwqKGFa7PonennhkytDvhpbO4VQySWo4FQk2_u42CMpKvOoHVVk4Emo-OFne3kYWk9Z_jYHtCuxT.jpg",
+        "gallery": [
+          "anim/pyDtEOjegWuZuwqKGFa7PonennhkytDvhpbO4VQySWo4FQk2_u42CMpKvOoHVVk4Emo-OFne3kYWk9Z_jYHtCuxT.jpg",
+          "anim/rgSXag0LxT60gF8EPO6ZnoisO70HdHFebFsOxQg7PSnmmUZUfuDUlgJ9Lk8ptV916O8Kd6gI4PRHq7FxVWnfUc4e.jpg"
+        ]
+      },
+      "description": {
+        "short": "Бесстрашный космонавт-исследователь! Космические миссии и научные эксперименты.",
+        "full": "Отважный космонавт отправит детей в космическое путешествие! Научные эксперименты, изучение планет и звездные квесты."
+      },
+      "features": {
+        "age": "8-12",
+        "gender": "unisex",
+        "activities": ["quest", "creative"],
+        "duration": [2, 3]
+      },
+      "pricing": {
+        "hourly": 4000,
+        "packages": [
+          {"duration": 2, "price": 7500},
+          {"duration": 3, "price": 10500}
+        ]
+      },
+      "tags": ["универсальное", "космос", "наука", "новинка"],
+      "isPopular": true,
+      "isNew": true
+    }
+  ]
+}

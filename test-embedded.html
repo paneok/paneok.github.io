@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест с встроенными данными</title>
+    <style>
+        .character-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            width: 300px;
+            vertical-align: top;
+        }
+        .character-emoji {
+            font-size: 4rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .character-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест с встроенными данными персонажей</h1>
+    <div id="characters-grid"></div>
+
+    <script>
+        // Встроенные данные персонажей
+        const charactersData = {
+            characters: [
+                {
+                    id: 1,
+                    name: "Супергерой",
+                    emoji: "🦸‍♂️",
+                    images: {
+                        main: "anim/_atJxRVQTC6EqKfm9PERu52zmRDkYfH06PdAststEFJvKlVUaLAaPsT_vOIjNiAMUTzfW0dou8Sq-aH2q2MnGcNG.jpg"
+                    },
+                    description: {
+                        short: "Спасет праздник и подарит незабываемые приключения!"
+                    },
+                    features: {
+                        age: "5-10",
+                        activities: ["active"]
+                    },
+                    pricing: {
+                        hourly: 3500
+                    }
+                },
+                {
+                    id: 2,
+                    name: "Принцесса", 
+                    emoji: "👸",
+                    images: {
+                        main: "anim/2pNkjRF7AHtthX3BYuuldTGNA8QBbKFTtZlqUoo2k-X6pOMyqvp-ihQDJaI_k-ziepVrDUXAJPvCAZvKUFzSZvC7.jpg"
+                    },
+                    description: {
+                        short: "Сказочная принцесса для маленьких леди!"
+                    },
+                    features: {
+                        age: "3-8",
+                        activities: ["dance"]
+                    },
+                    pricing: {
+                        hourly: 4000
+                    }
+                }
+            ]
+        };
+
+        function createCharacterCard(character) {
+            return `
+                <div class="character-card">
+                    <div class="character-emoji">${character.emoji}</div>
+                    <h3>${character.name}</h3>
+                    <p>${character.description.short}</p>
+                    <img src="${character.images.main}" alt="${character.name}" 
+                         class="character-photo"
+                         onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
+                    <div class="character-price">от ${character.pricing.hourly} ₽/час</div>
+                </div>
+            `;
+        }
+
+        function renderCharacters() {
+            const grid = document.getElementById('characters-grid');
+            grid.innerHTML = charactersData.characters.map(createCharacterCard).join('');
+            document.body.insertAdjacentHTML('beforeend', 
+                `<p>✅ Отображено ${charactersData.characters.length} персонажей</p>`);
+        }
+
+        // Запуск
+        renderCharacters();
+    </script>
+</body>
+</html>
