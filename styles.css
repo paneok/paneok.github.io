@@ -31,6 +31,13 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Отключаем smooth scroll на мобильных для устранения рывков */
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -47,7 +54,21 @@ html {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: slideDown 0.5s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; /* текст в шапке не выделяется */
+}
+
+.header.scrolled {
+    padding: 0.3rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.header.scrolled .nav-content {
+    padding: 0.7rem 0;
 }
 
 @keyframes slideDown {
@@ -85,6 +106,7 @@ html {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 600;
+    font-size: 1.2rem;
     position: relative;
     transition: color 0.3s ease;
 }
@@ -108,6 +130,21 @@ html {
     width: 100%;
 }
 
+.nav-link-new-year {
+    background: linear-gradient(45deg, #ff6b9d, #ffa502, #9b59b6, #4fc3f7);
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -126,6 +163,7 @@ html {
     justify-content: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     overflow: hidden;
+    perspective: 1200px; /* для легкого 3D эффекта параллакса */
 }
 
 .hero-background {
@@ -205,6 +243,10 @@ html {
     text-align: center;
     color: white;
     animation: fadeInUp 1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; /* текст в hero (head) не выделяется */
 }
 
 @keyframes fadeInUp {
@@ -223,7 +265,6 @@ html {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: slideInLeft 1s ease;
 }
 
@@ -261,21 +302,18 @@ html {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 1rem;
-    opacity: 0.9;
     animation: fadeInUp 0.8s ease;
 }
 
 .hero-description {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    opacity: 0.95;
 }
 
 .hero-tagline {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    opacity: 0.95;
 }
 
 .hero-buttons {
@@ -338,6 +376,61 @@ html {
 .btn-secondary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Selection Button */
+.btn-select {
+    background: linear-gradient(45deg, #ff6b9d, #ffa502, #9b59b6, #4fc3f7);
+    background-size: 400% 400%;
+    color: white;
+    animation: shimmer 3s ease-in-out infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+}
+
+.btn-select:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+}
+
+.btn-select-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background: transparent;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-select.selected .btn-select-checkbox {
+    opacity: 1;
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-select.selected {
+    background: linear-gradient(45deg, #26de81, #20bf6b);
+    background-size: 100% 100%;
+    animation: none;
+}
+
+.btn-select-inline {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.character-card.selected {
+    box-shadow: 0 10px 40px rgba(38, 222, 129, 0.4);
+    border: 2px solid #26de81;
 }
 
 .btn-outline {
@@ -438,6 +531,80 @@ html {
     gap: 2rem;
 }
 
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    /* По умолчанию отступы секции и контейнера остаются как раньше.
+       Расширяем секцию на всю ширину только при специальном классе .characters-section--wide */
+    .characters-section.characters-section--wide {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .characters-section.characters-section--wide > .container {
+        max-width: none;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы описания не рвали карточки по высоте */
+.characters-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+    font-size: 1.1rem;
+}
+
+/* "Show more" button under characters grid */
+.characters-load-more {
+    margin: 3rem auto 0;
+    display: block;
+}
+
 .character-card {
     background: white;
     border-radius: 20px;
@@ -445,6 +612,9 @@ html {
     box-shadow: var(--shadow);
     transition: all 0.4s ease;
     animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .character-card:nth-child(1) { animation-delay: 0.1s; }
@@ -454,18 +624,24 @@ html {
 .character-card:nth-child(5) { animation-delay: 0.5s; }
 .character-card:nth-child(6) { animation-delay: 0.6s; }
 
-.character-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-hover);
+/* Убираем общий hover эффект карточки */
+.character-card {
+    transition: box-shadow 0.3s ease;
 }
 
 .character-image {
     position: relative;
-    height: 250px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 140%; /* Соотношение 10:14 (высота = 14/10 * 100% = 140% от ширины) */
     overflow: hidden;
+    background: #f5f5f5;
 }
 
 .character-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -474,21 +650,28 @@ html {
     transition: transform 0.5s ease;
 }
 
-.character-card:hover .character-avatar {
+/* Убираем старый эффект hover для аватара */
+/* .character-card:hover .character-avatar {
     transform: scale(1.1) rotate(5deg);
-}
+} */
 
 .character-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Заполняем всю область без полос */
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.15s ease-out;
 }
 
-.character-card:hover .character-photo {
-    transform: scale(1.1);
+/* Увеличение изображения управляется через JavaScript для следования за курсором */
+.character-image-container {
+    cursor: pointer;
 }
+
+/* Убираем старый эффект */
 
 .character-emoji {
     font-size: 8rem;
@@ -517,30 +700,51 @@ html {
 
 .character-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    bottom: 10px;
+    right: 10px;
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.3s ease;
 }
 
-.character-card:hover .character-overlay {
-    opacity: 1;
+/* Небольшое увеличение при наведении */
+.character-card:hover .character-overlay .btn-select {
+    transform: scale(1.05);
 }
 
 .character-info {
     padding: 1.5rem;
 }
 
+.character-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-order-inline {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Показываем кнопку при наведении на character-info */
+.character-info:hover .btn-order-inline {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
 .character-name {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     color: var(--text-dark);
 }
 
@@ -564,6 +768,12 @@ html {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.feature-icon {
+    margin-right: 0.3rem;
 }
 
 .character-price {
@@ -925,6 +1135,238 @@ html {
     opacity: 0.7;
 }
 
+/* ==================== NEW YEAR PAGE ==================== */
+body.new-year-page {
+    /* Переопределяем палитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba(22, 35, 64, 0.9);
+    --bg-white: rgba(255, 255, 255, 0.96);
+    --text-gray: #d0e8f2;
+
+    /* Светлый, но не белый переливающийся градиентный фон */
+    background:
+        radial-gradient(circle at top, #afdafc 0%, #097dd6 45%, transparent 80%),
+        linear-gradient(135deg, #0b1020 0%, #152348 30%, #1e3c72 60%, #2a5298 100%);
+    background-size: 250% 250%;
+    animation: newYearGradient 22s ease-in-out infinite;
+
+    color: #ffffff;
+}
+@keyframes newYearGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body.new-year-page .header {
+    background: rgba(21, 31, 52, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+body.new-year-page .nav-link {
+    color: #ffffff;
+}
+
+body.new-year-page .nav-link:hover {
+    color: #4fc3f7;
+}
+
+body.new-year-page .nav-link::after {
+    background: linear-gradient(90deg, #4fc3f7, #81d4fa);
+}
+
+body.new-year-page .logo-text {
+    background: linear-gradient(135deg, #4fc3f7, #81d4fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.new-year-hero {
+    position: relative;
+    padding-top: 6rem;           /* небольшой отступ от шапки */
+    padding-bottom: 3rem;        /* небольшой отступ снизу */
+    text-align: center;
+}
+
+.new-year-hero .container {
+    width: 100%;
+}
+
+.new-year-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.new-year-hero-content .hero-greeting {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+}
+
+.new-year-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff, #bbdefb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-subtitle {
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    color: #e3f2fd;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.new-year-characters {
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    background: transparent;
+}
+
+.new-year-characters .section-header {
+    margin-bottom: 3rem;
+}
+
+.new-year-characters .section-title {
+    background: linear-gradient(135deg, #ffffff, #4fc3f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-characters .section-subtitle {
+    color: #d0e8f2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.new-year-characters .characters-grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* Улучшенная контрастность кнопок на новогодней странице */
+body.new-year-page .btn-primary {
+    background: linear-gradient(135deg, #4fc3f7, #0288d1);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(79, 195, 247, 0.4);
+}
+
+body.new-year-page .btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(79, 195, 247, 0.5);
+}
+
+body.new-year-page .btn-secondary {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0288d1;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.new-year-page .btn-secondary:hover {
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Снег за карточками */
+.snow-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* выше фона, но ниже контента */
+    overflow: hidden;
+}
+
+/* Контент новогодней страницы поверх снега */
+body.new-year-page .header,
+body.new-year-page main,
+body.new-year-page .footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Футер на новогодней странице */
+body.new-year-page .footer {
+    background: rgba(21, 31, 52, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+body.new-year-page .footer-logo .logo-text {
+    background: linear-gradient(135deg, #4fc3f7, #81d4fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.new-year-page .social-link {
+    background: rgba(79, 195, 247, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+body.new-year-page .social-link:hover {
+    background: #4fc3f7;
+    border-color: #4fc3f7;
+}
+
+/* Карточки персонажей на новогодней странице */
+body.new-year-page .character-card {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.new-year-page .character-card:hover {
+    box-shadow: 0 12px 40px rgba(79, 195, 247, 0.4);
+}
+
+body.new-year-page .loading-message {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.snowflake {
+    position: absolute;
+    top: -12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+    opacity: 0.9;
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translate3d(0, -12px, 0);
+    }
+    100% {
+        transform: translate3d(var(--snow-x, 0px), 110vh, 0);
+    }
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
     .nav-menu {
@@ -974,8 +1416,15 @@ html {
     }
 
     .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
     .programs-grid {
         grid-template-columns: 1fr;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .advantages-grid {
@@ -1024,6 +1473,18 @@ html {
     z-index: 1; /* Behind content but above particles */
     pointer-events: none;
     overflow: hidden;
+    perspective: 1200px; /* 3D перспектива именно для плавающих элементов */
+    transform-style: preserve-3d;
+}
+
+/* Скрываем параллакс-иконки до тех пор, пока JS не подготовит анимацию */
+.hero .parallax-container {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.hero.parallax-ready .parallax-container {
+    opacity: 1;
 }
 
 .parallax-item {
@@ -1032,38 +1493,29 @@ html {
     will-change: transform;
     opacity: 0.7;
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    transform-origin: center center;
 }
 
 /* Sizes for different elements with depth layers */
-/* BALLOONS - NEAR (большие, близко) */
+/* BALLOONS - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.balloon-1 {
-    width: 150px;
-    opacity: 0.85;
-}
-
-.parallax-item.balloon-2 {
     width: 170px;
     opacity: 0.9;
 }
 
-.parallax-item.balloon-3 {
+.parallax-item.balloon-2 {
     width: 140px;
     opacity: 0.85;
 }
 
+.parallax-item.balloon-3 {
+    width: 110px;
+    opacity: 0.8;
+}
+
 .parallax-item.balloon-4 {
-    width: 165px;
-    opacity: 0.88;
-}
-
-.parallax-item.balloon-5 {
-    width: 155px;
-    opacity: 0.87;
-}
-
-.parallax-item.balloon-6 {
-    width: 160px;
-    opacity: 0.86;
+    width: 80px;
+    opacity: 0.75;
 }
 
 /* BALLOONS - MID (средние) */
@@ -1108,37 +1560,25 @@ html {
     opacity: 0.43;
 }
 
-/* CAKES - NEAR (большие) */
+/* CAKES - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.cake-1 {
-    width: 170px;
+    width: 165px;
     opacity: 0.88;
 }
 
 .parallax-item.cake-2 {
-    width: 155px;
+    width: 135px;
     opacity: 0.85;
 }
 
 .parallax-item.cake-3 {
-    width: 165px;
-    opacity: 0.87;
+    width: 105px;
+    opacity: 0.8;
 }
 
-/* CAKES - MID */
 .parallax-item.cake-4 {
-    width: 85px;
-    opacity: 0.66;
-}
-
-.parallax-item.cake-5 {
-    width: 80px;
-    opacity: 0.64;
-}
-
-/* CAKES - FAR (маленькие) */
-.parallax-item.cake-6 {
-    width: 40px;
-    opacity: 0.46;
+    width: 75px;
+    opacity: 0.75;
 }
 
 .parallax-item.cake-7 {
@@ -1146,42 +1586,25 @@ html {
     opacity: 0.43;
 }
 
-/* GIFTS - NEAR (большие) */
+/* GIFTS - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.gift-1 {
-    width: 160px;
+    width: 155px;
     opacity: 0.87;
 }
 
 .parallax-item.gift-2 {
-    width: 150px;
-    opacity: 0.85;
+    width: 125px;
+    opacity: 0.84;
 }
 
 .parallax-item.gift-3 {
-    width: 165px;
-    opacity: 0.88;
+    width: 95px;
+    opacity: 0.81;
 }
 
 .parallax-item.gift-4 {
-    width: 155px;
-    opacity: 0.86;
-}
-
-/* GIFTS - MID */
-.parallax-item.gift-5 {
-    width: 80px;
-    opacity: 0.65;
-}
-
-.parallax-item.gift-6 {
-    width: 85px;
-    opacity: 0.67;
-}
-
-/* GIFTS - FAR (маленькие) */
-.parallax-item.gift-7 {
-    width: 38px;
-    opacity: 0.45;
+    width: 65px;
+    opacity: 0.78;
 }
 
 .parallax-item.gift-8 {
@@ -1194,72 +1617,25 @@ html {
     animation: starTwinkle 2s ease-in-out infinite;
 }
 
-/* STARS - NEAR (большие, яркие) */
+/* STARS - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.star-1 {
-    width: 95px;
+    width: 100px;
     opacity: 0.9;
 }
 
 .parallax-item.star-2 {
-    width: 100px;
-    opacity: 0.88;
-}
-
-.parallax-item.star-3 {
-    width: 85px;
+    width: 80px;
     opacity: 0.85;
 }
 
+.parallax-item.star-3 {
+    width: 60px;
+    opacity: 0.8;
+}
+
 .parallax-item.star-4 {
-    width: 92px;
-    opacity: 0.87;
-}
-
-/* STARS - MID */
-.parallax-item.star-5 {
-    width: 55px;
-    opacity: 0.68;
-}
-
-.parallax-item.star-6 {
-    width: 50px;
-    opacity: 0.65;
-}
-
-.parallax-item.star-7 {
-    width: 52px;
-    opacity: 0.66;
-}
-
-.parallax-item.star-8 {
-    width: 58px;
-    opacity: 0.69;
-}
-
-/* STARS - FAR (маленькие, далекие) */
-.parallax-item.star-9 {
-    width: 22px;
-    opacity: 0.38;
-}
-
-.parallax-item.star-10 {
-    width: 25px;
-    opacity: 0.40;
-}
-
-.parallax-item.star-11 {
-    width: 20px;
-    opacity: 0.36;
-}
-
-.parallax-item.star-12 {
-    width: 24px;
-    opacity: 0.39;
-}
-
-.parallax-item.star-13 {
-    width: 28px;
-    opacity: 0.42;
+    width: 40px;
+    opacity: 0.75;
 }
 
 @keyframes starTwinkle {
@@ -1272,52 +1648,25 @@ html {
     animation: heartBeat 1.5s ease-in-out infinite;
 }
 
-/* HEARTS - NEAR (большие) */
+/* HEARTS - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.heart-1 {
-    width: 120px;
+    width: 125px;
     opacity: 0.86;
 }
 
 .parallax-item.heart-2 {
-    width: 110px;
-    opacity: 0.84;
+    width: 100px;
+    opacity: 0.83;
 }
 
 .parallax-item.heart-3 {
-    width: 125px;
-    opacity: 0.88;
+    width: 75px;
+    opacity: 0.8;
 }
 
-/* HEARTS - MID */
 .parallax-item.heart-4 {
-    width: 70px;
-    opacity: 0.66;
-}
-
-.parallax-item.heart-5 {
-    width: 65px;
-    opacity: 0.64;
-}
-
-.parallax-item.heart-6 {
-    width: 73px;
-    opacity: 0.67;
-}
-
-/* HEARTS - FAR (маленькие) */
-.parallax-item.heart-7 {
-    width: 32px;
-    opacity: 0.44;
-}
-
-.parallax-item.heart-8 {
-    width: 35px;
-    opacity: 0.46;
-}
-
-.parallax-item.heart-9 {
-    width: 30px;
-    opacity: 0.42;
+    width: 50px;
+    opacity: 0.77;
 }
 
 @keyframes heartBeat {
@@ -1330,52 +1679,25 @@ html {
     animation: confettiRotate 4s linear infinite;
 }
 
-/* CONFETTI - NEAR (большие) */
+/* CONFETTI - 4 элемента с разным расстоянием от пользователя */
 .parallax-item.confetti-1 {
-    width: 85px;
-    opacity: 0.83;
-}
-
-.parallax-item.confetti-2 {
-    width: 80px;
-    opacity: 0.81;
-}
-
-.parallax-item.confetti-3 {
     width: 88px;
     opacity: 0.84;
 }
 
-/* CONFETTI - MID */
-.parallax-item.confetti-4 {
+.parallax-item.confetti-2 {
+    width: 70px;
+    opacity: 0.8;
+}
+
+.parallax-item.confetti-3 {
     width: 52px;
-    opacity: 0.65;
+    opacity: 0.76;
 }
 
-.parallax-item.confetti-5 {
-    width: 55px;
-    opacity: 0.67;
-}
-
-.parallax-item.confetti-6 {
-    width: 50px;
-    opacity: 0.63;
-}
-
-/* CONFETTI - FAR (маленькие) */
-.parallax-item.confetti-7 {
-    width: 28px;
-    opacity: 0.43;
-}
-
-.parallax-item.confetti-8 {
-    width: 25px;
-    opacity: 0.40;
-}
-
-.parallax-item.confetti-9 {
-    width: 30px;
-    opacity: 0.45;
+.parallax-item.confetti-4 {
+    width: 34px;
+    opacity: 0.72;
 }
 
 @keyframes confettiRotate {
@@ -1383,42 +1705,9 @@ html {
     to { transform: rotate(360deg); }
 }
 
-/* CANDIES - NEAR (большие) */
-.parallax-item.candy-1 {
-    width: 135px;
-    opacity: 0.86;
-}
-
-.parallax-item.candy-2 {
-    width: 128px;
-    opacity: 0.84;
-}
-
-.parallax-item.candy-3 {
-    width: 140px;
-    opacity: 0.87;
-}
-
-/* CANDIES - MID */
-.parallax-item.candy-4 {
-    width: 75px;
-    opacity: 0.66;
-}
-
-.parallax-item.candy-5 {
-    width: 72px;
-    opacity: 0.64;
-}
-
-/* CANDIES - FAR (маленькие) */
-.parallax-item.candy-6 {
-    width: 36px;
-    opacity: 0.44;
-}
-
-.parallax-item.candy-7 {
-    width: 38px;
-    opacity: 0.46;
+/* CANDIES - отключены */
+.parallax-item.candy {
+    display: none !important;
 }
 
 /* MUSIC NOTES - Base animation */
@@ -1479,17 +1768,11 @@ html {
     50% { transform: translateY(-15px); }
 }
 
-.parallax-item.logo-placeholder {
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 50%;
-    font-size: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.parallax-item.logo-item {
+    width: 140px;
+    opacity: 0.85;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    border-radius: 15px;
 }
 
 /* Shimmer effect for parallax items */
@@ -1501,100 +1784,56 @@ html {
     filter: brightness(1.3) saturate(1.4) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
 }
 
-/* Positions for all elements */
-/* Balloons */
-.balloon-1 { top: 12%; left: 5%; }
-.balloon-2 { top: 68%; right: 8%; }
-.balloon-3 { top: 35%; left: 2%; }
-.balloon-4 { top: 82%; left: 20%; }
-.balloon-5 { top: 22%; right: 15%; }
-.balloon-6 { top: 55%; right: 3%; }
-.balloon-7 { top: 15%; left: 45%; }
-.balloon-8 { top: 70%; left: 38%; }
-.balloon-9 { top: 40%; right: 22%; }
-.balloon-10 { top: 88%; right: 28%; }
-.balloon-11 { top: 8%; left: 25%; }
-.balloon-12 { top: 48%; left: 12%; }
-.balloon-13 { top: 92%; left: 45%; }
-.balloon-14 { top: 18%; right: 42%; }
+/* Positions for all elements - равномерно распределены по всему экрану */
+/* Balloons - по углам и бокам */
+.balloon-1 { top: 12%; left: 8%; }
+.balloon-2 { top: 15%; right: 10%; }
+.balloon-3 { top: 72%; left: 12%; }
+.balloon-4 { top: 68%; right: 15%; }
 
-/* Cakes */
-.cake-1 { top: 75%; right: 5%; }
-.cake-2 { top: 20%; right: 18%; }
-.cake-3 { top: 62%; left: 28%; }
-.cake-4 { top: 38%; left: 8%; }
-.cake-5 { top: 85%; right: 35%; }
-.cake-6 { top: 25%; left: 35%; }
-.cake-7 { top: 58%; right: 48%; }
+/* Cakes - в центральной зоне */
+.cake-1 { top: 25%; left: 35%; }
+.cake-2 { top: 30%; right: 30%; }
+.cake-3 { top: 55%; left: 40%; }
+.cake-4 { top: 60%; right: 35%; }
 
-/* Gifts */
-.gift-1 { top: 52%; left: 18%; }
-.gift-2 { top: 16%; right: 32%; }
-.gift-3 { top: 78%; left: 8%; }
-.gift-4 { top: 32%; right: 8%; }
-.gift-5 { top: 45%; left: 42%; }
-.gift-6 { top: 88%; right: 15%; }
-.gift-7 { top: 12%; left: 58%; }
-.gift-8 { top: 65%; right: 38%; }
+/* Gifts - средняя зона слева и справа */
+.gift-1 { top: 35%; left: 18%; }
+.gift-2 { top: 40%; right: 20%; }
+.gift-3 { top: 80%; left: 25%; }
+.gift-4 { top: 82%; right: 28%; }
 
-/* Stars */
-.star-1 { top: 8%; right: 12%; }
-.star-2 { top: 42%; left: 22%; }
-.star-3 { top: 82%; left: 32%; }
-.star-4 { top: 28%; right: 25%; }
-.star-5 { top: 55%; left: 5%; }
-.star-6 { top: 72%; right: 18%; }
-.star-7 { top: 18%; left: 38%; }
-.star-8 { top: 92%; right: 42%; }
-.star-9 { top: 5%; left: 15%; }
-.star-10 { top: 35%; right: 45%; }
-.star-11 { top: 65%; left: 48%; }
-.star-12 { top: 95%; left: 12%; }
-.star-13 { top: 48%; right: 8%; }
+/* Stars - вверху и по центру, без наложений */
+.star-1 { top: 5%; left: 42%; }
+.star-2 { top: 10%; right: 25%; }
+.star-3 { top: 45%; left: 50%; }
+.star-4 { top: 50%; right: 48%; }
 
-/* Hearts */
-.heart-1 { top: 25%; left: 15%; }
-.heart-2 { top: 70%; right: 22%; }
-.heart-3 { top: 45%; right: 35%; }
-.heart-4 { top: 58%; left: 35%; }
-.heart-5 { top: 12%; right: 5%; }
-.heart-6 { top: 85%; left: 42%; }
-.heart-7 { top: 32%; left: 52%; }
-.heart-8 { top: 75%; right: 48%; }
-.heart-9 { top: 15%; left: 68%; }
+/* Hearts - распределены равномерно, без наложений */
+.heart-1 { top: 18%; left: 58%; }
+.heart-2 { top: 35%; right: 8%; }
+.heart-3 { top: 65%; left: 35%; }
+.heart-4 { top: 78%; right: 45%; }
 
-/* Confetti */
-.confetti-1 { top: 10%; left: 28%; }
-.confetti-2 { top: 52%; right: 12%; }
-.confetti-3 { top: 75%; left: 15%; }
-.confetti-4 { top: 38%; left: 48%; }
-.confetti-5 { top: 88%; right: 8%; }
-.confetti-6 { top: 22%; right: 38%; }
-.confetti-7 { top: 62%; left: 58%; }
-.confetti-8 { top: 5%; right: 28%; }
-.confetti-9 { top: 95%; left: 25%; }
+/* Confetti - по периметру */
+.confetti-1 { top: 32%; left: 8%; }
+.confetti-2 { top: 28%; right: 12%; }
+.confetti-3 { top: 88%; left: 45%; }
+.confetti-4 { top: 85%; right: 52%; }
 
-/* Candies */
-.candy-1 { top: 42%; right: 28%; }
-.candy-2 { top: 82%; right: 38%; }
-.candy-3 { top: 18%; left: 12%; }
-.candy-4 { top: 68%; left: 22%; }
-.candy-5 { top: 35%; right: 15%; }
-.candy-6 { top: 78%; right: 52%; }
-.candy-7 { top: 28%; left: 62%; }
+/* Candies - отключены */
 
-/* Music Notes */
-.note-1 { top: 22%; left: 42%; }
-.note-2 { top: 62%; left: 52%; }
-.note-3 { top: 48%; right: 18%; }
-.note-4 { top: 85%; left: 55%; }
-.note-5 { top: 15%; right: 52%; }
-.note-6 { top: 72%; right: 12%; }
-.note-7 { top: 38%; left: 32%; }
-.note-8 { top: 92%; right: 22%; }
-.note-9 { top: 8%; left: 52%; }
+/* Music Notes - разбросаны по экрану */
+.note-1 { top: 20%; left: 62%; }
+.note-2 { top: 25%; right: 18%; }
+.note-3 { top: 52%; left: 22%; }
+.note-4 { top: 48%; right: 62%; }
 
-.logo-placeholder { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+/* Logo positions - равномерно по экрану, не пересекаются с другими фигурами */
+.logo-1 { top: 38%; left: 28%; transform: none; }
+.logo-2 { top: 42%; right: 40%; transform: none; }
+.logo-3 { top: 75%; left: 60%; transform: none; }
+.logo-4 { top: 12%; right: 22%; transform: none; }
 
 /* ==================== FILTERS PANEL ==================== */
 .filters-panel {
@@ -1610,6 +1849,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--bg-light);
@@ -1619,6 +1859,29 @@ html {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-dark);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.filters-header #search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--bg-light);
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.filters-header #search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filters-header .btn-reset-filters {
+    flex-shrink: 0;
 }
 
 .btn-reset-filters {
@@ -1638,10 +1901,107 @@ html {
     transform: translateY(-2px);
 }
 
-.filters-content {
+/* Filters Grid Layout - 5 columns */
+.filters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Accordion Styles */
+.filter-accordion {
+    position: relative;
+    border: 1px solid var(--bg-light);
+    border-radius: 12px;
+    overflow: visible;
+    background: white;
+    z-index: 10;
+}
+
+.filter-accordion:hover {
+    border-color: #d0d0d0;
+}
+
+.filter-accordion.open {
+    z-index: 100;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+.filter-accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.filter-accordion-header:hover {
+    color: var(--primary-color);
+}
+
+.filter-accordion-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.filter-accordion.open .filter-accordion-icon {
+    transform: rotate(-180deg);
+}
+
+.filter-accordion-body {
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    background: white;
+    border: 1px solid var(--bg-light);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    margin-top: -1px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.filter-accordion.open .filter-accordion-body {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 1rem;
+}
+
+/* Price Filter Section (not in accordion) */
+.filters-price {
+    background: white;
+    border: 1px solid var(--bg-light);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.price-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 .filter-group {
@@ -1788,6 +2148,33 @@ html {
     border-color: var(--primary-color);
 }
 
+/* View toggle button in characters toolbar */
+.view-toggle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-gray);
+    transition: all 0.25s ease;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-toggle-icon {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
 /* ==================== UPDATED CHARACTER CARDS ==================== */
 .character-card {
     background: white;
@@ -1798,10 +2185,7 @@ html {
     animation: fadeInUp 0.6s ease backwards;
 }
 
-.character-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
+/* Убираем дублирующий hover эффект */
 
 .character-image-container {
     position: relative;
@@ -1816,6 +2200,27 @@ html {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+/* Счётчик фотографий на карточке персонажа */
+.character-photo-counter {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.character-photo-counter-text {
+    line-height: 1;
 }
 
 .badge {
@@ -1840,18 +2245,31 @@ html {
 
 /* Swiper in Character Cards */
 .character-swiper {
-    height: 300px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 140%; /* Соотношение 10:14 */
+    position: relative;
 }
 
 .character-swiper .swiper-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #f5f5f5;
 }
 
-.character-image {
+.character-swiper .character-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    padding-bottom: 0; /* Сбрасываем padding для swiper */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1970,10 +2388,20 @@ html {
     .parallax-item.candy { width: 60px; }
     .parallax-item.note { width: 40px; }
 
-    .parallax-item.logo-placeholder {
-        width: 80px;
-        height: 80px;
-        font-size: 2rem;
+    /* Адаптация логотипов для планшетов */
+    .parallax-item.logo-item {
+        width: 100px;
+        opacity: 0.75;
+    }
+
+    .logo-2, .logo-3 {
+        width: 110px;
+        opacity: 0.8;
+    }
+
+    .logo-4, .logo-5, .logo-6 {
+        width: 95px;
+        opacity: 0.7;
     }
 
     /* Hide many elements on tablets for less clutter */
@@ -1991,6 +2419,51 @@ html {
 }
 
 @media (max-width: 768px) {
+    /* Смещаем контент hero ниже фиксированной шапки на мобильных и уменьшаем высоту */
+    .hero {
+        padding-top: 4.5rem;
+        padding-bottom: 2rem;
+        min-height: calc(100vh - 4.5rem);
+    }
+
+    /* Уменьшаем размеры шрифтов и отступы в hero, чтобы всё помещалось на экран */
+    .hero-greeting {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-title-main {
+        font-size: 2.1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .hero-title-sub {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
     .filters-content {
         grid-template-columns: 1fr;
     }
@@ -2009,44 +2482,612 @@ html {
         justify-content: space-between;
     }
 
-    /* Hide most parallax on mobile for performance */
-    .parallax-container {
-        display: block; /* Keep container but hide most items */
-    }
-
-    /* Show only 10-15 essential parallax elements on mobile */
-    .balloon-2, .balloon-3, .balloon-4, .balloon-5, .balloon-6,
-    .balloon-7, .balloon-8, .balloon-9, .balloon-10,
-    .balloon-11, .balloon-12, .balloon-13, .balloon-14,
-    .cake-2, .cake-3, .cake-4, .cake-5, .cake-6, .cake-7,
-    .gift-2, .gift-3, .gift-4, .gift-5, .gift-6, .gift-7, .gift-8,
-    .star-2, .star-3, .star-4, .star-5, .star-6, .star-7, .star-8,
-    .star-9, .star-10, .star-11, .star-12, .star-13,
-    .heart-2, .heart-3, .heart-4, .heart-5, .heart-6, .heart-7, .heart-8, .heart-9,
-    .confetti-1, .confetti-2, .confetti-3, .confetti-4, .confetti-5,
-    .confetti-6, .confetti-7, .confetti-8, .confetti-9,
-    .candy-1, .candy-2, .candy-3, .candy-4, .candy-5, .candy-6, .candy-7,
-    .note-1, .note-2, .note-3, .note-4, .note-5, .note-6, .note-7, .note-8, .note-9 {
-        display: none;
-    }
-
-    .parallax-item {
-        opacity: 0.3;
-    }
-
-    .parallax-item.balloon { width: 40px; }
-    .parallax-item.cake { width: 50px; }
-    .parallax-item.gift { width: 45px; }
-    .parallax-item.star { width: 30px; }
-    .parallax-item.heart { width: 35px; }
 
     .character-swiper {
-        height: 250px;
+        padding-bottom: 140% !important; /* Сохраняем пропорции 10:14 на мобильных */
     }
 
     .character-footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.8rem;
+    }
+
+    /* На мобильных кнопка "Заказать" всегда видна */
+    .btn-order-inline {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        pointer-events: all !important;
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+
+    .character-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .character-name {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* ==================== MOBILE OPTIMIZATIONS FOR iPHONE ==================== */
+/* Упрощаем анимации на мобильных устройствах для лучшей производительности */
+@media (max-width: 768px) {
+    /* Упрощаем переходы для параллакса */
+    .parallax-item {
+        transition: transform 0.15s ease-out !important;
+    }
+
+    /* На мобильных убираем крупные логотипы, сердца и конфетти из потока фигур,
+       чтобы они не скапливались в одной точке при старте анимации */
+    .parallax-item.logo-item,
+    .parallax-item.heart,
+    .parallax-item.confetti {
+        display: none !important;
+    }
+
+    /* Упрощаем тени */
+    .header,
+    .stat-card:hover,
+    .character-card,
+    .program-card,
+    .advantage-card,
+    .contact-form-wrapper {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Упрощаем hover эффекты на мобильных */
+    .stat-card:hover,
+    .program-card:hover,
+    .advantage-card:hover {
+        transform: translateY(-5px) !important;
+        background: var(--bg-light) !important;
+    }
+
+    /* На мобильных character-card не имеет hover эффекта */
+}
+
+/* Специально для iPhone и устройств с низкой производительностью */
+@media (max-width: 480px) {
+    /* Еще более агрессивная оптимизация */
+    body {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: auto;
+    }
+    
+    /* Отключаем backdrop-filter на слабых устройствах */
+    .header,
+    .contact-form-wrapper,
+    .parallax-item.logo-placeholder {
+        backdrop-filter: none !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+    }
+    
+    /* Упрощаем градиенты */
+    .hero,
+    .contact-section {
+        background: #667eea !important;
+    }
+    
+    /* Отключаем hover эффекты полностью */
+    .btn:hover,
+    .nav-link:hover,
+    .stat-card:hover,
+    .program-card:hover,
+    .advantage-card:hover,
+    .social-link:hover {
+        transform: none !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* character-card на мобильных без общего hover */
+
+    /* Упрощаем transition */
+    * {
+        transition: none !important;
+    }
+}
+
+/* ==================== GALLERY MODAL ==================== */
+.gallery-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: flex-start; /* прижимаем модалку к верху экрана */
+    justify-content: center;
+    padding-top: 5vh; /* небольшой отступ сверху */
+}
+
+.gallery-modal.active {
+    display: flex;
+}
+
+.gallery-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.gallery-modal-content {
+    position: relative;
+    width: 95%;
+    max-width: 1400px;
+    max-height: 90vh;
+    height: 90vh; /* вся модалка строго в пределах экрана */
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* всё, что не помещается, не вылезает за края */
+}
+
+.gallery-body {
+    display: grid;
+    grid-template-columns: 4fr 7fr; /* описание ~30%, фото ~70% */
+    gap: 2rem;
+    flex: 1 1 auto;
+    height: 100%;
+    max-height: 100%;
+    align-items: stretch;
+}
+
+/* Левый и правый блоки растягиваются на одинаковую высоту */
+.gallery-info,
+.gallery-images {
+    height: 100%;
+    min-height: 0; /* позволяет внутренним блокам корректно сжиматься */
+}
+
+/* Информация о персонаже (слева) */
+.gallery-info {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gallery-character-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-character-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-gray);
+}
+
+.gallery-character-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+}
+
+.gallery-detail-icon {
+    font-size: 1.5rem;
+}
+
+.gallery-detail-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.gallery-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 15px;
+}
+
+.gallery-price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.gallery-price-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.gallery-price-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-price-currency {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+}
+
+.gallery-packages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gallery-package-item {
+    padding: 0.75rem;
+    background: white;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.gallery-package-item strong {
+    color: var(--primary);
+}
+
+.gallery-order-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin-top: auto;
+}
+
+/* Изображения (справа) */
+.gallery-images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+}
+
+.gallery-close:hover {
+    background: #ff6b9d;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.gallery-main-image {
+    width: 100%;
+    flex: 1 1 auto; /* занимает всё доступное пространство, оставшееся под миниатюры и счётчик */
+    min-height: 0;  /* критично для корректного сжатия внутри flex-контейнера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.gallery-current-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+}
+
+.gallery-prev {
+    left: 10px;
+}
+
+.gallery-next {
+    right: 10px;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-thumbnails {
+    display: none; /* убираем превью фотографий под основной фотографией */
+}
+
+.gallery-thumbnail {
+    width: 80px;
+    height: 112px;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.gallery-thumbnail:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+    border-color: #ff6b9d;
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-counter {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Mobile Optimizations for Gallery */
+@media (max-width: 768px) {
+    /* Модалка тянется сверху и прокручивается вся страница */
+    .gallery-modal {
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+    }
+
+    .gallery-modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+    }
+
+    /* Мобильная версия: сначала полноэкранное фото, ниже — описание */
+    .gallery-body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+        max-height: none;
+        gap: 0;
+        overflow-y: visible;
+        background: rgba(255, 255, 255, 0.98); /* чтобы не просвечивал фон сайта между блоками */
+    }
+
+    .gallery-images {
+        order: 1;
+        flex: 0 0 auto;
+        width: 100%;
+        align-items: center;
+        gap: 0; /* убираем зазор между фото и описанием */
+        background: #000; /* фон под фото, чтобы не было "дыр" */
+    }
+
+    .gallery-main-image {
+        flex: 0 0 auto;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .gallery-info {
+        order: 2;
+        max-height: none;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .gallery-character-name {
+        font-size: 1.5rem;
+    }
+
+    .gallery-character-description {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .gallery-pricing {
+        padding: 1rem;
+    }
+
+    .gallery-price-amount {
+        font-size: 2rem;
+    }
+
+    .gallery-order-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* На мобильных скрываем миниатюры, чтобы фото было максимально крупным */
+    .gallery-thumbnails {
+        display: none;
+    }
+
+    .gallery-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        top: 5px;
+        right: 5px;
+    }
+
+    .gallery-prev,
+    .gallery-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        top: 30%;
+    }
+
+    .gallery-prev {
+        left: 5px;
+    }
+
+    .gallery-next {
+        right: 5px;
+    }
+
+    .gallery-thumbnail {
+        width: 60px;
+        height: 84px;
+    }
+
+    .gallery-counter {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== SELECTION PANEL ==================== */
+.selection-panel {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    padding: 1.5rem;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selection-panel.active {
+    bottom: 0;
+}
+
+.selection-panel-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.selection-info {
+    color: white;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.selection-info strong {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.selection-names {
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.selection-continue {
+    background: white;
+    color: #764ba2;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.selection-continue:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background: #ffd700;
+}
+
+@media (max-width: 768px) {
+    .selection-panel {
+        padding: 1rem;
+    }
+
+    .selection-panel-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .selection-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .selection-info strong {
+        font-size: 1rem;
+    }
+
+    .selection-continue {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
     }
 }

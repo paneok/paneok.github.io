@@ -1,0 +1,3559 @@
+{
+  "total_characters": 224,
+  "multi_image_characters": [
+    {
+      "id": 14,
+      "name": "Русалочка",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Принцесса Русалочка 2.png",
+      "gallery": [
+        "images/catalog/Принцесса Русалочка 2.png",
+        "images/catalog/Принцесса Русалочка 1.jpg"
+      ]
+    },
+    {
+      "id": 182,
+      "name": "Алиса и Шляпник1",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Парные/Алиса и Шляпник1.png",
+      "gallery": [
+        "images/catalog/Парные/Алиса и Шляпник1.png",
+        "images/catalog/Парные/Алиса и Шляпник2.png"
+      ]
+    },
+    {
+      "id": 230,
+      "name": "Пиратка 1",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Пиратка 1.png",
+      "gallery": [
+        "images/catalog/Пиратка 1.png",
+        "images/catalog/Пиратка 2.png"
+      ]
+    },
+    {
+      "id": 165,
+      "name": "Скоморох 1",
+      "gallery_size": 5,
+      "main_image": "images/catalog/Новый год/Дополнительные герои/Скоморох 1.png",
+      "gallery": [
+        "images/catalog/Новый год/Дополнительные герои/Скоморох 1.png",
+        "images/catalog/Новый год/Дополнительные герои/Скоморох 3.png",
+        "images/catalog/Новый год/Дополнительные герои/Скоморох 4.png",
+        "images/catalog/Новый год/Дополнительные герои/Скоморохи 2.png",
+        "images/catalog/Новый год/Дополнительные герои/Скоморохи 5.png"
+      ]
+    },
+    {
+      "id": 191,
+      "name": "Гравити фолз",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Парные/Гравити фолз.png",
+      "gallery": [
+        "images/catalog/Парные/Гравити фолз.png",
+        "images/catalog/Парные/ДМ и СН 2.png"
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Леди Баг",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Леди Баг 1.png",
+      "gallery": [
+        "images/catalog/Леди Баг 1.png",
+        "images/catalog/Леди баг 2.png"
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Черепашка",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Черепашка кр.png",
+      "gallery": [
+        "images/catalog/Черепашка кр.png",
+        "images/catalog/Черепашка син.png"
+      ]
+    },
+    {
+      "id": 74,
+      "name": "Эльф",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Эльф м.png",
+      "gallery": [
+        "images/catalog/Эльф м.png",
+        "images/catalog/Эльф ж.png"
+      ]
+    },
+    {
+      "id": 96,
+      "name": "Лабубу",
+      "gallery_size": 2,
+      "main_image": "images/catalog/Лабубу розовый.png",
+      "gallery": [
+        "images/catalog/Лабубу розовый.png",
+        "images/catalog/Лабубу беж.png"
+      ]
+    }
+  ],
+  "potential_duplicates": [
+    {
+      "clean_name": "чебурашка",
+      "characters": [
+        {
+          "id": 19,
+          "name": "Чебурашка",
+          "slug": "cheburashka",
+          "category": "cartoon",
+          "emoji": "🐻",
+          "images": {
+            "main": "images/catalog/Чебурашка.png",
+            "gallery": [
+              "images/catalog/Чебурашка.png"
+            ]
+          },
+          "description": {
+            "short": "Милый Чебурашка! Веселые игры и добрые истории.",
+            "full": "Дружелюбный Чебурашка устроит веселые игры, расскажет добрые истории и подарит море улыбок всем гостям."
+          },
+          "features": {
+            "age": "3-7",
+            "gender": "unisex",
+            "activities": [
+              "active",
+              "creative"
+            ],
+            "duration": [
+              1,
+              2
+            ]
+          },
+          "pricing": {
+            "hourly": 3200,
+            "packages": [
+              {
+                "duration": 2,
+                "price": 6000
+              }
+            ]
+          },
+          "tags": [
+            "универсальное",
+            "доброта",
+            "игры"
+          ],
+          "isPopular": true,
+          "isNew": false
+        },
+        {
+          "id": 228,
+          "name": "чебурашка",
+          "slug": "чебурашка",
+          "category": "entertainment",
+          "emoji": "🎤",
+          "images": {
+            "main": "images/catalog/Парные/чебурашка.png",
+            "gallery": [
+              "images/catalog/Парные/чебурашка.png"
+            ]
+          },
+          "description": {
+            "short": "чебурашка - веселый персонаж для праздника!",
+            "full": "чебурашка подарит незабываемые эмоции и веселье на вашем празднике!"
+          },
+          "features": {
+            "age": "3-12",
+            "gender": "unisex",
+            "activities": [
+              "dance",
+              "active"
+            ],
+            "duration": [
+              1,
+              2
+            ]
+          },
+          "pricing": {
+            "hourly": 3500,
+            "packages": [
+              {
+                "duration": 2,
+                "price": 6500
+              }
+            ]
+          },
+          "tags": [
+            "чебурашка"
+          ],
+          "isPopular": false,
+          "isNew": true
+        }
+      ],
+      "common_images": [
+        "images/catalog/Чебурашка.png",
+        "images/catalog/Парные/чебурашка.png"
+      ]
+    }
+  ],
+  "shared_images": [
+    {
+      "image": "images/catalog/Принцесса Русалочка 2.png",
+      "characters": [
+        {
+          "id": 14,
+          "name": "Русалочка",
+          "role": "main"
+        },
+        {
+          "id": 14,
+          "name": "Русалочка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Холодное сердце Эльза 1.png",
+      "characters": [
+        {
+          "id": 8,
+          "name": "Эльза",
+          "role": "main"
+        },
+        {
+          "id": 8,
+          "name": "Эльза",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Алиса и Шляпник1.png",
+      "characters": [
+        {
+          "id": 182,
+          "name": "Алиса и Шляпник1",
+          "role": "main"
+        },
+        {
+          "id": 182,
+          "name": "Алиса и Шляпник1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Пиратка 1.png",
+      "characters": [
+        {
+          "id": 230,
+          "name": "Пиратка 1",
+          "role": "main"
+        },
+        {
+          "id": 230,
+          "name": "Пиратка 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Буба2.png",
+      "characters": [
+        {
+          "id": 103,
+          "name": "Буба2",
+          "role": "main"
+        },
+        {
+          "id": 103,
+          "name": "Буба2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Космонавт ж.png",
+      "characters": [
+        {
+          "id": 15,
+          "name": "Космонавт",
+          "role": "main"
+        },
+        {
+          "id": 15,
+          "name": "Космонавт",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Скоморох 1.png",
+      "characters": [
+        {
+          "id": 165,
+          "name": "Скоморох 1",
+          "role": "main"
+        },
+        {
+          "id": 165,
+          "name": "Скоморох 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ростовые куклы/Тедди 1.png",
+      "characters": [
+        {
+          "id": 238,
+          "name": "Тедди 1",
+          "role": "main"
+        },
+        {
+          "id": 238,
+          "name": "Тедди 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Гравити фолз.png",
+      "characters": [
+        {
+          "id": 191,
+          "name": "Гравити фолз",
+          "role": "main"
+        },
+        {
+          "id": 191,
+          "name": "Гравити фолз",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Супергерл.png",
+      "characters": [
+        {
+          "id": 1,
+          "name": "Супергерой",
+          "role": "main"
+        },
+        {
+          "id": 1,
+          "name": "Супергерой",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса Бель.png",
+      "characters": [
+        {
+          "id": 2,
+          "name": "Принцесса",
+          "role": "main"
+        },
+        {
+          "id": 2,
+          "name": "Принцесса",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Клоун 1.png",
+      "characters": [
+        {
+          "id": 3,
+          "name": "Клоун",
+          "role": "main"
+        },
+        {
+          "id": 3,
+          "name": "Клоун",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Фея Блум вип.png",
+      "characters": [
+        {
+          "id": 4,
+          "name": "Фея",
+          "role": "main"
+        },
+        {
+          "id": 4,
+          "name": "Фея",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Дракончик.png",
+      "characters": [
+        {
+          "id": 5,
+          "name": "Король Лев",
+          "role": "main"
+        },
+        {
+          "id": 5,
+          "name": "Король Лев",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Волшебник.png",
+      "characters": [
+        {
+          "id": 6,
+          "name": "Волшебник",
+          "role": "main"
+        },
+        {
+          "id": 6,
+          "name": "Волшебник",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Человек паук.jpg",
+      "characters": [
+        {
+          "id": 7,
+          "name": "Человек-паук",
+          "role": "main"
+        },
+        {
+          "id": 7,
+          "name": "Человек-паук",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Пират.png",
+      "characters": [
+        {
+          "id": 9,
+          "name": "Пират",
+          "role": "main"
+        },
+        {
+          "id": 9,
+          "name": "Пират",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Единорожка вип.png",
+      "characters": [
+        {
+          "id": 10,
+          "name": "Единорог",
+          "role": "main"
+        },
+        {
+          "id": 10,
+          "name": "Единорог",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Бэтмен.jpg",
+      "characters": [
+        {
+          "id": 11,
+          "name": "Бэтмен",
+          "role": "main"
+        },
+        {
+          "id": 11,
+          "name": "Бэтмен",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Микки Маус.png",
+      "characters": [
+        {
+          "id": 12,
+          "name": "Минни Маус",
+          "role": "main"
+        },
+        {
+          "id": 12,
+          "name": "Минни Маус",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ростовые куклы/Динозавр.png",
+      "characters": [
+        {
+          "id": 13,
+          "name": "Динозавр",
+          "role": "main"
+        },
+        {
+          "id": 13,
+          "name": "Динозавр",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Аврора.png",
+      "characters": [
+        {
+          "id": 16,
+          "name": "Аврора",
+          "role": "main"
+        },
+        {
+          "id": 16,
+          "name": "Аврора",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Алиса.png",
+      "characters": [
+        {
+          "id": 17,
+          "name": "Алиса",
+          "role": "main"
+        },
+        {
+          "id": 17,
+          "name": "Алиса",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Барби.png",
+      "characters": [
+        {
+          "id": 18,
+          "name": "Барби",
+          "role": "main"
+        },
+        {
+          "id": 18,
+          "name": "Барби",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Чебурашка.png",
+      "characters": [
+        {
+          "id": 19,
+          "name": "Чебурашка",
+          "role": "main"
+        },
+        {
+          "id": 19,
+          "name": "Чебурашка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Стич.png",
+      "characters": [
+        {
+          "id": 20,
+          "name": "Стич",
+          "role": "main"
+        },
+        {
+          "id": 20,
+          "name": "Стич",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Пикачу.png",
+      "characters": [
+        {
+          "id": 21,
+          "name": "Пикачу",
+          "role": "main"
+        },
+        {
+          "id": 21,
+          "name": "Пикачу",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Баба Яга.png",
+      "characters": [
+        {
+          "id": 22,
+          "name": "Баба Яга",
+          "role": "main"
+        },
+        {
+          "id": 22,
+          "name": "Баба Яга",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Соник.png",
+      "characters": [
+        {
+          "id": 23,
+          "name": "Соник",
+          "role": "main"
+        },
+        {
+          "id": 23,
+          "name": "Соник",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Холодное сердце Анна.png",
+      "characters": [
+        {
+          "id": 24,
+          "name": "Холодное сердце Анна",
+          "role": "main"
+        },
+        {
+          "id": 24,
+          "name": "Холодное сердце Анна",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хогвардс Гарри Поттер.png",
+      "characters": [
+        {
+          "id": 28,
+          "name": "Гарри Поттер",
+          "role": "main"
+        },
+        {
+          "id": 28,
+          "name": "Гарри Поттер",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хогвардс Гермиона.png",
+      "characters": [
+        {
+          "id": 29,
+          "name": "Гермиона Грейнджер",
+          "role": "main"
+        },
+        {
+          "id": 29,
+          "name": "Гермиона Грейнджер",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ангел.jpg",
+      "characters": [
+        {
+          "id": 31,
+          "name": "Ангел",
+          "role": "main"
+        },
+        {
+          "id": 31,
+          "name": "Ангел",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Буба.jpg",
+      "characters": [
+        {
+          "id": 32,
+          "name": "Буба",
+          "role": "main"
+        },
+        {
+          "id": 32,
+          "name": "Буба",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Буратино.png",
+      "characters": [
+        {
+          "id": 33,
+          "name": "Буратино",
+          "role": "main"
+        },
+        {
+          "id": 33,
+          "name": "Буратино",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Энгри бердс.png",
+      "characters": [
+        {
+          "id": 35,
+          "name": "Энгри Бердс",
+          "role": "main"
+        },
+        {
+          "id": 35,
+          "name": "Энгри Бердс",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хэллоу Китти.png",
+      "characters": [
+        {
+          "id": 36,
+          "name": "Хэллоу Китти",
+          "role": "main"
+        },
+        {
+          "id": 36,
+          "name": "Хэллоу Китти",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Фиксик Симка.png",
+      "characters": [
+        {
+          "id": 37,
+          "name": "Фиксик Симка",
+          "role": "main"
+        },
+        {
+          "id": 37,
+          "name": "Фиксик Симка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Фиксики Шпуля.png",
+      "characters": [
+        {
+          "id": 38,
+          "name": "Фиксики Шпуля",
+          "role": "main"
+        },
+        {
+          "id": 38,
+          "name": "Фиксики Шпуля",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Тигруля.png",
+      "characters": [
+        {
+          "id": 39,
+          "name": "Тигруля",
+          "role": "main"
+        },
+        {
+          "id": 39,
+          "name": "Тигруля",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Белка Лиса.png",
+      "characters": [
+        {
+          "id": 40,
+          "name": "Белка Лиса",
+          "role": "main"
+        },
+        {
+          "id": 40,
+          "name": "Белка Лиса",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Вампир Дракула.JPG",
+      "characters": [
+        {
+          "id": 41,
+          "name": "Вампир Дракула",
+          "role": "main"
+        },
+        {
+          "id": 41,
+          "name": "Вампир Дракула",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведьма.png",
+      "characters": [
+        {
+          "id": 42,
+          "name": "Ведьма",
+          "role": "main"
+        },
+        {
+          "id": 42,
+          "name": "Ведьма",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Дарт Вейдер.png",
+      "characters": [
+        {
+          "id": 43,
+          "name": "Дарт Вейдер",
+          "role": "main"
+        },
+        {
+          "id": 43,
+          "name": "Дарт Вейдер",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гринч.png",
+      "characters": [
+        {
+          "id": 44,
+          "name": "Гринч",
+          "role": "main"
+        },
+        {
+          "id": 44,
+          "name": "Гринч",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Лунтик.png",
+      "characters": [
+        {
+          "id": 45,
+          "name": "Лунтик",
+          "role": "main"
+        },
+        {
+          "id": 45,
+          "name": "Лунтик",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Мальвина.png",
+      "characters": [
+        {
+          "id": 46,
+          "name": "Мальвина",
+          "role": "main"
+        },
+        {
+          "id": 46,
+          "name": "Мальвина",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Машенька.png",
+      "characters": [
+        {
+          "id": 47,
+          "name": "Машенька",
+          "role": "main"
+        },
+        {
+          "id": 47,
+          "name": "Машенька",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гавайи.png",
+      "characters": [
+        {
+          "id": 48,
+          "name": "Гавайи",
+          "role": "main"
+        },
+        {
+          "id": 48,
+          "name": "Гавайи",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гравити Фолз Мейбл.png",
+      "characters": [
+        {
+          "id": 49,
+          "name": "Гравити Фолз Мейбл",
+          "role": "main"
+        },
+        {
+          "id": 49,
+          "name": "Гравити Фолз Мейбл",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гравити Фолз Диппер.png",
+      "characters": [
+        {
+          "id": 50,
+          "name": "Гравити Фолз Диппер",
+          "role": "main"
+        },
+        {
+          "id": 50,
+          "name": "Гравити Фолз Диппер",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Лол Единорожка.png",
+      "characters": [
+        {
+          "id": 51,
+          "name": "Лол Единорожка",
+          "role": "main"
+        },
+        {
+          "id": 51,
+          "name": "Лол Единорожка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Мейвис.png",
+      "characters": [
+        {
+          "id": 52,
+          "name": "Мейвис",
+          "role": "main"
+        },
+        {
+          "id": 52,
+          "name": "Мейвис",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Мелоди.png",
+      "characters": [
+        {
+          "id": 53,
+          "name": "Мелоди",
+          "role": "main"
+        },
+        {
+          "id": 53,
+          "name": "Мелоди",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Миньон.png",
+      "characters": [
+        {
+          "id": 54,
+          "name": "Миньон",
+          "role": "main"
+        },
+        {
+          "id": 54,
+          "name": "Миньон",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса Жасмин.png",
+      "characters": [
+        {
+          "id": 56,
+          "name": "Принцесса Жасмин",
+          "role": "main"
+        },
+        {
+          "id": 56,
+          "name": "Принцесса Жасмин",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса Золушка.png",
+      "characters": [
+        {
+          "id": 57,
+          "name": "Принцесса Золушка",
+          "role": "main"
+        },
+        {
+          "id": 57,
+          "name": "Принцесса Золушка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса София.png",
+      "characters": [
+        {
+          "id": 58,
+          "name": "Принцесса София",
+          "role": "main"
+        },
+        {
+          "id": 58,
+          "name": "Принцесса София",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принц.png",
+      "characters": [
+        {
+          "id": 59,
+          "name": "Принц",
+          "role": "main"
+        },
+        {
+          "id": 59,
+          "name": "Принц",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Форт Боярд.png",
+      "characters": [
+        {
+          "id": 60,
+          "name": "Форт Боярд",
+          "role": "main"
+        },
+        {
+          "id": 60,
+          "name": "Форт Боярд",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Круэлла.png",
+      "characters": [
+        {
+          "id": 61,
+          "name": "Круэлла",
+          "role": "main"
+        },
+        {
+          "id": 61,
+          "name": "Круэлла",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Кукла Аннабель.png",
+      "characters": [
+        {
+          "id": 62,
+          "name": "Кукла Аннабель",
+          "role": "main"
+        },
+        {
+          "id": 62,
+          "name": "Кукла Аннабель",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Кукла Чаки.png",
+      "characters": [
+        {
+          "id": 63,
+          "name": "Кукла Чаки",
+          "role": "main"
+        },
+        {
+          "id": 63,
+          "name": "Кукла Чаки",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Куроми.png",
+      "characters": [
+        {
+          "id": 64,
+          "name": "Куроми",
+          "role": "main"
+        },
+        {
+          "id": 64,
+          "name": "Куроми",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Леди Баг 1.png",
+      "characters": [
+        {
+          "id": 65,
+          "name": "Леди Баг",
+          "role": "main"
+        },
+        {
+          "id": 65,
+          "name": "Леди Баг",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Супермен.png",
+      "characters": [
+        {
+          "id": 67,
+          "name": "Супермен",
+          "role": "main"
+        },
+        {
+          "id": 67,
+          "name": "Супермен",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Суперкот.png",
+      "characters": [
+        {
+          "id": 68,
+          "name": "Суперкот",
+          "role": "main"
+        },
+        {
+          "id": 68,
+          "name": "Суперкот",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Шапокляк.png",
+      "characters": [
+        {
+          "id": 69,
+          "name": "Шапокляк",
+          "role": "main"
+        },
+        {
+          "id": 69,
+          "name": "Шапокляк",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Школьница.png",
+      "characters": [
+        {
+          "id": 70,
+          "name": "Школьница",
+          "role": "main"
+        },
+        {
+          "id": 70,
+          "name": "Школьница",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Черепашка кр.png",
+      "characters": [
+        {
+          "id": 71,
+          "name": "Черепашка",
+          "role": "main"
+        },
+        {
+          "id": 71,
+          "name": "Черепашка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Щенячий патруль Скай.png",
+      "characters": [
+        {
+          "id": 72,
+          "name": "Щенячий патруль Скай",
+          "role": "main"
+        },
+        {
+          "id": 72,
+          "name": "Щенячий патруль Скай",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Щенячий патруль маршал новый.png",
+      "characters": [
+        {
+          "id": 73,
+          "name": "Щенячий патруль Маршал",
+          "role": "main"
+        },
+        {
+          "id": 73,
+          "name": "Щенячий патруль Маршал",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Эльф м.png",
+      "characters": [
+        {
+          "id": 74,
+          "name": "Эльф",
+          "role": "main"
+        },
+        {
+          "id": 74,
+          "name": "Эльф",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Бравл Старс Леон.png",
+      "characters": [
+        {
+          "id": 75,
+          "name": "Энгри Бердс Леон",
+          "role": "main"
+        },
+        {
+          "id": 75,
+          "name": "Энгри Бердс Леон",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Пеппи.png",
+      "characters": [
+        {
+          "id": 76,
+          "name": "Пеппи",
+          "role": "main"
+        },
+        {
+          "id": 76,
+          "name": "Пеппи",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Тролли Розочка.png",
+      "characters": [
+        {
+          "id": 77,
+          "name": "Тролли Розочка",
+          "role": "main"
+        },
+        {
+          "id": 77,
+          "name": "Тролли Розочка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Тачки МакКвин.png",
+      "characters": [
+        {
+          "id": 78,
+          "name": "Тачки МакКвин",
+          "role": "main"
+        },
+        {
+          "id": 78,
+          "name": "Тачки МакКвин",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Санта.jpg",
+      "characters": [
+        {
+          "id": 80,
+          "name": "Санта Клаус",
+          "role": "main"
+        },
+        {
+          "id": 80,
+          "name": "Санта Клаус",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Амонг зеленый.jpg",
+      "characters": [
+        {
+          "id": 81,
+          "name": "Амонг зеленый",
+          "role": "main"
+        },
+        {
+          "id": 81,
+          "name": "Амонг зеленый",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Амонг красный.jpg",
+      "characters": [
+        {
+          "id": 82,
+          "name": "Амонг красный",
+          "role": "main"
+        },
+        {
+          "id": 82,
+          "name": "Амонг красный",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Бравл Старс Шелли.jpg",
+      "characters": [
+        {
+          "id": 83,
+          "name": "Бравл Старс Шелли",
+          "role": "main"
+        },
+        {
+          "id": 83,
+          "name": "Бравл Старс Шелли",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гвен Стейси.png",
+      "characters": [
+        {
+          "id": 84,
+          "name": "Гвен Стейси",
+          "role": "main"
+        },
+        {
+          "id": 84,
+          "name": "Гвен Стейси",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ллойд ниндзяго.jpg",
+      "characters": [
+        {
+          "id": 85,
+          "name": "Ллойд ниндзяго",
+          "role": "main"
+        },
+        {
+          "id": 85,
+          "name": "Ллойд ниндзяго",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Луиза Мадригаль.png",
+      "characters": [
+        {
+          "id": 86,
+          "name": "Луиза Мадригаль",
+          "role": "main"
+        },
+        {
+          "id": 86,
+          "name": "Луиза Мадригаль",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Майнкрафт Стив.png",
+      "characters": [
+        {
+          "id": 87,
+          "name": "Майнкрафт Стив",
+          "role": "main"
+        },
+        {
+          "id": 87,
+          "name": "Майнкрафт Стив",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Малефисента.png",
+      "characters": [
+        {
+          "id": 88,
+          "name": "Малефисента",
+          "role": "main"
+        },
+        {
+          "id": 88,
+          "name": "Малефисента",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Май литтл пони Пинки Пай.png",
+      "characters": [
+        {
+          "id": 89,
+          "name": "Пинки Пай",
+          "role": "main"
+        },
+        {
+          "id": 89,
+          "name": "Пинки Пай",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Май литтл пони Радуга Дэш.png",
+      "characters": [
+        {
+          "id": 90,
+          "name": "Радуга Дэш",
+          "role": "main"
+        },
+        {
+          "id": 90,
+          "name": "Радуга Дэш",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Май литтл пони Искорка.png",
+      "characters": [
+        {
+          "id": 91,
+          "name": "Искорка",
+          "role": "main"
+        },
+        {
+          "id": 91,
+          "name": "Искорка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Как приручить дракона Астрид.png",
+      "characters": [
+        {
+          "id": 92,
+          "name": "Как приручить дракона Астрид",
+          "role": "main"
+        },
+        {
+          "id": 92,
+          "name": "Как приручить дракона Астрид",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Как приручить дракона Беззубик.png",
+      "characters": [
+        {
+          "id": 93,
+          "name": "Беззубик",
+          "role": "main"
+        },
+        {
+          "id": 93,
+          "name": "Беззубик",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Как приручить дракона Иккинг.png",
+      "characters": [
+        {
+          "id": 94,
+          "name": "Иккинг",
+          "role": "main"
+        },
+        {
+          "id": 94,
+          "name": "Иккинг",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Колдунья.jpg",
+      "characters": [
+        {
+          "id": 95,
+          "name": "Колдунья",
+          "role": "main"
+        },
+        {
+          "id": 95,
+          "name": "Колдунья",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Лабубу розовый.png",
+      "characters": [
+        {
+          "id": 96,
+          "name": "Лабубу",
+          "role": "main"
+        },
+        {
+          "id": 96,
+          "name": "Лабубу",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Три кота Карамелька.png",
+      "characters": [
+        {
+          "id": 97,
+          "name": "Три кота Карамелька",
+          "role": "main"
+        },
+        {
+          "id": 97,
+          "name": "Три кота Карамелька",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Три кота Компот.png",
+      "characters": [
+        {
+          "id": 98,
+          "name": "Три кота Компот",
+          "role": "main"
+        },
+        {
+          "id": 98,
+          "name": "Три кота Компот",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Три кота Коржик новый.png",
+      "characters": [
+        {
+          "id": 99,
+          "name": "Три кота Коржик",
+          "role": "main"
+        },
+        {
+          "id": 99,
+          "name": "Три кота Коржик",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хаги Ваги 1.jpg",
+      "characters": [
+        {
+          "id": 100,
+          "name": "Хаги Ваги",
+          "role": "main"
+        },
+        {
+          "id": 100,
+          "name": "Хаги Ваги",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Аллет.png",
+      "characters": [
+        {
+          "id": 101,
+          "name": "Аллет",
+          "role": "main"
+        },
+        {
+          "id": 101,
+          "name": "Аллет",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Амонг розовый.jpg",
+      "characters": [
+        {
+          "id": 102,
+          "name": "Амонг розовый",
+          "role": "main"
+        },
+        {
+          "id": 102,
+          "name": "Амонг розовый",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Бумажный дом.png",
+      "characters": [
+        {
+          "id": 104,
+          "name": "Бумажный дом",
+          "role": "main"
+        },
+        {
+          "id": 104,
+          "name": "Бумажный дом",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая К-поп.png",
+      "characters": [
+        {
+          "id": 105,
+          "name": "Ведущая К-поп",
+          "role": "main"
+        },
+        {
+          "id": 105,
+          "name": "Ведущая К-поп",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая Поп ит.png",
+      "characters": [
+        {
+          "id": 106,
+          "name": "Ведущая Поп ит",
+          "role": "main"
+        },
+        {
+          "id": 106,
+          "name": "Ведущая Поп ит",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая Стиляги.png",
+      "characters": [
+        {
+          "id": 107,
+          "name": "Ведущая Стиляги",
+          "role": "main"
+        },
+        {
+          "id": 107,
+          "name": "Ведущая Стиляги",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая серебро 1.png",
+      "characters": [
+        {
+          "id": 108,
+          "name": "Ведущая серебро 1",
+          "role": "main"
+        },
+        {
+          "id": 108,
+          "name": "Ведущая серебро 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая серебро 2.png",
+      "characters": [
+        {
+          "id": 109,
+          "name": "Ведущая серебро 2",
+          "role": "main"
+        },
+        {
+          "id": 109,
+          "name": "Ведущая серебро 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая серебро пайетка 1.png",
+      "characters": [
+        {
+          "id": 110,
+          "name": "Ведущая серебро пайетка 1",
+          "role": "main"
+        },
+        {
+          "id": 110,
+          "name": "Ведущая серебро пайетка 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая серебро пайетка 2.png",
+      "characters": [
+        {
+          "id": 111,
+          "name": "Ведущая серебро пайетка 2",
+          "role": "main"
+        },
+        {
+          "id": 111,
+          "name": "Ведущая серебро пайетка 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая современный 2.png",
+      "characters": [
+        {
+          "id": 112,
+          "name": "Ведущая современный 2",
+          "role": "main"
+        },
+        {
+          "id": 112,
+          "name": "Ведущая современный 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая современный.png",
+      "characters": [
+        {
+          "id": 113,
+          "name": "Ведущая современный",
+          "role": "main"
+        },
+        {
+          "id": 113,
+          "name": "Ведущая современный",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущая тик ток.png",
+      "characters": [
+        {
+          "id": 114,
+          "name": "Ведущая тик ток",
+          "role": "main"
+        },
+        {
+          "id": 114,
+          "name": "Ведущая тик ток",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущие Мафия.png",
+      "characters": [
+        {
+          "id": 115,
+          "name": "Ведущие Мафия",
+          "role": "main"
+        },
+        {
+          "id": 115,
+          "name": "Ведущие Мафия",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий диско женский 2.png",
+      "characters": [
+        {
+          "id": 116,
+          "name": "Ведущий диско женский 2",
+          "role": "main"
+        },
+        {
+          "id": 116,
+          "name": "Ведущий диско женский 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий ж диско.png",
+      "characters": [
+        {
+          "id": 117,
+          "name": "Ведущий ж диско",
+          "role": "main"
+        },
+        {
+          "id": 117,
+          "name": "Ведущий ж диско",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий м диско.jpg",
+      "characters": [
+        {
+          "id": 118,
+          "name": "Ведущий м диско",
+          "role": "main"
+        },
+        {
+          "id": 118,
+          "name": "Ведущий м диско",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий мультфильмы.png",
+      "characters": [
+        {
+          "id": 119,
+          "name": "Ведущий мультфильмы",
+          "role": "main"
+        },
+        {
+          "id": 119,
+          "name": "Ведущий мультфильмы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий неон.png",
+      "characters": [
+        {
+          "id": 120,
+          "name": "Ведущий неон",
+          "role": "main"
+        },
+        {
+          "id": 120,
+          "name": "Ведущий неон",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий черный ж.png",
+      "characters": [
+        {
+          "id": 121,
+          "name": "Ведущий черный ж",
+          "role": "main"
+        },
+        {
+          "id": 121,
+          "name": "Ведущий черный ж",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ведущий черный м.png",
+      "characters": [
+        {
+          "id": 122,
+          "name": "Ведущий черный м",
+          "role": "main"
+        },
+        {
+          "id": 122,
+          "name": "Ведущий черный м",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Военный женский.png",
+      "characters": [
+        {
+          "id": 123,
+          "name": "Военный женский",
+          "role": "main"
+        },
+        {
+          "id": 123,
+          "name": "Военный женский",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Военный мужской.png",
+      "characters": [
+        {
+          "id": 124,
+          "name": "Военный мужской",
+          "role": "main"
+        },
+        {
+          "id": 124,
+          "name": "Военный мужской",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гравити Фолз Венди.png",
+      "characters": [
+        {
+          "id": 125,
+          "name": "Гравити Фолз Венди",
+          "role": "main"
+        },
+        {
+          "id": 125,
+          "name": "Гравити Фолз Венди",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Гусь обнимусь.png",
+      "characters": [
+        {
+          "id": 126,
+          "name": "Гусь обнимусь",
+          "role": "main"
+        },
+        {
+          "id": 126,
+          "name": "Гусь обнимусь",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Девочка новогодняя.png",
+      "characters": [
+        {
+          "id": 127,
+          "name": "Девочка новогодняя",
+          "role": "main"
+        },
+        {
+          "id": 127,
+          "name": "Девочка новогодняя",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Доктор Плюшева.png",
+      "characters": [
+        {
+          "id": 128,
+          "name": "Доктор Плюшева",
+          "role": "main"
+        },
+        {
+          "id": 128,
+          "name": "Доктор Плюшева",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Дракулаура Монстр Хай.jpg",
+      "characters": [
+        {
+          "id": 129,
+          "name": "Дракулаура Монстр Хай",
+          "role": "main"
+        },
+        {
+          "id": 129,
+          "name": "Дракулаура Монстр Хай",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Заяц белый.png",
+      "characters": [
+        {
+          "id": 130,
+          "name": "Заяц белый",
+          "role": "main"
+        },
+        {
+          "id": 130,
+          "name": "Заяц белый",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Заяц серый.png",
+      "characters": [
+        {
+          "id": 131,
+          "name": "Заяц серый",
+          "role": "main"
+        },
+        {
+          "id": 131,
+          "name": "Заяц серый",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Игра в кальмара.png",
+      "characters": [
+        {
+          "id": 132,
+          "name": "Игра в кальмара",
+          "role": "main"
+        },
+        {
+          "id": 132,
+          "name": "Игра в кальмара",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Клоун 2.png",
+      "characters": [
+        {
+          "id": 133,
+          "name": "Клоун 2",
+          "role": "main"
+        },
+        {
+          "id": 133,
+          "name": "Клоун 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Космонавт м2.png",
+      "characters": [
+        {
+          "id": 134,
+          "name": "Космонавт м2",
+          "role": "main"
+        },
+        {
+          "id": 134,
+          "name": "Космонавт м2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Лабубу ведущая.png",
+      "characters": [
+        {
+          "id": 135,
+          "name": "Лабубу ведущая",
+          "role": "main"
+        },
+        {
+          "id": 135,
+          "name": "Лабубу ведущая",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Майнкрафт Ведущая женский.png",
+      "characters": [
+        {
+          "id": 136,
+          "name": "Майнкрафт Ведущая женский",
+          "role": "main"
+        },
+        {
+          "id": 136,
+          "name": "Майнкрафт Ведущая женский",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Майнкрафт Ведущий мужской.png",
+      "characters": [
+        {
+          "id": 137,
+          "name": "Майнкрафт Ведущий мужской",
+          "role": "main"
+        },
+        {
+          "id": 137,
+          "name": "Майнкрафт Ведущий мужской",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Майнкрафт Криппер.png",
+      "characters": [
+        {
+          "id": 138,
+          "name": "Майнкрафт Криппер",
+          "role": "main"
+        },
+        {
+          "id": 138,
+          "name": "Майнкрафт Криппер",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Мумия.png",
+      "characters": [
+        {
+          "id": 140,
+          "name": "Мумия",
+          "role": "main"
+        },
+        {
+          "id": 140,
+          "name": "Мумия",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/ДМ и Сн 1.png",
+      "characters": [
+        {
+          "id": 142,
+          "name": "ДМ и Сн 1",
+          "role": "main"
+        },
+        {
+          "id": 142,
+          "name": "ДМ и Сн 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/ДМ вип 2.png",
+      "characters": [
+        {
+          "id": 143,
+          "name": "ДМ вип 2",
+          "role": "main"
+        },
+        {
+          "id": 143,
+          "name": "ДМ вип 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/ДМ.png",
+      "characters": [
+        {
+          "id": 144,
+          "name": "ДМ",
+          "role": "main"
+        },
+        {
+          "id": 144,
+          "name": "ДМ",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/ДМвип 1.png",
+      "characters": [
+        {
+          "id": 145,
+          "name": "ДМвип 1",
+          "role": "main"
+        },
+        {
+          "id": 145,
+          "name": "ДМвип 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/Сн 5.png",
+      "characters": [
+        {
+          "id": 146,
+          "name": "Сн 5",
+          "role": "main"
+        },
+        {
+          "id": 146,
+          "name": "Сн 5",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/Сн вип 1.png",
+      "characters": [
+        {
+          "id": 147,
+          "name": "Сн вип 1",
+          "role": "main"
+        },
+        {
+          "id": 147,
+          "name": "Сн вип 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/Сн вип 2.png",
+      "characters": [
+        {
+          "id": 148,
+          "name": "Сн вип 2",
+          "role": "main"
+        },
+        {
+          "id": 148,
+          "name": "Сн вип 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Одиночки/Снегурочка 1.jpg",
+      "characters": [
+        {
+          "id": 149,
+          "name": "Снегурочка 1",
+          "role": "main"
+        },
+        {
+          "id": 149,
+          "name": "Снегурочка 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Пара Боярская .png",
+      "characters": [
+        {
+          "id": 150,
+          "name": "Пара Боярская ",
+          "role": "main"
+        },
+        {
+          "id": 150,
+          "name": "Пара Боярская ",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Пара бархат .png",
+      "characters": [
+        {
+          "id": 151,
+          "name": "Пара бархат ",
+          "role": "main"
+        },
+        {
+          "id": 151,
+          "name": "Пара бархат ",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Пара стандарт.png",
+      "characters": [
+        {
+          "id": 152,
+          "name": "Пара стандарт",
+          "role": "main"
+        },
+        {
+          "id": 152,
+          "name": "Пара стандарт",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/ДМ и Сн костюмы/Пара улица.JPG",
+      "characters": [
+        {
+          "id": 153,
+          "name": "Пара улица",
+          "role": "main"
+        },
+        {
+          "id": 153,
+          "name": "Пара улица",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Девочка.JPG",
+      "characters": [
+        {
+          "id": 154,
+          "name": "Девочка",
+          "role": "main"
+        },
+        {
+          "id": 154,
+          "name": "Девочка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Лошадка.png",
+      "characters": [
+        {
+          "id": 159,
+          "name": "Лошадка",
+          "role": "main"
+        },
+        {
+          "id": 159,
+          "name": "Лошадка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Май литтл пони Искорка.png",
+      "characters": [
+        {
+          "id": 160,
+          "name": "Май литтл пони Искорка",
+          "role": "main"
+        },
+        {
+          "id": 160,
+          "name": "Май литтл пони Искорка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Май литтл пони Пинки Пай.png",
+      "characters": [
+        {
+          "id": 161,
+          "name": "Май литтл пони Пинки Пай",
+          "role": "main"
+        },
+        {
+          "id": 161,
+          "name": "Май литтл пони Пинки Пай",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Май литтл пони Радуга Дэш.png",
+      "characters": [
+        {
+          "id": 162,
+          "name": "Май литтл пони Радуга Дэш",
+          "role": "main"
+        },
+        {
+          "id": 162,
+          "name": "Май литтл пони Радуга Дэш",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Ростовая кукла.JPG",
+      "characters": [
+        {
+          "id": 163,
+          "name": "Ростовая кукла",
+          "role": "main"
+        },
+        {
+          "id": 163,
+          "name": "Ростовая кукла",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Санта.jpg",
+      "characters": [
+        {
+          "id": 164,
+          "name": "Санта",
+          "role": "main"
+        },
+        {
+          "id": 164,
+          "name": "Санта",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Тучка Мимимишки.png",
+      "characters": [
+        {
+          "id": 170,
+          "name": "Тучка Мимимишки",
+          "role": "main"
+        },
+        {
+          "id": 170,
+          "name": "Тучка Мимимишки",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Фъерк облачко 1.png",
+      "characters": [
+        {
+          "id": 171,
+          "name": "Фъерк облачко 1",
+          "role": "main"
+        },
+        {
+          "id": 171,
+          "name": "Фъерк облачко 1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Эльф ж вип.png",
+      "characters": [
+        {
+          "id": 172,
+          "name": "Эльф ж вип",
+          "role": "main"
+        },
+        {
+          "id": 172,
+          "name": "Эльф ж вип",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Дополнительные герои/Эльф м вип.png",
+      "characters": [
+        {
+          "id": 173,
+          "name": "Эльф м вип",
+          "role": "main"
+        },
+        {
+          "id": 173,
+          "name": "Эльф м вип",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Санта и Эльфы.png",
+      "characters": [
+        {
+          "id": 175,
+          "name": "Санта и Эльфы",
+          "role": "main"
+        },
+        {
+          "id": 175,
+          "name": "Санта и Эльфы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Северный мишка.png",
+      "characters": [
+        {
+          "id": 176,
+          "name": "Северный мишка",
+          "role": "main"
+        },
+        {
+          "id": 176,
+          "name": "Северный мишка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Снежинка.png",
+      "characters": [
+        {
+          "id": 177,
+          "name": "Снежинка",
+          "role": "main"
+        },
+        {
+          "id": 177,
+          "name": "Снежинка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Снежная королева.png",
+      "characters": [
+        {
+          "id": 178,
+          "name": "Снежная королева",
+          "role": "main"
+        },
+        {
+          "id": 178,
+          "name": "Снежная королева",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Новый год/Эльфы.JPG",
+      "characters": [
+        {
+          "id": 179,
+          "name": "Эльфы",
+          "role": "main"
+        },
+        {
+          "id": 179,
+          "name": "Эльфы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Палеонтолог жен.png",
+      "characters": [
+        {
+          "id": 180,
+          "name": "Палеонтолог жен",
+          "role": "main"
+        },
+        {
+          "id": 180,
+          "name": "Палеонтолог жен",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Палеонтолог муж.png",
+      "characters": [
+        {
+          "id": 181,
+          "name": "Палеонтолог муж",
+          "role": "main"
+        },
+        {
+          "id": 181,
+          "name": "Палеонтолог муж",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Бравл старс.png",
+      "characters": [
+        {
+          "id": 184,
+          "name": "Бравл старс",
+          "role": "main"
+        },
+        {
+          "id": 184,
+          "name": "Бравл старс",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Ведущие 2.png",
+      "characters": [
+        {
+          "id": 186,
+          "name": "Ведущие 2",
+          "role": "main"
+        },
+        {
+          "id": 186,
+          "name": "Ведущие 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Ведущие Майнкрафт.png",
+      "characters": [
+        {
+          "id": 187,
+          "name": "Ведущие Майнкрафт",
+          "role": "main"
+        },
+        {
+          "id": 187,
+          "name": "Ведущие Майнкрафт",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Ведущие черные.png",
+      "characters": [
+        {
+          "id": 188,
+          "name": "Ведущие черные",
+          "role": "main"
+        },
+        {
+          "id": 188,
+          "name": "Ведущие черные",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Ведущие.png",
+      "characters": [
+        {
+          "id": 189,
+          "name": "Ведущие",
+          "role": "main"
+        },
+        {
+          "id": 189,
+          "name": "Ведущие",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/ДМ и СН 3.png",
+      "characters": [
+        {
+          "id": 193,
+          "name": "ДМ и СН 3",
+          "role": "main"
+        },
+        {
+          "id": 193,
+          "name": "ДМ и СН 3",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Дед Мороз и Снегурочка.JPG",
+      "characters": [
+        {
+          "id": 195,
+          "name": "Дед Мороз и Снегурочка",
+          "role": "main"
+        },
+        {
+          "id": 195,
+          "name": "Дед Мороз и Снегурочка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Зайцы.png",
+      "characters": [
+        {
+          "id": 196,
+          "name": "Зайцы",
+          "role": "main"
+        },
+        {
+          "id": 196,
+          "name": "Зайцы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Как приручить дракона.png",
+      "characters": [
+        {
+          "id": 197,
+          "name": "Как приручить дракона",
+          "role": "main"
+        },
+        {
+          "id": 197,
+          "name": "Как приручить дракона",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Клоуны.png",
+      "characters": [
+        {
+          "id": 198,
+          "name": "Клоуны",
+          "role": "main"
+        },
+        {
+          "id": 198,
+          "name": "Клоуны",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Космонавты.png",
+      "characters": [
+        {
+          "id": 199,
+          "name": "Космонавты",
+          "role": "main"
+        },
+        {
+          "id": 199,
+          "name": "Космонавты",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Леди Баг и Супер кот.png",
+      "characters": [
+        {
+          "id": 201,
+          "name": "Леди Баг и Супер кот",
+          "role": "main"
+        },
+        {
+          "id": 201,
+          "name": "Леди Баг и Супер кот",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Май мелоди.png",
+      "characters": [
+        {
+          "id": 202,
+          "name": "Май мелоди",
+          "role": "main"
+        },
+        {
+          "id": 202,
+          "name": "Май мелоди",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Майнкрафт.png",
+      "characters": [
+        {
+          "id": 203,
+          "name": "Майнкрафт",
+          "role": "main"
+        },
+        {
+          "id": 203,
+          "name": "Майнкрафт",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Маусы.png",
+      "characters": [
+        {
+          "id": 204,
+          "name": "Маусы",
+          "role": "main"
+        },
+        {
+          "id": 204,
+          "name": "Маусы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Мафия.png",
+      "characters": [
+        {
+          "id": 205,
+          "name": "Мафия",
+          "role": "main"
+        },
+        {
+          "id": 205,
+          "name": "Мафия",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Палеонтологи.png",
+      "characters": [
+        {
+          "id": 206,
+          "name": "Палеонтологи",
+          "role": "main"
+        },
+        {
+          "id": 206,
+          "name": "Палеонтологи",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Пауки.png",
+      "characters": [
+        {
+          "id": 207,
+          "name": "Пауки",
+          "role": "main"
+        },
+        {
+          "id": 207,
+          "name": "Пауки",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Пираты 2.png",
+      "characters": [
+        {
+          "id": 208,
+          "name": "Пираты 2",
+          "role": "main"
+        },
+        {
+          "id": 208,
+          "name": "Пираты 2",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Пираты1.png",
+      "characters": [
+        {
+          "id": 209,
+          "name": "Пираты1",
+          "role": "main"
+        },
+        {
+          "id": 209,
+          "name": "Пираты1",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Скоморохи.png",
+      "characters": [
+        {
+          "id": 211,
+          "name": "Скоморохи",
+          "role": "main"
+        },
+        {
+          "id": 211,
+          "name": "Скоморохи",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Три кота.png",
+      "characters": [
+        {
+          "id": 213,
+          "name": "Три кота",
+          "role": "main"
+        },
+        {
+          "id": 213,
+          "name": "Три кота",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Тролли.png",
+      "characters": [
+        {
+          "id": 214,
+          "name": "Тролли",
+          "role": "main"
+        },
+        {
+          "id": 214,
+          "name": "Тролли",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Фиксики.png",
+      "characters": [
+        {
+          "id": 215,
+          "name": "Фиксики",
+          "role": "main"
+        },
+        {
+          "id": 215,
+          "name": "Фиксики",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Хогвардс.png",
+      "characters": [
+        {
+          "id": 217,
+          "name": "Хогвардс",
+          "role": "main"
+        },
+        {
+          "id": 217,
+          "name": "Хогвардс",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Холодное сердце.png",
+      "characters": [
+        {
+          "id": 218,
+          "name": "Холодное сердце",
+          "role": "main"
+        },
+        {
+          "id": 218,
+          "name": "Холодное сердце",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Черепашки.png",
+      "characters": [
+        {
+          "id": 219,
+          "name": "Черепашки",
+          "role": "main"
+        },
+        {
+          "id": 219,
+          "name": "Черепашки",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Щенячий патруль.png",
+      "characters": [
+        {
+          "id": 220,
+          "name": "Щенячий патруль",
+          "role": "main"
+        },
+        {
+          "id": 220,
+          "name": "Щенячий патруль",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/Эльфы вип.png",
+      "characters": [
+        {
+          "id": 221,
+          "name": "Эльфы вип",
+          "role": "main"
+        },
+        {
+          "id": 221,
+          "name": "Эльфы вип",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/аддамсы.png",
+      "characters": [
+        {
+          "id": 223,
+          "name": "аддамсы",
+          "role": "main"
+        },
+        {
+          "id": 223,
+          "name": "аддамсы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/амонг ас.jpg",
+      "characters": [
+        {
+          "id": 224,
+          "name": "амонг ас",
+          "role": "main"
+        },
+        {
+          "id": 224,
+          "name": "амонг ас",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/пони.png",
+      "characters": [
+        {
+          "id": 225,
+          "name": "пони",
+          "role": "main"
+        },
+        {
+          "id": 225,
+          "name": "пони",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/спящая красавица.png",
+      "characters": [
+        {
+          "id": 226,
+          "name": "спящая красавица",
+          "role": "main"
+        },
+        {
+          "id": 226,
+          "name": "спящая красавица",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/суперы.png",
+      "characters": [
+        {
+          "id": 227,
+          "name": "суперы",
+          "role": "main"
+        },
+        {
+          "id": 227,
+          "name": "суперы",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Парные/чебурашка.png",
+      "characters": [
+        {
+          "id": 228,
+          "name": "чебурашка",
+          "role": "main"
+        },
+        {
+          "id": 228,
+          "name": "чебурашка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Пижама.png",
+      "characters": [
+        {
+          "id": 229,
+          "name": "Пижама",
+          "role": "main"
+        },
+        {
+          "id": 229,
+          "name": "Пижама",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса Рапунцель.png",
+      "characters": [
+        {
+          "id": 232,
+          "name": "Принцесса Рапунцель",
+          "role": "main"
+        },
+        {
+          "id": 232,
+          "name": "Принцесса Рапунцель",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Принцесса золотая.png",
+      "characters": [
+        {
+          "id": 233,
+          "name": "Принцесса золотая",
+          "role": "main"
+        },
+        {
+          "id": 233,
+          "name": "Принцесса золотая",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Радужный друг синий пайетка.jpg.png",
+      "characters": [
+        {
+          "id": 234,
+          "name": "Радужный друг синий пайетка.jpg",
+          "role": "main"
+        },
+        {
+          "id": 234,
+          "name": "Радужный друг синий пайетка.jpg",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Роза Барбоскина.png",
+      "characters": [
+        {
+          "id": 235,
+          "name": "Роза Барбоскина",
+          "role": "main"
+        },
+        {
+          "id": 235,
+          "name": "Роза Барбоскина",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ростовые куклы/Ростовая кукла Олаф.JPG",
+      "characters": [
+        {
+          "id": 236,
+          "name": "Ростовая кукла Олаф",
+          "role": "main"
+        },
+        {
+          "id": 236,
+          "name": "Ростовая кукла Олаф",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ростовые куклы/Ростовая кукла Сердце.JPG",
+      "characters": [
+        {
+          "id": 237,
+          "name": "Ростовая кукла Сердце",
+          "role": "main"
+        },
+        {
+          "id": 237,
+          "name": "Ростовая кукла Сердце",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Семейка Аддамс Венсдей.png",
+      "characters": [
+        {
+          "id": 239,
+          "name": "Семейка Аддамс Венсдей",
+          "role": "main"
+        },
+        {
+          "id": 239,
+          "name": "Семейка Аддамс Венсдей",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Семейка Аддамс Мартиша.png",
+      "characters": [
+        {
+          "id": 240,
+          "name": "Семейка Аддамс Мартиша",
+          "role": "main"
+        },
+        {
+          "id": 240,
+          "name": "Семейка Аддамс Мартиша",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Семейка Аддамс Паксли.png",
+      "characters": [
+        {
+          "id": 241,
+          "name": "Семейка Аддамс Паксли",
+          "role": "main"
+        },
+        {
+          "id": 241,
+          "name": "Семейка Аддамс Паксли",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Семейка Аддамс Энид.png",
+      "characters": [
+        {
+          "id": 242,
+          "name": "Семейка Аддамс Энид",
+          "role": "main"
+        },
+        {
+          "id": 242,
+          "name": "Семейка Аддамс Энид",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Сладкоежка.png",
+      "characters": [
+        {
+          "id": 248,
+          "name": "Сладкоежка",
+          "role": "main"
+        },
+        {
+          "id": 248,
+          "name": "Сладкоежка",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Тачки ведущая.png",
+      "characters": [
+        {
+          "id": 250,
+          "name": "Тачки ведущая",
+          "role": "main"
+        },
+        {
+          "id": 250,
+          "name": "Тачки ведущая",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Тролли Цветан.jpg",
+      "characters": [
+        {
+          "id": 251,
+          "name": "Тролли Цветан",
+          "role": "main"
+        },
+        {
+          "id": 251,
+          "name": "Тролли Цветан",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Ферма.png",
+      "characters": [
+        {
+          "id": 253,
+          "name": "Ферма",
+          "role": "main"
+        },
+        {
+          "id": 253,
+          "name": "Ферма",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Футбол.jpg",
+      "characters": [
+        {
+          "id": 254,
+          "name": "Футбол",
+          "role": "main"
+        },
+        {
+          "id": 254,
+          "name": "Футбол",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хаги ведущая.png",
+      "characters": [
+        {
+          "id": 256,
+          "name": "Хаги ведущая",
+          "role": "main"
+        },
+        {
+          "id": 256,
+          "name": "Хаги ведущая",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Харли.jpg",
+      "characters": [
+        {
+          "id": 257,
+          "name": "Харли",
+          "role": "main"
+        },
+        {
+          "id": 257,
+          "name": "Харли",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хогвардс Джинни.png",
+      "characters": [
+        {
+          "id": 258,
+          "name": "Хогвардс Джинни",
+          "role": "main"
+        },
+        {
+          "id": 258,
+          "name": "Хогвардс Джинни",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Хогвардс Полумна.png",
+      "characters": [
+        {
+          "id": 259,
+          "name": "Хогвардс Полумна",
+          "role": "main"
+        },
+        {
+          "id": 259,
+          "name": "Хогвардс Полумна",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Цифровой цирк Помни.png",
+      "characters": [
+        {
+          "id": 260,
+          "name": "Цифровой цирк Помни",
+          "role": "main"
+        },
+        {
+          "id": 260,
+          "name": "Цифровой цирк Помни",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Шляпник.png",
+      "characters": [
+        {
+          "id": 261,
+          "name": "Шляпник",
+          "role": "main"
+        },
+        {
+          "id": 261,
+          "name": "Шляпник",
+          "role": "gallery"
+        }
+      ]
+    },
+    {
+      "image": "images/catalog/Щенячий патруль Гонщик.png",
+      "characters": [
+        {
+          "id": 262,
+          "name": "Щенячий патруль Гонщик",
+          "role": "main"
+        },
+        {
+          "id": 262,
+          "name": "Щенячий патруль Гонщик",
+          "role": "gallery"
+        }
+      ]
+    }
+  ]
+}

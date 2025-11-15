@@ -6,6 +6,7 @@ class CharactersFilter {
             search: '',
             age: [],
             gender: [],
+            category: [],
             activities: [],
             priceMin: 0,
             priceMax: 10000
@@ -15,6 +16,28 @@ class CharactersFilter {
         this.debounceTimer = null;
 
         this.initializeFilters();
+        this.initializeAccordions();
+    }
+
+    initializeAccordions() {
+        const accordions = document.querySelectorAll('.filter-accordion');
+        
+        accordions.forEach(accordion => {
+            const header = accordion.querySelector('.filter-accordion-header');
+            
+            if (header) {
+                // Открыть/закрыть при клике
+                header.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    accordion.classList.toggle('open');
+                });
+            }
+            
+            // Закрыть при уходе курсора с аккордеона
+            accordion.addEventListener('mouseleave', () => {
+                accordion.classList.remove('open');
+            });
+        });
     }
 
     initializeFilters() {
@@ -30,7 +53,7 @@ class CharactersFilter {
             });
         }
 
-        // Checkboxes (age, gender, activities)
+        // Checkboxes (age, gender, category, activities)
         const checkboxes = document.querySelectorAll('.filter-checkbox input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', () => {
@@ -91,11 +114,12 @@ class CharactersFilter {
         });
     }
 
-    // Update checkbox filters (age, gender, activities)
+    // Update checkbox filters (age, gender, category, activities)
     updateCheckboxFilters() {
         // Reset arrays
         this.filters.age = [];
         this.filters.gender = [];
+        this.filters.category = [];
         this.filters.activities = [];
 
         // Age checkboxes
@@ -106,6 +130,11 @@ class CharactersFilter {
         // Gender checkboxes
         document.querySelectorAll('input[name="gender"]:checked').forEach(checkbox => {
             this.filters.gender.push(checkbox.value);
+        });
+
+        // Category checkboxes
+        document.querySelectorAll('input[name="category"]:checked').forEach(checkbox => {
+            this.filters.category.push(checkbox.value);
         });
 
         // Activities checkboxes
@@ -150,6 +179,13 @@ class CharactersFilter {
         if (this.filters.gender.length > 0) {
             filtered = filtered.filter(char => {
                 return this.filters.gender.includes(char.features.gender);
+            });
+        }
+
+        // Category filter
+        if (this.filters.category.length > 0) {
+            filtered = filtered.filter(char => {
+                return this.filters.category.includes(char.category);
             });
         }
 
@@ -209,6 +245,7 @@ class CharactersFilter {
         });
         this.filters.age = [];
         this.filters.gender = [];
+        this.filters.category = [];
         this.filters.activities = [];
 
         // Reset price slider

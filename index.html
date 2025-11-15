@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <title>Волшебный Праздник - Агентство Аниматоров</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,7 @@
                     <ul class="nav-menu">
                         <li><a href="#home" class="nav-link">Главная</a></li>
                         <li><a href="#characters" class="nav-link">Персонажи</a></li>
+                        <li><a href="new-year.html" class="nav-link nav-link-new-year">🎄 Новый год</a></li>
                         <li><a href="#programs" class="nav-link">Программы</a></li>
                         <li><a href="#contact" class="nav-link">Контакты</a></li>
                     </ul>
@@ -41,146 +42,55 @@
         <!-- Particles Container -->
         <div id="particles-container" class="particles-container"></div>
 
-        <!-- Parallax Elements -->
+        <!-- Parallax Elements (праздничные иконки, через которые "летим") -->
         <div class="parallax-container">
-            <!-- Balloons - NEAR (большие, быстрые) -->
-            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-1" data-speed="3.8" alt="">
-            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-2" data-speed="4.2" alt="">
-            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-3" data-speed="3.5" alt="">
-            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-4" data-speed="4.0" alt="">
-            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-5" data-speed="3.9" alt="">
-            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-6" data-speed="4.1" alt="">
+            <!-- Balloons -->
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-1" data-speed="4.0" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-2" data-speed="3.0" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-3" data-speed="2.0" alt="">
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-4" data-speed="1.0" alt="">
 
-            <!-- Balloons - MID (средние) -->
-            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-7" data-speed="2.5" alt="">
-            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-8" data-speed="2.3" alt="">
-            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-9" data-speed="2.7" alt="">
-            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-10" data-speed="2.4" alt="">
+            <!-- Cakes -->
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-1" data-speed="4.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-2" data-speed="3.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-3" data-speed="2.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-4" data-speed="1.0" alt="">
 
-            <!-- Balloons - FAR (маленькие, медленные) -->
-            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-11" data-speed="1.2" alt="">
-            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-12" data-speed="1.1" alt="">
-            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-13" data-speed="1.3" alt="">
-            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-14" data-speed="1.0" alt="">
+            <!-- Gifts -->
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-1" data-speed="4.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-2" data-speed="3.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-3" data-speed="2.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-4" data-speed="1.0" alt="">
 
-            <!-- Cakes - NEAR (большие) -->
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-1" data-speed="4.3" alt="">
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-2" data-speed="3.7" alt="">
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-3" data-speed="4.0" alt="">
+            <!-- Stars -->
+            <img src="images/parallax/star.svg" class="parallax-item star star-1" data-speed="4.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-2" data-speed="3.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-3" data-speed="2.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-4" data-speed="1.0" alt="">
 
-            <!-- Cakes - MID -->
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-4" data-speed="2.6" alt="">
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-5" data-speed="2.4" alt="">
-
-            <!-- Cakes - FAR (маленькие) -->
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-6" data-speed="1.3" alt="">
-            <img src="images/parallax/cake.svg" class="parallax-item cake cake-7" data-speed="1.1" alt="">
-
-            <!-- Gifts - NEAR (большие) -->
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-1" data-speed="4.1" alt="">
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-2" data-speed="3.8" alt="">
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-3" data-speed="4.2" alt="">
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-4" data-speed="3.9" alt="">
-
-            <!-- Gifts - MID -->
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-5" data-speed="2.5" alt="">
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-6" data-speed="2.7" alt="">
-
-            <!-- Gifts - FAR (маленькие) -->
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-7" data-speed="1.2" alt="">
-            <img src="images/parallax/gift.svg" class="parallax-item gift gift-8" data-speed="1.4" alt="">
-
-            <!-- Stars - NEAR (большие, яркие) -->
-            <img src="images/parallax/star.svg" class="parallax-item star star-1" data-speed="4.5" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-2" data-speed="4.3" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-3" data-speed="4.0" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-4" data-speed="4.4" alt="">
-
-            <!-- Stars - MID -->
-            <img src="images/parallax/star.svg" class="parallax-item star star-5" data-speed="2.8" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-6" data-speed="2.5" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-7" data-speed="2.6" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-8" data-speed="2.9" alt="">
-
-            <!-- Stars - FAR (маленькие, далекие) -->
-            <img src="images/parallax/star.svg" class="parallax-item star star-9" data-speed="1.0" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-10" data-speed="1.2" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-11" data-speed="0.9" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-12" data-speed="1.1" alt="">
-            <img src="images/parallax/star.svg" class="parallax-item star star-13" data-speed="1.3" alt="">
-
-            <!-- Hearts - NEAR (большие) -->
+            <!-- Hearts -->
             <img src="images/parallax/heart.svg" class="parallax-item heart heart-1" data-speed="4.0" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-2" data-speed="3.8" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-3" data-speed="4.2" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-2" data-speed="3.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-3" data-speed="2.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-4" data-speed="1.0" alt="">
 
-            <!-- Hearts - MID -->
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-4" data-speed="2.6" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-5" data-speed="2.4" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-6" data-speed="2.8" alt="">
+            <!-- Confetti -->
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-1" data-speed="4.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-2" data-speed="3.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-3" data-speed="2.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-4" data-speed="1.0" alt="">
 
-            <!-- Hearts - FAR (маленькие) -->
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-7" data-speed="1.1" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-8" data-speed="1.3" alt="">
-            <img src="images/parallax/heart.svg" class="parallax-item heart heart-9" data-speed="1.0" alt="">
+            <!-- Music Notes -->
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-1" data-speed="4.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-2" data-speed="3.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-3" data-speed="2.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-4" data-speed="1.0" alt="">
 
-            <!-- Confetti Strips - NEAR (большие) -->
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-1" data-speed="4.1" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-2" data-speed="3.9" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-3" data-speed="4.3" alt="">
-
-            <!-- Confetti - MID -->
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-4" data-speed="2.5" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-5" data-speed="2.7" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-6" data-speed="2.3" alt="">
-
-            <!-- Confetti - FAR (маленькие) -->
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-7" data-speed="1.2" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-8" data-speed="1.0" alt="">
-            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-9" data-speed="1.4" alt="">
-
-            <!-- Candies - NEAR (большие) -->
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-1" data-speed="4.0" alt="">
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-2" data-speed="3.8" alt="">
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-3" data-speed="4.2" alt="">
-
-            <!-- Candies - MID -->
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-4" data-speed="2.6" alt="">
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-5" data-speed="2.4" alt="">
-
-            <!-- Candies - FAR (маленькие) -->
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-6" data-speed="1.1" alt="">
-            <img src="images/parallax/candy.svg" class="parallax-item candy candy-7" data-speed="1.3" alt="">
-
-            <!-- Music Notes - NEAR (большие) -->
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-1" data-speed="4.1" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-2" data-speed="3.9" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-3" data-speed="4.3" alt="">
-
-            <!-- Music Notes - MID -->
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-4" data-speed="2.7" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-5" data-speed="2.5" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-6" data-speed="2.8" alt="">
-
-            <!-- Music Notes - FAR (маленькие) -->
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-7" data-speed="1.2" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-8" data-speed="1.0" alt="">
-            <img src="images/parallax/music-note.svg" class="parallax-item note note-9" data-speed="1.4" alt="">
-
-            <!-- Logo placeholder - will be added by user later -->
-            <div class="parallax-item logo-placeholder" data-speed="2.2">
-                <span class="logo-emoji">✨</span>
-            </div>
-        </div>
-
-        <div class="hero-background">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-            </div>
+            <!-- Logos -->
+            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-1" data-speed="4.0" alt="Holiday Logo">
+            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-2" data-speed="3.0" alt="Holiday Logo">
+            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-3" data-speed="2.0" alt="Holiday Logo">
+            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-4" data-speed="1.0" alt="Holiday Logo">
         </div>
 
         <div class="container">
@@ -193,8 +103,9 @@
                 <p class="hero-description">Мы — команда детских аниматоров, которые любят своё дело и точно знают, что понравится вашему ребёнку!</p>
                 <p class="hero-tagline">Готовы отправиться в сказочное путешествие?</p>
                 <div class="hero-buttons">
-                    <a href="#programs" class="btn btn-primary">Каталог программ</a>
-                    <a href="#contact" class="btn btn-secondary">Связаться с нами</a>
+                    <a href="#characters" class="btn btn-primary">Каталог персонажей</a>
+                    <a href="#programs" class="btn btn-secondary">Каталог программ</a>
+                    <a href="#contact" class="btn btn-outline">Связаться с нами</a>
                 </div>
             </div>
         </div>
@@ -209,7 +120,7 @@
                     <div class="stat-label">проведенных праздников</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">138</div>
+                    <div class="stat-number">29</div>
                     <div class="stat-label">любимых персонажей</div>
                 </div>
                 <div class="stat-card">
@@ -228,7 +139,7 @@
     <section id="characters" class="characters-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Популярные персонажи</h2>
+                <h2 class="section-title">Каталог персонажей</h2>
                 <p class="section-subtitle">Мы точно знаем, что понравится вашему ребенку</p>
             </div>
 
@@ -236,20 +147,18 @@
             <div class="filters-panel">
                 <div class="filters-header">
                     <h3 class="filters-title">Фильтры</h3>
+                    <input type="text" id="search-input" class="filter-search" placeholder="Поиск персонажа...">
                     <button class="btn-reset-filters">Сбросить все</button>
                 </div>
 
-                <div class="filters-content">
-                    <!-- Search -->
-                    <div class="filter-group">
-                        <label class="filter-label">Поиск</label>
-                        <input type="text" id="search-input" class="filter-search" placeholder="Название персонажа...">
-                    </div>
-
-                    <!-- Age Filter -->
-                    <div class="filter-group">
-                        <label class="filter-label">Возраст ребенка</label>
-                        <div class="filter-checkboxes">
+                <div class="filters-grid">
+                    <!-- Age Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="age">
+                            <span>Возраст</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
                             <label class="filter-checkbox">
                                 <input type="checkbox" name="age" value="0-3">
                                 <span>0-3 года</span>
@@ -273,10 +182,13 @@
                         </div>
                     </div>
 
-                    <!-- Gender Filter -->
-                    <div class="filter-group">
-                        <label class="filter-label">Для кого</label>
-                        <div class="filter-checkboxes">
+                    <!-- Gender Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="gender">
+                            <span>Пол</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
                             <label class="filter-checkbox">
                                 <input type="checkbox" name="gender" value="boys">
                                 <span>Для мальчиков</span>
@@ -292,10 +204,59 @@
                         </div>
                     </div>
 
-                    <!-- Activities Filter -->
-                    <div class="filter-group">
-                        <label class="filter-label">Тип программы</label>
-                        <div class="filter-checkboxes">
+                    <!-- Category Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="category">
+                            <span>Категория</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="cartoon">
+                                <span>Мультики</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="film">
+                                <span>Фильмы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="holiday">
+                                <span>Праздничные</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="fairy-tale">
+                                <span>Сказки</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="fantasy">
+                                <span>Фантастика</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="mascot">
+                                <span>Ростовые куклы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="superhero">
+                                <span>Супер-герои</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="neutral">
+                                <span>Нейтральные</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="animal">
+                                <span>Животные</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Activities Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="activities">
+                            <span>Активность</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
                             <label class="filter-checkbox">
                                 <input type="checkbox" name="activities" value="active">
                                 <span>Активные игры</span>
@@ -318,14 +279,14 @@
                             </label>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Price Range Filter -->
-                    <div class="filter-group">
-                        <label class="filter-label">Цена (₽/час)</label>
-                        <div id="price-slider" class="price-slider"></div>
-                        <div class="price-values">
-                            <span id="price-min">0</span> - <span id="price-max">10000</span> ₽
-                        </div>
+                <!-- Price Range Filter (not in accordion) -->
+                <div class="filters-price">
+                    <h4 class="price-title">Цена (₽/час)</h4>
+                    <div id="price-slider" class="price-slider"></div>
+                    <div class="price-values">
+                        <span id="price-min">0</span> - <span id="price-max">10000</span> ₽
                     </div>
                 </div>
             </div>
@@ -336,6 +297,9 @@
                     Найдено персонажей: <span id="results-count">0</span>
                 </div>
                 <div class="sort-controls">
+                    <button class="view-toggle-btn" id="view-toggle-btn" type="button" aria-label="Изменить вид карточек" title="3 карточки в ряд, вертикальные фото">
+                        <span class="view-toggle-icon">3×</span>
+                    </button>
                     <label>Сортировка:</label>
                     <select id="sort-select" class="sort-select">
                         <option value="popular">По популярности</option>
@@ -659,13 +623,13 @@
                     <p>Мастерская праздников с 2017 года</p>
                 </div>
                 <div class="footer-social">
-                    <a href="#" class="social-link">VK</a>
-                    <a href="#" class="social-link">Instagram</a>
-                    <a href="#" class="social-link">WhatsApp</a>
+                    <a href="https://vk.com/animator_holiday_spb" target="_blank" rel="noopener" class="social-link">VK</a>
+                    <!-- Instagram пока не указан, можно добавить позже -->
+                    <a href="https://wa.me/79944336803" target="_blank" rel="noopener" class="social-link">WhatsApp</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Мастерская праздников "Holiday". Все права защищены.</p>
+                <p>&copy; 2025 Мастерская праздников "Holiday". Все права защищены.</p>
             </div>
         </div>
     </footer>

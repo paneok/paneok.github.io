@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Новогодние программы — Мастерская праздников "Holiday"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="new-year-page">
+    <!-- Snow background -->
+    <div id="snow-container" class="snow-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <span class="logo-text">🎉 Holiday</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html#home" class="nav-link">Главная</a></li>
+                        <li><a href="index.html#characters" class="nav-link">Персонажи</a></li>
+                        <li><a href="new-year.html" class="nav-link">🎄 Новый год</a></li>
+                        <li><a href="index.html#programs" class="nav-link">Программы</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">☰</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- New Year Hero Section -->
+        <section class="new-year-hero">
+            <div class="container">
+                <div class="new-year-hero-content">
+                    <h2 class="hero-greeting">С новым годом уже пахнет!</h2>
+                    <h1 class="new-year-title">Новогодние программы</h1>
+                    <p class="new-year-subtitle">Дед Мороз, Снегурочка, эльфы, снежинки и другие зимние герои для ваших праздников.</p>
+                    <div class="hero-buttons">
+                        <a href="#characters" class="btn btn-primary">Выбрать новогоднего героя</a>
+                        <a href="index.html#contact" class="btn btn-secondary">Заказать праздник</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Year Characters Section -->
+        <section id="characters" class="characters-section new-year-characters">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Новогодние персонажи</h2>
+                    <p class="section-subtitle">Подборка героев, которые создадут атмосферу настоящего зимнего чуда.</p>
+                </div>
+
+                <div class="characters-grid" id="characters-grid">
+                    <div class="loading-message">Загрузка новогодних персонажей...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">🎉 Holiday</span>
+                    <p>Мастерская праздников с 2017 года</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://vk.com/animator_holiday_spb" target="_blank" rel="noopener" class="social-link">VK</a>
+                    <a href="https://wa.me/79944336803" target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Мастерская праздников "Holiday". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="js/characters-renderer.js"></script>
+    <script src="js/characters-filter.js"></script>
+    <script src="script.js"></script>
+    <script src="js/snow.js"></script>
+</body>
+</html>

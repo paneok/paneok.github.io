@@ -5,6 +5,40 @@ class CharactersRenderer {
         this.filteredCharacters = [];
         this.container = document.getElementById('characters-grid');
         this.resultsCounter = document.getElementById('results-count');
+        this.displayedCount = 0;
+        this.itemsPerPage = 30;
+        this.loadMoreButton = null;
+
+        this.initLoadMoreButton();
+    }
+
+    // Initialize "Show more" button
+    initLoadMoreButton() {
+        if (!this.container) return;
+
+        // Try to reuse existing button if it was added to markup
+        let button = document.getElementById('load-more-characters');
+
+        if (!button) {
+            button = document.createElement('button');
+            button.id = 'load-more-characters';
+            button.className = 'btn btn-outline characters-load-more';
+            button.textContent = 'Показать ещё';
+
+            const parent = this.container.parentElement;
+            if (parent) {
+                parent.appendChild(button);
+            }
+        }
+
+        // Avoid attaching multiple listeners
+        if (!button._charactersLoadMoreInit) {
+            button.addEventListener('click', () => this.showMore());
+            button._charactersLoadMoreInit = true;
+        }
+
+        this.loadMoreButton = button;
+        this.loadMoreButton.style.display = 'none';
     }
 
     // Load characters data from JSON
@@ -26,9 +60,15 @@ class CharactersRenderer {
         }
     }
 
-    // Render all filtered characters
-    renderCharacters(characters = this.filteredCharacters) {
-        console.log('Rendering characters:', characters.length);
+    // Render characters with pagination
+    renderCharacters(characters = this.filteredCharacters, options = {}) {
+        if (!characters) {
+            characters = [];
+        }
+
+        const { resetVisible = true, appendFrom = null } = options;
+
+        console.log('Rendering characters (total):', characters.length);
         console.log('Container found:', !!this.container);
         
         if (!this.container) {
@@ -36,10 +76,18 @@ class CharactersRenderer {
             return;
         }
 
-        // Clear container
-        this.container.innerHTML = '';
+        // Reset visible count on new data (filters/sorting/etc.)
+        if (resetVisible) {
+            this.displayedCount = Math.min(this.itemsPerPage, characters.length);
+        } else {
+            // Make sure displayedCount is in valid range
+            this.displayedCount = Math.min(this.displayedCount || 0, characters.length);
+            if (this.displayedCount === 0 && characters.length > 0) {
+                this.displayedCount = Math.min(this.itemsPerPage, characters.length);
+            }
+        }
 
-        // Update counter
+        // Update counter (total found, not only visible)
         if (this.resultsCounter) {
             this.resultsCounter.textContent = characters.length;
         }
@@ -47,18 +95,29 @@ class CharactersRenderer {
         // Show empty state if no characters
         if (characters.length === 0) {
             console.log('No characters to render, showing empty state');
+            this.container.innerHTML = '';
             this.showEmptyState();
+            this.updateLoadMoreButton(0);
             return;
         }
 
-        console.log('Rendering', characters.length, 'character cards');
-        // Render each character
-        characters.forEach((character, index) => {
-            const card = this.createCharacterCard(character, index);
+        // Clear container only when fully rerendering
+        if (resetVisible || appendFrom === null) {
+            this.container.innerHTML = '';
+        }
+
+        const fromIndex = appendFrom !== null ? appendFrom : 0;
+        const visibleCharacters = characters.slice(fromIndex, this.displayedCount);
+        console.log('Rendering', visibleCharacters.length, 'character cards (visible), from index', fromIndex);
+
+        visibleCharacters.forEach((character, index) => {
+            const card = this.createCharacterCard(character, fromIndex + index);
             this.container.appendChild(card);
         });
 
-        console.log('All character cards rendered');
+        this.updateLoadMoreButton(characters.length);
+
+        console.log('Character cards rendered with pagination');
         // Swiper initialization temporarily disabled
         // setTimeout(() => this.initializeSwiper(), 100);
     }
@@ -77,26 +136,45 @@ class CharactersRenderer {
         if (character.isNew) badges.push('<span class="badge badge-new">Новинка</span>');
         if (character.isPopular) badges.push('<span class="badge badge-popular">Популярно</span>');
 
+        // Количество фото: считаем уникальные пути main + gallery (как в модальном окне)
+        let photoCount = 0;
+        if (character.images) {
+            const sources = [];
+            if (character.images.main) sources.push(character.images.main);
+            if (character.images.gallery && Array.isArray(character.images.gallery)) {
+                sources.push(...character.images.gallery);
+            }
+            const uniqueSources = [...new Set(sources)];
+            photoCount = uniqueSources.length;
+        }
+
         card.innerHTML = `
             <div class="character-image-container">
                 ${badges.length > 0 ? `<div class="character-badges">${badges.join('')}</div>` : ''}
 
+                ${photoCount > 1 ? `
+                    <div class="character-photo-counter">
+                        <span class="character-photo-counter-text">${photoCount}</span>
+                    </div>
+                ` : ''}
+
                 <!-- Simple Gallery without Swiper -->
                 <div class="character-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
-                    <img src="${character.images.main}" alt="${character.name}" class="character-photo"
-                         onerror="this.parentNode.querySelector('.character-emoji').style.display='flex'; this.style.display='none';">
-                    <span class="character-emoji">${character.emoji}</span>
+                    <img src="${character.images.main}" alt="${character.name}" class="character-photo" loading="lazy" decoding="async">
                 </div>
 
                 <div class="character-overlay">
-                    <button class="btn btn-secondary btn-order" data-character-id="${character.id}">
-                        Заказать
+                    <button class="btn btn-select" data-character-id="${character.id}">
+                        <span class="btn-select-checkbox">✓</span>
+                        <span class="btn-select-text">Выбрать</span>
                     </button>
                 </div>
             </div>
 
             <div class="character-info">
-                <h3 class="character-name">${character.name}</h3>
+                <div class="character-header">
+                    <h3 class="character-name">${character.name}</h3>
+                </div>
                 <p class="character-description">${character.description.short}</p>
 
                 <div class="character-meta">
@@ -104,6 +182,10 @@ class CharactersRenderer {
                         <span class="feature-tag">
                             <span class="feature-icon">👶</span>
                             ${character.features.age} лет
+                        </span>
+                        <span class="feature-tag">
+                            <span class="feature-icon">👫</span>
+                            ${this.getGenderLabel(character.features.gender)}
                         </span>
                         <span class="feature-tag">
                             <span class="feature-icon">🎮</span>
@@ -127,14 +209,14 @@ class CharactersRenderer {
             </div>
         `;
 
-        // Add click event for order button
-        const orderBtn = card.querySelector('.btn-order');
-        if (orderBtn) {
-            orderBtn.addEventListener('click', (e) => {
+        // Add click event for select buttons (both overlay and inline)
+        const selectBtns = card.querySelectorAll('.btn-select');
+        selectBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                this.handleOrder(character);
+                this.toggleSelection(character, btn);
             });
-        }
+        });
 
         return card;
     }
@@ -190,20 +272,112 @@ class CharactersRenderer {
         return labels[activity] || activity;
     }
 
-    // Handle order button click
-    handleOrder(character) {
-        // Scroll to contact form
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+    // Get gender label in Russian
+    getGenderLabel(gender) {
+        const labels = {
+            'boys': 'Для мальчиков',
+            'girls': 'Для девочек',
+            'unisex': 'Для всех'
+        };
+        return labels[gender] || 'Для всех';
+    }
 
-            // Pre-fill the form message
-            const textarea = document.querySelector('.contact-form textarea');
-            if (textarea) {
-                textarea.value = `Здравствуйте! Хочу заказать аниматора "${character.name}" для праздника.`;
-                textarea.focus();
-            }
+    // Toggle character selection
+    toggleSelection(character, button) {
+        if (!window.selectedCharacters) {
+            window.selectedCharacters = new Set();
         }
+
+        const characterId = character.id;
+        const card = button.closest('.character-card');
+
+        if (window.selectedCharacters.has(characterId)) {
+            // Deselect
+            window.selectedCharacters.delete(characterId);
+            card.classList.remove('selected');
+            // Update all buttons for this character
+            const allBtns = card.querySelectorAll('.btn-select');
+            allBtns.forEach(btn => {
+                btn.classList.remove('selected');
+                btn.querySelector('.btn-select-text').textContent = 'Выбрать';
+            });
+        } else {
+            // Select
+            window.selectedCharacters.add(characterId);
+            card.classList.add('selected');
+            // Update all buttons for this character
+            const allBtns = card.querySelectorAll('.btn-select');
+            allBtns.forEach(btn => {
+                btn.classList.add('selected');
+                btn.querySelector('.btn-select-text').textContent = 'Выбрано';
+            });
+        }
+
+        // Update selection panel
+        this.updateSelectionPanel();
+    }
+
+    // Update the selection panel at the bottom
+    updateSelectionPanel() {
+        if (!window.selectedCharacters || window.selectedCharacters.size === 0) {
+            // Hide panel if no selections
+            const panel = document.getElementById('selection-panel');
+            if (panel) {
+                panel.classList.remove('active');
+            }
+            return;
+        }
+
+        // Get or create panel
+        let panel = document.getElementById('selection-panel');
+        if (!panel) {
+            panel = this.createSelectionPanel();
+            document.body.appendChild(panel);
+        }
+
+        // Get selected character names
+        const selectedNames = Array.from(window.selectedCharacters)
+            .map(id => {
+                const char = this.characters.find(c => c.id === id);
+                return char ? char.name : null;
+            })
+            .filter(name => name !== null);
+
+        // Update panel content
+        const namesContainer = panel.querySelector('.selection-names');
+        namesContainer.textContent = selectedNames.join(', ');
+
+        // Show panel
+        panel.classList.add('active');
+    }
+
+    // Create selection panel
+    createSelectionPanel() {
+        const panel = document.createElement('div');
+        panel.id = 'selection-panel';
+        panel.className = 'selection-panel';
+        panel.innerHTML = `
+            <div class="selection-panel-content">
+                <div class="selection-info">
+                    <strong>Вы выбрали:</strong>
+                    <span class="selection-names"></span>
+                </div>
+                <button class="btn btn-primary selection-continue">
+                    Продолжить
+                </button>
+            </div>
+        `;
+
+        // Add click handler for continue button
+        const continueBtn = panel.querySelector('.selection-continue');
+        continueBtn.addEventListener('click', () => {
+            const programsSection = document.getElementById('programs');
+            if (programsSection) {
+                programsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        return panel;
     }
 
     // Show error message
@@ -216,6 +390,7 @@ class CharactersRenderer {
                 </div>
             `;
         }
+        this.updateLoadMoreButton(0);
     }
 
     // Show empty state
@@ -227,6 +402,28 @@ class CharactersRenderer {
                     <p>Попробуйте изменить фильтры</p>
                 </div>
             `;
+        }
+        this.updateLoadMoreButton(0);
+    }
+
+    // Show more characters (load next page)
+    showMore() {
+        if (!this.filteredCharacters || this.filteredCharacters.length === 0) return;
+
+        const totalCount = this.filteredCharacters.length;
+        const previousCount = this.displayedCount || 0;
+        this.displayedCount = Math.min(previousCount + this.itemsPerPage, totalCount);
+        this.renderCharacters(this.filteredCharacters, { resetVisible: false, appendFrom: previousCount });
+    }
+
+    // Update state of the "Show more" button
+    updateLoadMoreButton(totalCount) {
+        if (!this.loadMoreButton) return;
+
+        if (totalCount > this.displayedCount) {
+            this.loadMoreButton.style.display = 'block';
+        } else {
+            this.loadMoreButton.style.display = 'none';
         }
     }
 
@@ -256,3 +453,4 @@ class CharactersRenderer {
 
 // Create global instance
 const charactersRenderer = new CharactersRenderer();
+window.charactersRenderer = charactersRenderer;

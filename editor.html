@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор каталога персонажей - Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="editor-page">
+    <!-- Header -->
+    <header class="editor-header">
+        <div class="container">
+            <div class="editor-header-content">
+                <h1>🎨 Редактор каталога персонажей</h1>
+                <div class="editor-actions">
+                    <button id="add-character-btn" class="btn btn-accent">➕ Добавить персонажа</button>
+                    <label for="import-json-input" class="btn btn-outline" style="cursor: pointer; margin: 0;">
+                        📂 Загрузить JSON
+                        <input type="file" id="import-json-input" accept=".json" style="display: none;">
+                    </label>
+                    <button id="save-all-btn" class="btn btn-primary">💾 Сохранить</button>
+                    <button id="export-json-btn" class="btn btn-secondary">📥 Экспорт</button>
+                    <a href="index.html" class="btn btn-outline">🌐 Сайт</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="editor-main">
+        <div class="container">
+            <!-- Controls Panel -->
+            <div class="editor-controls">
+                <div class="controls-left">
+                    <button id="sort-rating-btn" class="btn btn-outline">⭐ Рейтинг</button>
+                    <button id="sort-name-btn" class="btn btn-outline">🔤 Имя</button>
+                    <button id="sort-manual-btn" class="btn btn-outline">↕️ Порядок</button>
+                </div>
+                <div class="controls-right">
+                    <input type="text" id="search-editor" class="editor-search" placeholder="🔍 Поиск...">
+                    <span class="character-count">Всего: <strong id="total-count">0</strong></span>
+                </div>
+            </div>
+
+            <!-- Characters List -->
+            <div id="characters-list" class="characters-editor-list">
+                <div class="loading-message">Загрузка персонажей...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Character Edit Modal -->
+    <div id="edit-modal" class="editor-modal">
+        <div class="editor-modal-overlay"></div>
+        <div class="editor-modal-content">
+            <div class="editor-modal-header">
+                <h2 id="modal-title">Редактирование персонажа</h2>
+                <button class="modal-close" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="editor-modal-body">
+                <form id="character-form" class="character-form">
+                    <!-- Basic Info -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">📋 Основная информация</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="char-name">Название персонажа *</label>
+                                <input type="text" id="char-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="char-rating">Рейтинг (0-100)</label>
+                                <input type="number" id="char-rating" min="0" max="100" value="50">
+                                <small>Для сортировки по популярности</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flags -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🏷️ Метки</h3>
+                        <div class="form-checkboxes">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="char-is-new">
+                                <span>🆕 Новый персонаж</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="char-is-popular">
+                                <span>⭐ Популярный</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Descriptions -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">📝 Описания</h3>
+                        <div class="form-group">
+                            <label for="char-desc-short">Краткое описание *</label>
+                            <textarea id="char-desc-short" rows="2" required maxlength="150"></textarea>
+                            <small>Максимум 150 символов</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="char-desc-full">Полное описание</label>
+                            <textarea id="char-desc-full" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">💰 Цены</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="char-price-hourly">Цена за час (₽) *</label>
+                                <input type="number" id="char-price-hourly" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Пакеты</label>
+                            <div id="packages-container"></div>
+                            <button type="button" id="add-package-btn" class="btn btn-outline btn-sm">+ Добавить пакет</button>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🎯 Характеристики</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="char-age">Возраст *</label>
+                                <input type="text" id="char-age" placeholder="3-7" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="char-gender">Для кого *</label>
+                                <select id="char-gender" required>
+                                    <option value="unisex">Для всех</option>
+                                    <option value="boys">Для мальчиков</option>
+                                    <option value="girls">Для девочек</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Активности</label>
+                            <div class="form-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="activity-checkbox" value="active">
+                                    <span>Активные игры</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="activity-checkbox" value="creative">
+                                    <span>Творчество</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="activity-checkbox" value="magic">
+                                    <span>Фокусы</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="activity-checkbox" value="dance">
+                                    <span>Танцы</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" class="activity-checkbox" value="quest">
+                                    <span>Квесты</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🖼️ Изображения</h3>
+                        <div class="form-group">
+                            <label for="char-main-image">Главное изображение *</label>
+                            <input type="text" id="char-main-image" placeholder="images/catalog/..." required>
+                            <div id="main-image-preview" class="image-preview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Галерея</label>
+                            <div id="gallery-images-container"></div>
+                            <button type="button" id="add-gallery-image-btn" class="btn btn-outline btn-sm">+ Добавить фото</button>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🏷️ Теги</h3>
+                        <div class="form-group">
+                            <label for="char-tags">Теги (через запятую)</label>
+                            <input type="text" id="char-tags" placeholder="герой, мультфильм, популярный">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="editor-modal-footer">
+                <button type="button" id="delete-character-btn" class="btn btn-danger">🗑️ Удалить персонажа</button>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-btn" class="btn btn-outline">Отмена</button>
+                    <button type="submit" form="character-form" class="btn btn-primary">💾 Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/editor.js"></script>
+</body>
+</html>
