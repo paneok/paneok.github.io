@@ -330,6 +330,9 @@ async function initializeCharactersCatalog() {
         // Load characters data
         await charactersRenderer.loadCharacters();
 
+        // Make characters data globally available for selection manager
+        window.charactersData = charactersRenderer.characters;
+
         // Initialize filter system
         charactersFilter = new CharactersFilter(charactersRenderer);
 
@@ -343,11 +346,37 @@ async function initializeCharactersCatalog() {
     }
 }
 
-// Initialize catalog if we're on a page with the characters grid
+// ==================== PROGRAMS CATALOG INTEGRATION ====================
+// Initialize programs system when DOM is ready
+async function initializeProgramsCatalog() {
+    try {
+        // Initialize programs renderer
+        if (window.programsRenderer) {
+            await window.programsRenderer.init();
+            console.log('Programs catalog initialized successfully!');
+        }
+    } catch (error) {
+        console.error('Error initializing programs catalog:', error);
+    }
+}
+
+// ==================== INITIALIZE EVERYTHING ====================
+// Initialize both catalogs and selection manager
+async function initializeApp() {
+    await initializeCharactersCatalog();
+    await initializeProgramsCatalog();
+
+    // Update selection manager UI after everything is loaded
+    if (window.selectionManager) {
+        window.selectionManager.updateUI();
+    }
+}
+
+// Initialize app if we're on a page with the characters grid
 if (document.getElementById('characters-grid')) {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeCharactersCatalog);
+        document.addEventListener('DOMContentLoaded', initializeApp);
     } else {
-        initializeCharactersCatalog();
+        initializeApp();
     }
 }
