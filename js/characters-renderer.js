@@ -127,6 +127,11 @@ class CharactersRenderer {
             </div>
         `;
 
+        // Add click event for the whole card
+        card.addEventListener('click', () => {
+            this.handleCharacterSelect(character);
+        });
+
         // Add click event for order button
         const orderBtn = card.querySelector('.btn-order');
         if (orderBtn) {
@@ -135,6 +140,9 @@ class CharactersRenderer {
                 this.handleOrder(character);
             });
         }
+
+        // Add data attribute for selection manager
+        card.setAttribute('data-slug', character.slug);
 
         return card;
     }
@@ -190,19 +198,35 @@ class CharactersRenderer {
         return labels[activity] || activity;
     }
 
+    // Handle character selection
+    handleCharacterSelect(character) {
+        console.log('Character selected:', character.name);
+
+        // Use selection manager if available
+        if (window.selectionManager) {
+            window.selectionManager.toggleCharacter(character);
+        }
+
+        // Scroll to programs section
+        const programsSection = document.getElementById('programs');
+        if (programsSection) {
+            setTimeout(() => {
+                programsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 200);
+        }
+    }
+
     // Handle order button click
     handleOrder(character) {
-        // Scroll to contact form
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+        // First select the character
+        if (window.selectionManager) {
+            window.selectionManager.toggleCharacter(character);
+        }
 
-            // Pre-fill the form message
-            const textarea = document.querySelector('.contact-form textarea');
-            if (textarea) {
-                textarea.value = `Здравствуйте! Хочу заказать аниматора "${character.name}" для праздника.`;
-                textarea.focus();
-            }
+        // Scroll to programs section
+        const programsSection = document.getElementById('programs');
+        if (programsSection) {
+            programsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 

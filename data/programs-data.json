@@ -1,0 +1,384 @@
+{
+  "programs": [
+    {
+      "id": 1,
+      "name": "Анимационная программа СТАНДАРТ",
+      "slug": "standard",
+      "category": "animation",
+      "emoji": "🎉",
+      "pricing": {
+        "amount": 0,
+        "unit": "₽/час",
+        "isCharacterPrice": true
+      },
+      "defaultCharacterId": null,
+      "description": "Стандартная анимационная программа с играми, танцами и развлечениями",
+      "image": "",
+      "isDefault": true
+    },
+    {
+      "id": 2,
+      "name": "Организация праздников",
+      "slug": "party-organization",
+      "category": "organization",
+      "emoji": "🎪",
+      "pricing": {
+        "amount": 4500,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Полная организация праздничного мероприятия",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Блоггерская вечеринка",
+      "slug": "blogger-party",
+      "category": "party",
+      "emoji": "📱",
+      "pricing": {
+        "amount": 3500,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Современная вечеринка с фотозонами и контентом для соцсетей",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Аквагрим",
+      "slug": "aquagrim",
+      "category": "creative",
+      "emoji": "🎨",
+      "pricing": {
+        "amount": 6500,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Профессиональный аквагрим для детей",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "name": "Челлендж party",
+      "slug": "challenge-party",
+      "category": "active",
+      "emoji": "🏆",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Активная вечеринка с челленджами и соревнованиями",
+      "image": ""
+    },
+    {
+      "id": 6,
+      "name": "Шоу мыльных пузырей",
+      "slug": "bubble-show",
+      "category": "show",
+      "emoji": "🫧",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Завораживающее шоу с гигантскими мыльными пузырями",
+      "image": ""
+    },
+    {
+      "id": 7,
+      "name": "Научное шоу",
+      "slug": "science-show",
+      "category": "show",
+      "emoji": "🧪",
+      "pricing": {
+        "amount": 6000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 3,
+      "description": "Увлекательные научные эксперименты и опыты",
+      "image": ""
+    },
+    {
+      "id": 8,
+      "name": "Бьюти-бар на Welcome зону",
+      "slug": "beauty-bar",
+      "category": "creative",
+      "emoji": "💅",
+      "pricing": {
+        "amount": 8000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Зона красоты с маникюром и прическами для девочек",
+      "image": ""
+    },
+    {
+      "id": 9,
+      "name": "Тесла шоу",
+      "slug": "tesla-show",
+      "category": "show",
+      "emoji": "⚡",
+      "pricing": {
+        "amount": 9000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 3,
+      "description": "Электрическое шоу с катушкой Тесла",
+      "image": ""
+    },
+    {
+      "id": 10,
+      "name": "Азотное мороженое",
+      "slug": "nitrogen-icecream",
+      "category": "food",
+      "emoji": "🍦",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 3,
+      "description": "Приготовление мороженого с жидким азотом",
+      "image": ""
+    },
+    {
+      "id": 11,
+      "name": "Роспись значков/магнитиков",
+      "slug": "badge-painting",
+      "category": "creative",
+      "emoji": "🎨",
+      "pricing": {
+        "amount": 4000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Творческий мастер-класс по росписи значков",
+      "image": ""
+    },
+    {
+      "id": 12,
+      "name": "Слаймы",
+      "slug": "slimes",
+      "category": "creative",
+      "emoji": "🎭",
+      "pricing": {
+        "amount": 4500,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Создание разноцветных слаймов",
+      "image": ""
+    },
+    {
+      "id": 13,
+      "name": "Роспись футболок",
+      "slug": "tshirt-painting",
+      "category": "creative",
+      "emoji": "👕",
+      "pricing": {
+        "amount": 4700,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Мастер-класс по росписи футболок",
+      "image": ""
+    },
+    {
+      "id": 14,
+      "name": "Овершейки",
+      "slug": "oversheiki",
+      "category": "creative",
+      "emoji": "🎀",
+      "pricing": {
+        "amount": 3700,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Создание овершейков своими руками",
+      "image": ""
+    },
+    {
+      "id": 15,
+      "name": "Роспись шопперов",
+      "slug": "shopper-painting",
+      "category": "creative",
+      "emoji": "🛍️",
+      "pricing": {
+        "amount": 3700,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Роспись эко-сумок шопперов",
+      "image": ""
+    },
+    {
+      "id": 16,
+      "name": "Роспись кепок",
+      "slug": "cap-painting",
+      "category": "creative",
+      "emoji": "🧢",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Роспись кепок и бейсболок",
+      "image": ""
+    },
+    {
+      "id": 17,
+      "name": "Дискотека в фольге",
+      "slug": "foil-disco",
+      "category": "party",
+      "emoji": "✨",
+      "pricing": {
+        "amount": 6000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Яркая дискотека с фольгой и светом",
+      "image": ""
+    },
+    {
+      "id": 18,
+      "name": "Цветная дискотека",
+      "slug": "color-disco",
+      "category": "party",
+      "emoji": "🎨",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Дискотека с цветными красками",
+      "image": ""
+    },
+    {
+      "id": 19,
+      "name": "Неоновая вечеринка - НОВИНКА 2023г !",
+      "slug": "neon-party",
+      "category": "party",
+      "emoji": "🌈",
+      "pricing": {
+        "amount": 9000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Неоновая вечеринка с ультрафиолетовыми красками",
+      "image": ""
+    },
+    {
+      "id": 20,
+      "name": "Фокусник",
+      "slug": "magician",
+      "category": "show",
+      "emoji": "🎩",
+      "pricing": {
+        "amount": 11000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 6,
+      "description": "Профессиональное фокусное шоу",
+      "image": ""
+    },
+    {
+      "id": 21,
+      "name": "Поролон party",
+      "slug": "foam-party",
+      "category": "party",
+      "emoji": "🧼",
+      "pricing": {
+        "amount": 10000,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Зажигательная вечеринка с пеной",
+      "image": ""
+    },
+    {
+      "id": 22,
+      "name": "Майнкрафт",
+      "slug": "minecraft",
+      "category": "games",
+      "emoji": "⛏️",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Тематическая программа по мотивам Minecraft",
+      "image": ""
+    },
+    {
+      "id": 23,
+      "name": "Among Us",
+      "slug": "among-us",
+      "category": "games",
+      "emoji": "👽",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Квест по мотивам популярной игры Among Us",
+      "image": ""
+    },
+    {
+      "id": 24,
+      "name": "Pop It - party",
+      "slug": "pop-it-party",
+      "category": "games",
+      "emoji": "🎮",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Вечеринка с антистресс-игрушками Pop It",
+      "image": ""
+    },
+    {
+      "id": 25,
+      "name": "Топиарий - волшебное дерево",
+      "slug": "topiary",
+      "category": "creative",
+      "emoji": "🌳",
+      "pricing": {
+        "amount": 4700,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Мастер-класс по созданию топиария",
+      "image": ""
+    },
+    {
+      "id": 26,
+      "name": "Сахарное бурито",
+      "slug": "sugar-burrito",
+      "category": "food",
+      "emoji": "🌯",
+      "pricing": {
+        "amount": 6000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": null,
+      "description": "Приготовление сладких бурито",
+      "image": ""
+    },
+    {
+      "id": 27,
+      "name": "Сахарная вата",
+      "slug": "cotton-candy",
+      "category": "food",
+      "emoji": "🍭",
+      "pricing": {
+        "amount": 5500,
+        "unit": "₽/час"
+      },
+      "defaultCharacterId": null,
+      "description": "Приготовление сахарной ваты на празднике",
+      "image": ""
+    }
+  ]
+}
