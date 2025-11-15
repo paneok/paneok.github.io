@@ -322,178 +322,29 @@
     <section id="programs" class="programs-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Меню ярких впечатлений</h2>
-                <p class="section-subtitle">От велком зоны до финальной дискотеки</p>
+                <h2 class="section-title">Выберите программу</h2>
+                <p class="section-subtitle">Доступные программы для выбранного персонажа</p>
             </div>
 
-            <div class="programs-grid">
-                <!-- Program Card 1 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎮</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Игровые программы</h3>
-                        <p class="program-description">С тематическими играми, музыкальным сопровождением и др</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
+            <!-- Programs Grid (Dynamic) -->
+            <div class="programs-grid" id="programs-grid">
+                <!-- Cards will be generated dynamically from programs-data.json -->
+                <div class="empty-state">
+                    <p>Сначала выберите персонажа в каталоге выше</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Program Card 2 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎪</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Велком зона</h3>
-                        <p class="program-description">Бьюти бар, сахарная вата, тир, кольцеброс, аквагрим и др.</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 3 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🫧</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Шоу программы</h3>
-                        <p class="program-description">Шоу мыльных пузырей, научное шоу, фокусник, тесла шоу и др.</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 4 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎨</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Мастер-классы</h3>
-                        <p class="program-description">На все возраста, от оригами до кулинарных творений</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 5 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">✨</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Дискотеки</h3>
-                        <p class="program-description">Бумажная, цветная, серебряная, неоновая и даже золотая!</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 6 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎈</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Воздушные шары</h3>
-                        <p class="program-description">Гелиевые шары, оформление фотозон, шары-сюрпризы и др.</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 7 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎭</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Спектакли</h3>
-                        <p class="program-description">Детские интерактивные спектакли для детей от 2 до 8 лет</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 8 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎓</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Выпускные</h3>
-                        <p class="program-description">Проводим выпускные от детского сада, до начальной школы</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 9 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🚌</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Праздник в патибасе</h3>
-                        <p class="program-description">Интерактивные и экранные программы для детей и взрослых</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 10 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">📸</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Фото и видеосъемка</h3>
-                        <p class="program-description">Отличный способ отдохнуть на празднике, а не бегать с телефоном за детьми</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 11 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">👥</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Массовые мероприятия</h3>
-                        <p class="program-description">От 100 человек, в т.ч. работа в ТЦ, уличные гуляния, открытие кафе и тп</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Program Card 12 -->
-                <div class="program-card">
-                    <div class="program-icon">
-                        <div class="icon-circle">
-                            <span class="program-emoji">🎁</span>
-                        </div>
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-name">Дополнения к программам</h3>
-                        <p class="program-description">Хочется дополнить праздник? Как насчет пиньяты, салюта пузырей, фокусов и др?</p>
-                        <button class="btn btn-outline">Узнать подробнее</button>
-                    </div>
-                </div>
+    <!-- Additional Services Section (Placeholder) -->
+    <section id="additional-services" class="additional-services-section" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Дополнительные услуги</h2>
+                <p class="section-subtitle">Раздел в разработке</p>
+            </div>
+            <div class="placeholder-content">
+                <p>Скоро здесь появятся дополнительные услуги для вашего праздника</p>
             </div>
         </div>
     </section>
@@ -614,6 +465,26 @@
         </div>
     </section>
 
+    <!-- Selection Bottom Bar -->
+    <div id="selection-bar" class="selection-bar">
+        <div class="container">
+            <div class="selection-bar-content">
+                <div class="selection-info">
+                    <div class="selection-summary">Ничего не выбрано</div>
+                    <div class="selection-price">0 ₽</div>
+                </div>
+                <div class="selection-actions">
+                    <button class="selection-clear-btn" onclick="window.selectionManager?.clearAll()">
+                        Очистить
+                    </button>
+                    <button class="selection-continue-btn btn btn-primary btn-disabled" disabled onclick="window.location.href='#additional-services'">
+                        Продолжить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -646,6 +517,8 @@
     <!-- Custom Scripts -->
     <script src="js/particles-config.js"></script>
     <script src="js/parallax.js"></script>
+    <script src="js/selection-manager.js"></script>
+    <script src="js/programs-renderer.js"></script>
     <script src="js/characters-filter.js"></script>
     <script src="js/characters-renderer.js"></script>
     <script src="script.js"></script>

@@ -3091,3 +3091,299 @@ body.new-year-page .loading-message {
         font-size: 1rem;
     }
 }
+
+/* ====================
+   PROGRAMS CATALOG STYLES
+   ==================== */
+
+.programs-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.programs-section .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Program Card Styles */
+.programs-section .program-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+    position: relative;
+}
+
+.programs-section .program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.programs-section .program-card-selected {
+    border-color: #ff6b6b;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.programs-section .program-card-unavailable {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+.programs-section .program-card-unavailable:hover {
+    transform: none;
+}
+
+.programs-section .program-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.programs-section .program-emoji {
+    font-size: 3rem;
+    display: block;
+}
+
+.programs-section .program-unavailable-badge {
+    background: #e74c3c;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.programs-section .program-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.programs-section .program-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff6b6b;
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-default-character {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Programs Sections */
+.programs-section .programs-section {
+    margin-bottom: 3rem;
+}
+
+.programs-section .programs-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.programs-section .programs-unavailable {
+    margin-top: 3rem;
+}
+
+.programs-section .programs-hint {
+    color: #95a5a6;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.programs-section .programs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Empty State */
+.programs-section .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #95a5a6;
+}
+
+.programs-section .empty-state p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* ====================
+   SELECTION BOTTOM BAR
+   ==================== */
+
+.selection-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.selection-bar-visible {
+    transform: translateY(0);
+}
+
+.selection-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    gap: 2rem;
+}
+
+.selection-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.selection-summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selection-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff6b6b;
+}
+
+.selection-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.selection-clear-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.selection-clear-btn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.selection-continue-btn {
+    padding: 0.75rem 2rem;
+    min-width: 150px;
+}
+
+.selection-continue-btn.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Character Card Selected State */
+.character-card-selected {
+    border-color: #ff6b6b !important;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%) !important;
+}
+
+.character-card-selected::after {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* ====================
+   RESPONSIVE STYLES
+   ==================== */
+
+@media (max-width: 768px) {
+    .programs-section .programs-grid,
+    .programs-section .programs-list {
+        grid-template-columns: 1fr;
+    }
+
+    .selection-bar-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+    }
+
+    .selection-actions {
+        width: 100%;
+    }
+
+    .selection-actions button {
+        flex: 1;
+    }
+
+    .selection-summary {
+        white-space: normal;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .programs-section .program-card {
+        padding: 1.25rem;
+    }
+
+    .programs-section .program-emoji {
+        font-size: 2.5rem;
+    }
+
+    .programs-section .program-name {
+        font-size: 1rem;
+    }
+
+    .programs-section .program-price {
+        font-size: 1.25rem;
+    }
+
+    .selection-price {
+        font-size: 1.25rem;
+    }
+
+    .selection-summary {
+        font-size: 1rem;
+    }
+}
