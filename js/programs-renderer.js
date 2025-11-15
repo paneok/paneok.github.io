@@ -14,6 +14,7 @@ class ProgramsRenderer {
    */
   async init() {
     await this.loadPrograms();
+    this.renderPrograms(); // Render all programs on init
     this.attachEventListeners();
   }
 
@@ -50,58 +51,47 @@ class ProgramsRenderer {
       return;
     }
 
-    if (!this.selectedCharacter) {
+    // Always show all programs
+    if (this.programs.length === 0) {
       container.innerHTML = `
         <div class="empty-state">
-          <p>Сначала выберите персонажа</p>
+          <p>Программы не найдены</p>
         </div>
       `;
       return;
     }
 
-    const availableProgramIds = this.selectedCharacter.availablePrograms || [];
+    let availablePrograms = [];
+    let unavailablePrograms = [];
 
-    // Filter programs that the character can perform
-    const availablePrograms = this.programs.filter(program =>
-      availableProgramIds.includes(program.id)
-    );
+    if (this.selectedCharacter) {
+      const availableProgramIds = this.selectedCharacter.availablePrograms || [];
 
-    const unavailablePrograms = this.programs.filter(program =>
-      !availableProgramIds.includes(program.id)
-    );
+      // Filter programs that the character can perform
+      availablePrograms = this.programs.filter(program =>
+        availableProgramIds.includes(program.id)
+      );
 
-    if (availablePrograms.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <p>Для этого персонажа нет доступных программ</p>
-        </div>
-      `;
-      return;
+      unavailablePrograms = this.programs.filter(program =>
+        !availableProgramIds.includes(program.id)
+      );
+    } else {
+      // No character selected - all programs are available
+      availablePrograms = this.programs;
     }
 
     // Render available programs
-    let html = '<div class="programs-section">';
-    html += '<h3>Доступные программы</h3>';
-    html += '<div class="programs-list">';
+    let html = '';
 
     availablePrograms.forEach(program => {
       html += this.renderProgramCard(program, true);
     });
 
-    html += '</div></div>';
-
-    // Render unavailable programs if any
-    if (unavailablePrograms.length > 0) {
-      html += '<div class="programs-section programs-unavailable">';
-      html += '<h3>Недоступные программы</h3>';
-      html += '<p class="programs-hint">Эти программы требуют другого персонажа</p>';
-      html += '<div class="programs-list">';
-
+    // Render unavailable programs if any (only when character is selected)
+    if (this.selectedCharacter && unavailablePrograms.length > 0) {
       unavailablePrograms.forEach(program => {
         html += this.renderProgramCard(program, false);
       });
-
-      html += '</div></div>';
     }
 
     container.innerHTML = html;
@@ -111,9 +101,18 @@ class ProgramsRenderer {
    * Render a single program card
    */
   renderProgramCard(program, isAvailable) {
-    const priceDisplay = program.pricing.isCharacterPrice
-      ? `${this.selectedCharacter?.pricing?.hourly || 0} ${program.pricing.unit}`
-      : `${program.pricing.amount} ${program.pricing.unit}`;
+    let priceDisplay;
+
+    if (program.pricing.isCharacterPrice && this.selectedCharacter) {
+      // Show character price if character is selected
+      priceDisplay = `${this.selectedCharacter.pricing?.hourly || 0} ${program.pricing.unit}`;
+    } else if (program.pricing.variants && program.pricing.variants.length > 0) {
+      // Show first variant price if variants exist
+      priceDisplay = `от ${program.pricing.variants[0].price} ${program.pricing.unit}`;
+    } else {
+      // Show base price
+      priceDisplay = `${program.pricing.amount} ${program.pricing.unit}`;
+    }
 
     const unavailableClass = !isAvailable ? 'program-card-unavailable' : '';
     const selectedClass = window.selectionManager?.isProgramSelected(program.id) ? 'program-card-selected' : '';
@@ -164,8 +163,13 @@ class ProgramsRenderer {
     if (!program) return;
 
     if (isAvailable) {
-      // Select this available program
-      window.selectionManager.toggleProgram(program);
+      // If no character selected, auto-add default character for this program
+      if (!this.selectedCharacter && program.defaultCharacterId) {
+        window.selectionManager.addDefaultCharacterForProgram(program);
+      } else {
+        // Select this available program
+        window.selectionManager.toggleProgram(program);
+      }
     } else {
       // Program is unavailable - show option to add default character
       this.handleUnavailableProgram(program);
