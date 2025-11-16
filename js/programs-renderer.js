@@ -22,10 +22,10 @@ class ProgramsRenderer {
    */
   async loadPrograms() {
     try {
-      const response = await fetch('data/programs-data.json');
-      const data = await response.json();
-      this.programs = data.programs;
-      console.log('Programs loaded:', this.programs.length);
+      // Используем API клиент вместо прямого fetch
+      const data = await window.apiClient.getPrograms();
+      this.programs = data;
+      console.log('Programs loaded from API:', this.programs.length);
     } catch (error) {
       console.error('Error loading programs:', error);
       this.programs = [];

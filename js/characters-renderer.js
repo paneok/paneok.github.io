@@ -44,14 +44,13 @@ class CharactersRenderer {
     // Load characters data from JSON
     async loadCharacters() {
         try {
-            console.log('Loading characters...');
-            const response = await fetch('data/characters-data.json');
-            console.log('Response status:', response.status);
-            const data = await response.json();
-            console.log('Data loaded:', data);
-            this.characters = data.characters;
+            console.log('Loading characters from API...');
+            // Используем API клиент вместо прямого fetch
+            const data = await window.apiClient.getCharacters();
+            console.log('Characters loaded from API:', data.length);
+            this.characters = data;
             this.filteredCharacters = [...this.characters];
-            console.log('Characters loaded:', this.characters.length);
+            console.log('Total characters:', this.characters.length);
             return this.characters;
         } catch (error) {
             console.error('Error loading characters:', error);
