@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест программ</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .character-card { 
+            border: 2px solid #ddd; padding: 15px; margin: 10px 0; 
+            border-radius: 8px; position: relative;
+        }
+        .character-card.selected { 
+            border-color: #ff6600; background-color: #fff3e0;
+        }
+        .btn-select { 
+            background: #ff6600; color: white; border: none; 
+            padding: 10px 20px; border-radius: 5px; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-select.selected { background: #ff4400; }
+        .btn-select-hours {
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .hours-minus, .hours-plus {
+            background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.6);
+            color: white; width: 30px; height: 30px; border-radius: 4px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .hours-value { font-weight: bold; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Тест обновленных программ</h1>
+    
+    <div class="test-section">
+        <h2>Тест 1: Программа с предупреждением (ID: 1)</h2>
+        <p>Анимационная программа СТАНДАРТ - требует выбор персонажа</p>
+        <div id="program-1" class="character-card">
+            <h3>Анимационная программа СТАНДАРТ</h3>
+            <p>Описание программы...</p>
+            <div class="character-overlay">
+                <button class="btn btn-select" data-program-id="1">
+                    <span class="btn-select-checkbox">✓</span>
+                    <span class="btn-select-text">Выбрать</span>
+                    <span class="btn-select-hours" style="display: none;">
+                        <span class="hours-minus" data-program-id="1">−</span>
+                        <span class="hours-value">1 час</span>
+                        <span class="hours-plus" data-program-id="1">+</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Тест 2: Программа с персонажем по умолчанию (ID: 2)</h2>
+        <p>Блоггерская вечеринка - персонаж по умолчанию "Ведущий черный ж"</p>
+        <div id="program-2" class="character-card">
+            <h3>Блоггерская вечеринка</h3>
+            <p>Программа по мотивам Тик-ток, ВК, Ютуб...</p>
+            <div class="character-overlay">
+                <button class="btn btn-select" data-program-id="2">
+                    <span class="btn-select-checkbox">✓</span>
+                    <span class="btn-select-text">Выбрать</span>
+                    <span class="btn-select-hours" style="display: none;">
+                        <span class="hours-minus" data-program-id="2">−</span>
+                        <span class="hours-value">1 час</span>
+                        <span class="hours-plus" data-program-id="2">+</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Тест 3: Программа без персонажа (ID: 3)</h2>
+        <p>Аквагрим - не требует персонажа, фиксированная цена</p>
+        <div id="program-3" class="character-card">
+            <h3>Аквагрим</h3>
+            <p>Аквагрим для детей и взрослых...</p>
+            <div class="character-overlay">
+                <button class="btn btn-select" data-program-id="3">
+                    <span class="btn-select-checkbox">✓</span>
+                    <span class="btn-select-text">Выбрать</span>
+                    <span class="btn-select-hours" style="display: none;">
+                        <span class="hours-minus" data-program-id="3">−</span>
+                        <span class="hours-value">1 час</span>
+                        <span class="hours-plus" data-program-id="3">+</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Результат выбора:</h2>
+        <div id="selection-result">Пока ничего не выбрано</div>
+    </div>
+
+    <script src="js/programs-renderer.js"></script>
+    <script>
+        // Создаем экземпляр рендерера программ
+        const programsRenderer = new ProgramsRenderer();
+        
+        // Инициализируем программы
+        programsRenderer.init().then(() => {
+            console.log('Программы загружены:', programsRenderer.programs.length);
+        });
+
+        // Обработчики событий для кнопок
+        document.querySelectorAll('.btn-select').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const programId = parseInt(btn.dataset.programId);
+                const program = programsRenderer.programs.find(p => p.id === programId);
+                
+                if (program) {
+                    programsRenderer.toggleSelection(program, btn);
+                }
+            });
+
+            // Обработчики для +/-
+            const minusBtn = btn.querySelector('.hours-minus');
+            const plusBtn = btn.querySelector('.hours-plus');
+            
+            if (minusBtn) {
+                minusBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const programId = parseInt(minusBtn.dataset.programId);
+                    const card = minusBtn.closest('.character-card');
+                    programsRenderer.decrementHours(programId, card);
+                });
+            }
+            
+            if (plusBtn) {
+                plusBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const programId = parseInt(plusBtn.dataset.programId);
+                    const card = plusBtn.closest('.character-card');
+                    programsRenderer.incrementHours(programId, card);
+                });
+            }
+        });
+
+        // Обновляем отображение результата
+        const originalUpdateSelectionPanel = programsRenderer.updateSelectionPanel.bind(programsRenderer);
+        programsRenderer.updateSelectionPanel = function() {
+            originalUpdateSelectionPanel();
+            
+            const resultDiv = document.getElementById('selection-result');
+            if (window.selectedPrograms && window.selectedPrograms.size > 0) {
+                const programNames = Array.from(window.selectedPrograms.keys())
+                    .map(id => programsRenderer.programs.find(p => p.id === id)?.name)
+                    .filter(name => name);
+                resultDiv.innerHTML = `<strong>Выбрано:</strong> ${programNames.join(', ')}`;
+            } else {
+                resultDiv.textContent = 'Пока ничего не выбрано';
+            }
+        };
+    </script>
+</body>
+</html>

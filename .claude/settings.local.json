@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(python update_programs_images.py:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

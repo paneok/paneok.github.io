@@ -418,7 +418,7 @@ html {
 }
 
 .btn-select.selected {
-    background: linear-gradient(45deg, #26de81, #20bf6b);
+    background: linear-gradient(45deg, #ff9500, #ff6b35);
     background-size: 100% 100%;
     animation: none;
 }
@@ -429,8 +429,8 @@ html {
 }
 
 .character-card.selected {
-    box-shadow: 0 10px 40px rgba(38, 222, 129, 0.4);
-    border: 2px solid #26de81;
+    box-shadow: 0 10px 40px rgba(255, 149, 0, 0.4);
+    border: 2px solid #ff9500;
 }
 
 .btn-outline {
@@ -2314,11 +2314,17 @@ body.new-year-page .loading-message {
 
 .character-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.8rem;
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 2px solid var(--bg-light);
+}
+
+.character-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .character-price {
@@ -2350,6 +2356,52 @@ body.new-year-page .loading-message {
     padding: 0.4rem 0.8rem;
     background: rgba(46, 213, 115, 0.1);
     border-radius: 10px;
+}
+
+/* Hours selector inside button */
+.btn-select-hours {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: 0.5rem;
+}
+
+.hours-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    min-width: 60px;
+    text-align: center;
+}
+
+.hours-minus,
+.hours-plus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.hours-minus:hover,
+.hours-plus:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.hours-minus:active,
+.hours-plus:active {
+    transform: scale(0.9);
 }
 
 /* ==================== LOADING & EMPTY STATES ==================== */
@@ -3186,6 +3238,24 @@ body.new-year-page .loading-message {
     font-size: 0.85rem;
     color: #95a5a6;
     font-style: italic;
+}
+
+/* Program bonus badge */
+.program-bonus {
+    font-size: 0.8rem;
+    color: #27ae60;
+    background: #e8f8f5;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Badge for unavailable programs */
+.badge-unavailable {
+    background: #e74c3c !important;
+    color: white !important;
 }
 
 /* Programs Sections */

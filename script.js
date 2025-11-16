@@ -788,6 +788,11 @@ if (document.getElementById('characters-grid')) {
     const initCharactersFeatures = () => {
         initializeCharactersCatalog();
         initCharactersViewToggle();
+
+        // Initialize programs renderer if programs grid exists
+        if (document.getElementById('programs-grid') && window.programsRenderer) {
+            window.programsRenderer.init();
+        }
     };
 
     if (document.readyState === 'loading') {

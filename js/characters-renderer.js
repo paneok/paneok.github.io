@@ -313,13 +313,29 @@ class CharactersRenderer {
             });
         }
 
+        // Передаем выбранного персонажа в ProgramsRenderer (основной = первый в Set)
+        if (window.programsRenderer && typeof window.programsRenderer.setSelectedCharacter === 'function') {
+            const selectedIds = Array.from(window.selectedCharacters);
+            if (selectedIds.length > 0) {
+                const mainId = selectedIds[0];
+                const mainCharacter = this.characters.find(c => c.id === mainId) || null;
+                window.programsRenderer.setSelectedCharacter(mainCharacter);
+            } else {
+                // Если персонажей больше нет, сбрасываем выбор
+                window.programsRenderer.setSelectedCharacter(null);
+            }
+        }
+
         // Update selection panel
         this.updateSelectionPanel();
     }
 
     // Update the selection panel at the bottom
     updateSelectionPanel() {
-        if (!window.selectedCharacters || window.selectedCharacters.size === 0) {
+        const hasCharacters = window.selectedCharacters && window.selectedCharacters.size > 0;
+        const hasPrograms = window.selectedPrograms && window.selectedPrograms.size > 0;
+
+        if (!hasCharacters && !hasPrograms) {
             // Hide panel if no selections
             const panel = document.getElementById('selection-panel');
             if (panel) {
@@ -335,17 +351,24 @@ class CharactersRenderer {
             document.body.appendChild(panel);
         }
 
-        // Get selected character names
-        const selectedNames = Array.from(window.selectedCharacters)
-            .map(id => {
-                const char = this.characters.find(c => c.id === id);
-                return char ? char.name : null;
-            })
-            .filter(name => name !== null);
+        // Use programs renderer to format selection text if available
+        let selectionText = '';
+        if (window.programsRenderer && typeof window.programsRenderer.formatSelectionText === 'function') {
+            selectionText = window.programsRenderer.formatSelectionText();
+        } else {
+            // Fallback: just show character names
+            const characterNames = Array.from(window.selectedCharacters)
+                .map(id => {
+                    const char = this.characters.find(c => c.id === id);
+                    return char ? char.name : null;
+                })
+                .filter(name => name !== null);
+            selectionText = `Персонажи: ${characterNames.join(', ')}`;
+        }
 
         // Update panel content
         const namesContainer = panel.querySelector('.selection-names');
-        namesContainer.textContent = selectedNames.join(', ');
+        namesContainer.textContent = selectionText;
 
         // Show panel
         panel.classList.add('active');
