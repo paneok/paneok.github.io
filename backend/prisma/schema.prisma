@@ -1,0 +1,144 @@
+// Prisma schema for Holiday Agency
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Персонаж (Character)
+model Character {
+  id                Int      @id @default(autoincrement())
+  name              String   // Имя персонажа (например, "Эльза")
+  slug              String   @unique // URL-friendly версия имени
+  category          String   // Категория (например, "Принцессы", "Супергерои")
+  hourlyPrice       Float    // Базовая цена за час работы
+  description       String?  // Описание персонажа
+  mainImage         String?  // Путь к главному изображению
+  gallery           String?  // JSON массив путей к изображениям галереи
+  availablePrograms String?  // JSON массив ID доступных программ
+  isActive          Boolean  @default(true) // Активен ли персонаж
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Связи
+  orderItems        OrderItem[]
+  timeSlots         TimeSlot[]
+}
+
+// Программа (Program)
+model Program {
+  id                 Int      @id @default(autoincrement())
+  name               String   // Название программы (например, "Шоу мыльных пузырей")
+  slug               String   @unique // URL-friendly версия названия
+  category           String   // Категория (animation, show, party, etc.)
+  emoji              String?  // Эмодзи для отображения
+  basePrice          Float    // Базовая цена программы
+  priceUnit          String   @default("₽/час") // Единица измерения цены
+  isCharacterPrice   Boolean  @default(false) // Цена зависит от персонажа?
+  defaultCharacterId Int?     // ID персонажа по умолчанию
+  description        String?  // Краткое описание
+  fullDescription    String?  // Полное описание
+  bonus              String?  // Бонусная информация
+  duration           String?  // Продолжительность (например, "30 минут", "1 час")
+  targetAge          String?  // Целевой возраст
+  slogan             String?  // Слоган программы
+  mainImage          String?  // Путь к главному изображению
+  gallery            String?  // JSON массив путей к изображениям галереи
+  requiresCharacter  Boolean  @default(false) // Требует ли программа выбора персонажа
+  isActive           Boolean  @default(true) // Активна ли программа
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  // Связи
+  orderItems         OrderItem[]
+}
+
+// Заказ (Order)
+model Order {
+  id                String      @id @default(uuid())
+  customerName      String      // Имя заказчика
+  customerPhone     String      // Телефон заказчика
+  customerEmail     String?     // Email заказчика
+  eventDate         DateTime?   // Дата мероприятия
+  eventAddress      String?     // Адрес мероприятия
+  childAge          Int?        // Возраст ребенка
+  guestsCount       Int?        // Количество гостей
+  totalPrice        Float       // Общая стоимость
+  totalDuration     Float       // Общая продолжительность (в часах)
+  status            String      @default("draft") // draft, pending, confirmed, completed, cancelled
+  notes             String?     // Дополнительные заметки
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  // Связи
+  orderItems        OrderItem[]
+  timeSlots         TimeSlot[]
+}
+
+// Элемент заказа - связь программы с персонажами
+model OrderItem {
+  id                Int       @id @default(autoincrement())
+  orderId           String    // ID заказа
+  programId         Int       // ID программы
+  duration          Float     // Продолжительность (в часах)
+  price             Float     // Цена этого элемента
+
+  // Настройки распределения персонажей
+  distributionType  String    @default("sequential") // sequential (по очереди), simultaneous (все вместе), custom (пользовательское)
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  // Связи
+  order             Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  program           Program   @relation(fields: [programId], references: [id])
+  characters        OrderItemCharacter[]
+  timeSlots         TimeSlot[]
+
+  @@index([orderId])
+  @@index([programId])
+}
+
+// Связь персонажей с элементами заказа
+model OrderItemCharacter {
+  id              Int       @id @default(autoincrement())
+  orderItemId     Int       // ID элемента заказа
+  characterId     Int       // ID персонажа
+  isDefaultCostume Boolean  @default(true) // В дефолтном костюме?
+  requiresSeparateActor Boolean @default(false) // Нужен отдельный актер?
+
+  createdAt       DateTime  @default(now())
+
+  // Связи
+  orderItem       OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  character       Character @relation(fields: [characterId], references: [id])
+
+  @@index([orderItemId])
+  @@index([characterId])
+}
+
+// Временной слот - когда какой персонаж работает
+model TimeSlot {
+  id              Int       @id @default(autoincrement())
+  orderId         String    // ID заказа
+  orderItemId     Int       // ID элемента заказа
+  characterId     Int       // ID персонажа
+  startTime       Float     // Начало (в часах от начала события, например 0, 0.5, 1)
+  endTime         Float     // Конец (в часах от начала события)
+  priceForSlot    Float     // Стоимость этого слота
+
+  createdAt       DateTime  @default(now())
+
+  // Связи
+  order           Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderItem       OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  character       Character @relation(fields: [characterId], references: [id])
+
+  @@index([orderId])
+  @@index([orderItemId])
+  @@index([characterId])
+}
