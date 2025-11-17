@@ -6,7 +6,7 @@ class ApiClient {
   constructor(baseUrl = 'http://localhost:3001') {
     this.baseUrl = baseUrl;
     this.isOnline = true;
-    this.useFallback = false; // Использовать JSON файлы как fallback
+    this.useFallback = true; // Использовать JSON файлы как fallback (автоматически)
   }
 
   /**
@@ -53,7 +53,9 @@ class ApiClient {
 
     if (endpoint.includes('characters')) {
       const response = await fetch('data/characters-data.json');
-      return await response.json();
+      const data = await response.json();
+      // Возвращаем массив персонажей, а не весь объект
+      return data.characters || [];
     } else if (endpoint.includes('programs')) {
       const response = await fetch('data/programs-data.json');
       const data = await response.json();
