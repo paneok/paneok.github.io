@@ -7,6 +7,11 @@ class SelectionManager {
   constructor() {
     this.selectedCharacters = []; // Array of selected characters
     this.selectedPrograms = []; // Array of selected programs
+    this.resolutions = []; // Разрешения конфликтов
+    this.totalPrice = 0; // Общая стоимость
+    this.totalDuration = 0; // Общая продолжительность
+    this.details = []; // Детали расчета
+    this.lastCalculation = null; // Последний результат расчета
     this.loadFromLocalStorage();
   }
 
@@ -68,18 +73,160 @@ class SelectionManager {
   /**
    * Add or remove a program
    */
-  toggleProgram(program) {
+  async toggleProgram(program) {
     const index = this.selectedPrograms.findIndex(p => p.id === program.id);
 
     if (index > -1) {
       // Remove program
       this.selectedPrograms.splice(index, 1);
     } else {
-      // Add program
-      this.selectedPrograms.push(program);
+      // Add program with default duration
+      const programWithDuration = {
+        ...program,
+        duration: this.parseDurationToHours(program.duration) || 1
+      };
+      this.selectedPrograms.push(programWithDuration);
     }
 
     this.saveToLocalStorage();
+    this.updateUI();
+
+    // Проверяем конфликты только при добавлении программы
+    if (index === -1 && this.selectedPrograms.length > 0) {
+      await this.checkForConflicts();
+    }
+  }
+
+  /**
+   * Парсинг duration в часы
+   */
+  parseDurationToHours(durationStr) {
+    if (!durationStr) return 1;
+
+    // "30 минут" = 0.5
+    if (durationStr.includes('минут')) {
+      const match = durationStr.match(/(\d+)/);
+      if (match) {
+        return parseInt(match[1]) / 60;
+      }
+    }
+
+    // "1 час", "2 часа" = 1, 2
+    const hourMatch = durationStr.match(/(\d+\.?\d*)\s*(ч|час)/i);
+    if (hourMatch) {
+      return parseFloat(hourMatch[1]);
+    }
+
+    return 1; // default
+  }
+
+  /**
+   * Проверить наличие конфликтов через API
+   */
+  async checkForConflicts() {
+    try {
+      // Подготавливаем данные для API
+      const selectedCharacterIds = this.selectedCharacters.map(c => c.id);
+      const selectedProgramsData = this.selectedPrograms.map(p => ({
+        programId: p.id,
+        duration: p.duration || 1
+      }));
+
+      // Вызываем API калькулятора
+      const result = await window.apiClient.calculatePrice({
+        selectedCharacters: selectedCharacterIds,
+        selectedPrograms: selectedProgramsData
+      });
+
+      console.log('Calculator result:', result);
+
+      // Если есть конфликты - показываем модальные окна
+      if (result.hasConflicts && result.conflicts.length > 0) {
+        // Показываем первый конфликт
+        this.showConflictModal(result.conflicts[0], result.conflicts.slice(1));
+      } else {
+        // Сохраняем результат расчета
+        this.lastCalculation = result;
+        this.updatePriceDisplay(result);
+      }
+    } catch (error) {
+      console.error('Error checking conflicts:', error);
+      // Продолжаем работу с fallback логикой
+    }
+  }
+
+  /**
+   * Показать модальное окно для конфликта
+   */
+  showConflictModal(conflict, remainingConflicts = []) {
+    window.personaModal.show(conflict, (resolution) => {
+      // Применяем разрешение конфликта
+      this.applyResolution(resolution);
+
+      // Если есть еще конфликты - показываем следующий
+      if (remainingConflicts.length > 0) {
+        this.showConflictModal(remainingConflicts[0], remainingConflicts.slice(1));
+      } else {
+        // Все конфликты разрешены - пересчитываем с учетом разрешений
+        this.recalculateWithResolutions();
+      }
+    });
+  }
+
+  /**
+   * Применить разрешение конфликта
+   */
+  applyResolution(resolution) {
+    if (!this.resolutions) {
+      this.resolutions = [];
+    }
+
+    // Удаляем предыдущее разрешение для этой программы
+    this.resolutions = this.resolutions.filter(r => r.programId !== resolution.programId);
+
+    // Добавляем новое разрешение
+    this.resolutions.push(resolution);
+
+    console.log('Resolution applied:', resolution);
+  }
+
+  /**
+   * Пересчитать стоимость с учетом разрешений
+   */
+  async recalculateWithResolutions() {
+    try {
+      const selectedCharacterIds = this.selectedCharacters.map(c => c.id);
+      const selectedProgramsData = this.selectedPrograms.map(p => ({
+        programId: p.id,
+        duration: p.duration || 1
+      }));
+
+      const result = await window.apiClient.resolveConflicts({
+        selectedCharacters: selectedCharacterIds,
+        selectedPrograms: selectedProgramsData,
+        resolutions: this.resolutions || []
+      });
+
+      console.log('Resolved calculation:', result);
+
+      // Сохраняем результат и обновляем UI
+      this.lastCalculation = result;
+      this.updatePriceDisplay(result);
+    } catch (error) {
+      console.error('Error recalculating with resolutions:', error);
+    }
+  }
+
+  /**
+   * Обновить отображение цены
+   */
+  updatePriceDisplay(calculation) {
+    // Обновляем UI с новыми данными
+    if (calculation) {
+      this.totalPrice = calculation.totalPrice;
+      this.totalDuration = calculation.totalDuration;
+      this.details = calculation.details;
+    }
     this.updateUI();
   }
 
