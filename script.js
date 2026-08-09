@@ -2970,6 +2970,7 @@ function initHolidayGallery() {
     let currentIndex = 0;
     let pointerStartX = 0;
     let pointerStartY = 0;
+    let lastLightboxSwipeAt = 0;
 
     track.replaceChildren();
     track.style.transform = '';
@@ -3038,19 +3039,37 @@ function initHolidayGallery() {
         navigateLightbox(1);
     });
 
+    function handleLightboxSwipe(endX, endY) {
+        if (!lightbox.classList.contains('active')) return;
+        const deltaX = endX - pointerStartX;
+        const deltaY = endY - pointerStartY;
+        if (Math.abs(deltaX) <= 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+        if (Date.now() - lastLightboxSwipeAt < 300) return;
+
+        lastLightboxSwipeAt = Date.now();
+        navigateLightbox(deltaX < 0 ? 1 : -1);
+    }
+
+    // Pointer Events cover most touchscreens and mouse/trackpad testing.
+    lightbox.addEventListener('pointerdown', (event) => {
+        pointerStartX = event.clientX;
+        pointerStartY = event.clientY;
+    });
+    lightbox.addEventListener('pointerup', (event) => {
+        if (event.target.closest('.lightbox-nav-btn, .lightbox-close-btn')) return;
+        handleLightboxSwipe(event.clientX, event.clientY);
+    });
+
+    // Fallback for mobile browsers that do not deliver reliable pointerup
+    // events from an image inside a fixed modal.
     lightbox.addEventListener('touchstart', (event) => {
         const touch = event.touches[0];
         pointerStartX = touch.clientX;
         pointerStartY = touch.clientY;
     }, { passive: true });
     lightbox.addEventListener('touchend', (event) => {
-        if (!lightbox.classList.contains('active')) return;
         const touch = event.changedTouches[0];
-        const deltaX = touch.clientX - pointerStartX;
-        const deltaY = touch.clientY - pointerStartY;
-        if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
-            navigateLightbox(deltaX < 0 ? 1 : -1);
-        }
+        handleLightboxSwipe(touch.clientX, touch.clientY);
     }, { passive: true });
 
     document.addEventListener('keydown', (event) => {

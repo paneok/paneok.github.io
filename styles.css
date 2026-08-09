@@ -7229,6 +7229,11 @@ body.modal-open {
 }
 .header-messenger:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2); }
 .header-messenger-whatsapp { background: #25d366; }
+.header-messenger-vk { background: #0077ff; }
+.header-messenger-telegram { background: #229ed9; }
+.header-messenger-max { background: linear-gradient(135deg, #4f46e5, #8b5cf6); font-size: 0.54rem; }
+.header-messenger.is-placeholder { cursor: default; opacity: 0.78; }
+.header-messenger.is-placeholder:hover { transform: none; }
 
 @media (max-width: 1180px) {
     .nav-location-badge { display: none; }
