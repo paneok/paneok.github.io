@@ -6,18 +6,20 @@
 }
 
 :root {
-    --primary-color: #E63946;     /* Праздничный красный (кнопки заказа, призыв к действию) */
-    --secondary-color: #457B9D;   /* Конфетти-синий (второстепенные элементы, важная информация) */
-    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новинки) */
-    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
-    --blue-color: #457B9D;        /* Переопределяем синий на Конфетти-синий */
-    --green-color: #26de81;       /* Мягкий зеленый */
-    --bg-light: #F8F9FA;          /* Облачно-белый фон секций и карточек */
+    --primary-color: #7C3AED;     /* Праздничный волшебный фиолетовый (фон, баннеры, акценты) */
+    --secondary-color: #9333EA;   /* Яркий пурпурный */
+    --accent-color: #FFD000;      /* Солнечно-желтый ("EHOT" и кнопки) */
+    --gold-color: #F59E0B;        /* Праздничное золото (звезды, шары) */
+    --purple-color: #8A2BE2;      /* Насыщенный королевский фиолетовый ("В ДЕЛЕ!") */
+    --pink-color: #EC4899;        /* Ярко-розовый маджента */
+    --blue-color: #0EA5E9;        /* Праздничный небесно-голубой */
+    --green-color: #84CC16;       /* Сочный салатовый */
+    --bg-light: #F5F3FF;          /* Мягкий сиренево-облачный фон */
     --bg-white: #ffffff;          /* Чистый белый */
-    --text-dark: #1A1C20;         /* Угольно-черный (основной текст, заголовки, контуры) */
-    --text-gray: #8A939E;         /* Пепельно-серый (второстепенный текст, неактивные элементы) */
-    --shadow: 0 10px 40px rgba(26, 28, 32, 0.08);
-    --shadow-hover: 0 15px 50px rgba(26, 28, 32, 0.12);
+    --text-dark: #1E1B4B;         /* Глубокий темно-фиолетовый черный ("МАСТЕРСКАЯ") */
+    --text-gray: #6B7280;         /* Пепельно-серый */
+    --shadow: 0 10px 40px rgba(124, 58, 237, 0.12);
+    --shadow-hover: 0 15px 50px rgba(124, 58, 237, 0.22);
 }
 
 body {
@@ -7104,6 +7106,36 @@ body.modal-open {
 .nav-link-new-year::after {
     display: none !important;
 }
+
+/* ==================== BANNER PALETTE OVERRIDES ==================== */
+.hero {
+    background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 35%, #9333EA 65%, #A78BFA 100%) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FFD000, #F59E0B) !important;
+    color: #1E1B4B !important;
+    font-weight: 800 !important;
+    box-shadow: 0 10px 30px rgba(255, 208, 0, 0.45) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 40px rgba(255, 208, 0, 0.6) !important;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #7C3AED !important;
+    border: 2px solid #7C3AED !important;
+    font-weight: 700 !important;
+}
+
+.btn-secondary:hover {
+    background: white !important;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25) !important;
+}
+
 
 
 
