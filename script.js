@@ -1917,6 +1917,34 @@ function initRaccoonDiary() {
         });
     });
 
+    // Phone: a diary should turn like pages, not force the visitor to scroll
+    // through a long book.  Keep vertical gestures for the page itself and
+    // only react to deliberate horizontal swipes.
+    const pagesViewport = diaryWrapper.querySelector('.diary-pages-viewport');
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+
+    if (pagesViewport) {
+        pagesViewport.addEventListener('touchstart', (event) => {
+            const touch = event.touches[0];
+            swipeStartX = touch.clientX;
+            swipeStartY = touch.clientY;
+        }, { passive: true });
+
+        pagesViewport.addEventListener('touchend', (event) => {
+            if (window.innerWidth > 768 || !diaryWrapper.classList.contains('diary-fullscreen-active')) return;
+
+            const touch = event.changedTouches[0];
+            const deltaX = touch.clientX - swipeStartX;
+            const deltaY = touch.clientY - swipeStartY;
+
+            if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+            if (deltaX < 0 && currentStep < 4) setStep(currentStep + 1);
+            if (deltaX > 0 && currentStep > 1) setStep(currentStep - 1);
+        }, { passive: true });
+    }
+
     // Handle viewport resize to switch layout styles and adapt scale
     window.addEventListener('resize', () => {
         const currentActiveTab = document.querySelector('.diary-tab.active');

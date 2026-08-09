@@ -7136,6 +7136,122 @@ body.modal-open {
     box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25) !important;
 }
 
+/* ==================== DIARY: MOBILE HORIZONTAL PAGES ==================== */
+@media (max-width: 768px) {
+    .diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
+        display: block !important;
+        min-height: 0 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: min(600px, calc(100svh - 180px)) !important;
+        min-height: 480px !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(139, 125, 107, 0.18) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 10px 24px rgba(92, 58, 33, 0.10) !important;
+        background: #fffdf9 !important;
+        touch-action: pan-y !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-paper,
+    .diary-book-wrapper.diary-fullscreen-active .book-paper.mobile-active {
+        display: contents !important;
+        position: static !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page,
+    .diary-book-wrapper.diary-fullscreen-active .book-page.page-front,
+    .diary-book-wrapper.diary-fullscreen-active .book-page.page-back {
+        display: flex !important;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 1.25rem 3.4rem 1rem !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateX(110%) !important;
+        transition: transform 0.35s ease, opacity 0.25s ease !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: repeating-linear-gradient(
+            to bottom,
+            #fffdf9 0,
+            #fffdf9 30px,
+            rgba(139, 125, 107, 0.08) 31px,
+            #fffdf9 32px
+        ) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-1 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-2 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-2 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-2 .page-back {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateX(0) !important;
+        z-index: 2 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-2 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-2 .page-front {
+        transform: translateX(-110%) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn {
+        display: flex !important;
+        position: absolute !important;
+        top: 50% !important;
+        z-index: 10 !important;
+        width: 44px !important;
+        height: 44px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: 2px solid #c8bda8 !important;
+        border-radius: 50% !important;
+        background: #fffdf9 !important;
+        color: #7c3aed !important;
+        box-shadow: 0 4px 12px rgba(92, 58, 33, 0.16) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.prev-btn { left: 8px !important; }
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.next-btn { right: 8px !important; }
+
+    .diary-book-wrapper.diary-fullscreen-active:has(.diary-pages-viewport.step-1) .diary-page-btn.prev-btn,
+    .diary-book-wrapper.diary-fullscreen-active:has(.diary-pages-viewport.step-4) .diary-page-btn.next-btn {
+        display: none !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .entry-text {
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 6 !important;
+        overflow: hidden !important;
+        font-size: 0.98rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .entry-media {
+        margin-top: auto !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .polaroid-image-placeholder {
+        height: 125px !important;
+    }
+}
+
 
 
 
