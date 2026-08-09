@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import prisma from './config/database.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Routes
 import charactersRouter from './routes/characters.js';
@@ -39,6 +42,28 @@ app.use('/api/characters', charactersRouter);
 app.use('/api/programs', programsRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/calculator', calculatorRouter);
+
+// API route to get holiday photos dynamically from images/fotoprazdnik folder
+app.get('/api/holiday-photos', (req, res) => {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const photosDir = path.join(__dirname, '..', '..', 'images', 'fotoprazdnik');
+  
+  fs.readdir(photosDir, (err, files) => {
+    if (err) {
+      console.error('Error reading holiday photos folder:', err);
+      return res.status(500).json({ error: 'Failed to read photos folder', details: err.message });
+    }
+    
+    const photoFiles = files.filter(file => {
+      const ext = path.extname(file).toLowerCase();
+      return ext === '.jpg' || ext === '.jpeg' || ext === '.png';
+    });
+    
+    photoFiles.sort();
+    res.json(photoFiles);
+  });
+});
 
 // 404 handler
 app.use((req, res) => {

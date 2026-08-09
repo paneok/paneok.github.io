@@ -1,0 +1,421 @@
+2390:     }
+2391:     
+2392:     // ==================== PREMIUM LIGHTBOX MODAL ====================
+2393:     let lightboxIndex = 0;
+2394:     let originalClickedCard = null; // Store reference to restore opacity on close
+2395:     let originalTransform = '';     // Store reference to restore rotation on close
+2396:     let isTransitioning = false;     // Prevent spam during transitions
+2397:     let activeLightboxCard = null;  // Reference to the physical fixed clone on screen
+2398:     let originalTrackTransform = ''; // Store the starting track transform matrix to prevent snapping on close
+2399:     
+2400:     function openLightbox(index, clickedCard) {
+2401:         if (!clickedCard || isTransitioning) return;
+2402:         isTransitioning = true;
+2403:         
+2404:         // 1. Pause autoscrolling immediately
+2405:         isMarqueeRunning = false;
+2406:         if (animationFrameId) {
+2407:             cancelAnimationFrame(animationFrameId);
+2408:             animationFrameId = null;
+2409:         }
+2410:         
+2411:         lightboxIndex = index;
+2412:         originalClickedCard = clickedCard;
+2413:         
+2414:         // Save the starting track transform matrix using our JS marqueeX coordinate
+2415:         originalTrackTransform = `translate3d(${marqueeX}px, 0px, 0px)`;
+2416:         
+2417:         // 2. Get original card position on screen
+2418:         const rect = clickedCard.getBoundingClientRect();
+2419:         
+2420:         // 3. Create transition clone
+2421:         const clone = clickedCard.cloneNode(true);
+2422:         clone.classList.add('polaroid-card-transitioning');
+2423:         
+2424:         // Apply starting position inline styles (fixed relative to screen)
+2425:         clone.style.position = 'fixed';
+2426:         clone.style.top = rect.top + 'px';
+2427:         clone.style.left = rect.left + 'px';
+2428:         clone.style.width = rect.width + 'px';
+2429:         clone.style.height = rect.height + 'px';
+2430:         clone.style.margin = '0';
+2431:         clone.style.zIndex = '20005'; // Perfectly between modal (20000) and buttons (20010, 20020)
+2432:         
+2433:         // Keep current rotation transform
+2434:         const computedStyle = window.getComputedStyle(clickedCard);
+2435:         originalTransform = computedStyle.transform;
+2436:         clone.style.transform = originalTransform;
+2437:         clone.style.transition = 'none'; // Initially no transitions
+2438:         clone.style.pointerEvents = 'none'; // Ignore clicks during flight
+2439:         
+2440:         // 4. Hide original card in track (physically gone!)
+2441:         clickedCard.style.opacity = '0';
+2442:         
+2443:         // 5. Append clone directly to body (solid visible flight)
+2444:         document.body.appendChild(clone);
+2445:         activeLightboxCard = clone;
+2446:         
+2447:         // 6. Force a reflow
+2448:         clone.offsetHeight;
+2449:         
+2450:         // 7. Target size: 2/3 of viewport height, image fills card
+2451:         const targetHeight = window.innerHeight * 0.67;
+2452:         const cardAspectRatio = rect.width / rect.height;
+2453:         let targetWidth = targetHeight * cardAspectRatio;
+2454:         
+2455:         // Cap width to viewport
+2456:         const maxWidth = window.innerWidth <= 480 ? window.innerWidth * 0.92
+2457:                        : window.innerWidth <= 768 ? window.innerWidth * 0.88
+2458:                        : window.innerWidth * 0.7;
+2459:         if (targetWidth > maxWidth) targetWidth = maxWidth;
+2460:         
+2461:         const targetTop = (window.innerHeight - targetHeight) / 2;
+2462:         const targetLeft = (window.innerWidth - targetWidth) / 2;
+2463:         
+2464:         // Force image wrapper to fill all available space (no white gap)
+2465:         const imgWrapper = clone.querySelector('.polaroid-card-img-wrapper');
+2466:         if (imgWrapper) {
+2467:             imgWrapper.style.flex = '1';
+2468:             imgWrapper.style.height = '0';
+2469:             imgWrapper.style.minHeight = '0';
+2470:             imgWrapper.style.width = '100%';
+2471:         }
+2472:         
+2473:         // 8. Start backdrop fade in
+2474:         lightbox.classList.add('active');
+2475:         lightbox.setAttribute('aria-hidden', 'false');
+2476:         document.body.style.overflow = 'hidden';
+2477:         
+2478:         // 9. Animate the clone to center
+2479:         clone.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+2480:         clone.style.top = targetTop + 'px';
+2481:         clone.style.left = targetLeft + 'px';
+2482:         clone.style.width = targetWidth + 'px';
+2483:         clone.style.height = targetHeight + 'px';
+2484:         clone.style.transform = 'rotate(0deg)';
+2485:         clone.classList.add('fullscreen-zoom-active');
+2486:         
+2487:         // 10. Once flight finishes, unlock transitioning — clone stays pointer-events:none
+2488:         //     so taps on the card pass through to the lightbox backdrop swipe handler
+2489:         setTimeout(() => {
+2490:             try {
+2491:                 // Keep pointerEvents: none — interaction handled by lightbox swipe handler
+2492:             } catch (err) {
+2493:                 console.error("Error during open transition cleanup:", err);
+2494:             } finally {
+2495:                 isTransitioning = false;
+2496:             }
+2497:         }, 650);
+2498:     }
+2499:     
+2500:     // Find matching card on track that is closest to center of viewport
+2501:     function findActiveCardOnTrack(index) {
+2502:         const cards = track.querySelectorAll('.polaroid-card');
+2503:         let bestCard = null;
+2504:         let minDistance = Infinity;
+2505:         const viewportCenter = window.innerWidth / 2;
+2506:         
+2507:         cards.forEach(card => {
+2508:             if (parseInt(card.getAttribute('data-card-index')) === index) {
+2509:                 const rect = card.getBoundingClientRect();
+2510:                 const cardCenter = rect.left + rect.width / 2;
+2511:                 const distance = Math.abs(cardCenter - viewportCenter);
+2512:                 if (distance < minDistance) {
+2513:                     minDistance = distance;
+2514:                     bestCard = card;
+2515:                 }
+2516:             }
+2517:         });
+2518:         
+2519:         return bestCard || originalClickedCard;
+2520:     }
+2521:     
+2522:     function closeLightbox() {
+2523:         if (!lightbox || !activeLightboxCard || isTransitioning) return;
+2524:         isTransitioning = true;
+2525:         
+2526:         // 1. Find the current active card on the track to fly back to
+2527:         const activeCard = findActiveCardOnTrack(lightboxIndex);
+2528:         if (!activeCard) {
+2529:             lightbox.classList.remove('active');
+2530:             lightbox.setAttribute('aria-hidden', 'true');
+2531:             document.body.style.overflow = '';
+2532:             
+2533:             try {
+2534:                 if (activeLightboxCard && activeLightboxCard.parentNode) {
+2535:                     activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+2536:                 }
+2537:             } catch (err) {
+2538:                 console.error("Error removing clone:", err);
+2539:             } finally {
+2540:                 activeLightboxCard = null;
+2541:                 track.style.transition = '';
+2542:                 track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+2543:                 
+2544:                 isMarqueeRunning = true;
+2545:                 animateMarquee();
+2546:                 isTransitioning = false;
+2547:             }
+2548:             return;
+2549:         }
+2550:         
+2551:         // Restore opacity of any previously hidden original card
+2552:         if (originalClickedCard && originalClickedCard !== activeCard) {
+2553:             originalClickedCard.style.opacity = '1';
+2554:         }
+2555:         
+2556:         // Hide the target track card — the clone will fly INTO its place
+2557:         activeCard.style.opacity = '0';
+2558:         
+2559:         // 2. Get the card's CURRENT position on the track (no track scrolling back!)
+2560:         const startRect = activeCard.getBoundingClientRect();
+2561:         const computedStyle = window.getComputedStyle(activeCard);
+2562:         const targetTransform = computedStyle.transform !== 'none' ? computedStyle.transform : originalTransform;
+2563:         
+2564:         // 3. Prepare clone for flight
+2565:         activeLightboxCard.style.pointerEvents = 'none';
+2566:         
+2567:         // Fade out backdrop — track stays where it is
+2568:         lightbox.classList.remove('active');
+2569:         lightbox.setAttribute('aria-hidden', 'true');
+2570:         document.body.style.overflow = '';
+2571:         
+2572:         // 4. Fly clone from center to its current track slot (no track animation)
+2573:         activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+2574:         activeLightboxCard.style.top = startRect.top + 'px';
+2575:         activeLightboxCard.style.left = startRect.left + 'px';
+2576:         activeLightboxCard.style.width = startRect.width + 'px';
+2577:         activeLightboxCard.style.height = startRect.height + 'px';
+2578:         activeLightboxCard.style.transform = targetTransform;
+2579:         activeLightboxCard.classList.remove('fullscreen-zoom-active');
+2580:         
+2581:         // 5. Clean up, reveal card, resume carousel
+2582:         setTimeout(() => {
+2583:             try {
+2584:                 if (activeLightboxCard && activeLightboxCard.parentNode) {
+2585:                     activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+2586:                 }
+2587:                 activeLightboxCard = null;
+2588:                 
+2589:                 if (activeCard) {
+2590:                     activeCard.style.opacity = '1';
+2591:                 }
+2592:                 
+2593:                 isMarqueeRunning = true;
+2594:                 animateMarquee();
+2595:             } catch (err) {
+2596:                 console.error("Error in close transition timeout cleanup:", err);
+2597:             } finally {
+2598:                 isTransitioning = false;
+2599:             }
+2600:         }, 500);
+2601:     }
+2602:     
+2603:     // Choreographed double-flight navigation: slides the track and flies the cards
+2604:     function navigateLightbox(direction) {
+2605:         if (isTransitioning || !activeLightboxCard || !realPhotos.length) return;
+2606:         isTransitioning = true;
+2607:         
+2608:         // 1. Calculate the target index
+2609:         let nextIndex = 0;
+2610:         if (direction === 'next') {
+2611:             nextIndex = (lightboxIndex + 1) % realPhotos.length;
+2612:         } else {
+2613:             nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.length;
+2614:         }
+2615:         
+2616:         // 2. Find the current card on the track and the next card on the track
+2617:         const currentTrackCard = findActiveCardOnTrack(lightboxIndex);
+2618:         const nextTrackCard = findActiveCardOnTrack(nextIndex);
+2619:         
+2620:         if (!currentTrackCard || !nextTrackCard) {
+2621:             isTransitioning = false;
+2622:             return;
+2623:         }
+2624:         
+2625:         // 3. Capture CURRENT position of next card BEFORE any track movement
+2626:         const startRectB = nextTrackCard.getBoundingClientRect();
+2627:         
+2628:         // 4. Shift track so the target card lands in viewport CENTER
+2629:         const nextCardCenter = startRectB.left + startRectB.width / 2;
+2630:         const viewportCenter = window.innerWidth / 2;
+2631:         const shiftNeeded = viewportCenter - nextCardCenter;
+2632:         let newX = marqueeX + shiftNeeded;
+2633:         
+2634:         // Handle endless loop wrapping smoothly
+2635:         const trackHalfWidth = track.offsetWidth / 2;
+2636:         if (newX < -trackHalfWidth) {
+2637:             track.style.transition = 'none';
+2638:             const jumpedX = marqueeX + trackHalfWidth;
+2639:             track.style.transform = `translate3d(${jumpedX}px, 0px, 0px)`;
+2640:             track.offsetHeight;
+2641:             newX = jumpedX + shiftNeeded;
+2642:         } else if (newX > 0) {
+2643:             track.style.transition = 'none';
+2644:             const jumpedX = marqueeX - trackHalfWidth;
+2645:             track.style.transform = `translate3d(${jumpedX}px, 0px, 0px)`;
+2646:             track.offsetHeight;
+2647:             newX = jumpedX + shiftNeeded;
+2648:         }
+2649:         
+2650:         marqueeX = newX;
+2651:         
+2652:         // --- FLIGHT A: Current card A flies BACK to the track (at the position it was before shift) ---
+2653:         const startRectA = currentTrackCard.getBoundingClientRect();
+2654:         const cardToFlyBack = activeLightboxCard;
+2655:         cardToFlyBack.style.pointerEvents = 'none';
+2656:         
+2657:         const computedStyleA = window.getComputedStyle(currentTrackCard);
+2658:         const targetTransformA = computedStyleA.transform !== 'none' ? computedStyleA.transform : originalTransform;
+2659:         
+2660:         cardToFlyBack.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+2661:         cardToFlyBack.style.top = startRectA.top + 'px';
+2662:         // Fly back to where the card will be after the track shift
+2663:         cardToFlyBack.style.left = (startRectA.left + shiftNeeded) + 'px';
+2664:         cardToFlyBack.style.width = startRectA.width + 'px';
+2665:         cardToFlyBack.style.height = startRectA.height + 'px';
+2666:         cardToFlyBack.style.transform = targetTransformA;
+2667:         cardToFlyBack.classList.remove('fullscreen-zoom-active');
+2668:         
+2669:         setTimeout(() => {
+2670:             try {
+2671:                 if (cardToFlyBack && cardToFlyBack.parentNode) {
+2672:                     cardToFlyBack.parentNode.removeChild(cardToFlyBack);
+2673:                 }
+2674:                 currentTrackCard.style.opacity = '1';
+2675:             } catch (err) {
+2676:                 console.error("Error cleaning up Flight A:", err);
+2677:             }
+2678:         }, 500);
+2679:         
+2680:         // --- TRANSITION THE TRACK to center next card ---
+2681:         track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+2682:         track.style.transform = `translate3d(${newX}px, 0px, 0px)`;
+2683:         
+2684:         // --- FLIGHT B: Next card B flies OUT from its PRE-SHIFT position to center ---
+2685:         
+2686:         // Create new transition clone for the next card B
+2687:         const cloneB = nextTrackCard.cloneNode(true);
+2688:         cloneB.classList.add('polaroid-card-transitioning');
+2689:         
+2690:         // Position clone B at its starting coordinates on the track (pre-shifted)
+2691:         cloneB.style.position = 'fixed';
+2692:         cloneB.style.top = startRectB.top + 'px';
+2693:         cloneB.style.left = startRectB.left + 'px';
+2694:         cloneB.style.width = startRectB.width + 'px';
+2695:         cloneB.style.height = startRectB.height + 'px';
+2696:         cloneB.style.margin = '0';
+2697:         cloneB.style.zIndex = '20005';
+2698:         
+2699:         const computedStyleB = window.getComputedStyle(nextTrackCard);
+2700:         cloneB.style.transform = computedStyleB.transform !== 'none' ? computedStyleB.transform : originalTransform;
+2701:         cloneB.style.transition = 'none';
+2702:         cloneB.style.pointerEvents = 'none';
+2703:         
+2704:         // Hide original card B on the track
+2705:         nextTrackCard.style.opacity = '0';
+2706:         
+2707:         // Append clone B to body and update state references
+2708:         document.body.appendChild(cloneB);
+2709:         activeLightboxCard = cloneB;
+2710:         lightboxIndex = nextIndex;
+2711:         originalClickedCard = nextTrackCard; // Update reference for exit flight
+2712:         
+2713:         // Force reflow
+2714:         cloneB.offsetHeight;
+2715:         
+2716:         // Calculate centered dimensions: 2/3 of viewport height, image fills card
+2717:         const targetHeight = window.innerHeight * 0.67;
+2718:         const cardAspectRatio = startRectB.width / startRectB.height;
+2719:         let targetWidth = targetHeight * cardAspectRatio;
+2720:         const maxWidth = window.innerWidth <= 480 ? window.innerWidth * 0.92
+2721:                        : window.innerWidth <= 768 ? window.innerWidth * 0.88
+2722:                        : window.innerWidth * 0.7;
+2723:         if (targetWidth > maxWidth) targetWidth = maxWidth;
+2724:         const targetTop = (window.innerHeight - targetHeight) / 2;
+2725:         const targetLeft = (window.innerWidth - targetWidth) / 2;
+2726:         
+2727:         // Force image wrapper to fill all available space
+2728:         const imgWrapperB = cloneB.querySelector('.polaroid-card-img-wrapper');
+2729:         if (imgWrapperB) {
+2730:             imgWrapperB.style.flex = '1';
+2731:             imgWrapperB.style.height = '0';
+2732:             imgWrapperB.style.minHeight = '0';
+2733:             imgWrapperB.style.width = '100%';
+2734:         }
+2735:         
+2736:         // Animate clone B to center
+2737:         cloneB.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+2738:         cloneB.style.top = targetTop + 'px';
+2739:         cloneB.style.left = targetLeft + 'px';
+2740:         cloneB.style.width = targetWidth + 'px';
+2741:         cloneB.style.height = targetHeight + 'px';
+2742:         cloneB.style.transform = 'rotate(0deg)';
+2743:         cloneB.classList.add('fullscreen-zoom-active');
+2744:         
+2745:         // Make the new active card interactive after landing
+2746:         setTimeout(() => {
+2747:             try {
+2748:                 // Keep pointerEvents: none — interaction via lightbox swipe handler
+2749:             } catch (err) {
+2750:                 console.error("Error during Flight B landing cleanup:", err);
+2751:             } finally {
+2752:                 isTransitioning = false;
+2753:             }
+2754:         }, 650);
+2755:     }
+2756:     
+2757:     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+2758:     // Backdrop click removed — unified swipe/tap handler below handles close
+2759:     
+2760:     if (lightboxPrev) {
+2761:         lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+2762:     }
+2763:     
+2764:     if (lightboxNext) {
+2765:         lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+2766:     }
+2767:     
+2768:     // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+2769:     if (lightbox) {
+2770:         let lbStartX = 0;
+2771:         let lbStartY = 0;
+2772:         
+2773:         // Shared logic: decide what to do based on swipe distance
+2774:         function handleLightboxGestureEnd(endX, endY, targetEl) {
+2775:             if (!lightbox.classList.contains('active') || isTransitioning) return;
+2776:             
+2777:             const dx = endX - lbStartX;
+2778:             const dy = endY - lbStartY;
+2779:             const absDx = Math.abs(dx);
+2780:             const absDy = Math.abs(dy);
+2781:             
+2782:             if (absDx > 50 && absDx > absDy * 1.5) {
+2783:                 // Horizontal swipe → navigate (ignore if tap was on close btn)
+2784:                 if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn')) return;
+2785:                 navigateLightbox(dx > 0 ? 'prev' : 'next');
+2786:             } else if (absDx < 15 && absDy < 15) {
+2787:                 // Short tap → close (but not when tapping nav/close buttons — they handle themselves)
+2788:                 if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+2789:                 closeLightbox();
+2790:             }
+2791:         }
+2792:         
+2793:         // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+2794:         // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+2795:         // pointer-events:none on the clone makes touches pass through to the lightbox element.
+2796:         lightbox.addEventListener('touchstart', (e) => {
+2797:             lbStartX = e.touches[0].clientX;
+2798:             lbStartY = e.touches[0].clientY;
+2799:         }, { passive: true });
+2800:         
+2801:         lightbox.addEventListener('touchend', (e) => {
+2802:             const t = e.changedTouches[0];
+2803:             handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+2804:         }, { passive: true });
+2805:         
+2806:         // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+2807:         lightbox.addEventListener('pointerdown', (e) => {
+2808:             if (e.pointerType === 'touch') return; // handled by touch events above
+2809:             lbStartX = e.clientX;
+2810:             lbStartY = e.clientY;

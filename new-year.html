@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>Новогодние программы — Мастерская праздников "Holiday"</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Новогодние программы — Мастерская праздников "Енот в деле"</title>
+    <link rel="icon" href="favicon.svg?v=20260514" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20260514">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -19,7 +20,10 @@
             <div class="container">
                 <div class="nav-content">
                     <div class="logo">
-                        <span class="logo-text">🎉 Holiday</span>
+                        <a href="index.html#home" class="logo-link">
+                            <img src="images/енот в деле.png" alt="Енот в деле Logo" class="logo-img">
+                            <span class="logo-text">Енот в деле</span>
+                        </a>
                     </div>
                     <ul class="nav-menu">
                         <li><a href="index.html#home" class="nav-link">Главная</a></li>
@@ -79,12 +83,34 @@
         </section>
     </main>
 
+    <div id="selection-bar" class="selection-bar">
+        <div class="container">
+            <div class="selection-bar-content">
+                <div class="selection-info">
+                    <div class="selection-summary">Ничего не выбрано</div>
+                    <div class="selection-price">0 ₽</div>
+                </div>
+                <div class="selection-actions">
+                    <button class="selection-clear-btn" onclick="window.selectionManager?.clearAll()">
+                        Очистить
+                    </button>
+                    <button class="selection-continue-btn btn btn-primary btn-disabled" disabled data-target-href="index.html#contact" onclick="window.selectionManager?.handleContinue()">
+                        Продолжить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-text">🎉 Holiday</span>
+                    <a href="index.html#home" class="logo-link" style="display: flex; align-items: center; gap: 0.8rem; text-decoration: none; justify-content: center; margin-bottom: 0.8rem;">
+                        <img src="images/енот в деле.png" alt="Енот в деле Logo" style="height: 48px; width: auto; object-fit: contain; border-radius: 50%;">
+                        <span class="logo-text">Енот в деле</span>
+                    </a>
                     <p>Мастерская праздников с 2017 года</p>
                 </div>
                 <div class="footer-social">
@@ -93,16 +119,43 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Мастерская праздников "Holiday". Все права защищены.</p>
+                <p>&copy; 2025 Мастерская праздников "Енот в деле". Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Calculation Modal (Smeta) -->
+    <div id="calculation-modal" class="calculation-modal">
+        <div class="calculation-modal-overlay" onclick="window.selectionManager?.closeCalculationModal()"></div>
+        <div class="calculation-modal-content">
+            <div class="calculation-modal-header">
+                <h2>✨ Расчёт стоимости праздника</h2>
+                <button class="calculation-modal-close" onclick="window.selectionManager?.closeCalculationModal()">&times;</button>
+            </div>
+            <div class="calculation-modal-body">
+                <div class="estimate-summary-card">
+                    <div class="estimate-total-label">Итоговая стоимость:</div>
+                    <div class="estimate-total-price">0 ₽</div>
+                </div>
+                <div class="estimate-details-list">
+                    <!-- Будет заполняться динамически -->
+                </div>
+            </div>
+            <div class="calculation-modal-footer">
+                <button class="btn btn-outline" onclick="window.selectionManager?.closeCalculationModal()">📝 Изменить выбор</button>
+                <button class="btn btn-primary" onclick="window.selectionManager?.confirmOrder()">🎉 Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Scripts -->
-    <script src="js/characters-renderer.js"></script>
-    <script src="js/characters-filter.js"></script>
-    <script src="js/programs-renderer.js"></script>
-    <script src="script.js"></script>
-    <script src="js/snow.js"></script>
+    <script src="js/api-client.js?v=20260514"></script>
+    <script src="js/persona-selection-modal.js?v=20260514"></script>
+    <script src="js/selection-manager.js?v=20260514"></script>
+    <script src="js/characters-renderer.js?v=20260514"></script>
+    <script src="js/characters-filter.js?v=20260514"></script>
+    <script src="js/programs-renderer.js?v=20260514"></script>
+    <script src="script.js?v=20260514-zoom2"></script>
+    <script src="js/snow.js?v=20260514"></script>
 </body>
 </html>

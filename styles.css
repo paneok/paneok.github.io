@@ -6,18 +6,18 @@
 }
 
 :root {
-    --primary-color: #ff6b9d;
-    --secondary-color: #c44569;
-    --accent-color: #ffa502;
-    --purple-color: #9b59b6;
-    --blue-color: #4834df;
-    --green-color: #26de81;
-    --bg-light: #f8f9fa;
-    --bg-white: #ffffff;
-    --text-dark: #2d3436;
-    --text-gray: #636e72;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 50px rgba(0, 0, 0, 0.15);
+    --primary-color: #E63946;     /* Праздничный красный (кнопки заказа, призыв к действию) */
+    --secondary-color: #457B9D;   /* Конфетти-синий (второстепенные элементы, важная информация) */
+    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новинки) */
+    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
+    --blue-color: #457B9D;        /* Переопределяем синий на Конфетти-синий */
+    --green-color: #26de81;       /* Мягкий зеленый */
+    --bg-light: #F8F9FA;          /* Облачно-белый фон секций и карточек */
+    --bg-white: #ffffff;          /* Чистый белый */
+    --text-dark: #1A1C20;         /* Угольно-черный (основной текст, заголовки, контуры) */
+    --text-gray: #8A939E;         /* Пепельно-серый (второстепенный текст, неактивные элементы) */
+    --shadow: 0 10px 40px rgba(26, 28, 32, 0.08);
+    --shadow-hover: 0 15px 50px rgba(26, 28, 32, 0.12);
 }
 
 body {
@@ -90,10 +90,36 @@ html {
 .logo-text {
     font-family: 'Pacifico', cursive;
     font-size: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    height: 100%;
+}
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 0; /* Убираем круг */
+    opacity: 0; /* Изначально скрываем, чтобы исключить мелькание старого логотипа */
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+    margin: -1.5rem 0 -2.5rem 0; /* Отрицательный нижний отступ компенсирует выход за границы */
+    transform: translateY(14px); /* Сдвигаем енота вниз за границу шапки */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15)); /* Премиальная тень по контуру прозрачной картинки енота */
+}
+
+.header.scrolled .logo-img {
+    height: 70px; /* Делаем чуть больше, чтобы в сжатой шапке енот тоже выступал */
+    margin: -0.8rem 0 -1.8rem 0;
+    transform: translateY(10px);
 }
 
 .nav-menu {
@@ -131,7 +157,7 @@ html {
 }
 
 .nav-link-new-year {
-    background: linear-gradient(45deg, #ff6b9d, #ffa502, #9b59b6, #4fc3f7);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
     background-size: 400% 400%;
     color: white;
     padding: 0.5rem 1rem;
@@ -161,7 +187,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    /* Бренд-палитра: Праздничный красный → Конфетти-синий → Угольно-черный */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 55%, #1A1C20 100%);
     overflow: hidden;
     perspective: 1200px; /* для легкого 3D эффекта параллакса */
 }
@@ -249,6 +276,88 @@ html {
     user-select: none; /* текст в hero (head) не выделяется */
 }
 
+.hero-characters {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-character {
+    position: absolute;
+    display: block;
+    width: clamp(130px, 17vw, 300px);
+    height: auto;
+    opacity: 0;
+    filter:
+        saturate(1.35)
+        contrast(0.72)
+        brightness(1.18)
+        blur(0.2px)
+        drop-shadow(0 18px 28px rgba(255, 255, 255, 0.12))
+        drop-shadow(0 22px 38px rgba(0, 0, 0, 0.18));
+    mix-blend-mode: screen;
+    transform-origin: center bottom;
+    transform: translate3d(0, 0, 0) scale(1);
+    animation: characterFloat 7s ease-in-out infinite;
+    user-select: none;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-character.hero-character-loaded {
+    opacity: var(--hero-character-opacity, 0.7);
+}
+
+.hero-character-left {
+    left: clamp(-56px, -3vw, -18px);
+    bottom: clamp(18px, 8vh, 90px);
+    width: clamp(160px, 19vw, 330px);
+    animation-delay: -1.2s;
+}
+
+.hero-character-right {
+    right: clamp(-58px, -3.2vw, -20px);
+    bottom: clamp(12px, 7vh, 80px);
+    width: clamp(170px, 20vw, 350px);
+    animation-delay: -3s;
+}
+
+.hero-character-top-right {
+    right: clamp(92px, 12vw, 230px);
+    top: clamp(78px, 14vh, 140px);
+    width: clamp(130px, 13vw, 220px);
+    opacity: 0.22;
+    animation-delay: -4.5s;
+}
+
+.hero-character-bottom-left {
+    left: clamp(46px, 8vw, 150px);
+    bottom: clamp(-58px, -5vh, -24px);
+    width: clamp(125px, 12vw, 205px);
+    opacity: 0.2;
+    animation-delay: -2.3s;
+}
+
+.hero-character-bottom-right {
+    right: clamp(48px, 8vw, 160px);
+    bottom: clamp(-58px, -5vh, -24px);
+    width: clamp(122px, 12vw, 200px);
+    opacity: 0.2;
+    animation-delay: -5.4s;
+}
+
+@keyframes characterFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0) scale(1.015);
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -270,8 +379,10 @@ html {
 
 .hero-title-sub {
     display: block;
-    font-size: 2.5rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     animation: slideInRight 1s ease;
 }
@@ -357,14 +468,14 @@ html {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    background: linear-gradient(135deg, var(--primary-color), #c0303a);
     color: white;
-    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.5);
 }
 
 .btn-secondary {
@@ -380,7 +491,7 @@ html {
 
 /* Selection Button */
 .btn-select {
-    background: linear-gradient(45deg, #ff6b9d, #ffa502, #9b59b6, #4fc3f7);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
     background-size: 400% 400%;
     color: white;
     animation: shimmer 3s ease-in-out infinite;
@@ -389,12 +500,12 @@ html {
     gap: 0.5rem;
     padding: 0.8rem 1.8rem;
     font-weight: 600;
-    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.3);
 }
 
 .btn-select:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+    box-shadow: 0 8px 30px rgba(230, 57, 70, 0.5);
 }
 
 .btn-select-checkbox {
@@ -428,7 +539,8 @@ html {
     padding: 0.6rem 1.2rem;
 }
 
-.character-card.selected {
+[data-character-id].character-card.selected,
+[data-character-id].character-card.character-card-selected {
     box-shadow: 0 10px 40px rgba(255, 149, 0, 0.4);
     border: 2px solid #ff9500;
 }
@@ -443,6 +555,21 @@ html {
     background: var(--primary-color);
     color: white;
     transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    background: #c0303a; /* Более глубокий красный при наведении */
+    border-color: #c0303a;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
 }
 
 .btn-full {
@@ -463,7 +590,7 @@ html {
 
 .stat-card {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2rem 0.5rem;
     border-radius: 15px;
     background: var(--bg-light);
     transition: all 0.3s ease;
@@ -484,11 +611,13 @@ html {
 .stat-number {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    /* Угольно-черный → Конфетти-синий для числовых счетчиков статистики */
+    background: linear-gradient(135deg, var(--text-dark), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 0.5rem;
+    white-space: nowrap;
 }
 
 .stat-label {
@@ -508,7 +637,8 @@ html {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    /* Праздничный красный → Конфетти-синий для заголовков секций */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -712,6 +842,10 @@ html {
     transform: scale(1.05);
 }
 
+.program-card:hover .character-overlay .btn-select {
+    transform: none;
+}
+
 .character-info {
     padding: 1.5rem;
 }
@@ -890,75 +1024,326 @@ html {
     margin-bottom: 1.5rem;
 }
 
-/* ==================== ADVANTAGES SECTION ==================== */
+/* ==================== ADVANTAGES SECTION (INTERACTIVE SHOWCASE) ==================== */
 .advantages-section {
     padding: 6rem 0;
-    background: var(--bg-light);
+    background: linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.advantages-grid {
+.advantages-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin-top: 2rem;
 }
 
-.advantage-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transition: all 0.4s ease;
-    animation: fadeInUp 0.6s ease backwards;
+/* Left Column: Tabs */
+.advantages-tabs {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.advantage-card:nth-child(1) { animation-delay: 0.1s; }
-.advantage-card:nth-child(2) { animation-delay: 0.2s; }
-.advantage-card:nth-child(3) { animation-delay: 0.3s; }
-.advantage-card:nth-child(4) { animation-delay: 0.4s; }
-.advantage-card:nth-child(5) { animation-delay: 0.5s; }
-.advantage-card:nth-child(6) { animation-delay: 0.6s; }
-
-.advantage-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
-
-.advantage-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-}
-
-.advantage-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-    line-height: 1.4;
-}
-
-.advantage-description {
-    color: var(--text-gray);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-.advantage-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    display: inline-flex;
+.advantage-tab {
+    display: flex;
     align-items: center;
-    transition: all 0.3s ease;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--bg-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
 }
 
-.advantage-link:hover {
-    color: var(--purple-color);
-    transform: translateX(5px);
+.advantage-tab::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.advantage-tab-icon {
+    font-size: 2.2rem;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+}
+
+.advantage-tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.advantage-tab-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.advantage-tab-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.3;
+}
+
+/* Hover State */
+.advantage-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.advantage-tab:hover .advantage-tab-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Active State & Themes */
+.advantage-tab.active {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.advantage-tab.active[data-theme="pink"] { border-left: 5px solid var(--primary-color); }
+.advantage-tab.active[data-theme="gold"] { border-left: 5px solid var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] { border-left: 5px solid #9b59b6; }
+.advantage-tab.active[data-theme="blue"] { border-left: 5px solid var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] { border-left: 5px solid #26de81; }
+.advantage-tab.active[data-theme="cyan"] { border-left: 5px solid #4fc3f7; }
+
+.advantage-tab.active .advantage-tab-title {
+    color: var(--primary-color);
+}
+
+.advantage-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"] .advantage-tab-title { color: var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cyan"] .advantage-tab-title { color: #0288d1; }
+
+
+/* Right Column: Stage Showcase */
+.advantages-stage-wrapper {
+    perspective: 1000px;
+}
+
+.advantages-stage {
+    background: var(--bg-white);
+    border-radius: 24px;
+    padding: 3rem;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dynamic background gradients for Stage */
+.advantages-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    z-index: 1;
+    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantages-stage.theme-pink::before { background: radial-gradient(circle at 70% 30%, var(--primary-color) 0%, transparent 70%); }
+.advantages-stage.theme-gold::before { background: radial-gradient(circle at 70% 30%, var(--accent-color) 0%, transparent 70%); }
+.advantages-stage.theme-purple::before { background: radial-gradient(circle at 70% 30%, #9b59b6 0%, transparent 70%); }
+.advantages-stage.theme-blue::before { background: radial-gradient(circle at 70% 30%, var(--secondary-color) 0%, transparent 70%); }
+.advantages-stage.theme-green::before { background: radial-gradient(circle at 70% 30%, #26de81 0%, transparent 70%); }
+.advantages-stage.theme-cyan::before { background: radial-gradient(circle at 70% 30%, #4fc3f7 0%, transparent 70%); }
+
+/* Decorative stage particles */
+.stage-particle {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatingParticles 8s infinite linear;
+}
+
+.particle-1 { top: 15%; left: 10%; color: var(--primary-color); animation-duration: 9s; }
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particle-3 { bottom: 15%; left: 25%; color: var(--purple-color); animation-duration: 11s; animation-delay: 2s; }
+
+@keyframes floatingParticles {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-15px) rotate(180deg) scale(1.1); }
+    100% { transform: translateY(0) rotate(360deg) scale(1); }
+}
+
+.stage-visual {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 3;
+}
+
+.stage-image-container {
+    width: 100%;
+    max-width: 480px;
+    height: 270px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    background: #f8f9fa;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+}
+
+.stage-image-container:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.stage-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stage-image-container:hover .stage-image {
+    transform: scale(1.05);
+}
+
+.stage-info {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stage-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stage-description {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2.2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stage-action-wrapper {
+    display: flex;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stage-cta-btn {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Transition Animating Classes for Stage Content */
+.advantages-stage .stage-image-container,
+.advantages-stage .stage-title,
+.advantages-stage .stage-description,
+.advantages-stage .stage-cta-btn {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantages-stage.animating .stage-image-container {
+    transform: scale(0.95);
+    opacity: 0;
+}
+
+.advantages-stage.animating .stage-title {
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+.advantages-stage.animating .stage-description {
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+.advantages-stage.animating .stage-cta-btn {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 992px) {
+    .advantages-showcase {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .advantages-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem 0.2rem 1rem;
+        gap: 0.8rem;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+    
+    .advantages-tabs::-webkit-scrollbar {
+        display: none; /* Hide scrollbar Webkit */
+    }
+    
+    .advantage-tab {
+        flex: 0 0 auto;
+        width: 260px;
+        padding: 1rem;
+    }
+    
+    .advantage-tab.active {
+        transform: translateY(-5px);
+    }
+    
+    .advantages-stage {
+        min-height: auto;
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .stage-image-container {
+        max-width: 100%;
+        height: 180px;
+    }
+    
+    .stage-title {
+        font-size: 1.5rem;
+    }
+    
+    .stage-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 /* ==================== CONTACT SECTION ==================== */
@@ -1386,7 +1771,7 @@ body.new-year-page .loading-message {
     }
 
     .hero-title-sub {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
 
     .hero-tagline {
@@ -1408,7 +1793,7 @@ body.new-year-page .loading-message {
     }
 
     .stat-card {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.5rem;
     }
 
     .stat-number {
@@ -1420,7 +1805,8 @@ body.new-year-page .loading-message {
     .characters-grid.view-4,
     .characters-grid.view-4-square,
     .programs-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
 
     .filters-grid {
@@ -1438,6 +1824,141 @@ body.new-year-page .loading-message {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-column layout) */
+    .character-card {
+        border-radius: 14px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .character-info {
+        padding: 0.75rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-grow: 1 !important;
+    }
+
+    .character-header {
+        margin-bottom: 0.4rem !important;
+    }
+
+    .character-name {
+        font-size: 1.05rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .character-description {
+        font-size: 0.8rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 0.5rem !important;
+        /* Line clamping */
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        height: 2.7em !important;
+    }
+
+    .character-features {
+        gap: 0.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .feature-tag {
+        font-size: 0.7rem !important;
+        padding: 0.15rem 0.4rem !important;
+        border-radius: 12px !important;
+    }
+
+    .feature-icon {
+        margin-right: 0.15rem !important;
+    }
+
+    .character-footer {
+        margin-top: auto !important;
+        padding-top: 0.5rem !important;
+        border-top: 1px solid #f0f0f0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+    }
+
+    .character-price {
+        font-size: 0.95rem !important;
+    }
+
+    .character-price .price-amount {
+        font-size: 1.15rem !important;
+    }
+
+    .character-package {
+        font-size: 0.7rem !important;
+        color: var(--text-gray) !important;
+        margin-top: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* Selection overlay and button */
+    .character-overlay {
+        bottom: 6px !important;
+        right: 6px !important;
+        left: 6px !important;
+    }
+
+    .character-overlay .btn-select {
+        width: 100% !important;
+        padding: 0.35rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        justify-content: center !important;
+        border-radius: 10px !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .character-overlay .btn-select-hours {
+        width: 100% !important;
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        justify-content: space-between !important;
+        border-radius: 10px !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .character-overlay .btn-select-hours button {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 0.8rem !important;
+        line-height: 18px !important;
+    }
+
+    .character-overlay .hours-value {
+        font-size: 0.75rem !important;
+    }
+
+    /* Image Badges and counters */
+    .character-photo-counter {
+        top: 6px !important;
+        right: 6px !important;
+        padding: 0.15rem 0.4rem !important;
+        font-size: 0.7rem !important;
+        border-radius: 8px !important;
+    }
+
+    .character-badges {
+        top: 6px !important;
+        left: 6px !important;
+        gap: 0.2rem !important;
+    }
+
+    .character-badges .badge {
+        padding: 0.15rem 0.4rem !important;
+        font-size: 0.65rem !important;
+        border-radius: 8px !important;
     }
 }
 
@@ -1489,8 +2010,9 @@ body.new-year-page .loading-message {
 
 .parallax-item {
     position: absolute;
-    transition: transform 0.2s ease-out;
-    will-change: transform;
+    transition: transform 0.05s linear;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
     opacity: 0.7;
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
     transform-origin: center center;
@@ -1901,7 +2423,7 @@ body.new-year-page .loading-message {
     transform: translateY(-2px);
 }
 
-/* Filters Grid Layout - 5 columns */
+/* Filters Grid Layout - 5 columns desktop, adapts on mobile */
 .filters-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -2152,6 +2674,8 @@ body.new-year-page .loading-message {
 .view-toggle-btn {
     width: 38px;
     height: 38px;
+    min-width: 38px;
+    flex-shrink: 0;
     border-radius: 50%;
     border: 2px solid #e0e0e0;
     background: #ffffff;
@@ -2162,6 +2686,7 @@ body.new-year-page .loading-message {
     padding: 0;
     color: var(--text-gray);
     transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
 }
 
 .view-toggle-btn:hover {
@@ -2173,6 +2698,7 @@ body.new-year-page .loading-message {
 .view-toggle-icon {
     font-size: 0.9rem;
     font-weight: 700;
+    line-height: 1;
 }
 
 /* ==================== UPDATED CHARACTER CARDS ==================== */
@@ -2363,7 +2889,10 @@ body.new-year-page .loading-message {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    margin-left: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
 }
 
 .hours-value {
@@ -2390,6 +2919,7 @@ body.new-year-page .loading-message {
     cursor: pointer;
     transition: all 0.2s ease;
     line-height: 1;
+    padding: 0;
 }
 
 .hours-minus:hover,
@@ -2427,6 +2957,32 @@ body.new-year-page .loading-message {
 
 /* ==================== MOBILE RESPONSIVE FOR NEW ELEMENTS ==================== */
 @media (max-width: 1024px) {
+    .hero-character {
+        opacity: 0.48;
+        width: clamp(110px, 18vw, 210px);
+    }
+
+    .hero-character-left {
+        left: -52px;
+        bottom: 8vh;
+    }
+
+    .hero-character-right {
+        right: -58px;
+        bottom: 7vh;
+    }
+
+    .hero-character-top-right {
+        right: 9vw;
+        top: 12vh;
+        opacity: 0.42;
+    }
+
+    .hero-character-bottom-left,
+    .hero-character-bottom-right {
+        opacity: 0.42;
+    }
+
     .parallax-item {
         opacity: 0.4;
     }
@@ -2468,14 +3024,60 @@ body.new-year-page .loading-message {
     .note-2, .note-3, .note-6, .note-7, .note-8, .note-9 {
         display: none;
     }
+
+    /* Планшет: 3 колонки для фильтров */
+    .filters-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .view-toggle-btn {
+        display: none !important;
+    }
+
     /* Смещаем контент hero ниже фиксированной шапки на мобильных и уменьшаем высоту */
     .hero {
         padding-top: 4.5rem;
         padding-bottom: 2rem;
         min-height: calc(100vh - 4.5rem);
+    }
+
+    .hero-characters {
+        z-index: 1;
+    }
+
+    .hero-character {
+        opacity: 0.46;
+        filter:
+            saturate(1.25)
+            contrast(0.7)
+            brightness(1.15)
+            drop-shadow(0 12px 20px rgba(255, 255, 255, 0.08))
+            drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+        animation-duration: 9s;
+    }
+
+    .hero-character-left,
+    .hero-character-right {
+        display: block;
+        width: clamp(118px, 33vw, 170px);
+        bottom: 1rem;
+    }
+
+    .hero-character-left {
+        left: -38px;
+    }
+
+    .hero-character-right {
+        right: -44px;
+    }
+
+    .hero-character-top-right,
+    .hero-character-bottom-left,
+    .hero-character-bottom-right {
+        display: none;
     }
 
     /* Уменьшаем размеры шрифтов и отступы в hero, чтобы всё помещалось на экран */
@@ -2490,7 +3092,7 @@ body.new-year-page .loading-message {
     }
 
     .hero-title-sub {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-bottom: 0.8rem;
     }
 
@@ -2521,17 +3123,64 @@ body.new-year-page .loading-message {
     }
 
     .filters-panel {
-        padding: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* Шапка фильтров: заголовок + поиск в первой строке, кнопка сброса — на второй */
+    .filters-header {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .filters-title {
+        flex-shrink: 0;
+        font-size: 1.2rem;
+    }
+
+    .filters-header #search-input {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .filters-header .btn-reset-filters {
+        width: 100%;
+        order: 3;
+        text-align: center;
+    }
+
+    /* На мобильных — 2 колонки для фильтров, все кнопки видны */
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 
     .characters-toolbar {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.75rem;
         align-items: stretch;
+        padding: 0.75rem 1rem;
     }
 
     .sort-controls {
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .sort-controls label {
+        flex-shrink: 0;
+    }
+
+    .sort-select {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.88rem;
+        padding: 0.5rem 0.8rem;
     }
 
 
@@ -2620,7 +3269,7 @@ body.new-year-page .loading-message {
     /* Упрощаем градиенты */
     .hero,
     .contact-section {
-        background: #667eea !important;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 58%, #243043 100%) !important;
     }
     
     /* Отключаем hover эффекты полностью */
@@ -2639,6 +3288,25 @@ body.new-year-page .loading-message {
     /* Упрощаем transition */
     * {
         transition: none !important;
+    }
+
+    /* На совсем узких экранах — одна колонка фильтров */
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .filters-panel {
+        padding: 0.75rem;
+    }
+
+    .characters-toolbar {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .sort-select {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.6rem;
     }
 }
 
@@ -2841,7 +3509,7 @@ body.new-year-page .loading-message {
 }
 
 .gallery-close:hover {
-    background: #ff6b9d;
+    background: var(--primary-color);
     color: white;
     transform: rotate(90deg);
 }
@@ -2921,8 +3589,8 @@ body.new-year-page .loading-message {
 }
 
 .gallery-thumbnail.active {
-    border-color: #ff6b9d;
-    box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
 }
 
 .gallery-thumbnail img {
@@ -3051,99 +3719,6 @@ body.new-year-page .loading-message {
     }
 }
 
-/* ==================== SELECTION PANEL ==================== */
-.selection-panel {
-    position: fixed;
-    bottom: -100px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    padding: 1.5rem;
-    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.selection-panel.active {
-    bottom: 0;
-}
-
-.selection-panel-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.selection-info {
-    color: white;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-}
-
-.selection-info strong {
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.selection-names {
-    font-weight: 500;
-    opacity: 0.95;
-}
-
-.selection-continue {
-    background: white;
-    color: #764ba2;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.selection-continue:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    background: #ffd700;
-}
-
-@media (max-width: 768px) {
-    .selection-panel {
-        padding: 1rem;
-    }
-
-    .selection-panel-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .selection-info {
-        flex-direction: column;
-        gap: 0.5rem;
-        font-size: 0.95rem;
-    }
-
-    .selection-info strong {
-        font-size: 1rem;
-    }
-
-    .selection-continue {
-        width: 100%;
-        padding: 0.9rem 1.5rem;
-        font-size: 1rem;
-    }
-}
-
 /* ====================
    PROGRAMS CATALOG STYLES
    ==================== */
@@ -3164,12 +3739,13 @@ body.new-year-page .loading-message {
 .programs-section .program-card {
     background: white;
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     cursor: pointer;
     border: 3px solid transparent;
     position: relative;
+    overflow: hidden;
 }
 
 .programs-section .program-card:hover {
@@ -3178,8 +3754,13 @@ body.new-year-page .loading-message {
 }
 
 .programs-section .program-card-selected {
-    border-color: #ff6b6b;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #fef5f5 0%, #ffffff 100%);
+}
+
+.programs-section .program-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
 }
 
 .programs-section .program-card-unavailable {
@@ -3223,7 +3804,7 @@ body.new-year-page .loading-message {
 .programs-section .program-price {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #ff6b6b;
+    color: var(--primary-color);
     margin-bottom: 0.75rem;
 }
 
@@ -3296,6 +3877,208 @@ body.new-year-page .loading-message {
 .programs-section .empty-state p {
     font-size: 1.2rem;
     margin: 0;
+}
+
+.additional-services-section {
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at top left, rgba(244, 162, 97, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(69, 123, 157, 0.14), transparent 30%),
+        linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+    border-top: 1px solid rgba(138, 147, 158, 0.16);
+}
+
+.additional-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.additional-service-card {
+    background: rgba(248, 249, 250, 0.98);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(138, 147, 158, 0.14);
+}
+
+.additional-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.additional-service-card.additional-service-card-selected,
+.additional-service-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.08) 0%, rgba(248, 249, 250, 0.98) 100%);
+    outline: none;
+}
+
+.additional-service-card:nth-child(1) { animation-delay: 0.05s; }
+.additional-service-card:nth-child(2) { animation-delay: 0.1s; }
+.additional-service-card:nth-child(3) { animation-delay: 0.15s; }
+.additional-service-card:nth-child(4) { animation-delay: 0.2s; }
+.additional-service-card:nth-child(5) { animation-delay: 0.25s; }
+.additional-service-card:nth-child(6) { animation-delay: 0.3s; }
+.additional-service-card:nth-child(7) { animation-delay: 0.35s; }
+.additional-service-card:nth-child(8) { animation-delay: 0.4s; }
+.additional-service-card:nth-child(9) { animation-delay: 0.45s; }
+.additional-service-card:nth-child(10) { animation-delay: 0.5s; }
+.additional-service-card:nth-child(11) { animation-delay: 0.55s; }
+.additional-service-card:nth-child(12) { animation-delay: 0.6s; }
+
+/* Overrides for overlay controls inside additional services to match program hours selector */
+.character-overlay .additional-service-qty {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.character-overlay .additional-service-qty-value {
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: white;
+}
+
+.additional-service-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.additional-service-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.additional-service-title {
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.additional-service-text {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.additional-service-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+
+.additional-service-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.additional-service-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.additional-service-action {
+    white-space: nowrap;
+}
+
+.additional-service-action.btn-select {
+    min-width: 142px;
+    justify-content: center;
+}
+
+.additional-service-qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(230, 57, 70, 0.08);
+    backdrop-filter: blur(8px);
+}
+
+.additional-service-qty-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(230, 57, 70, 0.35);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.additional-service-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(230, 57, 70, 0.55);
+    transform: scale(1.08);
+}
+
+.additional-service-qty-btn:active {
+    transform: scale(0.94);
+}
+
+.additional-service-qty-value {
+    min-width: 60px;
+    text-align: center;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.additional-services-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 28px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(69, 123, 157, 0.08) 0%, rgba(244, 162, 97, 0.08) 100%);
+    border: 1px solid rgba(69, 123, 157, 0.16);
+}
+
+.additional-services-note p {
+    margin: 0;
+    color: #4b5563;
 }
 
 /* ====================
@@ -3380,12 +4163,12 @@ body.new-year-page .loading-message {
 }
 
 /* Character Card Selected State */
-.character-card-selected {
+[data-character-id].character-card-selected {
     border-color: #ff6b6b !important;
     background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%) !important;
 }
 
-.character-card-selected::after {
+[data-character-id].character-card-selected::after {
     content: '✓';
     position: absolute;
     top: 1rem;
@@ -3409,7 +4192,22 @@ body.new-year-page .loading-message {
 @media (max-width: 768px) {
     .programs-section .programs-grid,
     .programs-section .programs-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
     }
 
     .selection-bar-content {
@@ -3429,6 +4227,12 @@ body.new-year-page .loading-message {
     .selection-summary {
         white-space: normal;
         overflow: visible;
+    }
+
+    .additional-services-note {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
     }
 }
 
@@ -3457,3 +4261,2578 @@ body.new-year-page .loading-message {
         font-size: 1rem;
     }
 }
+
+/* ==================== CALCULATION MODAL ==================== */
+.calculation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculation-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.calculation-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    transition: opacity 0.4s ease;
+}
+
+.calculation-modal-content {
+    position: relative;
+    background: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1102;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.calculation-modal.active .calculation-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.calculation-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.calculation-modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.calculation-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.calculation-modal-close:hover {
+    color: #475569;
+    background: #f1f5f9;
+    transform: rotate(90deg);
+}
+
+.calculation-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #f8fafc;
+}
+
+.estimate-summary-card {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%);
+    padding: 1.5rem;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px -5px rgba(108, 92, 231, 0.4);
+}
+
+.estimate-total-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.estimate-total-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.estimate-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.estimate-item-row {
+    background: #ffffff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease;
+}
+
+.estimate-item-row:hover {
+    transform: translateY(-2px);
+}
+
+.estimate-item-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.estimate-item-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+}
+
+.estimate-item-icon.character {
+    background: #ffe8f0;
+}
+
+.estimate-item-icon.program {
+    background: #e8f0ff;
+}
+
+.estimate-item-icon.service {
+    background: #e8fff0;
+}
+
+.estimate-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.estimate-item-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+.estimate-item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.estimate-item-price {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 1.15rem;
+}
+
+.calculation-modal-footer {
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 1rem;
+}
+
+.calculation-modal-footer button {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 16px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .calculation-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .calculation-modal-body {
+        padding: 1.25rem;
+    }
+
+    .calculation-modal-footer {
+        padding: 1.25rem;
+        flex-direction: column;
+    }
+
+    .estimate-total-price {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==================== PAGE BACKGROUND DECORATIVE RACCOONS ==================== */
+.characters-section,
+.programs-section,
+.advantages-section,
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Создаем локальный контекст наложения для секций */
+}
+
+.characters-section .container,
+.programs-section .container,
+.advantages-section .container,
+.contact-section .container {
+    position: relative;
+    z-index: 3; /* Слой контента - гарантированно НАД енотами */
+}
+
+.page-decor-raccoon {
+    position: absolute;
+    width: 160px;
+    height: auto;
+    opacity: 0.3; /* Повышенная непрозрачность для идеальной видимости */
+    pointer-events: none;
+    z-index: 2; /* Слой енотов - гарантированно НАД фоном секции, но ПОД контентом */
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.05));
+    user-select: none;
+    display: block;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.float-anim-1 {
+    animation: decorFloat1 14s infinite ease-in-out;
+}
+
+.float-anim-2 {
+    animation: decorFloat2 18s infinite ease-in-out;
+}
+
+@keyframes decorFloat1 {
+    0%, 100% { transform: translateY(0) rotate(15deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+}
+
+@keyframes decorFloat2 {
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-25px) rotate(-8deg); }
+}
+
+@media (max-width: 1200px) {
+    .page-decor-raccoon {
+        width: 120px;
+        opacity: 0.18; /* Делаем чуть более заметными на планшетах */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-decor-raccoon {
+        display: none !important;
+    }
+}
+
+/* ==================== RACCOON DIARY (BEHIND THE SCENES) ==================== */
+.raccoon-diary-section {
+    padding: 6rem 0;
+    background: radial-gradient(circle at 80% 20%, rgba(244, 162, 97, 0.08), transparent 40%), #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Default hidden elements for desktop/fullscreen */
+.diary-closed-cover {
+    display: block; /* Shown by default on all devices */
+}
+.btn-close-fullscreen {
+    display: none !important;
+}
+.fullscreen-rotate-hint {
+    display: none !important;
+}
+
+/* 3D Book Wrapper - Center the notebook and allow tabs to float left */
+.diary-book-wrapper {
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* 3D Notebook Container - Leather binding layout */
+.diary-notebook-3d {
+    display: none !important; /* Hidden by default initially on all devices */
+    position: relative;
+    width: 100%;
+    height: 660px; /* Increased height to easily fit all content and polaroids */
+    perspective: 2000px; /* Crucial for realistic 3D page flip */
+    background: linear-gradient(135deg, #8b5a2b 0%, #5c3a21 100%); /* Elegant leather cover */
+    border-radius: 24px;
+    padding: 12px; /* Border outline showing leather texture */
+    box-shadow: 0 35px 80px rgba(92, 58, 33, 0.35), inset 0 0 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+/* Layered Paper Stack Effects under pages to simulate book thickness/volume */
+.paper-stack-left, .paper-stack-right {
+    position: absolute;
+    width: calc(50% - 16px);
+    height: calc(100% - 32px);
+    top: 16px;
+    background: #FFFDF9;
+    border: 1px solid #ebdcb9;
+    border-radius: 12px;
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.paper-stack-left {
+    left: 16px;
+    box-shadow: 
+        -2px 2px 0 #ebdcb9, 
+        -4px 4px 0 #ebdcb9, 
+        -6px 6px 0 #d9cbb2;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.paper-stack-right {
+    right: 16px;
+    box-shadow: 
+        2px 2px 0 #ebdcb9, 
+        4px 4px 0 #ebdcb9, 
+        6px 6px 0 #d9cbb2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Static Left Cover */
+.book-cover-left {
+    width: 50%;
+    height: 100%;
+    background: #FFFDF9; /* Warm craft paper color */
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-right: 1px dashed rgba(139, 125, 107, 0.15);
+    box-shadow: inset -15px 0 30px rgba(92, 58, 33, 0.08);
+    padding: 3rem 2.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* Static Right Cover */
+.book-cover-right {
+    width: 50%;
+    height: 100%;
+    background: #FFFDF9;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-left: 1px dashed rgba(139, 125, 107, 0.15);
+    box-shadow: inset 15px 0 30px rgba(92, 58, 33, 0.08);
+    padding: 3rem 2.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* Center decorative notebook rings */
+.notebook-rings-3d {
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    left: 50%;
+    width: 24px;
+    transform: translateX(-50%);
+    z-index: 50; /* Stays on top of static pages, below the turning page at peak angle */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+}
+
+.ring-3d {
+    width: 16px;
+    height: 48px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #7f8c8d 0%, #bdc3c7 45%, #ffffff 55%, #7f8c8d 100%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255,255,255,0.4);
+    position: relative;
+}
+
+.ring-3d::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: -4px;
+    right: -4px;
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+/* Pages viewport container - defaults to display: contents for desktop 3D */
+.diary-pages-viewport {
+    display: contents;
+}
+
+/* Hide mobile-only tabs on desktop */
+.diary-mobile-tabs {
+    display: none !important;
+}
+
+/* Flippable Sheets */
+.book-paper {
+    position: absolute;
+    width: calc(50% - 12px); /* Matches exact half cover */
+    height: calc(100% - 24px);
+    top: 12px;
+    right: 12px;
+    transform-origin: left center; /* Spines center */
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 1;
+}
+
+.book-paper.flip-forward {
+    animation: flipForward 0.95s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.book-paper.flip-backward {
+    animation: flipBackward 0.95s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+/* Page Flip 3D Keyframe Animations simulating real paper bending and lifting */
+@keyframes flipForward {
+    0% {
+        transform: rotateY(0deg);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+    30% {
+        /* Page lifts up in perspective, tilts around Z to simulate paper bend, shadow expands */
+        transform: rotateY(-60deg) rotateZ(-3deg) scale(1.03) translateZ(10px);
+        box-shadow: 20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    70% {
+        /* Page moves to left, rotates Z back, maintains thickness shadow */
+        transform: rotateY(-120deg) rotateZ(3deg) scale(1.03) translateZ(10px);
+        box-shadow: -20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    100% {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+}
+
+@keyframes flipBackward {
+    0% {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+    30% {
+        transform: rotateY(-120deg) rotateZ(3deg) scale(1.03) translateZ(10px);
+        box-shadow: -20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    70% {
+        transform: rotateY(-60deg) rotateZ(-3deg) scale(1.03) translateZ(10px);
+        box-shadow: 20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    100% {
+        transform: rotateY(0deg);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+}
+
+/* Tactile dynamic page lift when hovering the turnable edge of top pages */
+.book-paper.hover-lift {
+    cursor: pointer;
+}
+
+.book-paper.hover-lift:not(.flip-forward):hover {
+    transform: rotateY(-8deg) translateZ(5px);
+    box-shadow: 15px 15px 30px rgba(92, 58, 33, 0.12);
+}
+
+.book-paper.hover-lift.flip-forward:hover {
+    transform: rotateY(-172deg) translateZ(5px);
+    box-shadow: -15px 15px 30px rgba(92, 58, 33, 0.12);
+}
+
+/* Individual Pages of Paper Sheet */
+.book-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Crucial: hides the back side when turned */
+    padding: 2.2rem 2.2rem 3rem 2.2rem; /* Tightened padding to fit text completely */
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: inset 3px 0 15px rgba(92, 58, 33, 0.02), 5px 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+/* Ruled paper horizontal lines and red vertical margin dividers for cozy school-notebook aesthetics */
+.book-page.page-front {
+    z-index: 2;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: 
+        linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+        linear-gradient(to left, transparent 38px, rgba(230, 57, 70, 0.18) 39px, rgba(230, 57, 70, 0.18) 40px, transparent 41px),
+        repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.06) 28px),
+        #FFFDF9;
+}
+
+.book-page.page-back {
+    transform: rotateY(180deg); /* Pre-rotated back side */
+    z-index: 1;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: inset -3px 0 15px rgba(92, 58, 33, 0.02), -5px 5px 20px rgba(0, 0, 0, 0.05);
+    background: 
+        linear-gradient(to left, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+        linear-gradient(to right, transparent 38px, rgba(230, 57, 70, 0.18) 39px, rgba(230, 57, 70, 0.18) 40px, transparent 41px),
+        repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.06) 28px),
+        #FFFDF9;
+}
+
+/* Active page subtle glow/warm highlight */
+.book-page.active-page {
+    background-color: #FFFDF0;
+    box-shadow: inset 0 0 25px rgba(244, 162, 97, 0.08), 0 12px 30px rgba(244, 162, 97, 0.06);
+}
+
+/* Handwritten class support */
+.font-handwritten {
+    font-family: 'Pacifico', cursive !important;
+    font-weight: normal !important;
+}
+
+/* Introductory page layout inside Left Cover */
+.diary-sidebar-title {
+    font-size: 1.6rem; /* Slightly tightened font-size */
+    color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    line-height: 1.4;
+    border-bottom: 2px dashed rgba(244, 162, 97, 0.25);
+    padding-bottom: 0.8rem;
+}
+
+.diary-sidebar-note {
+    margin-top: auto;
+    background: rgba(244, 162, 97, 0.06);
+    border: 1px dashed rgba(244, 162, 97, 0.35);
+    border-radius: 16px;
+    padding: 1.2rem; /* Tightened padding */
+    position: relative;
+    transform: rotate(-1.5deg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.diary-sidebar-note::before {
+    content: '📌';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.3rem;
+}
+
+.diary-sidebar-note p {
+    font-size: 0.92rem; /* Optimized size */
+    color: #b26a31;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Absolute Floating Tab Bookmarks on the Left side of the book */
+.diary-tabs {
+    position: absolute;
+    left: -200px;
+    top: 60px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+
+.diary-tab {
+    background: #e6dfd3;
+    border: 2px solid #c8bda8;
+    border-right: none;
+    border-radius: 14px 0 0 14px; /* Rounded only on the left side */
+    padding: 0.9rem 1.1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -5px 5px 10px rgba(92, 58, 33, 0.08);
+}
+
+.diary-tab:hover {
+    background: #FFFDF0;
+    transform: translateX(-6px);
+    box-shadow: -8px 8px 15px rgba(92, 58, 33, 0.15);
+}
+
+.diary-tab.active {
+    background: #FFFDF9; /* Seamless background with page craft paper */
+    border-color: #e6dfd3;
+    border-right: 2px solid #FFFDF9; /* Seamless link into left page */
+    transform: translateX(-12px); /* Extends further out when active */
+    box-shadow: -10px 10px 20px rgba(92, 58, 33, 0.18);
+    z-index: 101; /* Layer overlap override */
+}
+
+.tab-time {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    background: rgba(139, 125, 107, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.tab-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
+}
+
+.diary-tab.active .tab-time {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.diary-tab.active .tab-label {
+    color: var(--primary-color);
+}
+
+/* Page Contents Styles */
+.diary-entry-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-bottom: 1.2rem;
+    border-bottom: 1px dashed rgba(139, 125, 107, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.entry-title {
+    font-size: 1.45rem; /* Tightened from 1.7rem */
+    color: var(--primary-color);
+    margin-bottom: 0.8rem; /* Tightened from 1.2rem */
+    line-height: 1.3;
+}
+
+.entry-text {
+    font-size: 0.95rem; /* Decreased slightly from 1.02rem for perfect fit */
+    color: #3f4e60;
+    line-height: 1.6; /* Balanced line height */
+    margin-bottom: 1rem; /* Compact margin */
+}
+
+/* Entry Media & Polaroid Frame inside Book Page */
+.entry-media {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Push polaroids downwards */
+}
+
+.polaroid-photo {
+    background: #ffffff;
+    padding: 0.6rem 0.6rem 1.2rem; /* Tightened padding to save space */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transform: rotate(-3deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.polaroid-photo:hover {
+    transform: scale(1.06) rotate(2deg) translateY(-8px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
+    z-index: 10;
+}
+
+.polaroid-image-placeholder {
+    width: 170px; /* Reduced from 220px to fit on the page! */
+    height: 125px; /* Reduced from 165px to fit on the page! */
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.polaroid-image-placeholder.color-pink { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.polaroid-image-placeholder.color-gold { background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); }
+.polaroid-image-placeholder.color-blue { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.polaroid-image-placeholder.color-green { background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); }
+
+.raccoon-diary-reaction {
+    width: 80px; /* Reduced from 105px to match new placeholder */
+    height: auto;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+    animation: cozyFloat 4s infinite ease-in-out;
+}
+
+@keyframes cozyFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.polaroid-caption {
+    font-size: 0.85rem; /* Tightened from 0.95rem */
+    color: #4a5568;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Tactile dynamic pagination hanging on page outer edges */
+.diary-page-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFDF9;
+    border: 1px solid #ebdcb9;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(92, 58, 33, 0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 100; /* Stays way above polaroids and text */
+}
+
+.diary-page-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+}
+
+.diary-page-btn.prev-btn {
+    left: -22px; /* Hangs half-way outside left page edge */
+}
+
+.diary-page-btn.next-btn {
+    right: -22px; /* Hangs half-way outside right page edge */
+}
+
+/* ==================== TEAM SECTION & TELEGRAM CIRCLES ==================== */
+.team-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.team-member-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.team-member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(69, 123, 157, 0.15);
+}
+
+.avatar-circle-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+}
+
+.avatar-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(69, 123, 157, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.avatar-emoji {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    transition: transform 0.4s ease;
+}
+
+.team-member-card:hover .avatar-emoji {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.member-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.35rem;
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* Telegram Video Circle Modal */
+.telegram-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.telegram-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.telegram-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.telegram-modal-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 440px;
+    animation: telegramScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes telegramScale {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.telegram-video-circle {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #2CA5E0; /* Telegram Blue */
+    background: #000000;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: -40px;
+    z-index: 5;
+}
+
+.telegram-circle-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.telegram-circle-inner-emoji {
+    font-size: 7rem;
+    animation: pulse 2s infinite;
+}
+
+.telegram-circle-progress {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 250px;
+    height: 250px;
+    pointer-events: none;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: transparent;
+    stroke: rgba(255,255,255,0.1);
+    stroke-width: 5px;
+}
+
+.progress-ring-active {
+    fill: transparent;
+    stroke: #25d366; /* Green record progress line */
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke-dasharray: 301.6; /* 2 * PI * r (r=48) */
+    stroke-dashoffset: 301.6;
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+.telegram-modal-card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 4.5rem 2rem 2.5rem;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+}
+
+.telegram-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.telegram-member-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.telegram-member-role {
+    font-size: 0.95rem;
+    color: #2CA5E0;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.telegram-member-details {
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.telegram-member-superpower,
+.telegram-member-roles {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.telegram-member-roles:last-child {
+    margin-bottom: 0;
+}
+
+.telegram-member-quote {
+    font-style: italic;
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 1rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.telegram-member-quote::before,
+.telegram-member-quote::after {
+    content: '"';
+    font-size: 2rem;
+    color: rgba(230, 57, 70, 0.25);
+    line-height: 1;
+    position: absolute;
+}
+
+.telegram-member-quote::before {
+    left: -5px;
+    top: -5px;
+}
+
+.telegram-member-quote::after {
+    right: -5px;
+    bottom: -15px;
+}
+
+/* ==================== VALUES SECTION ==================== */
+.values-section {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    background: var(--bg-light);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    background: #ffffff;
+}
+
+.value-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.value-card:nth-child(1) .value-icon-box { background: rgba(230, 57, 70, 0.1); color: var(--primary-color); }
+.value-card:nth-child(2) .value-icon-box { background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .value-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.value-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ==================== NEW RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .diary-book-wrapper {
+        margin: 2rem auto 0;
+        padding: 0 15px;
+    }
+} /* Close the @media (max-width: 992px) early to make subsequent styles global */
+
+    /* 1. Closed Cover Design (Global for PC & Mobile) */
+    .diary-closed-cover {
+        display: block !important;
+        max-width: 500px;
+        margin: 0 auto;
+        perspective: 1200px;
+        cursor: pointer;
+        z-index: 10;
+        position: relative;
+    }
+
+    .closed-cover-leather {
+        width: 100%;
+        height: 660px;
+        background: linear-gradient(135deg, #8b5a2b 0%, #5c3a21 100%);
+        border-radius: 20px 24px 24px 20px;
+        transform-origin: left center;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+        box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.35),
+            inset 3px 0 10px rgba(255,255,255,0.15),
+            inset -3px 0 10px rgba(0,0,0,0.4);
+        padding: 24px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 2px solid rgba(0,0,0,0.25);
+    }
+
+    /* Left gold binding spine line */
+    .closed-cover-leather::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 24px;
+        width: 2px;
+        background: rgba(244, 162, 97, 0.4);
+        box-shadow: 0 0 10px rgba(244, 162, 97, 0.6);
+        z-index: 2;
+    }
+
+    /* Golden vintage corners */
+    .closed-cover-decor-corners {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+    .closed-cover-decor-corners::before,
+    .closed-cover-decor-corners::after {
+        content: '';
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border: 3px solid #ebdcb9;
+        z-index: 2;
+    }
+    .closed-cover-decor-corners::before {
+        top: 12px;
+        right: 12px;
+        border-bottom: none;
+        border-left: none;
+        border-radius: 0 8px 0 0;
+    }
+    .closed-cover-decor-corners::after {
+        bottom: 12px;
+        right: 12px;
+        border-top: none;
+        border-left: none;
+        border-radius: 0 0 8px 0;
+    }
+
+    .closed-cover-emboss {
+        width: 100%;
+        height: 100%;
+        border: 1px dashed rgba(244, 162, 97, 0.3);
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.12);
+    }
+
+    .diary-embossed-badge {
+        width: 100px;
+        height: auto;
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+        animation: cozyFloat 4s infinite ease-in-out;
+        object-fit: contain;
+    }
+
+    .closed-cover-title {
+        font-size: 2.1rem !important;
+        color: #ebdcb9 !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.8rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(244, 162, 97, 0.4);
+    }
+
+    .closed-cover-subtitle {
+        font-size: 0.9rem !important;
+        color: rgba(235, 220, 185, 0.75) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 2.2rem !important;
+        padding: 0 10px;
+    }
+
+    .btn-open-diary {
+        padding: 12px 24px !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #ff5252 100%) !important;
+        box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4), 0 0 15px rgba(230, 57, 70, 0.2) !important;
+        animation: openPulse 2s infinite ease-in-out;
+        border: none !important;
+        cursor: pointer !important;
+        color: #ffffff !important;
+    }
+
+    @keyframes openPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4); }
+        50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(230, 57, 70, 0.6), 0 0 20px rgba(230, 57, 70, 0.3); }
+    }
+
+    /* 2. Closed open-book state inside vertical viewport */
+    .diary-notebook-3d {
+        display: none !important; /* Hide open book by default on normal vertical screens */
+    }
+
+    /* 3. Inline active styles applied to wrapper (No fullscreen fixed overlay) */
+    .diary-book-wrapper.diary-fullscreen-active {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 1000px !important;
+        margin: 4rem auto 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        box-sizing: border-box !important;
+        display: block !important;
+        overflow: visible !important;
+        z-index: 10 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-closed-cover {
+        display: none !important; /* Hide closed cover when fullscreen is active */
+    }
+
+    .diary-book-wrapper.diary-shifting .closed-cover-leather {
+        transform: translateX(50%) !important;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .diary-book-wrapper.diary-opening .closed-cover-leather {
+        transform: translateX(50%) rotateY(-140deg) scale(0.9) !important;
+        opacity: 0 !important;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease !important;
+    }
+
+    /* Inline active notebook layout */
+    .diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        height: 660px !important;
+        max-width: 1000px !important;
+        background: linear-gradient(135deg, #8b5a2b 0%, #5c3a21 100%) !important;
+        border-radius: 24px !important;
+        padding: 12px !important;
+        box-shadow: 0 35px 80px rgba(92, 58, 33, 0.35), inset 0 0 40px rgba(0, 0, 0, 0.4) !important;
+        perspective: 2000px !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 auto !important;
+        animation: bookOpenRotate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    }
+
+    /* Restore all desktop features inside fullscreen active book! */
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-left,
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+        display: block !important;
+        position: absolute !important;
+        width: calc(50% - 16px) !important;
+        height: calc(100% - 32px) !important;
+        top: 16px !important;
+        background: #FFFDF9 !important;
+        border: 1px solid #ebdcb9 !important;
+        border-radius: 12px !important;
+        z-index: 0 !important;
+    }
+    
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-left {
+        left: 16px !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        box-shadow: -2px 2px 0 #ebdcb9, -4px 4px 0 #ebdcb9, -6px 6px 0 #d9cbb2 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+        right: 16px !important;
+        left: auto !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        box-shadow: 2px 2px 0 #ebdcb9, 4px 4px 0 #ebdcb9, 6px 6px 0 #d9cbb2 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .notebook-rings-3d {
+        display: flex !important;
+        position: absolute !important;
+        top: 25px !important;
+        bottom: 25px !important;
+        left: 50% !important;
+        width: 24px !important;
+        transform: translateX(-50%) !important;
+        z-index: 50 !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .ring-3d {
+        width: 16px !important;
+        height: 48px !important;
+        border-radius: 8px !important;
+        background: linear-gradient(90deg, #7f8c8d 0%, #bdc3c7 45%, #ffffff 55%, #7f8c8d 100%) !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left,
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+        width: 50% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #FFFDF9 !important;
+        padding: 2.2rem 2rem !important;
+        box-shadow: inset -15px 0 30px rgba(92, 58, 33, 0.08) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        position: relative !important;
+        margin: 0 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left {
+        border-top-left-radius: 16px !important;
+        border-bottom-left-radius: 16px !important;
+        border-right: 1px dashed rgba(139, 125, 107, 0.15) !important;
+        align-items: stretch !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+        border-top-right-radius: 16px !important;
+        border-bottom-right-radius: 16px !important;
+        border-left: 1px dashed rgba(139, 125, 107, 0.15) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left .diary-sidebar-title {
+        display: block !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .diary-book-wrapper.diary-fullscreen-active .diary-sidebar-note {
+        display: block !important;
+        margin-top: auto !important;
+        padding: 0.8rem !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tabs {
+        position: absolute !important;
+        left: -190px !important;
+        top: 60px !important;
+        width: 180px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 100 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab {
+        border-radius: 14px 0 0 14px !important;
+        padding: 0.8rem 1rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        background: #e6dfd3 !important;
+        border: 2px solid #c8bda8 !important;
+        border-right: none !important;
+        width: auto !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab.active {
+        background: #FFFDF9 !important;
+        border-color: #ebdcb9 !important;
+        transform: translateX(-12px) !important;
+        z-index: 101 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .tab-label {
+        font-size: 0.88rem !important;
+        text-align: left !important;
+        width: 100% !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .tab-time {
+        font-size: 0.78rem !important;
+    }
+
+    /* Desktop Book paper sheet styles inside active fullscreen overlay */
+    .diary-book-wrapper.diary-fullscreen-active .book-paper {
+        display: block !important;
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        left: auto !important;
+        width: calc(50% - 12px) !important;
+        height: calc(100% - 24px) !important;
+        transform-origin: left center !important;
+        transform-style: preserve-3d !important;
+        z-index: 1;
+    }
+
+    /* Beautiful global circular close button when diary is open */
+    .diary-book-wrapper.diary-fullscreen-active .btn-close-fullscreen {
+        display: flex !important;
+        position: absolute !important;
+        top: -24px !important;
+        right: -24px !important;
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 50% !important;
+        background: #e63946 !important;
+        color: #ffffff !important;
+        border: 3px solid #ffffff !important;
+        font-size: 28px !important;
+        font-weight: 700 !important;
+        align-items: center !important;
+        justify-content: center !important;
+     /* ==================== MOBILE DIARY: SINGLE-PAGE MODE ==================== */
+@media (max-width: 768px) {
+    /* Main container settings */
+    .diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: 520px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    /* Left cover behaves as a transparent layout block for tabs */
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border: none !important;
+        margin: 0 0 10px 0 !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left .diary-sidebar-title,
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left .diary-sidebar-note {
+        display: none !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left .diary-page-content {
+        padding: 0 !important;
+    }
+
+    /* Hide the right cover completely on mobile to clean up space */
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+        display: none !important;
+    }
+
+    /* Stack decorations hidden */
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-left,
+    .diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+        display: none !important;
+    }
+
+    /* Top spiral-notepad rings decoration */
+    .diary-book-wrapper.diary-fullscreen-active .notebook-rings-3d {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        position: absolute !important;
+        top: 48px !important; /* Placed exactly at the top of pages viewport */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 80% !important;
+        height: 24px !important;
+        z-index: 1000 !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .ring-3d {
+        display: block !important;
+        width: 8px !important;
+        height: 28px !important;
+        border-radius: 4px !important;
+        background: linear-gradient(90deg, #7f8c8d 0%, #bdc3c7 45%, #ffffff 55%, #7f8c8d 100%) !important;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) !important;
+        transform: translateY(-8px) !important;
+    }
+
+    /* Tab navigation: horizontal scrollable row at top */
+    .diary-book-wrapper.diary-fullscreen-active .diary-tabs {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        gap: 6px !important;
+        padding: 0.5rem 0 !important;
+        margin-bottom: 0.8rem !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .diary-tabs::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab {
+        border-radius: 20px !important;
+        padding: 0.5rem 0.8rem !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px !important;
+        flex-shrink: 0 !important;
+        border: 2px solid #c8bda8 !important;
+        white-space: nowrap !important;
+        background: #e6dfd3 !important;
+        box-shadow: 0 2px 5px rgba(92, 58, 33, 0.05) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab.active {
+        background: #FFFDF9 !important;
+        border-color: #b26a31 !important;
+        transform: none !important;
+        font-weight: bold !important;
+        color: #b26a31 !important;
+    }
+
+    /* Show/hide specific tabs based on desktop/mobile classes */
+    .diary-book-wrapper.diary-fullscreen-active .diary-desktop-tabs {
+        display: none !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .diary-mobile-tabs {
+        display: flex !important;
+    }
+
+    /* ---- MOBILE VERTICAL VIEWPORT ---- */
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: 520px !important;
+        overflow: hidden !important;
+        border-radius: 16px !important;
+        background: #FFFDF9 !important;
+        box-shadow: 0 15px 35px rgba(92, 58, 33, 0.15) !important;
+        border: 1px solid rgba(139, 125, 107, 0.15) !important;
+    }
+
+    /* Book paper container hides behind layout */
+    .diary-book-wrapper.diary-fullscreen-active .book-paper {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        transform-style: flat !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Book pages stack inside vertical viewport and slide up/down */
+    .diary-book-wrapper.diary-fullscreen-active .book-page {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 2.2rem 1.25rem 1.5rem !important; /* Top space reserved for rings */
+        box-sizing: border-box !important;
+        background: 
+            linear-gradient(to right, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+            linear-gradient(to left, transparent 38px, rgba(230, 57, 70, 0.1) 39px, rgba(230, 57, 70, 0.1) 40px, transparent 41px),
+            repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.04) 28px),
+            #FFFDF9 !important;
+        border: none !important;
+        border-radius: 16px !important;
+        overflow-y: auto !important; /* Scroll within page if content overflows */
+        transform: translateY(100%) !important; /* Offscreen bottom by default */
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        z-index: 1 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page.page-back {
+        transform: translateY(100%) !important;
+        border-radius: 16px !important;
+    }
+
+    /* Custom elegant thin scrollbar for scrollable mobile pages */
+    .diary-book-wrapper.diary-fullscreen-active .book-page::-webkit-scrollbar {
+        width: 5px !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .book-page::-webkit-scrollbar-track {
+        background: transparent !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .book-page::-webkit-scrollbar-thumb {
+        background-color: rgba(139, 125, 107, 0.25) !important;
+        border-radius: 10px !important;
+    }
+
+    /* ---- VERTICAL SLIDING STATE TRANSITIONS ---- */
+
+    /* Active entering page: slides to center and fades in */
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-1 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-2 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-2 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-2 .page-back {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 2 !important;
+    }
+
+    /* Visited leaving pages: slide UP out of viewport */
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-2 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-3 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-1 .page-front,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-1 .page-back,
+    .diary-book-wrapper.diary-fullscreen-active .diary-pages-viewport.step-4 #paper-2 .page-front {
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+    /* Future unvisited pages automatically stay down (translateY(100%)) */
+
+    /* Navigation arrows positioning on mobile viewport edges */
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn {
+        display: flex !important;
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1.1rem !important;
+        z-index: 10000 !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        border-radius: 50% !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+        background: #FFFDF9 !important;
+        border: 2px solid #c8bda8 !important;
+        color: #b26a31 !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.prev-btn {
+        left: 8px !important;
+    }
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.next-btn {
+        right: 8px !important;
+    }
+}
+
+
+    .diary-book-wrapper.diary-fullscreen-active .btn-close-fullscreen:hover {
+        transform: scale(1.1) rotate(90deg) !important;
+        background: #ff5252 !important;
+        box-shadow: 0 12px 30px rgba(230, 57, 70, 0.5) !important;
+    }
+    @media (max-width: 1050px) {
+        .diary-book-wrapper.diary-fullscreen-active .btn-close-fullscreen {
+            top: -16px !important;
+            right: 8px !important;
+        }
+    }
+    @media (max-width: 768px) {
+        .diary-book-wrapper.diary-fullscreen-active .btn-close-fullscreen {
+            top: -12px !important;
+            right: 0px !important;
+            width: 36px !important;
+            height: 36px !important;
+            font-size: 18px !important;
+            border-width: 2px !important;
+        }
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page {
+        padding: 2.2rem 2.2rem 3rem 2.2rem !important;
+        background: 
+            linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+            linear-gradient(to left, transparent 38px, rgba(230, 57, 70, 0.18) 39px, rgba(230, 57, 70, 0.18) 40px, transparent 41px),
+            repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.06) 28px),
+            #FFFDF9 !important;
+        border: none !important;
+        border-radius: 4px !important;
+        box-shadow: inset 3px 0 15px rgba(92, 58, 33, 0.02), 5px 5px 20px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page.page-front {
+        border-top-right-radius: 12px !important;
+        border-bottom-right-radius: 12px !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page.page-back {
+        transform: rotateY(180deg) !important;
+        border-top-left-radius: 12px !important;
+        border-bottom-left-radius: 12px !important;
+    }
+
+    /* Restore spacious sizes inside active fullscreen pages */
+    .diary-book-wrapper.diary-fullscreen-active .book-page .entry-title {
+        font-size: 1.45rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .entry-text {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .polaroid-photo {
+        padding: 0.6rem 0.6rem 1.2rem !important;
+        align-self: auto !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .polaroid-image-placeholder {
+        width: 170px !important;
+        height: 125px !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .raccoon-diary-reaction {
+        width: 80px !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-page .polaroid-caption {
+        font-size: 0.85rem !important;
+    }
+
+    /* Dynamically active edge hanging arrows inside fullscreen overlay */
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn {
+        display: flex !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.3rem !important;
+        z-index: 100 !important;
+        position: absolute !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.prev-btn {
+        left: -22px !important;
+    }
+
+
+
+    /* ==================== MOBILE DIARY: SINGLE-PAGE MODE ==================== */
+    @media (max-width: 768px) {
+        }
+
+        /* Right page takes full width */
+        .diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+            width: 100% !important;
+            border-radius: 16px !important;
+            padding: 1.5rem 1.25rem 2rem !important;
+        }
+
+        /* Hide notebook rings on mobile */
+        .diary-book-wrapper.diary-fullscreen-active .notebook-rings-3d,
+        .diary-book-wrapper.diary-fullscreen-active .paper-stack-left,
+        .diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+            display: none !important;
+        }
+
+        /* Tab navigation: horizontal scrollable row at top */
+        .diary-book-wrapper.diary-fullscreen-active .diary-tabs {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            width: 100% !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            gap: 6px !important;
+            padding: 0.5rem 0 !important;
+            margin-bottom: 1rem !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        .diary-book-wrapper.diary-fullscreen-active .diary-tabs::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        .diary-book-wrapper.diary-fullscreen-active .diary-tab {
+            border-radius: 20px !important;
+            padding: 0.5rem 0.75rem !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 4px !important;
+            flex-shrink: 0 !important;
+            border: 2px solid #c8bda8 !important;
+            border-right: 2px solid #c8bda8 !important;
+            white-space: nowrap !important;
+        }
+
+        .diary-book-wrapper.diary-fullscreen-active .diary-tab.active {
+            transform: none !important;
+        }
+
+        /* ---- MOBILE SINGLE-CARD PAGE LAYOUT ---- */
+
+        /* Book paper: no more absolute 3D positioning — stack as blocks */
+        .diary-book-wrapper.diary-fullscreen-active .book-paper {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            left: auto !important;
+            width: 100% !important;
+            height: auto !important;
+            transform: none !important;
+            transform-style: flat !important;
+            animation: none !important;
+            display: none !important; /* Hidden by default — only mobile-active shows */
+        }
+
+        /* Show only the active paper */
+        .diary-book-wrapper.diary-fullscreen-active .book-paper.mobile-active {
+            display: block !important;
+        }
+
+        /* Book page: relative, full height auto, scrollable */
+        .diary-book-wrapper.diary-fullscreen-active .book-page {
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 400px !important;
+            top: auto !important;
+            left: auto !important;
+            padding: 1.25rem 1rem 2rem !important;
+            backface-visibility: visible !important;
+            transform: none !important;
+            box-sizing: border-box !important;
+        }
+
+        /* page-back is pre-rotated 180deg normally — reset on mobile */
+        .diary-book-wrapper.diary-fullscreen-active .book-page.page-back {
+            transform: none !important;
+        }
+
+        /* Page arrows */
+        .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.prev-btn {
+            left: -12px !important;
+        }
+        .diary-book-wrapper.diary-fullscreen-active .diary-page-btn.next-btn {
+            right: -12px !important;
+        }
+    }
+
+
+
+@media (max-width: 768px) {
+    .raccoon-diary-section,
+    .team-section,
+    .values-section {
+        padding: 4rem 0;
+    }
+
+    .diary-notebook-3d {
+        border-radius: 20px !important;
+        border-width: 4px !important;
+    }
+
+    .entry-title {
+        font-size: 1.35rem !important;
+        text-align: center;
+    }
+
+    .entry-text {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .polaroid-image-placeholder {
+        width: 190px !important;
+        height: 140px !important;
+    }
+
+    .raccoon-diary-reaction {
+        width: 80px !important;
+    }
+
+    .team-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .team-member-card {
+        display: grid !important;
+        grid-template-columns: 90px 1fr !important;
+        grid-template-areas: 
+            "avatar name"
+            "avatar role" !important;
+        align-items: center !important;
+        text-align: left !important;
+        gap: 0.25rem 1.25rem !important;
+        padding: 1.25rem !important;
+        background: #ffffff !important;
+        border-radius: 20px !important;
+        box-shadow: 0 8px 25px rgba(69, 123, 157, 0.08) !important;
+        border: 1px dashed rgba(69, 123, 157, 0.15) !important;
+        position: relative !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    .team-member-card:nth-child(even) {
+        grid-template-columns: 1fr 90px !important;
+        grid-template-areas: 
+            "name avatar"
+            "role avatar" !important;
+        text-align: right !important;
+    }
+
+    .team-member-card:not(:last-child)::after {
+        content: "" !important;
+        position: absolute !important;
+        bottom: -1.75rem !important;
+        left: 15% !important;
+        right: 15% !important;
+        height: 16px !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20' fill='none' stroke='%23457b9d' stroke-width='2' stroke-linecap='round' stroke-dasharray='3,3'%3E%3Cpath d='M0,10 Q15,0 30,10 T60,10 T90,10 T120,10'/%3E%3C/svg%3E") !important;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat !important;
+        opacity: 0.45 !important;
+    }
+
+    .avatar-circle-wrapper {
+        grid-area: avatar !important;
+        width: 90px !important;
+        height: 90px !important;
+        margin: 0 !important;
+    }
+
+    .team-member-card .avatar-emoji {
+        font-size: 2.5rem !important;
+    }
+
+    .member-name {
+        grid-area: name !important;
+        margin: 0 !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        color: var(--text-dark) !important;
+    }
+
+    .member-role {
+        grid-area: role !important;
+        margin: 0 !important;
+        font-size: 0.88rem !important;
+        color: var(--primary-color) !important;
+        font-weight: 600 !important;
+    }
+
+    .telegram-video-circle {
+        width: 180px;
+        height: 180px;
+        margin-bottom: -30px;
+    }
+
+    .telegram-circle-progress {
+        width: 190px;
+        height: 190px;
+    }
+
+    .telegram-circle-inner-emoji {
+        font-size: 5rem;
+    }
+
+    .telegram-modal-card {
+        padding: 3.5rem 1.25rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .telegram-member-name {
+        font-size: 1.4rem;
+    }
+
+    .telegram-member-role {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .telegram-member-details {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .telegram-member-superpower,
+    .telegram-member-roles {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .telegram-member-quote {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==================== RACCOON DIARY OPENING KEYFRAMES ==================== */
+@keyframes bookOpenRotate {
+    0% {
+        transform: scale(0.3) rotate(0deg) !important;
+        opacity: 0 !important;
+    }
+    100% {
+        transform: scale(1) rotate(0deg) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ==================== HOLIDAY GALLERY - CONTINUOUS INFINITE POLAROID MARQUEE ==================== */
+.holiday-gallery-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf8ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.holiday-gallery-section .container-fluid {
+    width: 100%;
+    padding: 0; /* full-bleed width for seamless edge-to-edge scrolling */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Scroll Viewport */
+.holiday-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 30px 0;
+    cursor: default;
+    touch-action: pan-y; /* browser handles vertical page scroll, we handle horizontal drag */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.holiday-carousel-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+/* Continuous scrolling track */
+.holiday-carousel-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    will-change: transform;
+    touch-action: pan-y;
+}
+
+/* Keyframes for seamless autoscrolling */
+@keyframes marqueeAutoscroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        /* calc(-50% - 15px) matches exactly half of the double-length track, accounting for half the gap */
+        transform: translate3d(calc(-50% - 15px), 0, 0);
+    }
+}
+
+/* Polaroid Card - Large, clear & premium */
+.polaroid-card {
+    flex: 0 0 360px; /* Width of large polaroids */
+    height: 460px;   /* Height of large polaroids */
+    background: #ffffff;
+    padding: 16px 16px 28px 16px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(18, 12, 28, 0.05);
+    border: 1px solid rgba(118, 75, 162, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+}
+
+/* Alternating organic rotation */
+.polaroid-card:nth-child(even) { transform: rotate(1.2deg); }
+.polaroid-card:nth-child(odd) { transform: rotate(-1.2deg); }
+
+/* Card Image Wrapper */
+.polaroid-card-img-wrapper {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: #f7f5fa;
+}
+
+.polaroid-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: transform 0.6s ease;
+}
+
+/* Polaroid text caption */
+.polaroid-card-caption {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: #4b2d6d;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive, sans-serif;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Premium Hover Effect: Card lifts up, scales, straightens and shadow deepens */
+.polaroid-card:hover {
+    transform: translateY(-15px) scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 20px 45px rgba(118, 75, 162, 0.16);
+    border-color: rgba(255, 107, 157, 0.25);
+    z-index: 5;
+}
+
+.polaroid-card:hover .polaroid-card-img {
+    transform: scale(1.06);
+}
+
+/* Responsive carousel styles */
+@media (max-width: 1024px) {
+    .polaroid-card {
+        flex: 0 0 300px;
+        height: 400px;
+        padding: 14px 14px 24px 14px;
+    }
+    .polaroid-card-caption {
+        font-size: 1.05rem;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .holiday-gallery-section {
+        padding: 50px 0;
+    }
+    .polaroid-card {
+        flex: 0 0 260px;
+        height: 350px;
+        padding: 12px 12px 20px 12px;
+    }
+    .polaroid-card-caption {
+        font-size: 0.95rem;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid-card {
+        flex: 0 0 220px;
+        height: 310px;
+    }
+}
+
+/* ==================== PREMIUM LIGHTBOX MODAL - ZOOMING POLAROID ==================== */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 12, 28, 0.5); /* Semi-transparent dimming to keep carousel behind sharp and visible */
+    z-index: -1;
+}
+
+/* Close button styled nicely */
+.lightbox-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 55px;
+    color: rgba(255, 255, 255, 0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20020;
+    line-height: 1;
+}
+
+.lightbox-close-btn:hover {
+    color: #ff6b9d;
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Giant Polaroid card container that ZOOMS and TILTS in */
+.lightbox-content {
+    background: #ffffff;
+    padding: 22px 22px 35px 22px;
+    border-radius: 20px;
+    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.55), 
+                0 0 50px rgba(118, 75, 162, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    width: 540px; /* Polaroid proportion width */
+    max-height: 82vh;
+    transform: scale(0.3) rotate(-6deg) translateY(80px); /* Starts far away, tilted, and offset for dramatic 3D zoom */
+    transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1); /* Beautiful spring physics bounce zoom! */
+}
+
+/* When active, the giant polaroid ZOOMS straight to the user */
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1) rotate(0deg) translateY(0);
+}
+
+/* Polaroid image in lightbox */
+.lightbox-image {
+    width: 100%;
+    aspect-ratio: 4/3; /* Keeps card height perfectly stable before image loads for a smooth transition! */
+    max-height: 52vh;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+    transition: opacity 0.2s ease;
+}
+
+/* Polaroid handwriting caption */
+.lightbox-caption {
+    color: #4b2d6d;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Pacifico', cursive, sans-serif;
+    text-shadow: none;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Large glassmorphic navigation arrows */
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 20010;
+    padding: 0;
+    user-select: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.lightbox-nav-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #ff6b9d 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 35px rgba(255, 107, 157, 0.5);
+}
+
+/* Navigation arrows sliding entries when active */
+.lightbox-prev-btn {
+    left: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-30px);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-next-btn {
+    right: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-modal.active .lightbox-prev-btn,
+.lightbox-modal.active .lightbox-next-btn {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Lightbox responsiveness */
+@media (max-width: 768px) {
+    .lightbox-close-btn {
+        top: 20px;
+        right: 25px;
+        font-size: 44px;
+    }
+    .lightbox-content {
+        width: 88%;
+        padding: 16px 16px 25px 16px;
+    }
+    .lightbox-caption {
+        font-size: 1.4rem;
+        margin-top: 15px;
+    }
+    .lightbox-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+    .lightbox-prev-btn {
+        left: 15px;
+    }
+    .lightbox-next-btn {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-content {
+        width: 92%;
+        max-height: 75vh;
+    }
+    .lightbox-image {
+        max-height: 42vh;
+    }
+    /* Keep nav buttons visible on small phones — swipe also works */
+    .lightbox-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.35);
+    }
+    .lightbox-prev-btn {
+        left: 8px;
+    }
+    .lightbox-next-btn {
+        right: 8px;
+    }
+}
+
+/* FLIP Transition Cloned Card and slide directions */
+.polaroid-card-transitioning {
+    z-index: 20050 !important;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(18, 12, 28, 0.06);
+    border: 1px solid rgba(118, 75, 162, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    overflow: hidden;
+    padding: 16px 16px 28px 16px;
+    box-sizing: border-box;
+}
+
+.polaroid-card-transitioning .polaroid-card-img-wrapper {
+    transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.polaroid-card-transitioning .polaroid-card-caption {
+    transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.polaroid-card-transitioning.fullscreen-zoom-active {
+    border-radius: 20px;
+    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.55), 
+                0 0 50px rgba(118, 75, 162, 0.15);
+    padding: 22px 22px 35px 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid-card-transitioning.fullscreen-zoom-active .polaroid-card-img-wrapper {
+    flex: 1;
+    height: 0;             /* Flex-grow fills remaining space */
+    min-height: 0;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.polaroid-card-transitioning.fullscreen-zoom-active .polaroid-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.polaroid-card-transitioning.fullscreen-zoom-active .polaroid-card-caption {
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+.lightbox-content.slide-out-left {
+    transform: translateX(-140%) rotate(-10deg) scale(0.85) !important;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.lightbox-content.slide-out-right {
+    transform: translateX(140%) rotate(10deg) scale(0.85) !important;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.lightbox-content.slide-in-left {
+    transform: translateX(-140%) rotate(-10deg) scale(0.85) !important;
+    opacity: 0;
+    transition: none !important;
+}
+
+.lightbox-content.slide-in-right {
+    transform: translateX(140%) rotate(10deg) scale(0.85) !important;
+    opacity: 0;
+    transition: none !important;
+}
+

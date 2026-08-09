@@ -1,0 +1,98 @@
+function openGalleryModal(characterId) {
+    console.log('Opening gallery for character:', characterId);
+
+    // Проверяем доступность данных
+    if (!window.charactersRenderer || !window.charactersRenderer.characters) {
+        console.error('Characters data not loaded yet');
+        return;
+    }
+
+    console.log('Total characters loaded:', window.charactersRenderer.characters.length);
+
+    // Преобразуем characterId в число, если это строка
+    const numericId = parseInt(characterId);
+    console.log('Looking for character ID:', numericId);
+
+    // Находим данные персонажа
+    const character = window.charactersRenderer.characters.find(c => c.id === numericId);
+    console.log('Found character:', character);
+
+    if (!character) {
+        console.error('Character not found with ID:', numericId);
+        console.log('Available character IDs:', window.charactersRenderer.characters.map(c => c.id));
+        return;
+    }
+
+    if (!character.images || !character.images.main) {
+        console.error('Character has no images:', character);
+        // Показываем уведомление пользователю
+        if (typeof showNotification === 'function') {
+            showNotification('У этого персонажа пока нет фотографий', 'error');
+        }
+        return;
+    }
+
+    // Собираем все изображения - всегда начинаем с main
+    const images = [character.images.main];
+
+    // Добавляем дополнительные фотографии из галереи, если они есть
+    if (character.images.gallery && Array.isArray(character.images.gallery) && character.images.gallery.length > 0) {
+        images.push(...character.images.gallery);
+    }
+
+    // Убираем дубликаты (если main повторяется в gallery)
+    const uniqueImages = [...new Set(images)];
+
+    console.log('Total images:', uniqueImages.length, uniqueImages);
+
+    const modal = getGalleryModal();
+
+    // Элементы информации о персонаже
+    const characterName = modal.querySelector('.gallery-character-name');
+    const characterDescription = modal.querySelector('.gallery-character-description');
+    const characterDetails = modal.querySelectorAll('.gallery-detail-text');
+    const priceAmount = modal.querySelector('.gallery-price-amount');
+    const packagesContainer = modal.querySelector('.gallery-packages');
+    const selectBtn = modal.querySelector('.gallery-select-btn');
+
+    // Элементы галереи
+    const mainImage = modal.querySelector('.gallery-current-image');
+    const thumbnailsContainer = modal.querySelector('.gallery-thumbnails');
+    const currentCounter = modal.querySelector('.gallery-current');
+    const totalCounter = modal.querySelector('.gallery-total');
+    const prevBtn = modal.querySelector('.gallery-prev');
+    const nextBtn = modal.querySelector('.gallery-next');
+    const closeBtn = modal.querySelector('.gallery-close');
+    const overlay = modal.querySelector('.gallery-modal-overlay');
+
+    // Заполняем информацию о персонаже
+    characterName.textContent = character.name;
+    characterDescription.textContent = character.description.full || character.description.short;
+
+    // Возраст
+    const ageElement = modal.querySelector('.gallery-detail-text.age');
+    ageElement.textContent = `${character.features.age} лет`;
+
+    // Для кого (пол)
+    const genderElement = modal.querySelector('.gallery-detail-text.gender');
+    const genderLabels = {
+        'boys': 'Для мальчиков',
+        'girls': 'Для девочек',
+        'unisex': 'Универсальные'
+    };
+    genderElement.textContent = genderLabels[character.features.gender] || 'Универсальные';
+
+    // Активности
+    const activitiesElement = modal.querySelector('.gallery-detail-text.activities');
+    const activitiesLabels = {
+        'active': 'Активные игры',
+        'creative': 'Творчество',
+        'magic': 'Фокусы',
+        'dance': 'Танцы',
+        'quest': 'Квесты'
+    };
+    const activities = character.features.activities.map(a => activitiesLabels[a] || a).join(', ');
+    activitiesElement.textContent = activities;
+
+    // Цена
+    priceAmount.textContent

@@ -1,0 +1,811 @@
+
+==================== Class: characters-grid (Found 19) ====================
+Occurrence 1:
+}
+
+/* ==================== CHARACTERS SECTION ==================== */
+.characters-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    /* По умолчанию отступы секции и контейнера остаются как раньше.
+       Расширяем секцию на всю ширину только при специальном классе .characters-section--wide */
+    .characters-section.characters-section--wide {
+        padding-left: 0;
+        padding-right: 0;
+ 
+----------------------------------------
+Occurrence 2:
+racters-section.characters-section--wide > .container {
+        max-width: none;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-column
+----------------------------------------
+Occurrence 3:
+g-left: 32px;
+        padding-right: 32px;
+    }
+
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-s
+----------------------------------------
+Occurrence 4:
+-right: 32px;
+    }
+
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template
+----------------------------------------
+Occurrence 5:
+rs-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    p
+----------------------------------------
+Occurrence 6:
+s-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    o
+----------------------------------------
+Occurrence 7:
+rs grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы опис
+----------------------------------------
+Occurrence 8:
+min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы описания не рвали карточки по выс
+----------------------------------------
+Occurrence 9:
+ers-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы описания не рвали карточки по высоте */
+.characters-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-desc
+----------------------------------------
+Occurrence 10:
+s-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В квадратном режиме кадрируем по верхней части, чтобы влезали головы/лица */
+.characters-grid.view-4-square .character-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы описания не рвали карточки по высоте */
+.characters-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+ 
+----------------------------------------
+Occurrence 11:
+cter-photo {
+    object-position: center top;
+}
+
+/* В квадратном режиме немного уменьшаем типографику, чтобы описания не рвали карточки по высоте */
+.characters-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+    font-size: 1.1rem;
+}
+
+/* "Show more" button under characters grid */
+.characters-load-more {
+    margin: 3rem auto 0;
+    display: block;
+}
+
+.character-card {
+    background: white;
+ 
+----------------------------------------
+Occurrence 12:
+ного уменьшаем типографику, чтобы описания не рвали карточки по высоте */
+.characters-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+    font-size: 1.1rem;
+}
+
+/* "Show more" button under characters grid */
+.characters-load-more {
+    margin: 3rem auto 0;
+    display: block;
+}
+
+.character-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow)
+----------------------------------------
+Occurrence 13:
+ers-grid.view-4-square .character-name {
+    font-size: 1.3rem;
+}
+
+.characters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+    font-size: 1.1rem;
+}
+
+/* "Show more" button under characters grid */
+.characters-load-more {
+    margin: 3rem auto 0;
+    display: block;
+}
+
+.character-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    
+----------------------------------------
+Occurrence 14:
+acters-grid.view-4-square .character-description {
+    font-size: 0.9rem;
+}
+
+.characters-grid.view-4-square .feature-tag {
+    font-size: 0.8rem;
+}
+
+.characters-grid.view-4-square .character-price {
+    font-size: 1.1rem;
+}
+
+/* "Show more" button under characters grid */
+.characters-load-more {
+    margin: 3rem auto 0;
+    display: block;
+}
+
+.character-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.charact
+----------------------------------------
+Occurrence 15:
+shadow: none;
+}
+
+.new-year-characters .section-subtitle {
+    color: #d0e8f2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.new-year-characters .characters-grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* Улучшенная контрастность кнопок на новогодней странице */
+body.new-year-page .btn-primary {
+    background: linear-gradient(135deg, #4fc3f7, #0288d1);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(79, 195, 247, 0.4);
+}
+
+body.new-year-page .btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(79, 195, 247, 0.5);
+}
+
+body.new-year-page .btn-secondary {
+    background: rgba(
+----------------------------------------
+Occurrence 16:
+(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: colum
+----------------------------------------
+Occurrence 17:
+ 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align:
+----------------------------------------
+Occurrence 18:
+{
+        padding: 1.5rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile
+----------------------------------------
+Occurrence 19:
+rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-co
+----------------------------------------
+
+==================== Class: programs-grid (Found 4) ====================
+Occurrence 1:
+imary-color);
+}
+
+/* ==================== PROGRAMS SECTION ==================== */
+.programs-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.program-card:nth-child(1) { animation-delay: 0.1s; }
+.program-card:nth-child(2) { animation-delay: 0.2s; }
+.program-card:nth-child(3) { anima
+----------------------------------------
+Occurrence 2:
+   font-size: 2.5rem;
+    }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-column layout) */
+    .character-car
+----------------------------------------
+Occurrence 3:
+=============== */
+
+.programs-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.programs-section .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Program Card Styles */
+.programs-section .program-card {
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.programs-secti
+----------------------------------------
+Occurrence 4:
+    font-size: 1.2rem;
+}
+
+/* ====================
+   RESPONSIVE STYLES
+   ==================== */
+
+@media (max-width: 768px) {
+    .programs-section .programs-grid,
+    .programs-section .programs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
+    }
+
+    .selection-bar-content {
+        flex-direction: column;
+ 
+----------------------------------------
+
+==================== Class: additional-services-grid (Found 2) ====================
+Occurrence 1:
+ 0.14), transparent 30%),
+        linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+    border-top: 1px solid rgba(138, 147, 158, 0.16);
+}
+
+.additional-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.additional-service-card {
+    background: rgba(248, 249, 250, 0.98);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(138,
+----------------------------------------
+Occurrence 2:
+grams-section .programs-grid,
+    .programs-section .programs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
+    }
+
+    .selection-bar-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+    }
+
+    .selection-actions {
+        width: 100%;
+    }
+
+    .selection-actions button {
+
+----------------------------------------
+
+==================== Class: services-grid (Found 2) ====================
+Occurrence 1:
+nsparent 30%),
+        linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+    border-top: 1px solid rgba(138, 147, 158, 0.16);
+}
+
+.additional-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.additional-service-card {
+    background: rgba(248, 249, 250, 0.98);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(138,
+----------------------------------------
+Occurrence 2:
+on .programs-grid,
+    .programs-section .programs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
+    }
+
+    .selection-bar-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+    }
+
+    .selection-actions {
+        width: 100%;
+    }
+
+    .selection-actions button {
+
+----------------------------------------

@@ -1,3 +1,132 @@
+// ==================== HERO CHARACTER SILHOUETTES ====================
+const HERO_SILHOUETTE_IMAGES = [
+    'images/без фона костюмы/Бэтмен-Photoroom.png',
+    'images/без фона костюмы/Вампир Дракула-Photoroom.png',
+    'images/без фона костюмы/Гвен Стейси-Photoroom.png',
+    'images/без фона костюмы/Гринч-Photoroom.png',
+    'images/без фона костюмы/Дарт Вейдер-Photoroom.png',
+    'images/без фона костюмы/Игра в кальмара-Photoroom.png',
+    'images/без фона костюмы/Как приручить дракона Беззубик-Photoroom.png',
+    'images/без фона костюмы/Леди баг 2-Photoroom.png',
+    'images/без фона костюмы/Принцесса Золушка-Photoroom.png',
+    'images/без фона костюмы/Роза Барбоскина-Photoroom.png',
+    'images/без фона костюмы/Семейка Аддамс Венсдей-Photoroom.png',
+    'images/без фона костюмы/Три кота Карамелька-Photoroom.png',
+    'images/без фона костюмы/Фъерк облачко 1-Photoroom.png',
+    'images/без фона костюмы/Хаги Ваги 1-Photoroom.png',
+    'images/без фона костюмы/Цифровой цирк Помни-Photoroom.png',
+    'images/без фона костюмы/Человек паук-Photoroom.png'
+];
+
+function randomBetween(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function shuffled(list) {
+    return [...list].sort(() => Math.random() - 0.5);
+}
+
+function createHeroCharacterSilhouettes() {
+    const container = document.querySelector('.hero-characters');
+    if (!container) return;
+
+    // Clear previous silhouettes
+    container.innerHTML = '';
+
+    const zones = [
+        { class: 'hero-character-left', opacity: [0.65, 0.85] },
+        { class: 'hero-character-right', opacity: [0.65, 0.85] },
+        { class: 'hero-character-top-right', opacity: [0.15, 0.30] },
+        { class: 'hero-character-bottom-left', opacity: [0.15, 0.30] },
+        { class: 'hero-character-bottom-right', opacity: [0.15, 0.30] }
+    ];
+
+    const shuffledImages = shuffled(HERO_SILHOUETTE_IMAGES);
+
+    zones.forEach((zone, index) => {
+        if (index >= shuffledImages.length) return;
+
+        const img = document.createElement('img');
+        const targetOpacity = randomBetween(zone.opacity[0], zone.opacity[1]).toFixed(2);
+        
+        img.src = shuffledImages[index];
+        img.alt = '';
+        img.decoding = 'async';
+        img.className = `hero-character ${zone.class}`;
+        img.style.setProperty('--hero-character-opacity', targetOpacity);
+        
+        img.style.animationDelay = `${randomBetween(-7, 0).toFixed(2)}s`;
+        img.style.animationDuration = `${randomBetween(6.5, 9.5).toFixed(2)}s`;
+
+        img.addEventListener('load', () => {
+            img.classList.add('hero-character-loaded');
+        }, { once: true });
+
+        img.addEventListener('error', () => {
+            img.remove();
+        }, { once: true });
+
+        container.appendChild(img);
+
+        if (img.complete) {
+            img.classList.add('hero-character-loaded');
+        }
+    });
+}
+
+let heroSilhouetteMobileState = window.matchMedia('(max-width: 768px)').matches;
+window.addEventListener('resize', () => {
+    const nextMobileState = window.matchMedia('(max-width: 768px)').matches;
+    if (nextMobileState !== heroSilhouetteMobileState) {
+        heroSilhouetteMobileState = nextMobileState;
+        createHeroCharacterSilhouettes();
+    }
+});
+
+// Обновляет отображение "лет профессиональной деятельности" и "проведенных праздников" в блоке статистики
+function updateWorkYearsStat() {
+    const startDate = new Date('2017-09-01');
+    const currentDate = new Date();
+    const diffTime = currentDate - startDate;
+    
+    // 1. Расчет лет профессиональной деятельности
+    const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+    const formattedYears = diffYears.toFixed(1); // Округляем до одного знака после запятой (например, 8.7)
+    
+    // В русском языке дробные числа согласуются с формой родительного падежа единственного числа: "года"
+    const yearsText = `${formattedYears} года`;
+
+    // 2. Расчет проведенных праздников (1.3 праздника в день)
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    const calculatedHolidays = Math.floor(diffDays * 1.3);
+    const holidaysText = `${calculatedHolidays}`;
+
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach(card => {
+        const labelEl = card.querySelector('.stat-label');
+        const numberEl = card.querySelector('.stat-number');
+        if (!labelEl || !numberEl) return;
+
+        const labelText = labelEl.textContent.trim();
+
+        if (labelText.includes('профессиональной деятельности')) {
+            numberEl.textContent = yearsText;
+            
+            // Если анимация уже проигрывалась, перезапускаем с новым значением
+            if (card.dataset.animated === 'true') {
+                animateCounter(numberEl, yearsText, 2500);
+            }
+        } else if (labelText.includes('проведенных праздников')) {
+            numberEl.textContent = holidaysText;
+
+            // Если анимация уже проигрывалась, перезапускаем с новым значением
+            if (card.dataset.animated === 'true') {
+                animateCounter(numberEl, holidaysText, 2500);
+            }
+        }
+    });
+}
+
 // ==================== SMOOTH SCROLLING ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -340,15 +469,16 @@ function animateCounter(element, target, duration = 2000) {
     let startTimestamp = null;
     const start = 0;
 
-    // Извлекаем число из строки (например "8 лет" -> 8)
-    const matches = target.match(/\d+/);
+    // Поддержка дробных чисел (например "8.7 года" -> 8.7)
+    const isFloat = target.includes('.') && !isNaN(parseFloat(target));
+    const matches = target.match(isFloat ? /\d+\.\d+/ : /\d+/);
     if (!matches) {
         element.textContent = target;
         return;
     }
 
-    const numericTarget = parseInt(matches[0]);
-    const suffix = target.replace(/\d+/g, '').trim();
+    const numericTarget = isFloat ? parseFloat(matches[0]) : parseInt(matches[0]);
+    const suffix = target.replace(isFloat ? /\d+\.\d+/g : /\d+/g, '').trim();
 
     // Определяем шаг инкремента для оптимизации больших чисел
     const getIncrement = (current, target) => {
@@ -365,19 +495,30 @@ function animateCounter(element, target, duration = 2000) {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
-        // Вычисляем текущее значение с учётом оптимизированного шага
-        let current = Math.floor(progress * (numericTarget - start) + start);
+        // Вычисляем текущее значение
+        let current = progress * (numericTarget - start) + start;
 
-        // Округляем до ближайшего шага для плавности
-        if (current < numericTarget) {
-            const increment = getIncrement(current, numericTarget);
-            current = Math.floor(current / increment) * increment;
-        }
-
-        if (suffix) {
-            element.textContent = current + ' ' + suffix;
+        if (isFloat) {
+            current = Math.min(current, numericTarget);
+            const formattedCurrent = current.toFixed(1);
+            if (suffix) {
+                element.textContent = formattedCurrent + ' ' + suffix;
+            } else {
+                element.textContent = formattedCurrent;
+            }
         } else {
-            element.textContent = current.toLocaleString();
+            let currentInt = Math.floor(current);
+            // Округляем до ближайшего шага для плавности
+            if (currentInt < numericTarget) {
+                const increment = getIncrement(currentInt, numericTarget);
+                currentInt = Math.floor(currentInt / increment) * increment;
+            }
+
+            if (suffix) {
+                element.textContent = currentInt + ' ' + suffix;
+            } else {
+                element.textContent = currentInt.toLocaleString();
+            }
         }
 
         if (progress < 1) {
@@ -717,8 +858,33 @@ function updateFavoriteCharactersStat(count) {
 
         if (labelEl.textContent.trim().includes('любимых персонажей')) {
             numberEl.textContent = count;
+            // Если анимация счетчика уже проигралась, проигрываем заново с новым значением
+            if (card.dataset.animated === 'true') {
+                animateCounter(numberEl, String(count), 1500);
+            }
         }
     });
+}
+
+// Инициализирует динамическую загрузку статистики на страницах без каталога персонажей
+async function initDynamicStats() {
+    const statsGrid = document.querySelector('.stats-grid');
+    if (!statsGrid) return;
+    
+    // Если на странице нет сетки персонажей, но есть счетчики, загружаем данные для синхронизации
+    if (!document.getElementById('characters-grid')) {
+        try {
+            const response = await fetch('data/characters-data.json');
+            if (response.ok) {
+                const data = await response.json();
+                if (data && Array.isArray(data.characters)) {
+                    updateFavoriteCharactersStat(data.characters.length);
+                }
+            }
+        } catch (error) {
+            console.error('Error loading dynamic statistics:', error);
+        }
+    }
 }
 
 // Characters grid view toggle (3 per row → 4 per row → 4 per row with square photos)
@@ -1266,4 +1432,1484 @@ if (typeof window.charactersRenderer !== 'undefined') {
             };
         }
     }, 100);
+}
+
+
+// ==================== DYNAMIC BACKGROUND RACCOONS GENERATOR ====================
+const RACCOON_IMAGES = [
+    'енот/Идея.png',
+    'енот/Спит.png',
+    'енот/большой палец вверх.png',
+    'енот/восторг.png',
+    'енот/доволен НГ.png',
+    'енот/конфити.png',
+    'енот/любит.png',
+    'енот/пицца.png',
+    'енот/подарок.png',
+    'енот/подмигивает.png',
+    'енот/праздничный список.png',
+    'енот/смеется.png',
+    'енот/смущение.png',
+    'енот/танцует.png',
+    'енот/тихо НГ.png',
+    'енот/тортик.png'
+];
+
+function randomizeBackgroundRaccoons() {
+    const sections = document.querySelectorAll('.characters-section, .programs-section, .advantages-section, .contact-section');
+    
+    sections.forEach((section, sectionIndex) => {
+        // 1. Очищаем старых енотов
+        const existingRaccoons = section.querySelectorAll('.page-decor-raccoon');
+        existingRaccoons.forEach(el => el.remove());
+        
+        // 2. Высота секции
+        const sectionHeight = section.offsetHeight || section.scrollHeight || 600;
+        
+        // 3. Количество енотов
+        const count = Math.max(1, Math.round(sectionHeight / 700));
+        
+        // Перемешиваем и создаем
+        const shuffledImages = [...RACCOON_IMAGES].sort(() => Math.random() - 0.5);
+        
+        // 4. Создаем
+        for (let i = 0; i < count; i++) {
+            const raccoon = document.createElement('img');
+            raccoon.className = 'page-decor-raccoon';
+            
+            // Картинка
+            const imgPath = shuffledImages[i % shuffledImages.length];
+            raccoon.src = imgPath;
+            raccoon.alt = 'Енот';
+            
+            // Анимация (float-anim-1 или float-anim-2)
+            raccoon.classList.add((sectionIndex + i) % 2 === 0 ? 'float-anim-1' : 'float-anim-2');
+            
+            // Расчет top положения
+            const segmentMin = (i / count) * 100 + 4;
+            const segmentMax = ((i + 1) / count) * 100 - 8;
+            const randomTop = (Math.random() * (segmentMax - segmentMin) + segmentMin).toFixed(1);
+            
+            // Положение (лево / право) и отступ
+            const isLeft = (sectionIndex + i) % 2 === 0;
+            const randomEdge = (Math.random() * 5 + 2).toFixed(1);
+            
+            raccoon.style.top = `${randomTop}%`;
+            
+            if (isLeft) {
+                raccoon.style.left = `${randomEdge}%`;
+            } else {
+                raccoon.style.right = `${randomEdge}%`;
+            }
+            
+            // Задержка анимации
+            raccoon.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Вставляем енота
+            section.insertBefore(raccoon, section.firstChild);
+        }
+    });
+}
+
+// Инициализация фоновых енотов
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', randomizeBackgroundRaccoons);
+} else {
+    randomizeBackgroundRaccoons();
+}
+
+// ==================== DYNAMIC NAVBAR LOGO ====================
+function initNavbarLogo() {
+    const logoImgs = document.querySelectorAll('.logo-img');
+    if (logoImgs.length === 0) return;
+    
+    const randomRaccoon = RACCOON_IMAGES[Math.floor(Math.random() * RACCOON_IMAGES.length)];
+    
+    logoImgs.forEach(img => {
+        img.style.opacity = '0';
+        
+        const onLoad = () => {
+            img.style.opacity = '1';
+            img.removeEventListener('load', onLoad);
+        };
+        img.addEventListener('load', onLoad);
+        
+        const onError = () => {
+            img.src = 'images/енот в деле.png';
+            img.style.opacity = '1';
+            img.removeEventListener('error', onError);
+        };
+        img.addEventListener('error', onError);
+        
+        img.src = randomRaccoon;
+        
+        if (img.complete) {
+            img.style.opacity = '1';
+        }
+    });
+}
+
+// ==================== RACCOON DIARY (3-STEP DOUBLE PAGE SPREAD VERSION) ====================
+function initRaccoonDiary() {
+    const tabs = document.querySelectorAll('.diary-tab');
+    const paper1 = document.getElementById('paper-1');
+    const paper2 = document.getElementById('paper-2');
+    
+    if (tabs.length === 0 || !paper1 || !paper2) return;
+
+    const diaryWrapper = document.querySelector('.diary-book-wrapper');
+    const diaryContainer = document.querySelector('.diary-notebook-3d');
+    const closedCover = document.querySelector('.diary-closed-cover');
+    const btnCloseFullscreen = document.querySelector('.btn-close-fullscreen');
+    
+    if (!diaryWrapper || !diaryContainer) return;
+
+    // Toggle Functions for inline diary opening/closing (No Native Fullscreen)
+    const openFullscreen = () => {
+        // Step 1: Add shifting class to slide the cover to the left by half of its width
+        diaryWrapper.classList.add('diary-shifting');
+        
+        // Step 2: After 400ms (sliding done), start the flip-open rotation and fade-out
+        setTimeout(() => {
+            diaryWrapper.classList.add('diary-opening');
+            
+            // Step 3: After another 600ms (total 1000ms), reveal the open 3D notebook spread
+            setTimeout(() => {
+                diaryWrapper.classList.add('diary-fullscreen-active');
+                diaryWrapper.classList.remove('diary-opening', 'diary-shifting');
+                
+                const currentActiveTab = document.querySelector('.diary-tab.active');
+                const currentStep = currentActiveTab ? parseInt(currentActiveTab.getAttribute('data-diary-step'), 10) : 1;
+                setStep(currentStep);
+                setTimeout(scaleDiary, 100);
+            }, 600);
+        }, 400);
+    };
+
+    const closeFullscreen = () => {
+        diaryWrapper.classList.remove('diary-fullscreen-active');
+        
+        setTimeout(() => {
+            const currentActiveTab = document.querySelector('.diary-tab.active');
+            const currentStep = currentActiveTab ? parseInt(currentActiveTab.getAttribute('data-diary-step'), 10) : 1;
+            setStep(currentStep);
+            scaleDiary();
+        }, 100);
+    };
+
+    // Attach user click listeners to closed cover and close button
+    if (closedCover) {
+        closedCover.addEventListener('click', () => {
+            openFullscreen();
+        });
+    }
+
+    if (btnCloseFullscreen) {
+        btnCloseFullscreen.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeFullscreen();
+        });
+    }
+
+    // Get individual page elements
+    const p1Front = paper1.querySelector('.page-front');
+    const p1Back = paper1.querySelector('.page-back');
+    const p2Front = paper2.querySelector('.page-front');
+    const p2Back = paper2.querySelector('.page-back');
+
+    // Clean up any old static page buttons inside pages to prevent duplicates
+    document.querySelectorAll('.book-page .diary-page-btn').forEach(btn => btn.remove());
+
+    // Dynamically create/inject a single pair of edge buttons directly on the book container
+    let prevBtn = diaryContainer.querySelector('.diary-page-btn.prev-btn');
+    let nextBtn = diaryContainer.querySelector('.diary-page-btn.next-btn');
+
+    if (!prevBtn) {
+        prevBtn = document.createElement('button');
+        prevBtn.className = 'diary-page-btn prev-btn';
+        prevBtn.innerHTML = '←';
+        diaryContainer.appendChild(prevBtn);
+    }
+    if (!nextBtn) {
+        nextBtn = document.createElement('button');
+        nextBtn.className = 'diary-page-btn next-btn';
+        nextBtn.innerHTML = '→';
+        diaryContainer.appendChild(nextBtn);
+    }
+
+    // Attach click event listeners directly to pages for high-fidelity physical interaction
+    if (p1Back) {
+        p1Back.style.cursor = 'pointer';
+        p1Back.addEventListener('click', (e) => {
+            if (e.target.closest('.diary-page-btn')) return;
+            const isMobile = window.innerWidth <= 768 || 
+                             (window.innerWidth <= 992 && !diaryWrapper.classList.contains('diary-fullscreen-active'));
+            if (!isMobile) {
+                setStep(2); // Click left page on Spread B -> Activates Step 2 (12:00 и 17:00)
+            }
+        });
+    }
+
+    if (p2Front) {
+        p2Front.style.cursor = 'pointer';
+        p2Front.addEventListener('click', (e) => {
+            if (e.target.closest('.diary-page-btn')) return;
+            const isMobile = window.innerWidth <= 768 || 
+                             (window.innerWidth <= 992 && !diaryWrapper.classList.contains('diary-fullscreen-active'));
+            if (!isMobile) {
+                setStep(2); // Click right page on Spread B -> Activates Step 2 (12:00 и 17:00)
+            }
+        });
+    }
+
+    let initialLoad = true;
+    let prevStep = 1;
+    let currentStep = 1;
+
+    function flipPage(paper, forward) {
+        if (forward) {
+            paper.classList.remove('flip-backward');
+            paper.classList.add('flip-forward');
+        } else {
+            paper.classList.remove('flip-forward');
+            paper.classList.add('flip-backward');
+        }
+    }
+
+    function setStep(step) {
+        // Determine view mode
+        const isMobile = window.innerWidth <= 768 || 
+                         (window.innerWidth <= 992 && !diaryWrapper.classList.contains('diary-fullscreen-active'));
+
+        // On desktop, clamp the step between 1 and 3 (mobile goes up to 4)
+        if (!isMobile && step > 3) {
+            step = 3;
+        }
+
+        currentStep = step;
+        
+        // Reset active tabs (handles both desktop and mobile tab elements)
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Activate matching tabs in all active tab elements
+        const matchingTabs = document.querySelectorAll(`.diary-tab[data-diary-step="${step}"]`);
+        matchingTabs.forEach(t => t.classList.add('active'));
+
+        // Clear active page highlights on all pages
+        const allPages = [p1Front, p1Back, p2Front, p2Back];
+        allPages.forEach(p => {
+            if (p) p.classList.remove('active-page');
+        });
+
+        // Get mobile pages viewport
+        const viewport = diaryWrapper ? diaryWrapper.querySelector('.diary-pages-viewport') : null;
+
+        // 1. DYNAMIC NAVIGATION ARROWS AND ACTIVE STYLES CONTROLLER
+        if (!isMobile) {
+            // Desktop Spread Mode / Fullscreen Sideways Mode
+            if (step === 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'flex';
+                nextBtn.setAttribute('title', 'Дальше (12:00 и 17:00)');
+                nextBtn.onclick = (e) => { e.stopPropagation(); setStep(2); };
+                
+                if (p1Front) p1Front.classList.add('active-page');
+            } 
+            else if (step === 2) {
+                prevBtn.style.display = 'flex';
+                prevBtn.setAttribute('title', 'Назад (08:30)');
+                prevBtn.onclick = (e) => { e.stopPropagation(); setStep(1); };
+                
+                nextBtn.style.display = 'flex';
+                nextBtn.setAttribute('title', 'Дальше (21:30)');
+                nextBtn.onclick = (e) => { e.stopPropagation(); setStep(3); };
+                
+                if (p1Back) p1Back.classList.add('active-page');
+                if (p2Front) p2Front.classList.add('active-page');
+            } 
+            else if (step === 3) {
+                prevBtn.style.display = 'flex';
+                prevBtn.setAttribute('title', 'Назад (12:00 и 17:00)');
+                prevBtn.onclick = (e) => { e.stopPropagation(); setStep(2); };
+                
+                nextBtn.style.display = 'none';
+                
+                if (p2Back) p2Back.classList.add('active-page');
+            }
+        } else {
+            // Mobile Stack Fallback Mode: Support 4 distinct steps (1 to 4)
+            prevBtn.style.display = (step === 1) ? 'none' : 'flex';
+            nextBtn.style.display = (step === 4) ? 'none' : 'flex';
+            
+            if (step > 1) {
+                prevBtn.setAttribute('title', 'Назад');
+                prevBtn.onclick = (e) => { e.stopPropagation(); setStep(step - 1); };
+            }
+            if (step < 4) {
+                nextBtn.setAttribute('title', 'Вперед');
+                nextBtn.onclick = (e) => { e.stopPropagation(); setStep(step + 1); };
+            }
+
+            // Highlight active mobile page individually (no overlaps)
+            if (step === 1 && p1Front) p1Front.classList.add('active-page');
+            if (step === 2 && p1Back) p1Back.classList.add('active-page');
+            if (step === 3 && p2Front) p2Front.classList.add('active-page');
+            if (step === 4 && p2Back) p2Back.classList.add('active-page');
+        }
+
+        // 2. 3D TRANSITION ANIMATIONS AND DECK LAYOUTS CONTROLLER
+        if (isMobile) {
+            paper1.classList.remove('hover-lift');
+            paper2.classList.remove('hover-lift');
+
+            paper1.classList.remove('mobile-active', 'card-flip-forward', 'card-flip-backward', 'card-flipped-static', 'slide-in-left', 'slide-out-right', 'slide-in-right', 'slide-out-left');
+            paper2.classList.remove('mobile-active', 'card-flip-forward', 'card-flip-backward', 'card-flipped-static', 'slide-in-left', 'slide-out-right', 'slide-in-right', 'slide-out-left');
+
+            // Clear inline displays on mobile so CSS transitions can drive layout
+            if (p1Front) p1Front.style.display = '';
+            if (p1Back) p1Back.style.display = '';
+            if (p2Front) p2Front.style.display = '';
+            if (p2Back) p2Back.style.display = '';
+
+            // Apply the viewport step class to trigger the vertical slide-up transition in CSS
+            if (viewport) {
+                viewport.classList.remove('step-1', 'step-2', 'step-3', 'step-4');
+                viewport.classList.add(`step-${step}`);
+            }
+            
+            prevStep = step;
+        } else {
+            // Desktop 3D View: Restore regular layouts and clear viewport step classes
+            if (viewport) {
+                viewport.classList.remove('step-1', 'step-2', 'step-3', 'step-4');
+            }
+
+            if (p1Front) { p1Front.style.display = 'flex'; p1Front.style.opacity = '1'; }
+            if (p1Back) { p1Back.style.display = 'flex'; p1Back.style.opacity = '1'; }
+            if (p2Front) { p2Front.style.display = 'flex'; p2Front.style.opacity = '1'; }
+            if (p2Back) { p2Back.style.display = 'flex'; p2Back.style.opacity = '1'; }
+
+            if (step === 1) {
+                if (initialLoad) {
+                    paper1.classList.remove('flip-forward', 'flip-backward');
+                    paper2.classList.remove('flip-forward', 'flip-backward');
+                } else {
+                    if (paper1.classList.contains('flip-forward')) flipPage(paper1, false);
+                    if (paper2.classList.contains('flip-forward')) flipPage(paper2, false);
+                }
+                
+                paper1.style.zIndex = '3';
+                paper2.style.zIndex = '2';
+            } 
+            else if (step === 2) {
+                if (initialLoad) {
+                    paper1.classList.add('flip-forward');
+                    paper2.classList.remove('flip-forward', 'flip-backward');
+                } else {
+                    if (!paper1.classList.contains('flip-forward')) flipPage(paper1, true);
+                    if (paper2.classList.contains('flip-forward')) flipPage(paper2, false);
+                }
+                
+                paper1.style.zIndex = '3';
+                paper2.style.zIndex = '3';
+            } 
+            else if (step === 3) {
+                if (initialLoad) {
+                    paper1.classList.add('flip-forward');
+                    paper2.classList.add('flip-forward');
+                } else {
+                    if (!paper1.classList.contains('flip-forward')) flipPage(paper1, true);
+                    if (!paper2.classList.contains('flip-forward')) flipPage(paper2, true);
+                }
+                
+                paper1.style.zIndex = '2';
+                paper2.style.zIndex = '3';
+            }
+
+            // Set hover-lift active states on top-most visible sheets
+            if (step === 1) {
+                paper1.classList.add('hover-lift');
+                paper2.classList.remove('hover-lift');
+            } else if (step === 2) {
+                paper1.classList.add('hover-lift');
+                paper2.classList.add('hover-lift');
+            } else if (step === 3) {
+                paper1.classList.remove('hover-lift');
+                paper2.classList.add('hover-lift');
+            }
+        }
+        
+        initialLoad = false;
+        scaleDiary();
+    }
+
+    // Dynamic scale calculator: keep the desktop book ratio and fit the viewport width.
+    const scaleDiary = () => {
+        const idealW = 1000;
+        const idealH = 660;
+        const totalW = 1200; // Account for the hanging sidebar tabs (190px offset)
+        
+        if (!diaryWrapper.classList.contains('diary-fullscreen-active')) {
+            diaryContainer.style.transform = '';
+            diaryContainer.style.transformOrigin = '';
+            diaryContainer.style.width = '';
+            diaryContainer.style.height = '';
+            diaryWrapper.style.height = '';
+            return;
+        }
+
+        const w = window.innerWidth;
+
+        // On mobile: reset all JS inline sizing — CSS handles single-page layout
+        if (w <= 768) {
+            diaryContainer.style.transform = '';
+            diaryContainer.style.transformOrigin = '';
+            diaryContainer.style.width = '';
+            diaryContainer.style.height = '';
+            diaryWrapper.style.height = '';
+            return;
+        }
+
+        const padding = 40;
+        // Calculate scale based on total content width (notebook + hanging tabs) to prevent clipping
+        const scale = Math.min((w - padding) / totalW, 1.0);
+
+        diaryContainer.style.width = `${idealW}px`;
+        diaryContainer.style.height = `${idealH}px`;
+        diaryContainer.style.transform = `scale(${scale})`;
+        diaryContainer.style.transformOrigin = 'top center';
+        diaryWrapper.style.height = `${idealH * scale}px`;
+    };
+
+    // Attach click listeners to tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const step = parseInt(tab.getAttribute('data-diary-step'), 10);
+            setStep(step);
+        });
+    });
+
+    // Handle viewport resize to switch layout styles and adapt scale
+    window.addEventListener('resize', () => {
+        const currentActiveTab = document.querySelector('.diary-tab.active');
+        const currentStep = currentActiveTab ? parseInt(currentActiveTab.getAttribute('data-diary-step'), 10) : 1;
+        setStep(currentStep);
+        scaleDiary();
+    });
+
+    // Start at the first step
+    setStep(1);
+}
+
+// ==================== TELEGRAM TEAM CIRCLES INTERACTIVITY ====================
+function initTelegramTeamCircles() {
+    const cards = document.querySelectorAll('.team-member-card');
+    const modal = document.getElementById('telegram-modal');
+    if (cards.length === 0 || !modal) return;
+
+    const closeBtn = modal.querySelector('.telegram-modal-close');
+    const backdrop = modal.querySelector('.telegram-modal-backdrop');
+    
+    const mName = modal.querySelector('.telegram-member-name');
+    const mRole = modal.querySelector('.telegram-member-role');
+    const mSuperpower = modal.querySelector('.telegram-member-superpower');
+    const mRoles = modal.querySelector('.telegram-member-roles');
+    const mQuote = modal.querySelector('.telegram-member-quote');
+    const mProgress = modal.querySelector('.progress-ring-active');
+    
+    let progressInterval = null;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const name = card.querySelector('.member-name').textContent;
+            const role = card.querySelector('.member-role').textContent;
+            const superpower = card.getAttribute('data-superpower') || '';
+            const roles = card.getAttribute('data-roles') || '';
+            const quote = card.getAttribute('data-quote') || '';
+            
+            // Заполняем данные
+            if (mName) mName.textContent = name;
+            if (mRole) mRole.textContent = role;
+            if (mSuperpower) mSuperpower.textContent = superpower;
+            if (mRoles) mRoles.textContent = roles;
+            if (mQuote) mQuote.textContent = quote;
+            
+            // Анимация progress ring (круглые истории Telegram)
+            if (mProgress) {
+                mProgress.style.strokeDashoffset = '301.6'; // Сброс
+                let start = Date.now();
+                const duration = 8000; // 8 секунд
+                
+                if (progressInterval) clearInterval(progressInterval);
+                
+                progressInterval = setInterval(() => {
+                    let elapsed = Date.now() - start;
+                    let progress = Math.min(elapsed / duration, 1);
+                    let offset = 301.6 - (progress * 301.6);
+                    mProgress.style.strokeDashoffset = offset;
+                    
+                    if (progress >= 1) {
+                        clearInterval(progressInterval);
+                        // Повторяем по кругу
+                        setTimeout(() => {
+                            if (modal.classList.contains('active')) {
+                                start = Date.now();
+                                progressInterval = setInterval(() => {
+                                    let elapsed = Date.now() - start;
+                                    let progress = Math.min(elapsed / duration, 1);
+                                    let offset = 301.6 - (progress * 301.6);
+                                    mProgress.style.strokeDashoffset = offset;
+                                    if (progress >= 1) {
+                                        start = Date.now(); // Loop the progress animation
+                                    }
+                                }, 50);
+                            }
+                        }, 500);
+                    }
+                }, 50);
+            }
+            
+            // Открываем модалку
+            modal.classList.add('active');
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    
+    // Закрытие по кнопке Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// ==================== HOLIDAY PHOTOS GALLERY CAROUSEL ====================
+const HOLIDAY_PHOTOS = [
+    "-QdgmvInrQJ3qQJyc0SDQaUocMD7Jst7HeQpxkShraN4Fgv9fq6TSP2nYBh1eWpnIV417sCl.jpg",
+    "-s-B3yg8ToGbaB9MhdtZZdFlMfL0XyWWn8VghdLnRjFAgWTkdy2g5JMHVejYNNDSt80y1hJFWk19rvYxN_eadZkv.jpg",
+    "09rZoPO0tRn8SSvlYOYBmxmcTH3bzgKlnquuBDx07CAAGubpzrq8qSjGQhyDQnudQ3cnFwqj2qoNh14E7w2MX_3t.jpg",
+    "0Z2G21wgjWMRpyr-MlFzCL3VWfaQ6dEN-XtG6t0go0x8-5U82AUOqf_UUaOPPnvA6LrWPzLVYRX7CgVa-0cNxsVd.jpg",
+    "0fV0pxPCYzb2773cb8g4HXkOzzfk_6ubapsATjbcGBBEEHvZRB2t7sIxONUNXnU5zMcE-XrDiMG8iy9swfk0en2l.jpg",
+    "1DsEDGjgUjNnsD2uaviyN8gycjd-pmGRrqOdFQV5s5x_Offfl9aBhXuRZE5fjRuYF6cSrMKiYDFO3li_ez-Pf-F6.jpg",
+    "1Yyj-RlCqtjAib1EL-SFLedGxGpvQfmA2imPUtYRY1bpmc5E3anMFw_1Erzset45NmXmXxiS8PNmjGNs7YpN0RIZ.jpg",
+    "1_BtDm7lPKzwkPxQQ10NN0fn3CZ3iI3BEbeisOU9miuUyP25XMGMlyOL9prsL8dQo_RAXdppw4ZI2dEHn8TUTnxh.jpg",
+    "1cGNzAOV_IXOJfmZFyd4QGaLGafuB-n--K78_iM3V9e9_XnXnx6FO3o6hhyFOfWcLToRaI_e.jpg",
+    "1o5J2oU8K_MRwfVwQHrzGZcDbNJDo1Y06rGJurQN1DK4GbQr84gxvtHCwRLbtdqOIQykfp2N7pie-79pEtyrTVHu.jpg",
+    "3Eb2TODE9GVSlzTMxok8FDqDvPmQIz3SaHKU9bY5PbAQJ-tzme-lCsCxI42trmfDhkmKXGPIK8E2lR0b9eAXdyMN.jpg",
+    "3NW_Ft4wGU1sFUVcGXbTgW-uCjxleGulurYYxjVjnstTlosCnOjBShTxwTdIuc5kmkPRv3Dpds6kQ9-4BCC-KYMy.jpg",
+    "3epJsrrsNb2X-dwyPxB-vxsvFOz_IN1sIiaAT9AD7uLCQ-jKcXMmr6KsdZCUVynKb2_I8NE6.jpg",
+    "3xB7EqPj1q13r_Y-PmTHAtNMYes34e08vXxZ7A8C0zCkr1u8ZAQPxLZ1c7jGPXTXj0enB01trjFa03738zLFN510.jpg",
+    "3yuaGdQm5FnwLaq2rka8GkK12EwleY3g-zxfBKkj-KYDGCPyIF3nD9dDXQL5D6DhzMOe8D3q0ajwBybnd-9_Dv1-.jpg",
+    "53PaOZMc1FL9-yacO_ZYaO75wxGJraK7AHmHEBN884DxFBVB3xmjckE42f9r7hxtRWpVR1q-RUfsCvKhxmmG6ipx.jpg",
+    "5GiZt7UnclIyqfLww8r7ahQmPN9j7cFB6tpfu9qYaCyYUx6GGp0Lt0OwPqql7wlA0Syh9uQe9-4SFjaVsAY7ZdHG.jpg",
+    "5PxSWH0Qep9VV6sLtF5f8-QUv0u-T6mgLpgTLHbCU2-wJrcfj1ZZ03JYdQi4vXkX1EELF2ZpVg7JbXVo-GpH-Fbm.jpg",
+    "5aUOIyDnikvXUXoBQ7BrdtPkKKOM-CLi5SY_MuDNXK7ibINH_RbfBr8TewvDOKPY6L7PrYX5pqWth48MuKqJjnmQ.jpg",
+    "5h1S7wRDqaRkv8bP8-OgmXbSVyb5ToWZ-akq0UsvH5gUU5BjlSgf0e1X_1n0NQrqyWiMqE58c5XAm3HBReVAPEdq.jpg",
+    "5jngu-uMFNL_JocnRCim9Ed8oRNSmOSnRZMt4sj7Zc3z3DQi-B8qOjuzbNaaj5Zwq-s7YjyxTkF8ylDAKQgB8CIe.jpg",
+    "6xAZvcE2mjtwWjG7EyPqEZawIn0kHPzmw8PvXX_M4TiD6ryTCdYx7e2UroCC8sErJP5pXKX7H8MOudSuWicSIMmw.jpg",
+    "7PT0i8NfBVxXpeRTqe5uPe1CHgFUDgwKk4fP-Q9gVZSr0Kfas7WzV_lgM8W_0mMB69Ati_4Cj2e2Yypx-EugbXBv.jpg",
+    "7Qgq6AewSqslj40TlYzZ-LorJHTS9Ly_TTMP_VHnJmpNSgBjejWB9LkCGu_wB9WWgO3MPNIri6VcO5feDX52RXKB.jpg",
+    "7a4UhJxe9DtlCLGLNeqxUAm8SpG0h79uryTqF9pXZ_xC4E6O8yPIrtX6ZwRoznbIBYZ4YL1EvEMSWhG-ChtpjBhL.jpg",
+    "7rUghH0sPXSE9YS9tDiwl3N3HsTi23YGud_FpgwW1oXJypzLqm2UhS1evSXEfLlcbZmE2Uue04KJd_dpH37AdBEW.jpg",
+    "8vY5L4EzqkkFwiA19Xd_ujDm3gk8CSy3utcD-uaT4ucOhXO5MW4vjmG2v04Hx0mKGldKv-Jnzzav50Q5_UVCZaXL.jpg",
+    "9WmhPo5gxVfLvgDuNss-GYzjkZhjXsc-2fSxnDf5JwUFw0yjZ0y7MCZ7tX40s1GNaQYTKHl8.jpg",
+    "Ay4-OvD5jGdZ2ejXYsEHyJcezLxl8atbuw_6JZeTHU-eeDshYVDHxoROsGK0v6ecr-eDg4gpnGRC-bgV8aKErMUr.jpg",
+    "BAFIxrhx0A6hR_pY9erbaidWD6yo2rU4tXf7-QKzeqa59IFvHNfhHNXKPrchIHeRjUoJVV3x.jpg",
+    "Bpai1KLFqyxkc_N9GO9Sf1yM2YaILyyu77_ewtHRt0QzwOHbHRke5zOftxcKdqlIfhiI5g9sXdaWpTCTAjetowD8.jpg",
+    "Bpjjll5ssK75oJlAN-SDGC_kXaoXbsIeZa6z_xDC3nkqlA4A4Q9zKuP6n6svyBOafwTZsherthfGc0fI4_ZYmKE1.jpg",
+    "C1w6nygQYsgcDPe1zxJeixxqMdAZSZQ1UT2-_sU2U4xgvXdpGj3vgEJSeoqWrj1NT8C6MRp6m3nvbSmBRyURMhMt.jpg",
+    "CX7kLmS9Ij09y3_XWlhNrxa2difLwm7BSWfXE4OYAVqMOT5ArHHoGGABoF8z2AoAdh1DLFcXMIt4zHT6K1RiYxM-.jpg",
+    "CtEgiocsXeYkvTsPr830mwyipLNLbwGM3W-WFPWURhoXte8pJ7_XOAK7pm7k1K6rtbb1JvpM3Udu_Pxv1AH67bee.jpg",
+    "DHnKOeLTsalz80_-TUPu9KuwMtqTGVQx1nc8gcBZhn92y-D-wytdXdmrfcP9FXwq1De-N03X.jpg",
+    "DHySKb4g79p_xX4g5PBnzsvBN-9dKg-A_Pv5L0vg3bsVllEIEdO-wcLykLu4Kph0Tp3P5BrlUD4rNedYczptppNF.jpg",
+    "E3aDovCBoHRJTeYZz_fYPNb962rU6A53w3ebBKNZ6kkpytoNxjuQSfh2pi-iac4g2qmZchsZQfhtDurAlwQRb7Jn.jpg",
+    "E49PS2T45MFLky1Eg9rrsBEXl4jvZFHuwoy010d-ATqsAUL3vokh5ngHOXctv_5xNipWQBephwfil8FRu3sxdlOC.jpg",
+    "E6HfnTjlQKMlJSnL_K_13i98O9BztCWYzOBvMfaVCaudNFz9Y6ey_erRjKqdAWS_3JjHV8wO.jpg",
+    "EaeBZuNflHFBSTIEhr92EZ_xInXFNtaUZrk7JBWWZuk0LiOgjKPRAxNeERXp0BaislmXl5CPZWwzYAoXFSHI79i-.jpg",
+    "Eavzt4VojLyPM0o7zHvpgei1yFPbZaNwLEWb-mPZpWKgh9kDUmHhWaeZkCDX2XrPukc-i2m4.jpg",
+    "F3S67g4vdk-mI5GBIXjKCzcg0Sc1GrJY4647_fU5B3zpnfus90sck1Yp68s7L3Tvfs2mfCWaXQk0l-7uRTN-DsgK.jpg",
+    "FLuNtQbQHDpo63ncPF7iTTf_XKidArkfl3LtRLeiEHC5GBteZ2rzMby8gq1oJeCi7UpVFiCitC8sE5-ilkZT59Br.jpg",
+    "Fnrx5IyXCb4EZWwiqD52RSFwD2pcHWGJTqRwo4p1XshO0ItJrUe2cIQltvBkevgtYJwlxs_a_CwuIk6kktQX6rKF.jpg",
+    "GRjO-nqLeFjjvxzbwZXGw3MsQ0Ms08544OLF2pb0m8oXlSOXibI3wUQq5jNr17Lehk3tktpQdZ23Zor14ZqkFww1.jpg",
+    "GfCGwdhc18-ml0PSfNqUHKEhKiZD0jHmdwdM5mfEkbAT9M1t7QwqT5tf2nn2Njz7P-C-smgoHqnFTjfBfvrVvH9c.jpg",
+    "GqyTXGwvRqZ4PnuDgz1OjZjGL_F5AUTEFPX3NM3T5rnB3t5ca431NGbvAnhd7poxEhGwU2Rvq60Kunau_3xSAXhI.jpg",
+    "HdXl4PnjTlVs94NqGkwiEQW9BeIDiTdAEOBuRNyry2GLMKX_zQKAaobMT3KILbMzzC4ogBVANWD-Mdbf4BvCCkZ0.jpg",
+    "IrEeDkPvccynI-shOLDKoBqlk1iYrwk5gfv0LuD01uxrsdXYHtupi5hrjHyMg1lFv8Bz-bJuUqLLREJgATJO6XhR.jpg",
+    "IwsSFoVVdyKBKTu8iLuPsMMIixc6hn4d_fcPBHXYnuiDR3pWFYFpDH_C4_MEEOTu9JoKP5i8.jpg",
+    "KDGu5uXGDcE64DIf3FyMmb32uiJ6eBJLanbk-8uf-KpZbHGR0uOXWm9V6bh1bKbZJRX0e5MfqdIqPIDd_ahZWXSG.jpg",
+    "Kn_OziFox2DR0bf0v8QjHYpefQDDGYE5IjtC9eltFcxv3wP43UZlQWKWOUfgT3IksnEzlPlKl3CPAuNDL2QqqTok.jpg",
+    "Kt6YOgYIlYCkIulzpIwgyrEczXGjvC4asNAPlUIdKJyqf4dwHF9fQ_7-v-zMNzM2-qBPThPjQmmDijzwu_f9MwoY.jpg",
+    "KyYQwGKoWhYjOjdK_dJ_i3DM-R6rKJS_UniWFelRYAZwkOeMDoSqNAEZ1JXQEklTPUrkK9LlP4Alx5MfVIeofmFo.jpg",
+    "KyxQulsEeKg4lmO8TbCvqinhWmcxChw4EcyWt8e5nkPbf8-lryv6fiDc7bEJcv4Jawom6eTjrSXf9cE1fUXKpjpd.jpg",
+    "L1WG1xlyP4Z1ebgAhkMh2Ew-GflKo2o5R5u5yagmR6yANAJ_FqWEfWx8xkTQGQriR81uPfIQtjsesVAvUVsex9qW.jpg",
+    "L_Pd_L_sut4YKIVG8eoFS2a-xnwRFPrkgvBVQAV0BplIQGTc_6Kwz4zZ4Jhrrvmgm2Tb-Bz9k9nSgD4lkzZZPJJc.jpg",
+    "LhbAu6DgNzhr3ftmkEYYgTYH6wMfxM0UZQDOWfwlwKRiZZIepwo6FAezM8GnYglipy50tKhhi5Hi4FwHZGk35Hr0.jpg",
+    "M5dXrTUO8KYN8gGsoeIvm-N5kMAFvhcSjKTF_1gMptM4cuLTEwI6raPG9vOt9W_WHlVqRE_OCziqzCitQuOfhMtH.jpg",
+    "MibyYLBtt7_RLrMwFD5Qi-eVwvxVGprmYaDqY2C0xRdcVznzXGkXSiTUeJO1c2bFclIXokssmhWC4Q9wCdbO-mLm.jpg",
+    "N8J7jJrGKbHg3RGa-BOmZ9wIZ3BZBkcSkpii-K8W3_cHTD0vv6oZvbpf40h3PCr_hVXmwpd-FdzARShn7MNZLGIB.jpg",
+    "NLaNKnbcwPKgvoIvmeZ4xNHrVlRlmUQKATDtQry7Ijv0zX2-h0SGecwYaeQoyw_bogpqLCPdUDWmr8qR7qNtLZOI.jpg",
+    "NPMa6MxzfeY5-bY5cZbnMIwKAoWK5LWAEXCfVxS-OaYxo-_Usj-NGfv1hajXGAvaHjAuTMcmTbVOjQpuRHfc4Zdf.jpg",
+    "NSmUFBn3WULeXhFbZAIGtHB8PzdRQmvwaHrDVPODsnMsjF43pmjj8HyABtG9lwzAKdBrunrDQgHcYOhkC-2prS-C.jpg",
+    "NpiwITEBe3fe4TjiUQcKtD9iLyLHgjIkaOu2z7FFroCGDYzkTKGe0d84bbRVCDMl2mvvVzv-hRLSsbm0bjAvAtn7.jpg",
+    "ORLHdrEisbvJUkyH4jpP8lLpSE7t1bfNo3VvktVe-N2j21LAcRp3RDL_aC6-a2qfKcsxIVXR_wGgBCZGPcuJH-pA.jpg",
+    "P7ZwEuNurXHK52LguWNOWqguy5Ut1ir4ORj0duQQhZ0ANGHleDYfwGHyBI3zLjaAK175dJXTJ1FLKIjeVELyxSy3.jpg",
+    "PHykEZPcjCn3QhcjTjw_bB8uFgrsLuDj3T2PwO7pCSurap0dbNM73uUZew8LTIlPf_Ti4u4fPNhrZEJuE53oo693.jpg",
+    "PRXELcO05ysNoQsi-DpeEL_nIb7BUIIdtmdqlwG39leLqIzVcci9ojUwZjMHhDGV6KnBBQqBsfk_3joiw2XQopU8.jpg",
+    "PxPqOyZ7ViXV1-7GwsmSj1Q6wpqX-SouZPl7c79OLY9ZOtVMZuKncaVxMbc1MCtaryBXB7GI.jpg",
+    "Q8nR_ZlXgXw6_LuhmN339hVT-kC-m4ZSEHeuQbShlvehof0eBr3ZGMff_uKAPKY-L0ZD8A4K8DVHNMrXzMLBvnmu.jpg",
+    "Qem7rzHSuxDF5zATM0FZLrEeFR_BXqcckAOp2bUJUdJjzZizIDeLk0VGwpIfDDa9lC-8wGFoxq-2r6cXGRhUgUbI.jpg",
+    "RPwqzRYM1q1VRSuPuuyM8NmLUKdrSvz7_oFxhgcYYm75fgqAoj6CN8UFt9h0Z2tpuip6RpvBacQP5etGmXcXNn5_.jpg",
+    "S8UQVy8O_8T_Jf_j46aV9k1a0gktHnEtmP0hZ8OxmBTKQVTRa3tHJRn9pM7R7FZ6r84R4LMI.jpg",
+    "SAl1lWon6RGs-23sbU7r_bkJ0p3v5_iKFXG2SnFu4CjmjZzim7raQ0v1kHDK9htLl7pr5-WlIklrxozM1Qfuqy1J.jpg",
+    "SXbS9dZeeokZ15G4cd88g5vIxvmu3RFAgIzxQjjH2RkpF5n8HOcAFUE8iz09NTc8CDqmS5qRoBZ5uGI7-NEkuQYc.jpg",
+    "SqgC83J5JcH0m0BJj8LlV_RNBl6KgQ_wo8GOG9smmUHiFLK3mLsFT-uGqRdxCp8wajx4lgprxXZNj7zPNntO0TMb.jpg",
+    "T46cAoNNzz5oTNEuMohMoqP_4_6wGj5i9_9T5gUOXCF0m22AxNuJre4V2uZHjg4vPVrsvcou3qgLYJU4FwtrTlCA.jpg",
+    "UKcvNsmxIel47PCbOGuFhK3a8TRJnXXejibdTnw7h54tqWpLKjjjC_ZdN3QVOonyB8RHMVLvFwoHKTIP_enSzC9i.jpg",
+    "UVP6Gn8kSWQxqPvnuVtEaC_wuCoNlXO_liPuXGp2dBy7qLsVyVqu8LLZ7MS4Hf5rOIwmzIcqZR5h9Zyfv5W4E-wl.jpg",
+    "Ulr5YSTSKvx3WKnasldMa-hHAZTTiWvwNcAWDIutBvVcjGshrrBb3mKNolrGBcK0dz-IkcgE_Lq9YwvC_h4T0c4I.jpg",
+    "UnQd0SUmPS8goSK59bjH7c6hmGpq1IJ0vipL3VQf1hkMr2tXwRkGInjIpZnuOoByVgVZx_leeEDHyZTdOfLD1ta1.jpg",
+    "W4oAh6dmC-N-FTxIiC1oQDIMyIoKp5JEk_PE5fmCeWtoq95hTERhC741ZYoOPWUD3oN_HoprYrkdy3vggBiq1VLH.jpg",
+    "WG66F18Vt4BKFKcV0U9AZbp7lIBeicZPXw2PqwKWhSTr0MMsqKkG140Uma60ZHJfQ5z7-Ml6dSt-jUVyFE3-q-or.jpg",
+    "WTY6IXS-BeUc6uICSWg8b3b3vXHmJTEv_14jEA0aTDdhCToz6CrRhD-NJCU8kn7tQFzELfr6J-6TQfexhp2rCjtf.jpg",
+    "WopULVJ7r7ql-e4EfQOoxOXUumEphSpaCZwKy1OQZtusEBIp7NBm-tPl735_Vi9vAAO61IOk1osy387CDWDD1T1A.jpg",
+    "XKR4VrI3q4CyqqFMr7RReDmbH3i-xSueCFREKbBi8IUOmj2sRvEJSP61iMQ_USuEC1OMqZPPcEPoxr8KB37vtYbr.jpg",
+    "XMlB1_aqOHGkohPXFaujrSSTNLQbMtnBtEhykDi3uEmsmICcljOI03Q_oga76gvfpKPNu85GeKT_ppeCLo0ZCFgC.jpg",
+    "YArieiruDErLX3dEKK02Dm6ig5sXpqa5Qdzsayoid6sNsoSbJOWTnJ5aDT_Dq5tsCNpaM_9Wi3swTSypbL6Axndh.jpg",
+    "YDkrUE-zLx_AqVDzK_whFh2OIJJ-waizB8Gvnrx7--FBr4tFzuyD4cMz45UFyHpWmvNFzCXrJE2eHqBT02JtKa0-.jpg",
+    "YF_KiA7rVA4V2I2HvSp1oXVdjRWPgOVzBfgJDlwJFyMlqBbCt9SomVRu3dl83yFpIGkAnj-_HY7ZF0kWgrQfJc2_.jpg",
+    "ZBTIzcwKc7_lzsWUHIOB5FanP19cEMxqMh1qbLMHGrW0irTOqc3qlv6HLN5wXwUtzeFqEKEZ8JZpL4H7B66yoNlZ.jpg",
+    "ZJzZQHSek-DbGn04XJynVHa9DF_5z91LW59yKFK8Jq1-9fYZmgvqkLRhL6Sl9RmIPSNBnx1-wuvHelxyu9-2cDFZ.jpg",
+    "_AbYdBn5DL7RZyiBqo4E9IMWwMnC_l9xPy5F_jj9jG_0AGjxSflyr54iyiQAVwkreiREdThbVII8HoUzk6wf6qwd.jpg",
+    "_cF8-hfCI0GklDK0ftrDVZwwq2IOjaj9H43iiOQ30AZocpxPYsMJ1NCOMMwJnAG9hexuUBp4vr2DeZZlz7ipCFtv.jpg",
+    "_kJr3QslasTx25DrHmTsXNAF6yZUJhAje4PrKDNkAAlfM77lpAsXx3vlWr3TmlrBfk_tfp1b.jpg",
+    "_l_mAnIg4gu7kACkTxaghgLfZwa4KwaAZ48PzVOLW514EMWVJKgopr6itevqECG0LCHuWQxurAIUSLUk_5oNm2Bo.jpg",
+    "a-Ac6S_i-I2nz-Yg6po6zwzXlWdauhA8ANPfiOU5ozBw9vZ4F9hCIcyASNIUuj8hg58urUhZ.jpg",
+    "b5aWwt4PTR6_aPoc05H6kSzwmsGXxLQc5FkJET0pWdDylnr7aneDfg9sha0OFmDqjlsvb2SCU7iMIYrooCgpVITY.jpg",
+    "bOuY6lb2suIcGVfryOfrvd5jSHhejSmuCH63qt1ptOhkCG8IUeIWJoXaQuln2M_OkbJyUet1.jpg",
+    "bzWlMJ--EYXJWG3rWEeZqFu5x-hVdGWEI10HwNgtIY2Vltr3Ht9zgWAIshMCFZhb6wHnzfwo.jpg",
+    "c3ZdPz2FYRtl6yKKgfnP0b_zfeJ0vFpavrhId-RzKwXI0AlqWo8ikHvparsfNKydHuu8CAKTBB_Dqx4DoTAmnKKt.jpg",
+    "cpo5_x2dHXzM01HGVN-wXhIXC3pCx6gSr17gwyZXy12x7gbycZQEtWJIwczBzNJqgN9cWI4d1-zIp_jz0pTn--Xf.jpg",
+    "d18DuP6LaGVyAKE26-AdpiLag8qpasQnbVArPtRkD961pS7AtazPZJWa-ThrDmL5QsbhcHGc5Dp0waEhkj1vBT46.jpg",
+    "dTyGCCvtl2k_qidEkM9HHNYreakk9EkpcJilFo-Oi5wejfzZtaOav-X8QNg5WWyQchUxlR8z5eda-OpHOQBOrtSP.jpg",
+    "diamfIhiRYYAW9XGRLHGrysPQ3Fh9giMKCvm0TomlKJjzqq0zNsavbilaAjWtlgP9aQ72zdF.jpg",
+    "eKkbZnEt_vGqacqG2mA9YM4gFk7KoDRp3N1MQmg_fpy1bFnEHSqI-S-IFDJcIB3uT38mlgTPF07dv3pC36JIHxQl.jpg",
+    "f31eI7Ehddhx28ObRrycGyuj44evKVGdINVx8UQvv7q546bp1sqdIxP40rckjuBPnYzDwuvcM6GXbOLLUGdi8vRF.jpg",
+    "fhqy9_V329QuIpanafq_hhCB5zNXpGy-x6NVFe_HfmSRVrNiR3OTIKqWS-l0gYYvzc0F_EwCxXOraNMnM6VtT_Ot.jpg",
+    "g4m-KRBYVJqZ8qK6nWZ6uX2dPcIzV21rnIuKKTqJThb7DpmYTnUTJSexWobJKigbRQF-Oe4s8GKmPXTWnT-pAQVD.jpg",
+    "gCPekCNFsd_5enKoQTOx1M4uncOEDZjK-zaBntKbih-pjEXGcHdQB1V9LVGwILbXndFgj2GbU1XYCFjDnu5-7HCQ.jpg",
+    "h6U_07wUas2ecll2gP0PVrfTa8hzW5gmIEciX5ApXeAHzj9rqvzQlc___ITd1SImKqJPXKAhup6y-kfffzdZXPow.jpg",
+    "hCgy5puAADCn9Z1MG9Z-eml_7fgX2_OGZOEVFUiS7tBV--ZjB4osWDWNd3q5XlN3c0WbgyZMT8VdhUpDsWs_nzIU.jpg",
+    "i7dA9L-iz3CbFY6E_QOe3DJzXq5DsBKnA4MpRkvAt5nzuPigtCKSbm276d_gwGwEqV8Mfj0Mlw6vPfDdZ0suDGDk.jpg",
+    "iEdjgSp0-B87qIDgrhnWHM-s0sonXIpgCbluIBRLC2eFRZrMNRwSeOAfOBPSHKSCOveUSAq3oZznC2HfG8kEC1he.jpg",
+    "iJbCWQCS6sCQXOOW1kzqOdniPQMajgXYLTrttySyweJ9AVAPncWKrVWrqHQWW7-OQQm6mFf027Bv5jEcwcsbm2yh.jpg",
+    "iNSSCQIVxN7nBPQpJVMZhAKYBeBRWyAWMDm5oa8st4BK9dKQSPdNKoXB9IeoCTmU0hAu0LQ00-G9fzbRaq-aP9Ah.jpg",
+    "iw94ch0ZK7FtgtkB2r_1rblLa27x4-_IJ1hXYCn5UJz7W0Oun0LbC148FeFnXYknm5JuBtqCayMkR0BoxwQvqCeD.jpg",
+    "j9tBe9GSx9lpBAUeO5FXeLO9_PxLbNLBV5jKFIFHgj2B4-AGUnAD3huVjq4kUV_aTTuw786DJucIrubcRi9sTbU7.jpg",
+    "jOinaegxsYtKseYxU-Yc8qJE056WH13JUxyhrUQ14F6AjpInNgAZZDzK3t_J7aYqTwuK7b1K9X324neO1h4FfTLz.jpg",
+    "ja7SgZ9mIRcS8L1LJwmveusbULrDj5G_jaTx22R-JlVfSzniVFGOJSlKIEibFTA3cupz_vp4FHhJhfMollyDPxk4.jpg",
+    "jdx6DkTxBYnz7pTsgU6iirsu3_ndigGKkIritsZjmT0FmOjdNLm8Y_A9LGXMlIgTsc0fZC9F1wkcfQxRD3WVl_vu.jpg",
+    "k1vh9mQMK6cvBtI4Seehk2pYvXlHNFq4HX25zoAhfXw8ImMiIDYMXZh5NzpAKuNUXlWi8jF74Iz0dgOs5RDQwHi3.jpg",
+    "kAlhuHeNSoqSNHskMTu8ExaNW5rX00YvksM9nRDkHNWdhR71Spsxy0vOxgNk580qNYTPb43jq0qegJ1FDnYrIW25.jpg",
+    "kPXseAPe5zGyL-yVjxRrbAPb7JOSqDshmflyb_1R6aRymoRFJ5IA6WBJ0xospDaGBu0Sbw2yMJx6zBd1aKvdKUaa.jpg",
+    "kZQY1lT6d5vpueTx8wB6YDlQNF77D5LJP4E8e-dR42Ve98DTCRmhXbIMKbUS4PYaJijkgHDUvZFjGBMqI5f6BMpM.jpg",
+    "kk96I6boH18KSXFlyaTtzgD1lbect-1lEygu5tWgKRlaJ8ndMtgaBmSqCXZFW7XLgCp5mWSqWbcdsNVWPtn7LqDI.jpg",
+    "kvrvcvpXhZ0q78VlCNC9y9tKU4ZmVUWaEXwOw99kCjumI6njAuCe9QYJnGDckAhLi6lK1v8fG57Ib4W0OXV0EluD.jpg",
+    "lXjt8OxlUqZjvGWgNQcaz_bLbpRvh2pdKxqtzlGJmwIqRAZ8EGfdJ98YNWTwHTM0mtvLqWjpGPcEaUUrdio-gk5Z.jpg",
+    "lgxKmuoroJN8b7tY0F8z5chvKjZwl_2C4zuJYrHKk__C1XzVL-5804qRFmHVp5dMOavi-IEofaOekm8SYHP83ZcX.jpg",
+    "mJV_qDlwr8gCgrMjdgE5p7EskEV3VjYiMGuZMVqegUH4vPtViiO0yyt-BPXxk3qBV2uqxeenJkpucvS7PUmMYA4s.jpg",
+    "mRLXxV87f1bQoIBC1TSqVHDeqChXSKC79oCYUsJpZxIeIuGSvk_JyuyfyjfqmVXrLF_a3FTx5RI_Katk2xmlHcuy.jpg",
+    "mcyGjovfatHtIn8BtildUm4dnI4QvMWiJUw2OqUV_RcjvsNGqYf-w-KUmoIM4SwLdG6wBFt69Iey7O6BFtPkGD72.jpg",
+    "o5FUwUSKqg1UP5sq8bOvzEsdbijPzrLQHWe3TdUwfJ3FQMlzisVQeJ_Bn7ehHg5NmTj8cp6eJw-Wgp7Mpe5NEwnF.jpg",
+    "pY3Fk4igefvK9WovpVkIWIH_BkOoMK-IlJR3XHPy17G6DvwY3IF-YXlIRKawT8Taik4e9jwi_fWXl7wmJyqtX1xx.jpg",
+    "pr6bPaNvDJpWGrOMHckpm0WwAjDV6Ztgxg_1ch8-qMnAL-AL8jzDUDypeo7okF22VbC-pwfmUk4YOF_vqagMheEj.jpg",
+    "qgmtgWhvMmc1U7hskTcWRXWVk7Fk3620ynFz270eSBDXrpJM5l63XHfhp-aDDy57B6HNOijVq-dTNSebbcXu-FTz.jpg",
+    "qscBMQ9pQt22o1qDoeGEijz4obSyQQh5d3RAzY1IEUaQ75cDKGSbO7mtyNChGF3kkDO_sgV88QSb71ohEdwpqj_6.jpg",
+    "rIq5RlpGVzHLR4zz3fP_uywdcx8vsx17ntsWAi69ecuY0uAd92s-HfeAmFIQdSiFa2UBpE2Ebi_mTEArhyxMlJac.jpg",
+    "rmyHjLbajQ0mFkAV1hdj6_HV8DiIINBD8CGwr0Y1KA77x8MLMOBoz7OIYQW-nuc-u_VgpxgRcCRKlBUVEb9VZcMd.jpg",
+    "ro8_poiXC-ZJGE7VYpKXVFXbkpiyvV4f87tCq29djZAMWMQ9p2iyxO8juYHiPVKIwDrixYByN5XwOAcQ56YiFrOJ.jpg",
+    "sT9fxmx1PExtcryJfLdEQP9uAsGaaIOshtRVTOMmj_oADOSaCDiA7wfvZrMrDPTLaRDlc_h6f-QQuXk277Cdj4fn.jpg",
+    "soNXtPc53YmY1DqYG3FUqhnaFa8P1k8qQsTIGYrTUAvyo0nG_3SfdnsqZYTBcAiSvUCQ8J3_FAEJAqhlBnVYaW8v.jpg",
+    "szYD5HfOy1Evn77eS3FlmdtjXEuTWwKCjG3uOkM78hNNNw8SZxcVlm8OSjVKasAyslOYQrptO_b5gdy0p3xs7WFx.jpg",
+    "tl8pqZDI1kDQ273CvhwkjAdQ81uSJ3KI1dk0pXtrRHGJgNN-Uv8V--sjGOAVJFo-LNClbt1J.jpg",
+    "u2aM7ILM-eroSjOCvfnR-OPhn8kOeBW4fJBqtIoqF0pyf_WrZF72QJOFsuWLseYk_-7nTRm2.jpg",
+    "uPjnod_qAWapwZmOADhLP6b3oSLkF4Q_U5ecZd7EMzlJK90g2kOFFwo8KfQ2VBj3BikUozB_XLANEkuLvxazkeEF.jpg",
+    "uVPvxCB5HK6PkLIJHUP1YJEsRZNLrYhe22Hq31pvj5GcwSiXBVjB6ai8jXTtDKVkGcd7xnEpV-jHc-tXmmXQ0MD7.jpg",
+    "uWNtApQwxf_7-yvJrsHUUv55UdV4-71MkSOcnqSBP_I-ui02h_7LGNzDbLmQHAUbW1Pe5fjwJBygRC31S7GYI2_0.jpg",
+    "vMmZpH8TLvvHsq51dhCkjxt_sHmM1yLw90OwhKLGw4FAw9ggsBiORg26DD2WO2BuEyAM1wfpJ5qWHGCJLbnPnWhq.jpg",
+    "vtZcGFaTI2SJdtOQ-xIBnSGxqKMmK3roXUoaxJHPB7ZhG3Fxeo2sHvrEXu5uLrt2nD-UxaR9QPG1Ucs9AzxSeVBo.jpg",
+    "wNccfiGiXeONOhBeY44VQhgv0PJKxHjLnO2a_SVDcNdH5vZwYtJyYtcfYHdhChqoDPBcFPNXXipdUbcZSQ4w-wOz.jpg",
+    "wVBMF0xJOrLwPMv9oC5AKHIRwVphiDZnog-gf9R-WpUDE6XBwWWfiirhMzfhSogCSS0z-SvrFhq8CVyTzoJDfllT.jpg",
+    "wicIBqbtL2XQ3Ridq9jDYfyr_oKQPcl8dONQXMgBVL6G1Fjs9B2DYkS_Iq94fDKliWCqeoGKhjun0_cW_VqQzjL2.jpg",
+    "xfq3-UMtPiFrJZXNQAYYXTuO582dOJ_06-ImSfphbDZaudSKaIBgsYX9LmBQGOijETPicwnUS2fM00aUaJjbt-1X.jpg",
+    "xzADWXjdUN90H7ozZG3Zplv8FdxqNrx12rfQpPzq9ob2SfN-QmiUrZtqU_KI1QEQ8EVjBeEATSh44L9y__igYHM2.jpg",
+    "yE5-KBlzW4k4c6sthhfL1O8tPxpQRy7n-NMRSXC5hj4hvYEFdCtNqKwa-sLf4GJz1AWgTs3xk68-AgQg1O671-jI.jpg",
+    "yo16Q4VkXnMY632ZxhFFcZsQrnJGmJMTPmHf6eU1tv3T0Bg5xMgvJJbjs0cSLAWEvP_ywtb0.jpg",
+    "ytutAlxAwxFz9O1Z6BQh_I0fH5dpvfzvCWVAeYgVESKdYL1HOWnUyEUXSBzscOnQXCPuIwMD.jpg",
+    "yxQ24Xrej9fFPxQQ6qcbAihIY8y-FzdhNJB3rlx7l-sWhV7RZkvtogdVt-JE8mzEO6jVF7k9.jpg",
+    "zqiDla8-vbQJpV-ev3eZ5gzHx0U5K5mfzmXQuvb9BMCeTTWt5hF0PRzxC7AuUMlrG4ZC0A7OOwYhAr76VDjxyL0s.jpg"
+];
+
+const RANDOM_CAPTIONS = [
+    "Море улыбок и чистого восторга! ✨",
+    "Самый яркий день в году! 🎉",
+    "Искры счастья в детских глазах! ❤️",
+    "Волшебство начинается прямо сейчас! 🪄",
+    "Танцы до упаду с любимыми героями! 💃",
+    "Дружная команда весёлых непосед! 🦝",
+    "Моменты, которые остаются в сердце навсегда! 🥰",
+    "Настоящая сказка пришла в гости! 👑",
+    "Смех, веселье и горы конфетти! 🎈",
+    "Секрет лучшего праздника раскрыт! 💡",
+    "Улыбка каждого ребенка — наша победа! 🏆",
+    "Праздник с душой и любовью! 🌟",
+    "Веселые игры и забавные приключения! 🗺️",
+    "Время обнимашек и поздравлений! 🤗",
+    "Когда сказка оживает наяву! ✨",
+    "Эмоции, которые не передать словами! 📸",
+    "Детство должно быть ярким! 🌈",
+    "Наши юные супергерои в деле! ⚡",
+    "Сладкая вата, игры и смех! 🍭",
+    "Создаем волшебные воспоминания! 💫",
+    "Искренняя радость и детский восторг! ✨",
+    "Праздник, о котором мечтает каждый ребенок! 🎈",
+    "Наши аниматоры дарят настоящую сказку! 👑",
+    "Зажигательная дискотека и веселые конкурсы! 🎵"
+];
+
+let activeHolidayPhotos = [...HOLIDAY_PHOTOS];
+
+async function fetchDynamicPhotos() {
+    try {
+        const response = await fetch('http://localhost:3001/api/holiday-photos');
+        if (response.ok) {
+            const data = await response.json();
+            if (Array.isArray(data) && data.length > 0) {
+                activeHolidayPhotos = data;
+                console.log(`Successfully loaded ${data.length} photos dynamically from Express server!`);
+            }
+        }
+    } catch (e) {
+        console.warn("Could not fetch photos dynamically, falling back to pre-compiled list:", e);
+    }
+}
+
+async function initHolidayGallery() {
+    const track = document.getElementById('holiday-carousel-track');
+    const viewport = document.getElementById('holiday-carousel-viewport');
+    
+    // Lightbox elements
+    const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let hasMoved = false; // Used for inertia/scroll tracking
+    let animationFrameId = null;
+    
+    // JS-based autoscroll variables
+    let marqueeX = 0;
+    let isMarqueeRunning = true;
+    
+    // Select unique random photos
+    function selectRandomPhotos() {
+        const photosSource = activeHolidayPhotos.length > 0 ? activeHolidayPhotos : HOLIDAY_PHOTOS;
+        const shuffled = [...photosSource].sort(() => Math.random() - 0.5);
+        realPhotos = shuffled.slice(0, Math.min(visiblePhotosCount, photosSource.length));
+        realCaptions = realPhotos.map(() => RANDOM_CAPTIONS[Math.floor(Math.random() * RANDOM_CAPTIONS.length)]);
+        
+        // Double them for endless marquee loop
+        trackPhotos = [...realPhotos, ...realPhotos];
+        trackCaptions = [...realCaptions, ...realCaptions];
+    }
+    
+    // Build DOM structure
+    function buildCarouselDOM() {
+        track.innerHTML = '';
+        
+        for (let i = 0; i < trackPhotos.length; i++) {
+            const cardIndex = i % realPhotos.length;
+            const card = document.createElement('div');
+            card.className = 'polaroid-card';
+            card.setAttribute('data-card-index', cardIndex);
+            
+            card.innerHTML = `
+                <div class="polaroid-card-img-wrapper">
+                    <img class="polaroid-card-img" src="images/fotoprazdnik/${trackPhotos[i]}" alt="${trackCaptions[i]}" loading="lazy">
+                </div>
+                <p class="polaroid-card-caption font-handwritten">${trackCaptions[i]}</p>
+            `;
+            
+            // Reliable click detection: compare pointer position between down and up
+            // Works regardless of pointer capture on track or CSS transforms
+            let cardPointerDownX = 0;
+            let cardPointerDownY = 0;
+
+            card.addEventListener('pointerdown', (e) => {
+                cardPointerDownX = e.clientX;
+                cardPointerDownY = e.clientY;
+            });
+
+            card.addEventListener('click', (e) => {
+                const dx = Math.abs(e.clientX - cardPointerDownX);
+                // Only open if it was a true click (not a drag — dx > 10px)
+                if (dx > 10 || isTransitioning) return;
+                openLightbox(cardIndex, card);
+            });
+            
+            track.appendChild(card);
+        }
+    }
+    
+    // JS high-performance marquee autoscroll loop
+    function animateMarquee() {
+        if (!isMarqueeRunning || isDragging || (lightbox && lightbox.classList.contains('active'))) {
+            return;
+        }
+        
+        marqueeX -= 0.8; // Beautiful premium smooth speed
+        
+        const trackHalfWidth = track.offsetWidth / 2;
+        if (marqueeX < -trackHalfWidth) {
+            marqueeX += trackHalfWidth;
+        } else if (marqueeX > 0) {
+            marqueeX -= trackHalfWidth;
+        }
+        
+        track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+        
+        animationFrameId = requestAnimationFrame(animateMarquee);
+    }
+    
+    // Setup pointer kinetic drag and inertia
+    function setupKineticDrag() {
+        // pointerdown on track
+        track.addEventListener('pointerdown', (e) => {
+            if (isTransitioning) return;
+            if (lightbox && lightbox.classList.contains('active')) return;
+            
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            lastX = e.clientX;
+            hasMoved = false;
+            
+            // Show grab cursor while dragging
+            viewport.classList.add('is-dragging');
+            
+            isMarqueeRunning = false; // Pause JS autoscrolling
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            
+            // NOTE: setPointerCapture removed — it prevented click events on child cards from firing
+        });
+        
+        // pointermove on window (global tracking)
+        window.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            
+            const diffX = Math.abs(e.clientX - startX);
+            const diffY = Math.abs(e.clientY - startY);
+            
+            if (diffX > 12 || diffY > 12) {
+                hasMoved = true;
+            }
+            
+            const x = e.clientX;
+            const walk = x - lastX;
+            lastX = x;
+            
+            velocity = walk * 1.5;
+            
+            let newX = marqueeX + walk;
+            
+            // Endless seamless horizontal wrapping
+            const trackHalfWidth = track.offsetWidth / 2;
+            if (newX < -trackHalfWidth) {
+                newX += trackHalfWidth;
+            } else if (newX > 0) {
+                newX -= trackHalfWidth;
+            }
+            
+            marqueeX = newX;
+            track.style.transform = `translate3d(${newX}px, 0px, 0px)`;
+        });
+        
+        // pointerup on window (global tracking)
+        window.addEventListener('pointerup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            viewport.classList.remove('is-dragging');
+            
+            function inertia() {
+                if (lightbox && lightbox.classList.contains('active')) {
+                    isMarqueeRunning = false;
+                    return;
+                }
+                
+                if (Math.abs(velocity) < 0.1) {
+                    if (!lightbox || !lightbox.classList.contains('active')) {
+                        isMarqueeRunning = true; // Resume JS autoscrolling
+                        animateMarquee();
+                    }
+                    track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                    return;
+                }
+                
+                let newX = marqueeX + velocity;
+                velocity *= 0.95; // Kinetic Friction
+                
+                const trackHalfWidth = track.offsetWidth / 2;
+                if (newX < -trackHalfWidth) {
+                    newX += trackHalfWidth;
+                } else if (newX > 0) {
+                    newX -= trackHalfWidth;
+                }
+                
+                marqueeX = newX;
+                track.style.transform = `translate3d(${newX}px, 0px, 0px)`;
+                animationFrameId = requestAnimationFrame(inertia);
+            }
+            
+            animationFrameId = requestAnimationFrame(inertia);
+        });
+        
+        // Handle cancel
+        window.addEventListener('pointercancel', () => {
+            if (isDragging) {
+                isDragging = false;
+                viewport.classList.remove('is-dragging');
+                isMarqueeRunning = true;
+                animateMarquee();
+            }
+        });
+    }
+    
+    // ==================== PREMIUM LIGHTBOX MODAL ====================
+    let lightboxIndex = 0;
+    let originalClickedCard = null; // Store reference to restore opacity on close
+    let originalTransform = '';     // Store reference to restore rotation on close
+    let isTransitioning = false;     // Prevent spam during transitions
+    let activeLightboxCard = null;  // Reference to the physical fixed clone on screen
+    let originalTrackTransform = ''; // Store the starting track transform matrix to prevent snapping on close
+    
+    function openLightbox(index, clickedCard) {
+        if (!clickedCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Pause autoscrolling immediately
+        isMarqueeRunning = false;
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        
+        lightboxIndex = index;
+        originalClickedCard = clickedCard;
+        
+        // Save the starting track transform matrix using our JS marqueeX coordinate
+        originalTrackTransform = `translate3d(${marqueeX}px, 0px, 0px)`;
+        
+        // 2. Get original card position on screen
+        const rect = clickedCard.getBoundingClientRect();
+        
+        // 3. Create transition clone
+        const clone = clickedCard.cloneNode(true);
+        clone.classList.add('polaroid-card-transitioning');
+        
+        // Apply starting position inline styles (fixed relative to screen)
+        clone.style.position = 'fixed';
+        clone.style.top = rect.top + 'px';
+        clone.style.left = rect.left + 'px';
+        clone.style.width = rect.width + 'px';
+        clone.style.height = rect.height + 'px';
+        clone.style.margin = '0';
+        clone.style.zIndex = '20005'; // Perfectly between modal (20000) and buttons (20010, 20020)
+        
+        // Keep current rotation transform
+        const computedStyle = window.getComputedStyle(clickedCard);
+        originalTransform = computedStyle.transform;
+        clone.style.transform = originalTransform;
+        clone.style.transition = 'none'; // Initially no transitions
+        clone.style.pointerEvents = 'none'; // Ignore clicks during flight
+        
+        // 4. Hide original card in track (physically gone!)
+        clickedCard.style.opacity = '0';
+        
+        // 5. Append clone directly to body (solid visible flight)
+        document.body.appendChild(clone);
+        activeLightboxCard = clone;
+        
+        // 6. Force a reflow
+        clone.offsetHeight;
+        
+        // 7. Target size: 2/3 of viewport height, image fills card
+        const targetHeight = window.innerHeight * 0.67;
+        const cardAspectRatio = rect.width / rect.height;
+        let targetWidth = targetHeight * cardAspectRatio;
+        
+        // Cap width to viewport
+        const maxWidth = window.innerWidth <= 480 ? window.innerWidth * 0.92
+                       : window.innerWidth <= 768 ? window.innerWidth * 0.88
+                       : window.innerWidth * 0.7;
+        if (targetWidth > maxWidth) targetWidth = maxWidth;
+        
+        const targetTop = (window.innerHeight - targetHeight) / 2;
+        const targetLeft = (window.innerWidth - targetWidth) / 2;
+        
+        // Force image wrapper to fill all available space (no white gap)
+        const imgWrapper = clone.querySelector('.polaroid-card-img-wrapper');
+        if (imgWrapper) {
+            imgWrapper.style.flex = '1';
+            imgWrapper.style.height = '0';
+            imgWrapper.style.minHeight = '0';
+            imgWrapper.style.width = '100%';
+        }
+        
+        // 8. Start backdrop fade in
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // 9. Animate the clone to center
+        clone.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        clone.style.top = targetTop + 'px';
+        clone.style.left = targetLeft + 'px';
+        clone.style.width = targetWidth + 'px';
+        clone.style.height = targetHeight + 'px';
+        clone.style.transform = 'rotate(0deg)';
+        clone.classList.add('fullscreen-zoom-active');
+        
+        // 10. Once flight finishes, unlock transitioning — clone stays pointer-events:none
+        //     so taps on the card pass through to the lightbox backdrop swipe handler
+        setTimeout(() => {
+            try {
+                // Keep pointerEvents: none — interaction handled by lightbox swipe handler
+            } catch (err) {
+                console.error("Error during open transition cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    // Find matching card on track that is closest to center of viewport
+    function findActiveCardOnTrack(index) {
+        const cards = track.querySelectorAll('.polaroid-card');
+        let bestCard = null;
+        let minDistance = Infinity;
+        const viewportCenter = window.innerWidth / 2;
+        
+        cards.forEach(card => {
+            if (parseInt(card.getAttribute('data-card-index')) === index) {
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + rect.width / 2;
+                const distance = Math.abs(cardCenter - viewportCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    bestCard = card;
+                }
+            }
+        });
+        
+        return bestCard || originalClickedCard;
+    }
+    
+    function closeLightbox() {
+        if (!lightbox || !activeLightboxCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Find the current active card on the track to fly back to
+        const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+                isTransitioning = false;
+            }
+            return;
+        }
+        
+        // Restore opacity of any previously hidden original card
+        if (originalClickedCard && originalClickedCard !== activeCard) {
+            originalClickedCard.style.opacity = '1';
+        }
+        
+        // Hide the target track card — the clone will fly INTO its place
+        activeCard.style.opacity = '0';
+        
+        // 2. Get the card's CURRENT position on the track (no track scrolling back!)
+        const startRect = activeCard.getBoundingClientRect();
+        const computedStyle = window.getComputedStyle(activeCard);
+        const targetTransform = computedStyle.transform !== 'none' ? computedStyle.transform : originalTransform;
+        
+        // 3. Prepare clone for flight
+        activeLightboxCard.style.pointerEvents = 'none';
+        
+        // Fade out backdrop — track stays where it is
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // 4. Fly clone from center to its current track slot (no track animation)
+        activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+            } catch (err) {
+                console.error("Error in close transition timeout cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 500);
+    }
+    
+    // Choreographed double-flight navigation: slides the track and flies the cards
+    function navigateLightbox(direction) {
+        if (isTransitioning || !activeLightboxCard || !realPhotos.length) return;
+        isTransitioning = true;
+        
+        // 1. Calculate the target index
+        let nextIndex = 0;
+        if (direction === 'next') {
+            nextIndex = (lightboxIndex + 1) % realPhotos.length;
+        } else {
+            nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.length;
+        }
+        
+        // 2. Find the current card on the track and the next card on the track
+        const currentTrackCard = findActiveCardOnTrack(lightboxIndex);
+        const nextTrackCard = findActiveCardOnTrack(nextIndex);
+        
+        if (!currentTrackCard || !nextTrackCard) {
+            isTransitioning = false;
+            return;
+        }
+        
+        // 3. Capture CURRENT position of next card BEFORE any track movement
+        const startRectB = nextTrackCard.getBoundingClientRect();
+        
+        // 4. Shift track so the target card lands in viewport CENTER
+        const nextCardCenter = startRectB.left + startRectB.width / 2;
+        const viewportCenter = window.innerWidth / 2;
+        const shiftNeeded = viewportCenter - nextCardCenter;
+        let newX = marqueeX + shiftNeeded;
+        
+        // Handle endless loop wrapping smoothly
+        const trackHalfWidth = track.offsetWidth / 2;
+        if (newX < -trackHalfWidth) {
+            track.style.transition = 'none';
+            const jumpedX = marqueeX + trackHalfWidth;
+            track.style.transform = `translate3d(${jumpedX}px, 0px, 0px)`;
+            track.offsetHeight;
+            newX = jumpedX + shiftNeeded;
+        } else if (newX > 0) {
+            track.style.transition = 'none';
+            const jumpedX = marqueeX - trackHalfWidth;
+            track.style.transform = `translate3d(${jumpedX}px, 0px, 0px)`;
+            track.offsetHeight;
+            newX = jumpedX + shiftNeeded;
+        }
+        
+        marqueeX = newX;
+        
+        // --- FLIGHT A: Current card A flies BACK to the track (at the position it was before shift) ---
+        const startRectA = currentTrackCard.getBoundingClientRect();
+        const cardToFlyBack = activeLightboxCard;
+        cardToFlyBack.style.pointerEvents = 'none';
+        
+        const computedStyleA = window.getComputedStyle(currentTrackCard);
+        const targetTransformA = computedStyleA.transform !== 'none' ? computedStyleA.transform : originalTransform;
+        
+        cardToFlyBack.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        cardToFlyBack.style.top = startRectA.top + 'px';
+        // Fly back to where the card will be after the track shift
+        cardToFlyBack.style.left = (startRectA.left + shiftNeeded) + 'px';
+        cardToFlyBack.style.width = startRectA.width + 'px';
+        cardToFlyBack.style.height = startRectA.height + 'px';
+        cardToFlyBack.style.transform = targetTransformA;
+        cardToFlyBack.classList.remove('fullscreen-zoom-active');
+        
+        setTimeout(() => {
+            try {
+                if (cardToFlyBack && cardToFlyBack.parentNode) {
+                    cardToFlyBack.parentNode.removeChild(cardToFlyBack);
+                }
+                currentTrackCard.style.opacity = '1';
+            } catch (err) {
+                console.error("Error cleaning up Flight A:", err);
+            }
+        }, 500);
+        
+        // --- TRANSITION THE TRACK to center next card ---
+        track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        track.style.transform = `translate3d(${newX}px, 0px, 0px)`;
+        
+        // --- FLIGHT B: Next card B flies OUT from its PRE-SHIFT position to center ---
+        
+        // Create new transition clone for the next card B
+        const cloneB = nextTrackCard.cloneNode(true);
+        cloneB.classList.add('polaroid-card-transitioning');
+        
+        // Position clone B at its starting coordinates on the track (pre-shifted)
+        cloneB.style.position = 'fixed';
+        cloneB.style.top = startRectB.top + 'px';
+        cloneB.style.left = startRectB.left + 'px';
+        cloneB.style.width = startRectB.width + 'px';
+        cloneB.style.height = startRectB.height + 'px';
+        cloneB.style.margin = '0';
+        cloneB.style.zIndex = '20005';
+        
+        const computedStyleB = window.getComputedStyle(nextTrackCard);
+        cloneB.style.transform = computedStyleB.transform !== 'none' ? computedStyleB.transform : originalTransform;
+        cloneB.style.transition = 'none';
+        cloneB.style.pointerEvents = 'none';
+        
+        // Hide original card B on the track
+        nextTrackCard.style.opacity = '0';
+        
+        // Append clone B to body and update state references
+        document.body.appendChild(cloneB);
+        activeLightboxCard = cloneB;
+        lightboxIndex = nextIndex;
+        originalClickedCard = nextTrackCard; // Update reference for exit flight
+        
+        // Force reflow
+        cloneB.offsetHeight;
+        
+        // Calculate centered dimensions: 2/3 of viewport height, image fills card
+        const targetHeight = window.innerHeight * 0.67;
+        const cardAspectRatio = startRectB.width / startRectB.height;
+        let targetWidth = targetHeight * cardAspectRatio;
+        const maxWidth = window.innerWidth <= 480 ? window.innerWidth * 0.92
+                       : window.innerWidth <= 768 ? window.innerWidth * 0.88
+                       : window.innerWidth * 0.7;
+        if (targetWidth > maxWidth) targetWidth = maxWidth;
+        const targetTop = (window.innerHeight - targetHeight) / 2;
+        const targetLeft = (window.innerWidth - targetWidth) / 2;
+        
+        // Force image wrapper to fill all available space
+        const imgWrapperB = cloneB.querySelector('.polaroid-card-img-wrapper');
+        if (imgWrapperB) {
+            imgWrapperB.style.flex = '1';
+            imgWrapperB.style.height = '0';
+            imgWrapperB.style.minHeight = '0';
+            imgWrapperB.style.width = '100%';
+        }
+        
+        // Animate clone B to center
+        cloneB.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        cloneB.style.top = targetTop + 'px';
+        cloneB.style.left = targetLeft + 'px';
+        cloneB.style.width = targetWidth + 'px';
+        cloneB.style.height = targetHeight + 'px';
+        cloneB.style.transform = 'rotate(0deg)';
+        cloneB.classList.add('fullscreen-zoom-active');
+        
+        // Make the new active card interactive after landing
+        setTimeout(() => {
+            try {
+                // Keep pointerEvents: none — interaction via lightbox swipe handler
+            } catch (err) {
+                console.error("Error during Flight B landing cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTransitioning) return;
+            
+            const dx = endX - lbStartX;
+            const dy = endY - lbStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+            
+            if (absDx > 50 && absDx > absDy * 1.5) {
+                // Horizontal swipe → navigate (ignore if tap was on close btn)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn')) return;
+                navigateLightbox(dx > 0 ? 'prev' : 'next');
+            } else if (absDx < 15 && absDy < 15) {
+                // Short tap → close (but not when tapping nav/close buttons — they handle themselves)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+            }
+        }
+        
+        // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+        });
+        
+        lightbox.addEventListener('pointerup', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            handleLightboxGestureEnd(e.clientX, e.clientY, e.target);
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (instant rendering, non-blocking)
+    selectRandomPhotos();
+    buildCarouselDOM();
+    setupKineticDrag();
+    animateMarquee();
+    
+    // Fetch dynamic photos in the background (non-blocking)
+    try {
+        await fetchDynamicPhotos();
+        if (!isDragging && (!lightbox || !lightbox.classList.contains('active'))) {
+            // Stop the current loop before rebuilding DOM
+            isMarqueeRunning = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            
+            selectRandomPhotos();
+            buildCarouselDOM();
+            marqueeX = 0; // Reset to start on dynamic reload
+            
+            // Restart loop cleanly
+            isMarqueeRunning = true;
+            animateMarquee();
+        }
+    } catch (e) {
+        console.warn("Failed background fetch of dynamic photos:", e);
+    }
+}
+
+// Инициализация всех компонентов при загрузке страницы
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initNavbarLogo();
+        initRaccoonDiary();
+        initTelegramTeamCircles();
+        initDynamicStats();
+        createHeroCharacterSilhouettes();
+        updateWorkYearsStat();
+        initHolidayGallery();
+    });
+} else {
+    initNavbarLogo();
+    initRaccoonDiary();
+    initTelegramTeamCircles();
+    initDynamicStats();
+    createHeroCharacterSilhouettes();
+    updateWorkYearsStat();
+    initHolidayGallery();
 }

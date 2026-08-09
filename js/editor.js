@@ -31,10 +31,9 @@ class CharacterEditor {
                 this.characters = [];
             }
 
-            console.log('Loaded characters:', this.characters.length);
+            this.characters = this.characters.map((character) => this.normalizeCharacter(character));
         } catch (error) {
             console.error('Error loading characters:', error);
-            console.log('Starting with empty character list');
             this.characters = [];
 
             // Show error notification
@@ -60,6 +59,40 @@ class CharacterEditor {
 
             setTimeout(() => notification.remove(), 5000);
         }
+    }
+
+    normalizePath(path) {
+        return String(path || '').replace(/\\/g, '/').trim();
+    }
+
+    normalizeCharacter(character) {
+        const mainImage = this.normalizePath(character.images?.main || '');
+        const gallery = Array.isArray(character.images?.gallery)
+            ? character.images.gallery.map((image) => this.normalizePath(image)).filter(Boolean)
+            : [];
+
+        return {
+            ...character,
+            rating: Number.isFinite(character.rating) ? character.rating : 50,
+            description: {
+                short: character.description?.short || '',
+                full: character.description?.full || ''
+            },
+            pricing: {
+                hourly: parseInt(character.pricing?.hourly) || 0,
+                packages: Array.isArray(character.pricing?.packages) ? character.pricing.packages : []
+            },
+            features: {
+                age: character.features?.age || '',
+                gender: character.features?.gender || 'unisex',
+                activities: Array.isArray(character.features?.activities) ? character.features.activities : []
+            },
+            images: {
+                main: mainImage,
+                gallery: gallery
+            },
+            tags: Array.isArray(character.tags) ? character.tags : []
+        };
     }
 
     setupEventListeners() {
@@ -647,6 +680,9 @@ class CharacterEditor {
         return {
             id: Date.now(),
             name: '',
+            slug: '',
+            category: 'neutral',
+            emoji: '🎭',
             rating: 50,
             isNew: false,
             isPopular: false,
@@ -778,9 +814,12 @@ class CharacterEditor {
 
     saveCharacter() {
         // Collect form data
-        const formData = {
+        const formData = this.normalizeCharacter({
             id: this.currentCharacter.id || Date.now(),
             name: document.getElementById('char-name').value,
+            slug: this.currentCharacter.slug || this.generateSlug(document.getElementById('char-name').value),
+            category: this.currentCharacter.category || 'neutral',
+            emoji: this.currentCharacter.emoji || '🎭',
             rating: parseInt(document.getElementById('char-rating').value) || 50,
             isNew: document.getElementById('char-is-new').checked,
             isPopular: document.getElementById('char-is-popular').checked,
@@ -802,7 +841,7 @@ class CharacterEditor {
                 gallery: this.collectGalleryImages()
             },
             tags: document.getElementById('char-tags').value.split(',').map(t => t.trim()).filter(t => t)
-        };
+        });
 
         // Validate
         if (!formData.name || !formData.images.main || !formData.description.short) {
@@ -848,10 +887,18 @@ class CharacterEditor {
         const images = [];
         document.querySelectorAll('.gallery-image-path').forEach(input => {
             if (input.value) {
-                images.push(input.value);
+                images.push(this.normalizePath(input.value));
             }
         });
         return images;
+    }
+
+    generateSlug(text) {
+        return String(text || '')
+            .toLowerCase()
+            .replace(/[^a-z0-9а-яё]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
     }
 
     deleteCharacter() {
@@ -919,7 +966,7 @@ class CharacterEditor {
                     throw new Error('JSON должен содержать массив персонажей или объект с полем "characters"');
                 }
 
-                this.characters = charactersArray;
+                this.characters = charactersArray.map((character) => this.normalizeCharacter(character));
                 this.renderCharactersList();
                 this.updateCount();
                 this.showNotification(`Загружено ${charactersArray.length} персонажей`);

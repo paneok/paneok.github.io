@@ -1,0 +1,81 @@
+1040: function createGalleryModal() {
+1041:     const modal = document.createElement('div');
+1042:     modal.className = 'gallery-modal';
+1043:     modal.innerHTML = `
+1044:         <div class="gallery-modal-overlay"></div>
+1045:         <div class="gallery-modal-content">
+1046:             <button class="gallery-close">&times;</button>
+1047: 
+1048:             <div class="gallery-body">
+1049:                 <div class="gallery-info">
+1050:                     <h2 class="gallery-character-name"></h2>
+1051:                     <div class="gallery-character-description"></div>
+1052:                     <div class="gallery-character-details">
+1053:                         <div class="gallery-detail-item">
+1054:                             <span class="gallery-detail-icon">👶</span>
+1055:                             <div class="gallery-detail-content">
+1056:                                 <div class="gallery-detail-label">Возраст</div>
+1057:                                 <span class="gallery-detail-text age"></span>
+1058:                             </div>
+1059:                         </div>
+1060:                         <div class="gallery-detail-item">
+1061:                             <span class="gallery-detail-icon">👫</span>
+1062:                             <div class="gallery-detail-content">
+1063:                                 <div class="gallery-detail-label">Для кого</div>
+1064:                                 <span class="gallery-detail-text gender"></span>
+1065:                             </div>
+1066:                         </div>
+1067:                         <div class="gallery-detail-item">
+1068:                             <span class="gallery-detail-icon">🎮</span>
+1069:                             <div class="gallery-detail-content">
+1070:                                 <div class="gallery-detail-label">Активности</div>
+1071:                                 <span class="gallery-detail-text activities"></span>
+1072:                             </div>
+1073:                         </div>
+1074:                     </div>
+1075:                     <div class="gallery-pricing">
+1076:                         <div class="gallery-price-main">
+1077:                             <span class="gallery-price-label">от</span>
+1078:                             <span class="gallery-price-amount"></span>
+1079:                             <span class="gallery-price-currency">₽/час</span>
+1080:                         </div>
+1081:                         <div class="gallery-packages"></div>
+1082:                     </div>
+1083:                     <button class="btn btn-select gallery-select-btn" data-character-id="">
+1084:                         <span class="btn-select-checkbox">✓</span>
+1085:                         <span class="btn-select-text">Выбрать</span>
+1086:                     </button>
+1087:                 </div>
+1088: 
+1089:                 <div class="gallery-images">
+1090:                     <button class="gallery-prev">‹</button>
+1091:                     <button class="gallery-next">›</button>
+1092:                     <div class="gallery-main-image">
+1093:                         <img src="" alt="" class="gallery-current-image">
+1094:                     </div>
+1095:                     <div class="gallery-thumbnails"></div>
+1096:                     <div class="gallery-counter">
+1097:                         <span class="gallery-current">1</span> / <span class="gallery-total">1</span>
+1098:                     </div>
+1099:                 </div>
+1100:             </div>
+1101:         </div>
+1102:     `;
+1103:     document.body.appendChild(modal);
+1104:     return modal;
+1105: }
+1106: 
+1107: // Получаем или создаем модальное окно
+1108: function getGalleryModal() {
+1109:     let modal = document.querySelector('.gallery-modal');
+1110:     if (!modal) {
+1111:         modal = createGalleryModal();
+1112:     }
+1113:     return modal;
+1114: }
+1115: 
+1116: // Открываем галерею для конкретного персонажа
+1117: function openGalleryModal(characterId) {
+1118:     console.log('Opening gallery for character:', characterId);
+1119: 
+1120:     // Проверяем доступность данных

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление праздника — Енот в деле</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles.css?v=20260514">
+    <link rel="stylesheet" href="css/booking.css?v=20260514">
+</head>
+<body class="booking-page">
+    
+    <!-- Header -->
+    <header class="header header-fixed scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html#home" class="logo-link">
+                        <img src="images/енот в деле.png" alt="Енот в деле Logo" class="logo-img">
+                        <span class="logo-text">Енот в деле</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <a href="index.html#home" class="nav-item">Главная</a>
+                    <a href="index.html#catalog" class="nav-item">Персонажи</a>
+                    <a href="index.html#programs" class="nav-item">Программы</a>
+                    <a href="index.html#advantages" class="nav-item">Преимущества</a>
+                    <a href="new-year.html" class="nav-item nav-item-new-year">🎄 Новый Год</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="booking-main">
+        <div class="container">
+            <!-- Hero Title -->
+            <div class="booking-hero">
+                <h1 class="booking-title">✨ Конструктор Вашего праздника</h1>
+                <p class="booking-subtitle">Настройте идеальное расписание, распределите время программ и оформите заявку в один клик!</p>
+            </div>
+
+            <!-- Two Column Layout -->
+            <!-- Two Column Layout Form Wrapper -->
+            <form id="booking-form" class="booking-grid">
+                
+                <!-- Left Side: Event Details -->
+                <div class="booking-form-side">
+                    <div class="booking-card event-details-section">
+                        
+                        <!-- Step 1: Event Details -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><span class="step-num">1</span>Детали Вашего праздника</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Тип праздника *</label>
+                                <div class="event-type-selector">
+                                    <div class="event-type-card active" data-type="child-birthday">
+                                        <span class="event-type-icon">🎂</span>
+                                        <span class="event-type-name">День рождения ребенка</span>
+                                    </div>
+                                    <div class="event-type-card" data-type="adult-birthday">
+                                        <span class="event-type-icon">🎉</span>
+                                        <span class="event-type-name">День рождения взрослого</span>
+                                    </div>
+                                    <div class="event-type-card" data-type="corporate">
+                                        <span class="event-type-icon">🏢</span>
+                                        <span class="event-type-name">Корпоратив / Массовое</span>
+                                    </div>
+                                    <div class="event-type-card" data-type="other">
+                                        <span class="event-type-icon">✨</span>
+                                        <span class="event-type-name">Другой повод</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Child Birthday Block -->
+                            <div id="child-birthday-block" class="conditional-block active">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label" for="child-name">Имя именинника *</label>
+                                        <input type="text" id="child-name" class="form-input" placeholder="Как зовут ребенка?">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Пол именинника</label>
+                                        <div class="gender-selector">
+                                            <div class="gender-card active" data-gender="boy">Мальчик 👦</div>
+                                            <div class="gender-card" data-gender="girl">Девочка 👧</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="child-birthdate">Дата рождения именинника</label>
+                                        <input type="date" id="child-birthdate" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="children-count">Количество детей *</label>
+                                        <input type="number" id="children-count" class="form-input" min="1" max="100" value="10">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- General Event Info -->
+                            <div class="form-grid" style="margin-top: 1.5rem;">
+                                <div class="form-group">
+                                    <label class="form-label" for="event-date">Дата праздника *</label>
+                                    <input type="date" id="event-date" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="event-location">Место проведения *</label>
+                                    <input type="text" id="event-location" class="form-input" placeholder="Ресторан, лофт, на улице, дома" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="event-address">Адрес праздника *</label>
+                                    <input type="text" id="event-address" class="form-input" placeholder="Улица, дом, квартира/офис" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Timeline, Contacts & Smeta -->
+                <div class="booking-timeline-side">
+                    <div class="booking-card timeline-card">
+                        
+                        <!-- Timeline Section -->
+                        <div class="timeline-section-header">
+                            <h3 class="form-section-title" style="margin: 0;"><span class="step-num">2</span>Интерактивный таймлайн</h3>
+                            <p class="timeline-intro-text">Перетаскивайте ползунки, чтобы распределить время и настроить паузы. Стоимость пересчитается автоматически!</p>
+                        </div>
+
+                        <!-- Visual Grid Track -->
+                        <div class="timeline-visual-wrapper">
+                            <div class="timeline-hours-scale" id="timeline-hours-scale">
+                                <!-- Будет заполняться часовыми делениями от 08:00 до 22:00 -->
+                            </div>
+                            <div class="timeline-tracks-container" id="timeline-tracks-container">
+                                <!-- Динамически генерируемые полосы занятости для каждой программы -->
+                            </div>
+                        </div>
+
+                        <!-- Config List -->
+                        <div class="timeline-config-list" id="timeline-config-list">
+                            <!-- Элементы конфигурации времени для выбранных программ/услуг -->
+                        </div>
+
+                        <!-- Total Calculator Smeta -->
+                        <div class="booking-summary-block" style="margin-top: 2rem;">
+                            <div class="summary-row total-row" style="margin-bottom: 0; width: 100%;">
+                                <span>Итоговая стоимость:</span>
+                                <span class="summary-total-price" id="summary-total-price">0 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Client Contacts -->
+                        <div class="form-section contacts-section" style="margin-top: 2rem; border-top: 1px solid var(--booking-border); padding-top: 2rem;">
+                            <h3 class="form-section-title" style="margin-bottom: 1.5rem;"><span class="step-num">3</span>Контактная информация</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="client-name">Ваше имя *</label>
+                                    <input type="text" id="client-name" class="form-input" placeholder="Иван Иванов" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="client-phone">Номер телефона *</label>
+                                    <input type="tel" id="client-phone" class="form-input" placeholder="+7 (999) 123-45-67" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="client-email">Электронная почта</label>
+                                    <input type="email" id="client-email" class="form-input" placeholder="example@mail.ru">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button Container -->
+                        <div class="submit-btn-container" style="margin-top: 2rem;">
+                            <button type="button" class="btn btn-primary btn-full btn-large" id="btn-submit-booking" style="width: 100%;">
+                                🚀 Отправить заявку менеджеру
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="calculation-modal">
+        <div class="calculation-modal-overlay"></div>
+        <div class="calculation-modal-content" style="max-width: 500px; text-align: center; padding: 3rem 2rem;">
+            <div style="font-size: 5rem; margin-bottom: 1.5rem;">🎉</div>
+            <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--purple-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Заявка успешно принята!</h2>
+            <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;" id="success-message-text">
+                Мы забронировали Ваше расписание и уже готовим лучших аниматоров! Наш менеджер перезвонит Вам в течение 10 минут.
+            </p>
+            <button class="btn btn-primary" onclick="window.location.href='index.html'" style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 14px;">
+                Вернуться на главную
+            </button>
+        </div>
+    </div>
+
+    <!-- tsParticles Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/booking.js?v=20260514"></script>
+</body>
+</html>

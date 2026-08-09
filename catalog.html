@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Волшебный Праздник - Агентство Аниматоров</title>
+    <link rel="icon" href="favicon.svg?v=20260514" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20260523-hero-silhouettes">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Persona Modal CSS -->
+    <link rel="stylesheet" href="css/persona-modal.css?v=20260514">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <a href="index.html#home" class="logo-link">
+                            <img src="images/енот в деле.png" alt="Енот в деле Logo" class="logo-img">
+                            <span class="logo-text">Енот в деле</span>
+                        </a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html#home" class="nav-link">Главная</a></li>
+                        <li><a href="#characters" class="nav-link">Персонажи</a></li>
+                        <li><a href="new-year.html" class="nav-link nav-link-new-year">🎄 Новый год</a></li>
+                        <li><a href="#programs" class="nav-link">Программы</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">☰</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Particles Container -->
+        <div id="particles-container" class="particles-container"></div>
+
+        <!-- Character silhouettes behind the parallax layer -->
+        <div class="hero-characters" aria-hidden="true"></div>
+
+        <!-- Parallax Elements (праздничные иконки, через которые "летим") -->
+        <div class="parallax-container">
+            <!-- Balloons -->
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-1" data-speed="4.0" alt="">
+            <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-2" data-speed="3.0" alt="">
+            <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-3" data-speed="2.0" alt="">
+            <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-4" data-speed="1.0" alt="">
+
+            <!-- Cakes -->
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-1" data-speed="4.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-2" data-speed="3.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-3" data-speed="2.0" alt="">
+            <img src="images/parallax/cake.svg" class="parallax-item cake cake-4" data-speed="1.0" alt="">
+
+            <!-- Gifts -->
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-1" data-speed="4.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-2" data-speed="3.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-3" data-speed="2.0" alt="">
+            <img src="images/parallax/gift.svg" class="parallax-item gift gift-4" data-speed="1.0" alt="">
+
+            <!-- Stars -->
+            <img src="images/parallax/star.svg" class="parallax-item star star-1" data-speed="4.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-2" data-speed="3.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-3" data-speed="2.0" alt="">
+            <img src="images/parallax/star.svg" class="parallax-item star star-4" data-speed="1.0" alt="">
+
+            <!-- Hearts -->
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-1" data-speed="4.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-2" data-speed="3.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-3" data-speed="2.0" alt="">
+            <img src="images/parallax/heart.svg" class="parallax-item heart heart-4" data-speed="1.0" alt="">
+
+            <!-- Confetti -->
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-1" data-speed="4.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-2" data-speed="3.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-3" data-speed="2.0" alt="">
+            <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-4" data-speed="1.0" alt="">
+
+            <!-- Music Notes -->
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-1" data-speed="4.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-2" data-speed="3.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-3" data-speed="2.0" alt="">
+            <img src="images/parallax/music-note.svg" class="parallax-item note note-4" data-speed="1.0" alt="">
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-greeting">Здравствуй, искатель ярких событий!</h2>
+                <h1 class="hero-title">
+                    <span class="hero-title-main">Мастерская праздников</span>
+                    <span class="hero-title-sub">"Енот в деле"</span>
+                </h1>
+                <p class="hero-description">Мы — команда детских аниматоров, которые любят своё дело и точно знают, что понравится вашему ребёнку!</p>
+                <p class="hero-tagline">Готовы отправиться в сказочное путешествие?</p>
+                <div class="hero-buttons">
+                    <a href="#characters" class="btn btn-primary">Каталог персонажей</a>
+                    <a href="#programs" class="btn btn-secondary">Каталог программ</a>
+                    <a href="#contact" class="btn btn-contact">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4000</div>
+                    <div class="stat-label">проведенных праздников</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">283</div>
+                    <div class="stat-label">любимых персонажей</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8 лет</div>
+                    <div class="stat-label">профессиональной деятельности</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">штатных аниматоров</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="characters-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Каталог персонажей</h2>
+                <p class="section-subtitle">Мы точно знаем, что понравится вашему ребенку</p>
+            </div>
+
+            <!-- Filters Panel -->
+            <div class="filters-panel">
+                <div class="filters-header">
+                    <h3 class="filters-title">Фильтры</h3>
+                    <input type="text" id="search-input" class="filter-search" placeholder="Поиск персонажа...">
+                    <button class="btn-reset-filters">Сбросить все</button>
+                </div>
+
+                <div class="filters-grid">
+                    <!-- Age Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="age">
+                            <span>Возраст</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="0-3">
+                                <span>0-3 года</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="3-5">
+                                <span>3-5 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="5-8">
+                                <span>5-8 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="8-12">
+                                <span>8-12 лет</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="age" value="12+">
+                                <span>12+ лет</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Gender Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="gender">
+                            <span>Пол</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="boys">
+                                <span>Для мальчиков</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="girls">
+                                <span>Для девочек</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="gender" value="unisex">
+                                <span>Универсальные</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="category">
+                            <span>Категория</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="cartoon">
+                                <span>Мультики</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="film">
+                                <span>Фильмы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="holiday">
+                                <span>Праздничные</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="fairy-tale">
+                                <span>Сказки</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="fantasy">
+                                <span>Фантастика</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="mascot">
+                                <span>Ростовые куклы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="superhero">
+                                <span>Супер-герои</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="neutral">
+                                <span>Нейтральные</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="animal">
+                                <span>Животные</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Activities Filter Accordion -->
+                    <div class="filter-accordion">
+                        <button class="filter-accordion-header" data-filter="activities">
+                            <span>Активность</span>
+                            <span class="filter-accordion-icon">▼</span>
+                        </button>
+                        <div class="filter-accordion-body">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="active">
+                                <span>Активные игры</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="creative">
+                                <span>Творчество</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="magic">
+                                <span>Фокусы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="dance">
+                                <span>Танцы</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="activities" value="quest">
+                                <span>Квесты</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sort and Results Counter -->
+            <div class="characters-toolbar">
+                <div class="results-counter">
+                    Найдено персонажей: <span id="results-count">0</span>
+                </div>
+                <div class="sort-controls">
+                    <button class="view-toggle-btn" id="view-toggle-btn" type="button" aria-label="Изменить вид карточек" title="3 карточки в ряд, вертикальные фото">
+                        <span class="view-toggle-icon">3×</span>
+                    </button>
+                    <label>Сортировка:</label>
+                    <select id="sort-select" class="sort-select">
+                        <option value="popular">По популярности</option>
+                        <option value="price-asc">По цене (возр.)</option>
+                        <option value="price-desc">По цене (убыв.)</option>
+                        <option value="name">По названию</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Characters Grid (Dynamic) -->
+            <div class="characters-grid" id="characters-grid">
+                <!-- Cards will be generated dynamically from characters-data.json -->
+                <div class="loading-message">Загрузка персонажей...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Выберите программу</h2>
+                <p class="section-subtitle">Все программы доступны для заказа</p>
+            </div>
+
+            <!-- Programs Grid (Dynamic) -->
+            <div class="programs-grid" id="programs-grid">
+                <!-- Cards will be generated dynamically from programs-data.json -->
+                <div class="loading-message">Загрузка программ...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section id="additional-services" class="additional-services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Дополнительные услуги</h2>
+                <p class="section-subtitle">Сделайте ваш праздник ещё ярче и беззаботнее с нашими праздничными услугами</p>
+            </div>
+            <div class="additional-services-grid">
+                <article class="character-card additional-service-card" data-service-id="2">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 50%, #667eea 100%);">
+                            <img src="images/catalog/Ведущая серебро пайетка 1.png" alt="Фотозона" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 2, name: 'Фотозона', pricing: { amount: 8000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(2, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(2, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Фотозона</h3>
+                        </div>
+                        <p class="character-description">Тематический фон, премиальный декор и фотобутафория, чтобы ваши гости сразу погружались в волшебную атмосферу.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">📍</span>На площадке</span>
+                                <span class="feature-tag"><span class="feature-icon">✨</span>Декор</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">8 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="3">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);">
+                            <img src="images/catalog/Программы/Аквагрим.jpg" alt="Аквагрим" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 3, name: 'Аквагрим', pricing: { amount: 6000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(3, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(3, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Аквагрим</h3>
+                        </div>
+                        <p class="character-description">Профессиональный аквагример, сертифицированные гипоаллергенные краски и большой каталог образов для невероятного перевоплощения.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">🎨</span>Гример</span>
+                                <span class="feature-tag"><span class="feature-icon">✨</span>Образы</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">6 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="4">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);">
+                            <img src="images/catalog/Программы/анимационная программа.jpg" alt="Фигуры из шаров" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 4, name: 'Фигуры из шаров', pricing: { amount: 2500, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(4, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(4, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Фигуры из шаров</h3>
+                        </div>
+                        <p class="character-description">Очаровательные мини-подарки и забавные фигурки из воздушных шаров, смоделированные аниматором для каждого юного гостя.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">🎁</span>Подарок</span>
+                                <span class="feature-tag"><span class="feature-icon">🕒</span>30-60 мин</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">2 500</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="6">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+                            <img src="images/catalog/Сладкоежка.png" alt="Сладкий стол" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 6, name: 'Сладкий стол', pricing: { amount: 7000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(6, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(6, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Сладкий стол</h3>
+                        </div>
+                        <p class="character-description">Эксклюзивный тематический Candy Bar с капкейками, конфетами и сладостями, стилизованный под вашего персонажа.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">🍬</span>Десерты</span>
+                                <span class="feature-tag"><span class="feature-icon">🎨</span>Тема</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">7 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="8">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <img src="images/catalog/Программы/Бьюти бар.jpg" alt="Бьюти-бар" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 8, name: 'Бьюти-бар', pricing: { amount: 10000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(8, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(8, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Бьюти-бар</h3>
+                        </div>
+                        <p class="character-description">Модный макияж, переводные тату, временное окрашивание волос, стразы и вплетение канекалона от нашего аниматора-стилиста.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">💅</span>Стиль</span>
+                                <span class="feature-tag"><span class="feature-icon">👑</span>Бьюти</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">10 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="9">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f7797d 0%, #fbd786 50%, #c6ffdd 100%);">
+                            <img src="images/catalog/Ведущий черный м.png" alt="Ведущий праздника" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 9, name: 'Ведущий праздника', pricing: { amount: 10000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(9, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(9, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Ведущий праздника</h3>
+                        </div>
+                        <p class="character-description">Харизматичный профессиональный ведущий для больших праздников, который обеспечит идеальную связку всех блоков программы.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">📋</span>Сценарий</span>
+                                <span class="feature-tag"><span class="feature-icon">⏰</span>2+ часа</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">10 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="10">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <img src="images/catalog/Программы/блоггерская вечеринка.jpg" alt="Фото и видео сопровождение" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 10, name: 'Фото и видео сопровождение', pricing: { amount: 12000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(10, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(10, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Фото и видео сопровождение</h3>
+                        </div>
+                        <p class="character-description">Репортажная съёмка от профессионального детского оператора: сочные кадры, живые эмоции и готовый ролик на память.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">📷</span>Контент</span>
+                                <span class="feature-tag"><span class="feature-icon">💾</span>Материалы</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">12 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="11">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <img src="images/catalog/Программы/Мороженное1.jpg" alt="Торт-подача" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 11, name: 'Торт-подача', pricing: { amount: 2000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(11, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(11, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Торт-подача</h3>
+                        </div>
+                        <p class="character-description">Интерактивный торжественный вынос праздничного торта с фанфарами, загадыванием желаний и ярким мини-сценарием.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">🕯️</span>Финал</span>
+                                <span class="feature-tag"><span class="feature-icon">🎶</span>Музыка</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">2 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="12">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);">
+                            <img src="images/catalog/Программы/челлендж пати.jpg" alt="Пиньята" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 12, name: 'Пиньята', pricing: { amount: 5000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-service-qty btn-select-hours" style="display: none;">
+                                <button type="button" class="hours-minus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(12, -1)" aria-label="Уменьшить количество">−</button>
+                                <span class="hours-value additional-service-qty-value">1</span>
+                                <button type="button" class="hours-plus additional-service-qty-btn" onclick="window.selectionManager?.updateServiceQuantity(12, 1)" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-header">
+                            <h3 class="character-name">Пиньята</h3>
+                        </div>
+                        <p class="character-description">Большая праздничная пиньята с наполнением, разбивание которой станет взрывным и супер-весёлым моментом праздника.</p>
+                        <div class="character-meta">
+                            <div class="character-features">
+                                <span class="feature-tag"><span class="feature-icon">🥳</span>Активно</span>
+                                <span class="feature-tag"><span class="feature-icon">🍬</span>Сюрприз</span>
+                            </div>
+                        </div>
+                        <div class="character-footer">
+                            <div class="character-price">
+                                <span class="price-amount">5 000</span>
+                                <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="additional-services-note">
+                <p>Выбранные услуги будут автоматически добавлены в расчет стоимости вашего идеального праздника.</p>
+                <a href="#contact" class="btn btn-secondary">Перейти к оформлению</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section" id="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши преимущества</h2>
+                <p class="section-subtitle">Агентств много, но мы такие одни! И вот почему:</p>
+            </div>
+
+            <div class="advantages-showcase">
+                <!-- Left Column: Interactive Tabs List -->
+                <div class="advantages-tabs">
+                    <button class="advantage-tab active" data-index="0" data-theme="pink">
+                        <span class="advantage-tab-icon">👗</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Своя костюмерная</span>
+                            <span class="advantage-tab-subtitle">Новые образы под тренды</span>
+                        </div>
+                    </button>
+                    <button class="advantage-tab" data-index="1" data-theme="gold">
+                        <span class="advantage-tab-icon">📚</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Постоянное обучение</span>
+                            <span class="advantage-tab-subtitle">Тренинги и мастер-классы</span>
+                        </div>
+                    </button>
+                    <button class="advantage-tab" data-index="2" data-theme="purple">
+                        <span class="advantage-tab-icon">⭐</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Собственный штат</span>
+                            <span class="advantage-tab-subtitle">Профессиональные аниматоры</span>
+                        </div>
+                    </button>
+                    <button class="advantage-tab" data-index="3" data-theme="blue">
+                        <span class="advantage-tab-icon">⏰</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Пунктуальность</span>
+                            <span class="advantage-tab-subtitle">Приезжаем за 20 минут до начала</span>
+                        </div>
+                    </button>
+                    <button class="advantage-tab" data-index="4" data-theme="green">
+                        <span class="advantage-tab-icon">🎯</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Тематический реквизит</span>
+                            <span class="advantage-tab-subtitle">Подбор под каждого персонажа</span>
+                        </div>
+                    </button>
+                    <button class="advantage-tab" data-index="5" data-theme="cyan">
+                        <span class="advantage-tab-icon">🏢</span>
+                        <div class="advantage-tab-content">
+                            <span class="advantage-tab-title">Работаем с юр. лицами</span>
+                            <span class="advantage-tab-subtitle">Любые формы оплаты</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Right Column: Interactive Detail Stage -->
+                <div class="advantages-stage-wrapper">
+                    <div class="advantages-stage theme-pink" id="advantages-stage">
+                        <!-- Decorative floating elements -->
+                        <div class="stage-particle particle-1">★</div>
+                        <div class="stage-particle particle-2">✦</div>
+                        <div class="stage-particle particle-3">✿</div>
+                        
+                        <div class="stage-visual">
+                            <div class="stage-image-container">
+                                <img src="images/advantages/costumes.png" id="stage-image" alt="Своя костюмерная с образами" class="stage-image">
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <h3 class="stage-title" id="stage-title">Своя костюмерная с образами</h3>
+                            <p class="stage-description" id="stage-description">Наша костюмерная постоянно пополняется новыми образами, чтобы соответствовать последним трендам и пожеланиям наших клиентов</p>
+                            <div class="stage-action-wrapper">
+                                <a href="#characters" class="btn btn-primary stage-cta-btn" id="stage-cta-btn">Открыть каталог →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Закажите праздник</h2>
+                    <p class="contact-description">Свяжитесь с нами любым удобным способом, и мы организуем незабываемый праздник для вашего ребенка!</p>
+
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Телефон</h4>
+                                <p>+7 (999) 123-45-67</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@magic-party.ru</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-text">
+                                <h4>Режим работы</h4>
+                                <p>Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Телефон" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Расскажите о вашем празднике" class="form-input form-textarea" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Bottom Bar -->
+    <div id="selection-bar" class="selection-bar">
+        <div class="container">
+            <div class="selection-bar-content">
+                <div class="selection-info">
+                    <div class="selection-summary">Ничего не выбрано</div>
+                    <div class="selection-price">0 ₽</div>
+                </div>
+                <div class="selection-actions">
+                    <button class="selection-clear-btn" onclick="window.selectionManager?.clearAll()">
+                        Очистить
+                    </button>
+                    <button class="selection-continue-btn btn btn-primary btn-disabled" disabled data-target-href="#contact" onclick="window.selectionManager?.handleContinue()">
+                        Продолжить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home" class="logo-link" style="display: flex; align-items: center; gap: 0.8rem; text-decoration: none; justify-content: center; margin-bottom: 0.8rem;">
+                        <img src="images/енот в деле.png" alt="Енот в деле Logo" style="height: 48px; width: auto; object-fit: contain; border-radius: 50%;">
+                        <span class="logo-text">Енот в деле</span>
+                    </a>
+                    <p>Мастерская праздников с 2017 года</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://vk.com/animator_holiday_spb" target="_blank" rel="noopener" class="social-link">VK</a>
+                    <!-- Instagram пока не указан, можно добавить позже -->
+                    <a href="https://wa.me/79944336803" target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Мастерская праздников "Енот в деле". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculation Modal (Smeta) -->
+    <div id="calculation-modal" class="calculation-modal">
+        <div class="calculation-modal-overlay" onclick="window.selectionManager?.closeCalculationModal()"></div>
+        <div class="calculation-modal-content">
+            <div class="calculation-modal-header">
+                <h2>✨ Расчёт стоимости праздника</h2>
+                <button class="calculation-modal-close" onclick="window.selectionManager?.closeCalculationModal()">&times;</button>
+            </div>
+            <div class="calculation-modal-body">
+                <div class="estimate-summary-card">
+                    <div class="estimate-total-label">Итоговая стоимость:</div>
+                    <div class="estimate-total-price">0 ₽</div>
+                </div>
+                <div class="estimate-details-list">
+                    <!-- Будет заполняться динамически -->
+                </div>
+            </div>
+            <div class="calculation-modal-footer">
+                <button class="btn btn-outline" onclick="window.selectionManager?.closeCalculationModal()">📝 Изменить выбор</button>
+                <button class="btn btn-primary" onclick="window.selectionManager?.confirmOrder()">🎉 Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <!-- API Client (загружается первым) -->
+    <script src="js/api-client.js?v=20260514"></script>
+    <!-- Persona Selection Modal -->
+    <script src="js/persona-selection-modal.js?v=20260514"></script>
+
+    <!-- Other scripts -->
+    <script src="js/particles-config.js?v=20260514"></script>
+    <script src="js/parallax.js?v=20260514"></script>
+    <script src="js/selection-manager.js?v=20260514"></script>
+    <script src="js/programs-renderer.js?v=20260514"></script>
+    <script src="js/characters-filter.js?v=20260514"></script>
+    <script src="js/characters-renderer.js?v=20260514"></script>
+    <script src="js/advantages-interactive.js?v=20260514"></script>
+    <script src="script.js?v=20260523-hero-silhouettes"></script>
+</body>
+</html>

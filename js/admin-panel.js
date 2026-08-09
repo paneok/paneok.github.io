@@ -28,7 +28,6 @@ class AdminPanel {
             const programsData = await programsResponse.json();
             this.programs = programsData.programs;
 
-            console.log('Data loaded:', this.characters.length, 'characters,', this.programs.length, 'programs');
         } catch (error) {
             console.error('Error loading data:', error);
             alert('Ошибка загрузки данных. Проверьте консоль.');
@@ -58,8 +57,8 @@ class AdminPanel {
                     </div>
                 </div>
                 <div style="margin-top: 10px;">
-                    <span class="info-badge">${character.availablePrograms?.length || 0} программ</span>
                     <span class="info-badge">${character.pricing.hourly} ₽/час</span>
+                    <span class="info-badge">${character.category || '—'}</span>
                     ${character.isPopular ? '<span class="info-badge" style="background: #f39c12;">Популярный</span>' : ''}
                     ${character.isNew ? '<span class="info-badge" style="background: #27ae60;">Новинка</span>' : ''}
                 </div>
@@ -102,14 +101,16 @@ class AdminPanel {
         }).join('');
     }
 
-    switchTab(tabName) {
+    switchTab(tabName, button) {
         this.currentTab = tabName;
 
         // Update tab buttons
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        event.target.classList.add('active');
+        if (button) {
+            button.classList.add('active');
+        }
 
         // Update tab content
         document.querySelectorAll('.tab-content').forEach(content => {
@@ -125,17 +126,9 @@ class AdminPanel {
         // Fill form
         document.getElementById('edit-character-id').value = character.id;
         document.getElementById('edit-character-name').value = character.name;
-
-        // Render programs checkboxes
-        const programsContainer = document.getElementById('edit-character-programs');
-        programsContainer.innerHTML = this.programs.map(program => `
-            <label class="checkbox-label">
-                <input type="checkbox"
-                       value="${program.id}"
-                       ${character.availablePrograms?.includes(program.id) ? 'checked' : ''}>
-                <span>${program.emoji} ${program.name}</span>
-            </label>
-        `).join('');
+        document.getElementById('edit-character-price').value = character.pricing?.hourly || 0;
+        document.getElementById('edit-character-popular').checked = !!character.isPopular;
+        document.getElementById('edit-character-new').checked = !!character.isNew;
 
         this.openModal('edit-character-modal');
     }
@@ -197,13 +190,6 @@ class AdminPanel {
         // Remove from programs array
         this.programs = this.programs.filter(p => p.id !== programId);
 
-        // Remove from all characters' availablePrograms
-        this.characters.forEach(character => {
-            if (character.availablePrograms) {
-                character.availablePrograms = character.availablePrograms.filter(id => id !== programId);
-            }
-        });
-
         this.render();
         this.showNotification('Программа удалена', 'success');
     }
@@ -244,14 +230,13 @@ class AdminPanel {
         const character = this.characters.find(c => c.id === characterId);
         if (!character) return;
 
-        // Get selected programs
-        const checkboxes = document.querySelectorAll('#edit-character-programs input[type="checkbox"]');
-        const selectedPrograms = Array.from(checkboxes)
-            .filter(cb => cb.checked)
-            .map(cb => parseInt(cb.value));
+        if (!character.pricing) {
+            character.pricing = {};
+        }
 
-        // Update character
-        character.availablePrograms = selectedPrograms;
+        character.pricing.hourly = parseInt(document.getElementById('edit-character-price').value) || 0;
+        character.isPopular = document.getElementById('edit-character-popular').checked;
+        character.isNew = document.getElementById('edit-character-new').checked;
 
         this.closeModal('edit-character-modal');
         this.render();
@@ -267,26 +252,34 @@ class AdminPanel {
             return;
         }
 
+        const existingIndex = this.programs.findIndex(p => p.id === programId);
+        const existingProgram = existingIndex >= 0 ? this.programs[existingIndex] : null;
         const programData = {
+            ...(existingProgram || {
+                id: programId,
+                slug: this.generateSlug(name),
+                category: 'custom',
+                images: {
+                    main: 'images/catalog/placeholder.png',
+                    gallery: ['images/catalog/placeholder.png']
+                }
+            }),
             id: programId,
-            name: name,
-            slug: this.generateSlug(name),
-            category: 'custom',
+            name,
+            slug: existingProgram?.slug || this.generateSlug(name),
             emoji: document.getElementById('edit-program-emoji').value || '🎉',
+            description: document.getElementById('edit-program-description').value.trim(),
             pricing: {
+                ...(existingProgram?.pricing || {}),
                 amount: parseInt(document.getElementById('edit-program-price').value) || 0,
                 unit: document.getElementById('edit-program-unit').value,
                 isCharacterPrice: document.getElementById('edit-program-is-character-price').checked
             },
             defaultCharacterId: document.getElementById('edit-program-default-character').value
                 ? parseInt(document.getElementById('edit-program-default-character').value)
-                : null,
-            description: document.getElementById('edit-program-description').value.trim(),
-            image: ''
+                : null
         };
 
-        // Check if program exists
-        const existingIndex = this.programs.findIndex(p => p.id === programId);
         if (existingIndex >= 0) {
             // Update existing
             this.programs[existingIndex] = programData;
@@ -302,7 +295,7 @@ class AdminPanel {
 
     generateSlug(text) {
         return text.toLowerCase()
-            .replace(/[^a-z0-9а-я]/g, '-')
+            .replace(/[^a-z0-9а-яё]/g, '-')
             .replace(/-+/g, '-')
             .replace(/^-|-$/g, '');
     }

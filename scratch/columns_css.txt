@@ -1,0 +1,6696 @@
+Occurrence 1:
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #E63946;     /* Праздничный красный (кнопки заказа, призыв к действию) */
+    --secondary-color: #457B9D;   /* Конфетти-синий (второстепенные элем
+========================================
+Occurrence 2:
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #E63946;     /* Праздничный красный (кнопки заказа, призыв к действию) */
+    --secondary-color: #457B9D;   /* Конфетти-синий (второстепенные элементы, важная информация) */
+    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новин
+========================================
+Occurrence 3:
+кнопки заказа, призыв к действию) */
+    --secondary-color: #457B9D;   /* Конфетти-синий (второстепенные элементы, важная информация) */
+    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новинки) */
+    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
+    --blue-color: #457B9D;      
+========================================
+Occurrence 4:
+нфетти-синий (второстепенные элементы, важная информация) */
+    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новинки) */
+    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
+    --blue-color: #457B9D;        /* Переопределяем синий на Конфетти-синий */
+    --green-color: #26de81;  
+========================================
+Occurrence 5:
+) */
+    --accent-color: #F4A261;      /* Золотой (рейтинги, звезды, новинки) */
+    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
+    --blue-color: #457B9D;        /* Переопределяем синий на Конфетти-синий */
+    --green-color: #26de81;       /* Мягкий зеленый */
+    --bg-light: #F8F9FA;      
+========================================
+Occurrence 6:
+
+    --purple-color: #9b59b6;      /* Мягкий фиолетовый */
+    --blue-color: #457B9D;        /* Переопределяем синий на Конфетти-синий */
+    --green-color: #26de81;       /* Мягкий зеленый */
+    --bg-light: #F8F9FA;          /* Облачно-белый фон секций и карточек */
+    --bg-white: #ffffff;          
+========================================
+Occurrence 7:
+ 0 10px 40px rgba(26, 28, 32, 0.08);
+    --shadow-hover: 0 15px 50px rgba(26, 28, 32, 0.12);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Отключаем smooth scroll на мобильных 
+========================================
+Occurrence 8:
+  padding: 1rem 0;
+}
+
+.logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-link {
+
+========================================
+Occurrence 9:
+ogo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-link {
+    display: flex;
+    a
+========================================
+Occurrence 10:
+5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  
+========================================
+Occurrence 11:
+    transform: translateY(10px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    
+========================================
+Occurrence 12:
+v-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    backgro
+========================================
+Occurrence 13:
+ntent: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    widt
+========================================
+Occurrence 14:
+on: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link
+========================================
+Occurrence 15:
+ht: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-new-year {
+    background: linear-gradient(45deg, var(--primary-co
+========================================
+Occurrence 16:
+nd: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-new-year {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-co
+========================================
+Occurrence 17:
+olor: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-new-year {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px
+========================================
+Occurrence 18:
+olor);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-new-year {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    animation: shim
+========================================
+Occurrence 19:
+r::after {
+    width: 100%;
+}
+
+.nav-link-new-year {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    animation: shimmer 3s ease-in-out infin
+========================================
+Occurrence 20:
+year {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { backgro
+========================================
+Occurrence 21:
+-position: 0% 50%; }
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    displ
+========================================
+Occurrence 22:
+content: center;
+    /* Бренд-палитра: Праздничный красный → Конфетти-синий → Угольно-черный */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 55%, #1A1C20 100%);
+    overflow: hidden;
+    perspective: 1200px; /* для легкого 3D эффекта параллакса */
+}
+
+.hero-bac
+========================================
+Occurrence 23:
+нд-палитра: Праздничный красный → Конфетти-синий → Угольно-черный */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 55%, #1A1C20 100%);
+    overflow: hidden;
+    perspective: 1200px; /* для легкого 3D эффекта параллакса */
+}
+
+.hero-background {
+    position: abs
+========================================
+Occurrence 24:
+% {
+        transform: translateY(-30px) rotate(180deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: non
+========================================
+Occurrence 25:
+slideInLeft 1s ease;
+}
+
+.hero-title-sub {
+    display: block;
+    font-size: 3rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    animation: slideInRight 1s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transf
+========================================
+Occurrence 26:
+6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #c0303a);
+    color: white;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-
+========================================
+Occurrence 27:
+tn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #c0303a);
+    color: white;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rg
+========================================
+Occurrence 28:
+n-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.5);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 
+========================================
+Occurrence 29:
+ transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.5);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 
+========================================
+Occurrence 30:
+(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Selection Button */
+.btn-select {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    animation: shimmer 3s ease-in-out infinite;
+ 
+========================================
+Occurrence 31:
+w: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Selection Button */
+.btn-select {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    animation: shimmer 3s ease-in-out infinite;
+    display: inline-fl
+========================================
+Occurrence 32:
+, 0, 0.15);
+}
+
+/* Selection Button */
+.btn-select {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    animation: shimmer 3s ease-in-out infinite;
+    display: inline-flex;
+    align-items: cen
+========================================
+Occurrence 33:
+lect {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+    background-size: 400% 400%;
+    color: white;
+    animation: shimmer 3s ease-in-out infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8
+========================================
+Occurrence 34:
+-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-select.selected .btn-select-checkbox {
+    opacity: 1;
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-select.selected {
+    background: linear-gradient(45deg, #ff9500, #ff6b35);
+    background-size: 100% 100%;
+    anim
+========================================
+Occurrence 35:
+ity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-select.selected .btn-select-checkbox {
+    opacity: 1;
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-select.selected {
+    background: linear-gradient(45deg, #ff9500, #ff6b35);
+    background-size: 100% 100%;
+    animation: none;
+}
+
+.btn-
+========================================
+Occurrence 36:
+card-selected {
+    box-shadow: 0 10px 40px rgba(255, 149, 0, 0.4);
+    border: 2px solid #ff9500;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+
+========================================
+Occurrence 37:
+ox-shadow: 0 10px 40px rgba(255, 149, 0, 0.4);
+    border: 2px solid #ff9500;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: transl
+========================================
+Occurrence 38:
+);
+    border: 2px solid #ff9500;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background
+========================================
+Occurrence 39:
+ound: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px soli
+========================================
+Occurrence 40:
+arent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--prim
+========================================
+Occurrence 41:
+line:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    back
+========================================
+Occurrence 42:
+
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    background: #c03
+========================================
+Occurrence 43:
+white;
+    transform: translateY(-3px);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    background: #c0303a; /* Более глубокий красный при наведении */
+  
+========================================
+Occurrence 44:
+box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    background: #c0303a; /* Более глубокий красный при наведении */
+    border-color: #c0303a;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+========================================
+Occurrence 45:
+px rgba(230, 57, 70, 0.3);
+}
+
+.btn-contact:hover {
+    background: #c0303a; /* Более глубокий красный при наведении */
+    border-color: #c0303a;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ================
+========================================
+Occurrence 46:
+===== STATISTICS SECTION ==================== */
+.stats-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 0.5rem;
+    border-radius: 15px;
+    
+========================================
+Occurrence 47:
+    /* Угольно-черный → Конфетти-синий для числовых счетчиков статистики */
+    background: linear-gradient(135deg, var(--text-dark), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    white-spa
+========================================
+Occurrence 48:
+истики */
+    background: linear-gradient(135deg, var(--text-dark), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(-
+========================================
+Occurrence 49:
+ext-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* ==================== SECTIONS ==================== */
+.section-header {
+    text-align: center;
+    
+========================================
+Occurrence 50:
+;
+    margin-bottom: 1rem;
+    /* Праздничный красный → Конфетти-синий для заголовков секций */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subt
+========================================
+Occurrence 51:
+m;
+    /* Праздничный красный → Конфетти-синий для заголовков секций */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.
+========================================
+Occurrence 52:
+ий */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+}
+
+/* ==================== CHAR
+========================================
+Occurrence 53:
+-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+}
+
+/* ==================== CHARACTERS SECTION ==================== */
+.characters-section {
+    padding: 6rem 0;
+    background:
+========================================
+Occurrence 54:
+TION ==================== */
+.characters-section {
+    padding: 6rem 0;
+    background: var(--bg-light);
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    /* По умолча
+========================================
+Occurrence 55:
+n--wide > .container {
+        max-width: none;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(
+========================================
+Occurrence 56:
+d.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* V
+========================================
+Occurrence 57:
+mage {
+    padding-bottom: 100%;
+}
+
+/* View modes for characters grid (desktop) */
+@media (min-width: 1025px) {
+    .characters-grid.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(
+========================================
+Occurrence 58:
+d.view-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .characters-grid.view-4,
+    .characters-grid.view-4-square {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+/* Square thumbnails mode */
+.characters-grid.view-4-square .character-image {
+    padding-bottom: 100%;
+}
+
+/* В 
+========================================
+Occurrence 59:
+en;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.character-card:nth-child(1) { animation-delay: 0.1s; }
+.character-card:nth-child(2) { animation-delay: 0.2s; }
+.character-c
+========================================
+Occurrence 60:
+1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.character-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-dark);
+}
+
+.character-description {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.character-features {
+========================================
+Occurrence 61:
+
+}
+
+.character-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-dark);
+}
+
+.character-description {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.character-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+========================================
+Occurrence 62:
+display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    di
+========================================
+Occurrence 63:
+p: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    alig
+========================================
+Occurrence 64:
+  flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: cent
+========================================
+Occurrence 65:
+y: flex;
+    align-items: center;
+}
+
+.feature-icon {
+    margin-right: 0.3rem;
+}
+
+.character-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ==================== PROGRAMS SECTION ==================== */
+.programs-section {
+    padding: 6rem 0;
+    background:
+========================================
+Occurrence 66:
+ems: center;
+}
+
+.feature-icon {
+    margin-right: 0.3rem;
+}
+
+.character-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ==================== PROGRAMS SECTION ==================== */
+.programs-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.programs-
+========================================
+Occurrence 67:
+= PROGRAMS SECTION ==================== */
+.programs-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 2rem;
+========================================
+Occurrence 68:
+-bottom: 1.5rem;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: transform 0.5s
+========================================
+Occurrence 69:
+icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+    animation:
+========================================
+Occurrence 70:
+;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+}
+
+.program-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.program-description {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.program-includes {
+ 
+========================================
+Occurrence 71:
+;
+}
+
+.program-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.program-description {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.program-includes {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.pro
+========================================
+Occurrence 72:
+m;
+    line-height: 1.7;
+}
+
+.program-includes {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.program-includes li {
+    padding: 0.5rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.program-includes li::before {
+    content: '✓';
+    position: absolute;
+  
+========================================
+Occurrence 73:
+gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.program-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.program-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    m
+========================================
+Occurrence 74:
+: relative;
+    padding-left: 1.5rem;
+}
+
+.program-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.program-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1.5re
+========================================
+Occurrence 75:
+on: absolute;
+    left: 0;
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.program-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== ADVANTAGES SECTION (INTERACTIVE SHOWCASE) ==================== */
+.adv
+========================================
+Occurrence 76:
+t: 0;
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.program-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== ADVANTAGES SECTION (INTERACTIVE SHOWCASE) ==================== */
+.advantages-section {
+   
+========================================
+Occurrence 77:
+ar-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.advantages-showcase {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin-top: 2rem;
+}
+
+/* Left Column: Tabs */
+.advantages-tabs {
+    display: flex;
+    flex-
+========================================
+Occurrence 78:
+antages-showcase {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin-top: 2rem;
+}
+
+/* Left Column: Tabs */
+.advantages-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.advantage-tab {
+    display: flex;
+    align-items: 
+========================================
+Occurrence 79:
+;
+    gap: 3rem;
+    align-items: stretch;
+    margin-top: 2rem;
+}
+
+/* Left Column: Tabs */
+.advantages-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.advantage-tab {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(-
+========================================
+Occurrence 80:
+ntent: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.advantage-tab-icon {
+    font-size: 2.2rem;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08))
+========================================
+Occurrence 81:
+nsition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+}
+
+.advantage-tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.advantage-tab-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s e
+========================================
+Occurrence 82:
+-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.advantage-tab-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.advantage-tab-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-heig
+========================================
+Occurrence 83:
+rection: column;
+    gap: 0.2rem;
+}
+
+.advantage-tab-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.advantage-tab-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.3;
+}
+
+/* Hover State */
+.advantage-
+========================================
+Occurrence 84:
+ 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.advantage-tab-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.3;
+}
+
+/* Hover State */
+.advantage-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rg
+========================================
+Occurrence 85:
+-height: 1.3;
+}
+
+/* Hover State */
+.advantage-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.advantage-tab:hover .advantage-tab-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Active State & Themes */
+.advantag
+========================================
+Occurrence 86:
+;
+}
+
+/* Active State & Themes */
+.advantage-tab.active {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.advantage-tab.active[data-theme="pink"] { border-left: 5px solid var(--primary-color); }
+.advantage-tab.active[data-theme="gold"]
+========================================
+Occurrence 87:
+w: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.advantage-tab.active[data-theme="pink"] { border-left: 5px solid var(--primary-color); }
+.advantage-tab.active[data-theme="gold"] { border-left: 5px solid var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] { border-le
+========================================
+Occurrence 88:
+ve[data-theme="pink"] { border-left: 5px solid var(--primary-color); }
+.advantage-tab.active[data-theme="gold"] { border-left: 5px solid var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] { border-left: 5px solid #9b59b6; }
+.advantage-tab.active[data-theme="blue"] { border-left: 5px soli
+========================================
+Occurrence 89:
+tab.active[data-theme="purple"] { border-left: 5px solid #9b59b6; }
+.advantage-tab.active[data-theme="blue"] { border-left: 5px solid var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] { border-left: 5px solid #26de81; }
+.advantage-tab.active[data-theme="cyan"] { border-left: 5px solid
+========================================
+Occurrence 90:
+: 5px solid #26de81; }
+.advantage-tab.active[data-theme="cyan"] { border-left: 5px solid #4fc3f7; }
+
+.advantage-tab.active .advantage-tab-title {
+    color: var(--primary-color);
+}
+
+.advantage-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-
+========================================
+Occurrence 91:
+}
+.advantage-tab.active[data-theme="cyan"] { border-left: 5px solid #4fc3f7; }
+
+.advantage-tab.active .advantage-tab-title {
+    color: var(--primary-color);
+}
+
+.advantage-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] .adva
+========================================
+Occurrence 92:
+; }
+
+.advantage-tab.active .advantage-tab-title {
+    color: var(--primary-color);
+}
+
+.advantage-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"
+========================================
+Occurrence 93:
+active .advantage-tab-title {
+    color: var(--primary-color);
+}
+
+.advantage-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"] .advantage-tab-tit
+========================================
+Occurrence 94:
+-tab.active[data-theme="gold"] .advantage-tab-title { color: var(--accent-color); }
+.advantage-tab.active[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"] .advantage-tab-title { color: var(--secondary-color); }
+.advantage-tab.active[data-theme="gree
+========================================
+Occurrence 95:
+}
+.advantage-tab.active[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"] .advantage-tab-title { color: var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cya
+========================================
+Occurrence 96:
+[data-theme="purple"] .advantage-tab-title { color: #9b59b6; }
+.advantage-tab.active[data-theme="blue"] .advantage-tab-title { color: var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cyan"] .advantage-tab-titl
+========================================
+Occurrence 97:
+ab.active[data-theme="blue"] .advantage-tab-title { color: var(--secondary-color); }
+.advantage-tab.active[data-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cyan"] .advantage-tab-title { color: #0288d1; }
+
+
+/* Right Column: Stage Showcase */
+.advantages-stag
+========================================
+Occurrence 98:
+ }
+.advantage-tab.active[data-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cyan"] .advantage-tab-title { color: #0288d1; }
+
+
+/* Right Column: Stage Showcase */
+.advantages-stage-wrapper {
+    perspective: 1000px;
+}
+
+.advantages-stage {
+    background: var(--
+========================================
+Occurrence 99:
+-theme="green"] .advantage-tab-title { color: #10ac84; }
+.advantage-tab.active[data-theme="cyan"] .advantage-tab-title { color: #0288d1; }
+
+
+/* Right Column: Stage Showcase */
+.advantages-stage-wrapper {
+    perspective: 1000px;
+}
+
+.advantages-stage {
+    background: var(--bg-white);
+    border-radius:
+========================================
+Occurrence 100:
+kground: var(--bg-white);
+    border-radius: 24px;
+    padding: 3rem;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid
+========================================
+Occurrence 101:
+ background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantages-stage.theme-pink::before { background: radial-gradient(circle at 70% 30%, var(--primary-color) 0%, transparent 70%); }
+.advantages-stage.theme-gold::before { background: radial-gradient(circle at 70% 30%, var(--accent-color) 0%, transparent 
+========================================
+Occurrence 102:
+ 30%, var(--primary-color) 0%, transparent 70%); }
+.advantages-stage.theme-gold::before { background: radial-gradient(circle at 70% 30%, var(--accent-color) 0%, transparent 70%); }
+.advantages-stage.theme-purple::before { background: radial-gradient(circle at 70% 30%, #9b59b6 0%, transparent 70%); }
+.a
+========================================
+Occurrence 103:
+cle at 70% 30%, #9b59b6 0%, transparent 70%); }
+.advantages-stage.theme-blue::before { background: radial-gradient(circle at 70% 30%, var(--secondary-color) 0%, transparent 70%); }
+.advantages-stage.theme-green::before { background: radial-gradient(circle at 70% 30%, #26de81 0%, transparent 70%); }
+.ad
+========================================
+Occurrence 104:
+  opacity: 0.25;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatingParticles 8s infinite linear;
+}
+
+.particle-1 { top: 15%; left: 10%; color: var(--primary-color); animation-duration: 9s; }
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-
+========================================
+Occurrence 105:
+pointer-events: none;
+    z-index: 2;
+    animation: floatingParticles 8s infinite linear;
+}
+
+.particle-1 { top: 15%; left: 10%; color: var(--primary-color); animation-duration: 9s; }
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particl
+========================================
+Occurrence 106:
+ 8s infinite linear;
+}
+
+.particle-1 { top: 15%; left: 10%; color: var(--primary-color); animation-duration: 9s; }
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particle-3 { bottom: 15%; left: 25%; color: var(--purple-color); animation-du
+========================================
+Occurrence 107:
+
+}
+
+.particle-1 { top: 15%; left: 10%; color: var(--primary-color); animation-duration: 9s; }
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particle-3 { bottom: 15%; left: 25%; color: var(--purple-color); animation-duration: 11s; animati
+========================================
+Occurrence 108:
+
+.particle-2 { top: 20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particle-3 { bottom: 15%; left: 25%; color: var(--purple-color); animation-duration: 11s; animation-delay: 2s; }
+
+@keyframes floatingParticles {
+    0% { transform: translateY(0) rotate(0deg
+========================================
+Occurrence 109:
+20%; right: 15%; color: var(--accent-color); animation-duration: 7s; animation-delay: 1s; }
+.particle-3 { bottom: 15%; left: 25%; color: var(--purple-color); animation-duration: 11s; animation-delay: 2s; }
+
+@keyframes floatingParticles {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    50
+========================================
+Occurrence 110:
+  z-index: 3;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stage-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stage-description {
+    color: var(--text-gray
+========================================
+Occurrence 111:
+ottom: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stage-description {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2.2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+========================================
+Occurrence 112:
+
+    opacity: 0;
+}
+
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 992px) {
+    .advantages-showcase {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .advantages-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem 0.2rem 1rem
+========================================
+Occurrence 113:
+ONTACT SECTION ==================== */
+.contact-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: s
+========================================
+Occurrence 114:
+   padding: 6rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info .section-title {
+    color: white;
+    background: non
+========================================
+Occurrence 115:
+: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info .section-title {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+    text-align: left;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    margin
+========================================
+Occurrence 116:
+(300px, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info .section-title {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+    text-align: left;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.contact-items {
+    
+========================================
+Occurrence 117:
+
+.contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    animation: fadeInLeft 0.6s ease backwards;
+}
+
+.
+========================================
+Occurrence 118:
+;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: white;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/
+========================================
+Occurrence 119:
+tarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: #2d3436;
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom
+========================================
+Occurrence 120:
+er;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-logo .logo-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-logo p {
+========================================
+Occurrence 121:
+: 1.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-logo .logo-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-logo p {
+    margin-top: 0.5r
+========================================
+Occurrence 122:
+o-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-logo p {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.footer-social {
+    display: flex;
+    g
+========================================
+Occurrence 123:
+ display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-co
+========================================
+Occurrence 124:
+olor: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 25
+========================================
+Occurrence 125:
+y: 0.7;
+}
+
+/* ==================== NEW YEAR PAGE ==================== */
+body.new-year-page {
+    /* Переопределяем палитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba
+========================================
+Occurrence 126:
+== NEW YEAR PAGE ==================== */
+body.new-year-page {
+    /* Переопределяем палитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba(22, 35, 64, 0.9);
+    --bg-whit
+========================================
+Occurrence 127:
+======== */
+body.new-year-page {
+    /* Переопределяем палитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba(22, 35, 64, 0.9);
+    --bg-white: rgba(255, 255, 255, 0.96);
+========================================
+Occurrence 128:
+e {
+    /* Переопределяем палитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba(22, 35, 64, 0.9);
+    --bg-white: rgba(255, 255, 255, 0.96);
+    --text-gray: #d0e8f2;
+
+ 
+========================================
+Occurrence 129:
+алитру под зиму */
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #b3e5fc;
+    --purple-color: #81d4fa;
+    --blue-color: #01579b;
+    --bg-light: rgba(22, 35, 64, 0.9);
+    --bg-white: rgba(255, 255, 255, 0.96);
+    --text-gray: #d0e8f2;
+
+    /* Светлый, но не белый 
+========================================
+Occurrence 130:
+g, #0b1020 0%, #152348 30%, #1e3c72 60%, #2a5298 100%);
+    background-size: 250% 250%;
+    animation: newYearGradient 22s ease-in-out infinite;
+
+    color: #ffffff;
+}
+@keyframes newYearGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+========================================
+Occurrence 131:
+
+    }
+}
+
+body.new-year-page .header {
+    background: rgba(21, 31, 52, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+body.new-year-page .nav-link {
+    color: #ffffff;
+}
+
+body.new-year-page .nav-link:hover {
+    color: #4fc3f7;
+}
+
+body.new-year-page .nav-link::after {
+    background: linear-gradient(90de
+========================================
+Occurrence 132:
+21, 31, 52, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+body.new-year-page .nav-link {
+    color: #ffffff;
+}
+
+body.new-year-page .nav-link:hover {
+    color: #4fc3f7;
+}
+
+body.new-year-page .nav-link::after {
+    background: linear-gradient(90deg, #4fc3f7, #81d4fa);
+}
+
+body.new-year-page .logo-text {
+   
+========================================
+Occurrence 133:
+
+
+body.new-year-page .logo-text {
+    background: linear-gradient(135deg, #4fc3f7, #81d4fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.new-year-hero {
+    position: relative;
+    padding-top: 6rem;           /* небольшой отступ от шапки 
+========================================
+Occurrence 134:
+-year-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.new-year-hero-content .hero-greeting {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+}
+
+.new-year-title {
+    font-size: 3rem;
+    font-weight: 800;
+   
+========================================
+Occurrence 135:
+ht: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff, #bbdefb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-subtitle {
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 
+========================================
+Occurrence 136:
+;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-subtitle {
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    color: #e3f2fd;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.new-year-characters {
+    position: relative;
+    padding-top: 2rem;
+    padding-botto
+========================================
+Occurrence 137:
+-year-characters .section-title {
+    background: linear-gradient(135deg, #ffffff, #4fc3f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-characters .section-subtitle {
+    color: #d0e8f2;
+    text-shadow: 0 
+========================================
+Occurrence 138:
+ip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.new-year-characters .section-subtitle {
+    color: #d0e8f2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.new-year-characters .characters-grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* У
+========================================
+Occurrence 139:
+енная контрастность кнопок на новогодней странице */
+body.new-year-page .btn-primary {
+    background: linear-gradient(135deg, #4fc3f7, #0288d1);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(79, 195, 247, 0.4);
+}
+
+body.new-year-page .btn-primary:hover {
+    box-shadow: 0 12
+========================================
+Occurrence 140:
+ry:hover {
+    box-shadow: 0 12px 32px rgba(79, 195, 247, 0.5);
+}
+
+body.new-year-page .btn-secondary {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0288d1;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.new-year-page .btn-secondary:hover {
+    background: #ffffff
+========================================
+Occurrence 141:
+ar-page .footer-logo .logo-text {
+    background: linear-gradient(135deg, #4fc3f7, #81d4fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.new-year-page .social-link {
+    background: rgba(79, 195, 247, 0.2);
+    color: #ffffff;
+    bord
+========================================
+Occurrence 142:
+   -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.new-year-page .social-link {
+    background: rgba(79, 195, 247, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+body.new-year-page .social-link:hover {
+    background: #4fc3f7;
+    border-color: #4fc
+========================================
+Occurrence 143:
+2);
+    color: #ffffff;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+body.new-year-page .social-link:hover {
+    background: #4fc3f7;
+    border-color: #4fc3f7;
+}
+
+/* Карточки персонажей на новогодней странице */
+body.new-year-page .character-card {
+    background: rgba(255, 255, 255, 0.98);
+    b
+========================================
+Occurrence 144:
+0.3);
+}
+
+body.new-year-page .character-card:hover {
+    box-shadow: 0 12px 40px rgba(79, 195, 247, 0.4);
+}
+
+body.new-year-page .loading-message {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.snowflake {
+    position: absolute;
+    top: -12px;
+    width: 8px;
+    height: 8px;
+ 
+========================================
+Occurrence 145:
+.hero-title-sub {
+        font-size: 2.2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat
+========================================
+Occurrence 146:
+{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    
+========================================
+Occurrence 147:
+  }
+
+    .characters-grid,
+    .characters-grid.view-3,
+    .characters-grid.view-4,
+    .characters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+      
+========================================
+Occurrence 148:
+ters-grid.view-4-square,
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+
+========================================
+Occurrence 149:
+repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-ali
+========================================
+Occurrence 150:
+       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-column 
+========================================
+Occurrence 151:
+   grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-column layout) */
+    .character-card {
+        border-radius: 14px !i
+========================================
+Occurrence 152:
+columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Card Optimizations (for 2-column layout) */
+    .character-card {
+        border-radius: 14px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    }
+
+   
+========================================
+Occurrence 153:
+, 0, 0, 0.08) !important;
+    }
+
+    .character-info {
+        padding: 0.75rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-grow: 1 !important;
+    }
+
+    .character-header {
+        margin-bottom: 0.4rem !important;
+    }
+
+    .character-name {
+========================================
+Occurrence 154:
+;
+        padding-top: 0.5rem !important;
+        border-top: 1px solid #f0f0f0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+    }
+
+    .character-price {
+        font-size: 0.95rem !important;
+    }
+
+    .character-price .pric
+========================================
+Occurrence 155:
+.character-price .price-amount {
+        font-size: 1.15rem !important;
+    }
+
+    .character-package {
+        font-size: 0.7rem !important;
+        color: var(--text-gray) !important;
+        margin-top: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+      
+========================================
+Occurrence 156:
+ 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.filters-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.filters-header #search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 
+========================================
+Occurrence 157:
+ontserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.filters-header #search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filters-header .btn-reset-filters {
+    flex-shrink: 0;
+}
+
+.btn-rese
+========================================
+Occurrence 158:
+f;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.filters-header #search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filters-header .btn-reset-filters {
+    flex-shrink: 0;
+}
+
+.btn-reset-filters {
+    backg
+========================================
+Occurrence 159:
+ 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filters-header .btn-reset-filters {
+    flex-shrink: 0;
+}
+
+.btn-reset-filters {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    c
+========================================
+Occurrence 160:
+ 234, 0.1);
+}
+
+.filters-header .btn-reset-filters {
+    flex-shrink: 0;
+}
+
+.btn-reset-filters {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    t
+========================================
+Occurrence 161:
+lters {
+    flex-shrink: 0;
+}
+
+.btn-reset-filters {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reset-filt
+========================================
+Occurrence 162:
+r-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reset-filters:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Filters Grid Layout - 5 columns desktop, adapts on mobile */
+.filters-grid {
+    display
+========================================
+Occurrence 163:
+px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reset-filters:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Filters Grid Layout - 5 columns desktop, adapts on mobile */
+.filters-grid {
+    display: grid;
+    
+========================================
+Occurrence 164:
+
+}
+
+.btn-reset-filters:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Filters Grid Layout - 5 columns desktop, adapts on mobile */
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+========================================
+Occurrence 165:
+or: white;
+    transform: translateY(-2px);
+}
+
+/* Filters Grid Layout - 5 columns desktop, adapts on mobile */
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Accordion Styles */
+.filter-accordion {
+    position: relative;
+    border: 1px soli
+========================================
+Occurrence 166:
+olid var(--bg-light);
+    border-radius: 12px;
+    overflow: visible;
+    background: white;
+    z-index: 10;
+}
+
+.filter-accordion:hover {
+    border-color: #d0d0d0;
+}
+
+.filter-accordion.open {
+    z-index: 100;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+.filter-accordion-header {
+  
+========================================
+Occurrence 167:
+ems: center;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.filter-accordion-header:hover {
+    color: var(--primary-color);
+}
+
+.filter-accordion-icon 
+========================================
+Occurrence 168:
+round: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.filter-accordion-header:hover {
+    color: var(--primary-color);
+}
+
+.filter-accordion-icon {
+    display: inline-block;
+    transiti
+========================================
+Occurrence 169:
+;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.filter-accordion-header:hover {
+    color: var(--primary-color);
+}
+
+.filter-accordion-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+    flex
+========================================
+Occurrence 170:
+rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.filter-accordion-header:hover {
+    color: var(--primary-color);
+}
+
+.filter-accordion-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margi
+========================================
+Occurrence 171:
+ 12px 12px;
+    margin-top: -1px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.filter-accordion.open .filter-accordion-body {
+    opacity: 1;
+
+========================================
+Occurrence 172:
+(--bg-light);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.price-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+========================================
+Occurrence 173:
+ font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.filter-label {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.filter-search {
+    padding: 0
+========================================
+Occurrence 174:
+m;
+    margin-top: 0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.filter-label {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.filter-search {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--bg-light);
+    border-radius: 
+========================================
+Occurrence 175:
+   font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-checkboxes {
+    display: flex;
+    flex-direction: column;
+ 
+========================================
+Occurrence 176:
+serrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.f
+========================================
+Occurrence 177:
+order-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.filter-checkbo
+========================================
+Occurrence 178:
+lect: none;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.8rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.filter-checkbox span {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.filter-
+========================================
+Occurrence 179:
+r-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.8rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.filter-checkbox span {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.filter-checkbox:hover span {
+========================================
+Occurrence 180:
+ width: 20px;
+    height: 20px;
+    margin-right: 0.8rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.filter-checkbox span {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.filter-checkbox:hover span {
+    color: var(--text-dark);
+}
+
+.price
+========================================
+Occurrence 181:
+sor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.filter-checkbox span {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.filter-checkbox:hover span {
+    color: var(--text-dark);
+}
+
+.price-slider {
+    height: 8px;
+    margin: 1rem 0;
+}
+
+.price-values {
+========================================
+Occurrence 182:
+}
+
+.filter-checkbox span {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.filter-checkbox:hover span {
+    color: var(--text-dark);
+}
+
+.price-slider {
+    height: 8px;
+    margin: 1rem 0;
+}
+
+.price-values {
+    text-align: center;
+    color: var(--text-gray);
+
+========================================
+Occurrence 183:
+kbox:hover span {
+    color: var(--text-dark);
+}
+
+.price-slider {
+    height: 8px;
+    margin: 1rem 0;
+}
+
+.price-values {
+    text-align: center;
+    color: var(--text-gray);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* noUiSlider Custom Styles */
+.noUi-target {
+    background: var(--bg-light);
+ 
+========================================
+Occurrence 184:
+t {
+    background: var(--bg-light);
+    border: none;
+    box-shadow: none;
+}
+
+.noUi-connect {
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+}
+
+.noUi-handle {
+    background: white;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0
+========================================
+Occurrence 185:
+ar(--bg-light);
+    border: none;
+    box-shadow: none;
+}
+
+.noUi-connect {
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+}
+
+.noUi-handle {
+    background: white;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-r
+========================================
+Occurrence 186:
+und: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+}
+
+.noUi-handle {
+    background: white;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+    display: none;
+}
+
+/* ====
+========================================
+Occurrence 187:
+ 1.5rem;
+    background: var(--bg-light);
+    border-radius: 15px;
+    animation: fadeInUp 0.7s ease;
+}
+
+.results-counter {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.results-counter span {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.sort-controls {
+  
+========================================
+Occurrence 188:
+n: fadeInUp 0.7s ease;
+}
+
+.results-counter {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.results-counter span {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sort-controls la
+========================================
+Occurrence 189:
+;
+}
+
+.results-counter {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.results-counter span {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sort-controls label {
+    font-weight
+========================================
+Occurrence 190:
+nt-size: 1.3rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sort-controls label {
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.sort-select {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: 'Montserr
+========================================
+Occurrence 191:
+ font-size: 0.95rem;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* View toggle button in characters toolbar */
+.view-toggle-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+========================================
+Occurrence 192:
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* View toggle button in characters toolbar */
+.view-toggle-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    flex-shrink: 0;
+
+========================================
+Occurrence 193:
+d #e0e0e0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-gray);
+    transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+   
+========================================
+Occurrence 194:
+pointer;
+    padding: 0;
+    color: var(--text-gray);
+    transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-toggle-icon {
+    font-size: 0.9re
+========================================
+Occurrence 195:
+ 0;
+    color: var(--text-gray);
+    transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-toggle-icon {
+    font-size: 0.9rem;
+    font-weight: 7
+========================================
+Occurrence 196:
+r: var(--text-gray);
+    transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-toggle-icon {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line
+========================================
+Occurrence 197:
+    transition: all 0.25s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.view-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.view-toggle-icon {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ===
+========================================
+Occurrence 198:
+erflow: hidden;
+}
+
+.character-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Счётчик фотографий на карточке персонажа */
+.character-photo-counter {
+    position: absolute;
+    bottom: 0.75rem;
+    le
+========================================
+Occurrence 199:
+0;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.character-photo-counter-text {
+    line-height: 1;
+}
+
+.badg
+========================================
+Occurrence 200:
+  letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-new {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.badge-popular {
+    background: linear-gradient(135deg, #ffd89b, #19547b);
+    color: white;
+}
+
+/* Swiper in Character Cards */
+.charac
+========================================
+Occurrence 201:
+ound: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.badge-popular {
+    background: linear-gradient(135deg, #ffd89b, #19547b);
+    color: white;
+}
+
+/* Swiper in Character Cards */
+.character-swiper {
+    width: 100%;
+    height: 0;
+    padding-bottom: 140%; /* Соотношение 10:14 */
+  
+========================================
+Occurrence 202:
+gination-bullet-active {
+    background: white;
+    opacity: 1;
+}
+
+.character-swiper .swiper-button-next,
+.character-swiper .swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.character-swiper .swiper-button-next:aft
+========================================
+Occurrence 203:
+.character-meta {
+    margin-bottom: 1rem;
+}
+
+.feature-icon {
+    margin-right: 0.3rem;
+}
+
+.character-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--bg-light);
+}
+
+.character-footer-row {
+    display: 
+========================================
+Occurrence 204:
+lign-items: center;
+}
+
+.character-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.price-currency {
+    font-s
+========================================
+Occurrence 205:
+ap: 0.3rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.price-currency {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.character-package {
+    font-size: 0.85rem;
+    c
+========================================
+Occurrence 206:
+-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.price-currency {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.character-package {
+    font-size: 0.85rem;
+    color: var(--green-col
+========================================
+Occurrence 207:
+gray);
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.price-currency {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.character-package {
+    font-size: 0.85rem;
+    color: var(--green-color);
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+========================================
+Occurrence 208:
+lor: var(--primary-color);
+}
+
+.price-currency {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.character-package {
+    font-size: 0.85rem;
+    color: var(--green-color);
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    background: rgba(46, 213, 115, 0.1);
+    border-radius: 10px;
+}
+
+/* Hour
+========================================
+Occurrence 209:
+color);
+}
+
+.price-currency {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.character-package {
+    font-size: 0.85rem;
+    color: var(--green-color);
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    background: rgba(46, 213, 115, 0.1);
+    border-radius: 10px;
+}
+
+/* Hours selector inside b
+========================================
+Occurrence 210:
+s: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.hours-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    min-width: 60px;
+    text-align: center;
+}
+
+.hours-minus,
+.hours-plus {
+    display: inline-flex;
+    align-items: center;
+    justify-
+========================================
+Occurrence 211:
+width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.ho
+========================================
+Occurrence 212:
+n: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.hours-minus:hover,
+.hours-plus:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.hours-minus:active,
+.hours-plus:active {
+    transform: scale(0.9);
+}
+
+/* ===============
+========================================
+Occurrence 213:
+form: scale(0.9);
+}
+
+/* ==================== LOADING & EMPTY STATES ==================== */
+.loading-message,
+.error-message,
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+}
+
+.error-message p {
+    color: var(--red
+========================================
+Occurrence 214:
+ATES ==================== */
+.loading-message,
+.error-message,
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+}
+
+.error-message p {
+    color: var(--red-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.emp
+========================================
+Occurrence 215:
+e {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+}
+
+.error-message p {
+    color: var(--red-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== MOBILE 
+========================================
+Occurrence 216:
+mn: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+}
+
+.error-message p {
+    color: var(--red-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== MOBILE RESPONSIVE FOR NE
+========================================
+Occurrence 217:
+-2, .note-3, .note-6, .note-7, .note-8, .note-9 {
+        display: none;
+    }
+
+    /* Планшет: 3 колонки для фильтров */
+    .filters-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .view-toggle-btn {
+        display: none !important;
+    }
+
+    /* Смеща
+========================================
+Occurrence 218:
+tom: 0.6rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        f
+========================================
+Occurrence 219:
+   }
+
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .filters-content {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-panel {
+        padding: 1rem;
+    }
+
+    /* Шапка фильтров: заголовок + поиск в первой строке, кнопка сброса — на второй *
+========================================
+Occurrence 220:
+%;
+        order: 3;
+        text-align: center;
+    }
+
+    /* На мобильных — 2 колонки для фильтров, все кнопки видны */
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .characters-toolbar {
+        flex-direction: column;
+        gap: 0.7
+========================================
+Occurrence 221:
+   grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .characters-toolbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+        padding: 0.75rem 1rem;
+    }
+
+    .sort-controls {
+        justify-content: flex-star
+========================================
+Occurrence 222:
+swiper {
+        padding-bottom: 140% !important; /* Сохраняем пропорции 10:14 на мобильных */
+    }
+
+    .character-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    /* На мобильных кнопка "Заказать" всегда видна */
+    .btn-order-inline {
+      
+========================================
+Occurrence 223:
+0.98) !important;
+    }
+    
+    /* Упрощаем градиенты */
+    .hero,
+    .contact-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 58%, #243043 100%) !important;
+    }
+    
+    /* Отключаем hover эффекты полностью */
+    .btn:hover,
+    .nav-link:hov
+========================================
+Occurrence 224:
+ 
+    /* Упрощаем градиенты */
+    .hero,
+    .contact-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 58%, #243043 100%) !important;
+    }
+    
+    /* Отключаем hover эффекты полностью */
+    .btn:hover,
+    .nav-link:hover,
+    .stat-card:hover,
+ 
+========================================
+Occurrence 225:
+ansition */
+    * {
+        transition: none !important;
+    }
+
+    /* На совсем узких экранах — одна колонка фильтров */
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .filters-panel {
+        padding: 0.75rem;
+    }
+
+    .characters-toolbar {
+        padding: 0.5rem 
+========================================
+Occurrence 226:
+1400px;
+    max-height: 90vh;
+    height: 90vh; /* вся модалка строго в пределах экрана */
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* всё, что не помещается, не вылезает за края */
+}
+
+.gallery-body {
+    display: grid;
+    grid-template-columns: 4fr 7fr;
+========================================
+Occurrence 227:
+: flex;
+    flex-direction: column;
+    overflow: hidden; /* всё, что не помещается, не вылезает за края */
+}
+
+.gallery-body {
+    display: grid;
+    grid-template-columns: 4fr 7fr; /* описание ~30%, фото ~70% */
+    gap: 2rem;
+    flex: 1 1 auto;
+    height: 100%;
+    max-height: 100%;
+    align-items: stretch;
+}
+
+/* Л
+========================================
+Occurrence 228:
+{
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gallery-character-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    backgrou
+========================================
+Occurrence 229:
+-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gallery-character-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit
+========================================
+Occurrence 230:
+ext-dark);
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-character-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-gra
+========================================
+Occurrence 231:
+-webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-character-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-gray);
+}
+
+.gallery-character-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-detail-item {
+    disp
+========================================
+Occurrence 232:
+on {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-gray);
+}
+
+.gallery-character-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(
+========================================
+Occurrence 233:
+ground: var(--bg-light);
+    border-radius: 12px;
+}
+
+.gallery-detail-icon {
+    font-size: 1.5rem;
+}
+
+.gallery-detail-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.gallery-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+ 
+========================================
+Occurrence 234:
+ry-detail-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.gallery-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    borde
+========================================
+Occurrence 235:
+s: 15px;
+}
+
+.gallery-price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.gallery-price-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.gallery-price-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764
+========================================
+Occurrence 236:
+em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-price-currency {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+}
+
+.gallery-packages {
+  
+========================================
+Occurrence 237:
+t-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-price-currency {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+}
+
+.gallery-packages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gallery-package-item {
+    padding: 0
+========================================
+Occurrence 238:
+ text;
+}
+
+.gallery-price-currency {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+}
+
+.gallery-packages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gallery-package-item {
+    padding: 0.75rem;
+    background: white;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    col
+========================================
+Occurrence 239:
+column;
+    gap: 0.5rem;
+}
+
+.gallery-package-item {
+    padding: 0.75rem;
+    background: white;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.gallery-package-item strong {
+    color: var(--primary);
+}
+
+.gallery-order-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+  
+========================================
+Occurrence 240:
+: 0.75rem;
+    background: white;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.gallery-package-item strong {
+    color: var(--primary);
+}
+
+.gallery-order-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin-top: auto;
+}
+
+/* Изображения (с
+========================================
+Occurrence 241:
+nt-size: 1.1rem;
+    margin-top: auto;
+}
+
+/* Изображения (справа) */
+.gallery-images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height
+========================================
+Occurrence 242:
+: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow:
+========================================
+Occurrence 243:
+transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+}
+
+.gallery-close:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.gallery-main-image {
+    width: 100%;
+    flex: 1 1 auto; /* занимает всё доступное пространс
+========================================
+Occurrence 244:
+all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+}
+
+.gallery-close:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.gallery-main-image {
+    width: 100%;
+    flex: 1 1 auto; /* занимает всё доступное пространство, оставше
+========================================
+Occurrence 245:
+50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow:
+========================================
+Occurrence 246:
+
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.gallery-thumbnail:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 2
+========================================
+Occurrence 247:
+k: 0;
+}
+
+.gallery-thumbnail:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-f
+========================================
+Occurrence 248:
+mbnail:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galler
+========================================
+Occurrence 249:
+dow: 0 0 20px rgba(230, 57, 70, 0.5);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-counter {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Mobile Optimizations for Gallery */
+@media (max-width: 768px) {
+
+========================================
+Occurrence 250:
+to;
+    }
+
+    /* Мобильная версия: сначала полноэкранное фото, ниже — описание */
+    .gallery-body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+        max-height: none;
+        gap: 0;
+        overflow-y: visible;
+        background: rgba(
+========================================
+Occurrence 251:
+
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.programs-section .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Program Card Styles */
+.programs-section .program-card {
+    backg
+========================================
+Occurrence 252:
+ard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.programs-section .program-card-selected {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #fef5f5 0%, #ffffff 100%);
+}
+
+.programs-section .program-card.selected {
+    box-sha
+========================================
+Occurrence 253:
+form: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.programs-section .program-card-selected {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #fef5f5 0%, #ffffff 100%);
+}
+
+.programs-section .program-card.selected {
+    box-shadow: 0 8px 24px rgba(
+========================================
+Occurrence 254:
+dient(135deg, #fef5f5 0%, #ffffff 100%);
+}
+
+.programs-section .program-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
+}
+
+.programs-section .program-card-unavailable {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+.pro
+========================================
+Occurrence 255:
+ 0%, #ffffff 100%);
+}
+
+.programs-section .program-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
+}
+
+.programs-section .program-card-unavailable {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+.programs-section .progra
+========================================
+Occurrence 256:
+rams-section .program-emoji {
+    font-size: 3rem;
+    display: block;
+}
+
+.programs-section .program-unavailable-badge {
+    background: #e74c3c;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.programs-section .program-name {
+ 
+========================================
+Occurrence 257:
+der-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.programs-section .program-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.programs-section .program-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-co
+========================================
+Occurrence 258:
+nt-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.programs-section .program-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    line-
+========================================
+Occurrence 259:
+olor: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.programs-section .program-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    line-height: 1.5;
+    marg
+========================================
+Occurrence 260:
+font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-default-character {
+    font-size: 0.85rem;
+    color: #9
+========================================
+Occurrence 261:
+;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.programs-section .program-default-character {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Program bonus badge */
+.program-bonus {
+    font-size: 0.8rem;
+    color: #27ae60;
+    background: #e8f8f5;
+========================================
+Occurrence 262:
+racter {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Program bonus badge */
+.program-bonus {
+    font-size: 0.8rem;
+    color: #27ae60;
+    background: #e8f8f5;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+========================================
+Occurrence 263:
+rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Badge for unavailable programs */
+.badge-unavailable {
+    background: #e74c3c !important;
+    color: white !important;
+}
+
+/* Programs Sections */
+.programs-section .programs-section {
+    margin-bottom: 3rem;
+}
+
+.programs-section .programs-section
+========================================
+Occurrence 264:
+ams-section .programs-section {
+    margin-bottom: 3rem;
+}
+
+.programs-section .programs-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.programs-section .programs-unavailable {
+    margin-top: 3rem;
+}
+
+.programs-section .programs-hint {
+    col
+========================================
+Occurrence 265:
+color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.programs-section .programs-unavailable {
+    margin-top: 3rem;
+}
+
+.programs-section .programs-hint {
+    color: #95a5a6;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.programs-section .programs-list {
+    display: grid;
+    grid-template-columns: re
+========================================
+Occurrence 266:
+ .programs-hint {
+    color: #95a5a6;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.programs-section .programs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Empty State */
+.programs-section .empty-state {
+    text-align: center;
+    padding: 4re
+========================================
+Occurrence 267:
+o-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Empty State */
+.programs-section .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #95a5a6;
+}
+
+.programs-section .empty-state p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.additional-services-section {
+    padding: 90px 0;
+    ba
+========================================
+Occurrence 268:
+180deg, var(--bg-light) 0%, #ffffff 100%);
+    border-top: 1px solid rgba(138, 147, 158, 0.16);
+}
+
+.additional-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.additional-service-card {
+    background: rgba(248, 249, 250, 0.98
+========================================
+Occurrence 269:
+en;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(138, 147, 158, 0.14);
+}
+
+.additional-service-card:hover {
+    transform: translateY(-5px);
+    box-s
+========================================
+Occurrence 270:
+nal-service-card.additional-service-card-selected,
+.additional-service-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.08) 0%, rgba(248, 249, 250, 0.98) 100%);
+    outline: none;
+}
+
+.
+========================================
+Occurrence 271:
+tional-service-card-selected,
+.additional-service-card.selected {
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.18);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.08) 0%, rgba(248, 249, 250, 0.98) 100%);
+    outline: none;
+}
+
+.additional-service-ca
+========================================
+Occurrence 272:
+ */
+.character-overlay .additional-service-qty {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.character-overlay .additional-service-qty-value {
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+
+========================================
+Occurrence 273:
+5, 255, 0.18);
+}
+
+.character-overlay .additional-service-qty-value {
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn:hover {
+ 
+========================================
+Occurrence 274:
+white;
+}
+
+.character-overlay .additional-service-qty-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: white;
+}
+
+.additiona
+========================================
+Occurrence 275:
+5, 255, 255, 0.15);
+    color: white;
+}
+
+.character-overlay .additional-service-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: white;
+}
+
+.additional-service-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 
+========================================
+Occurrence 276:
+}
+
+.additional-service-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+  
+========================================
+Occurrence 277:
+ 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.additional-service-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.additional-service-title {
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+========================================
+Occurrence 278:
+x;
+    flex-direction: column;
+    flex: 1;
+}
+
+.additional-service-title {
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.additional-service-text {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.additional-service
+========================================
+Occurrence 279:
+service-title {
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.additional-service-text {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.additional-service-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wr
+========================================
+Occurrence 280:
+justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.additional-service-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.additional-service-action {
+    white-space: nowrap;
+}
+
+.additional-service-action.btn-select {
+    min-width: 142px;
+  
+========================================
+Occurrence 281:
+e-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.additional-service-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.additional-service-action {
+    white-space: nowrap;
+}
+
+.additional-service-action.btn-select {
+    min-width: 142px;
+    justify-content: ce
+========================================
+Occurrence 282:
+ width: 28px;
+    height: 28px;
+    border: 2px solid rgba(230, 57, 70, 0.35);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    pad
+========================================
+Occurrence 283:
+ght: 28px;
+    border: 2px solid rgba(230, 57, 70, 0.35);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.addition
+========================================
+Occurrence 284:
+tion: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.additional-service-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(230, 57, 70, 0.55);
+    transform: scale(1.08);
+}
+
+.additional-service-qty-btn:active {
+    transform: scale(0.94);
+}
+
+.additional-service-qt
+========================================
+Occurrence 285:
+ty-btn:active {
+    transform: scale(0.94);
+}
+
+.additional-service-qty-value {
+    min-width: 60px;
+    text-align: center;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.additional-services-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding
+========================================
+Occurrence 286:
+3, 157, 0.08) 0%, rgba(244, 162, 97, 0.08) 100%);
+    border: 1px solid rgba(69, 123, 157, 0.16);
+}
+
+.additional-services-note p {
+    margin: 0;
+    color: #4b5563;
+}
+
+/* ====================
+   SELECTION BOTTOM BAR
+   ==================== */
+
+.selection-bar {
+    position: fixed;
+    bottom: 0;
+    l
+========================================
+Occurrence 287:
+.25rem 0;
+    gap: 2rem;
+}
+
+.selection-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.selection-summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selection-price {
+    font-si
+========================================
+Occurrence 288:
+m;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selection-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff6b6b;
+}
+
+.selection-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.selection-clear-btn {
+    padding: 0.75rem 1.5rem;
+    
+========================================
+Occurrence 289:
+gap: 1rem;
+    flex-shrink: 0;
+}
+
+.selection-clear-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.selection-clear-btn:hover {
+    bac
+========================================
+Occurrence 290:
+r-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.selection-clear-btn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.selection-continue-btn {
+    padding: 0.75rem 2rem;
+    min-width: 150px;
+}
+
+.selection-continue-btn.btn-disabled {
+    opacity: 0.5;
+ 
+========================================
+Occurrence 291:
+disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Character Card Selected State */
+[data-character-id].character-card-selected {
+    border-color: #ff6b6b !important;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%) !important;
+}
+
+[data-character-id].character-card-selected::
+========================================
+Occurrence 292:
+ed::after {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2re
+========================================
+Occurrence 293:
+E STYLES
+   ==================== */
+
+@media (max-width: 768px) {
+    .programs-section .programs-grid,
+    .programs-section .programs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+  
+========================================
+Occurrence 294:
+programs-section .programs-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+ 
+========================================
+Occurrence 295:
+-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .additional-service-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
+    }
+
+    .selection-bar-content {
+        flex-direc
+========================================
+Occurrence 296:
+       align-items: stretch;
+    }
+
+    .additional-service-action {
+        width: 100%;
+    }
+
+    .selection-bar-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+    }
+
+    .selection-actions {
+        width: 100%;
+    }
+
+    .selection-actions button 
+========================================
+Occurrence 297:
+   }
+
+    .selection-summary {
+        white-space: normal;
+        overflow: visible;
+    }
+
+    .additional-services-note {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .programs-section .program-card {
+        padd
+========================================
+Occurrence 298:
+: 600px;
+    max-height: 85vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 
+========================================
+Occurrence 299:
+, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.calculation-modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    -webkit-background-clip: text;
+   
+========================================
+Occurrence 300:
+dal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.calculation-mod
+========================================
+Occurrence 301:
+ont-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.calculation-modal-close {
+    backgr
+========================================
+Occurrence 302:
+rgin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.calculation-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #94a
+========================================
+Occurrence 303:
+xt-fill-color: transparent;
+    background-clip: text;
+}
+
+.calculation-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0;
+    display: flex;
+    ali
+========================================
+Occurrence 304:
+dal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    heigh
+========================================
+Occurrence 305:
+ align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.calculation-modal-close:hover {
+    color: #475569;
+    background: #f1f5f9;
+    transform: rotate(90deg);
+}
+
+.calculation-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+========================================
+Occurrence 306:
+  transform: rotate(90deg);
+}
+
+.calculation-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #f8fafc;
+}
+
+.estimate-summary-card {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%);
+    padd
+========================================
+Occurrence 307:
+afc;
+}
+
+.estimate-summary-card {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%);
+    padding: 1.5rem;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px -5px rgba(108, 92, 231, 0.4);
+========================================
+Occurrence 308:
+ize: 2.2rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.estimate-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.estimate-item-row {
+    background: #ffffff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    jus
+========================================
+Occurrence 309:
+ {
+    background: #e8f0ff;
+}
+
+.estimate-item-icon.service {
+    background: #e8fff0;
+}
+
+.estimate-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.estimate-item-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+.estimate-item-meta {
+    font-siz
+========================================
+Occurrence 310:
+ #e8fff0;
+}
+
+.estimate-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.estimate-item-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+.estimate-item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.estimate-item-pric
+========================================
+Occurrence 311:
+2rem;
+}
+
+.estimate-item-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+.estimate-item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.estimate-item-price {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 1.15rem;
+}
+
+.calculation-modal-f
+========================================
+Occurrence 312:
+05rem;
+}
+
+.estimate-item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.estimate-item-price {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 1.15rem;
+}
+
+.calculation-modal-footer {
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8
+========================================
+Occurrence 313:
+  }
+
+    .calculation-modal-body {
+        padding: 1.25rem;
+    }
+
+    .calculation-modal-footer {
+        padding: 1.25rem;
+        flex-direction: column;
+    }
+
+    .estimate-total-price {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==================== PAGE BACKGROUND DECORATIVE RACCOONS ==============
+========================================
+Occurrence 314:
+r-bottom-left-radius: 0;
+}
+
+/* Static Left Cover */
+.book-cover-left {
+    width: 50%;
+    height: 100%;
+    background: #FFFDF9; /* Warm craft paper color */
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-right: 1px dashed rgba(139, 125, 107, 0.15);
+    box-shadow: i
+========================================
+Occurrence 315:
+  box-shadow: inset -15px 0 30px rgba(92, 58, 33, 0.08);
+    padding: 3rem 2.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* Static Right Cover */
+.book-cover-right {
+    width: 50%;
+    height: 100%;
+    background: #FFFDF9
+========================================
+Occurrence 316:
+   box-shadow: inset 15px 0 30px rgba(92, 58, 33, 0.08);
+    padding: 3rem 2.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* Center decorative notebook rings */
+.notebook-rings-3d {
+    position: absolute;
+    top: 25px;
+   
+========================================
+Occurrence 317:
+m: translateX(-50%);
+    z-index: 50; /* Stays on top of static pages, below the turning page at peak angle */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+}
+
+.ring-3d {
+    width: 16px;
+    height: 48px;
+    border
+========================================
+Occurrence 318:
+border-radius: 4px;
+    box-shadow: inset 3px 0 15px rgba(92, 58, 33, 0.02), 5px 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+/* Ruled paper horizontal lines and red vertical margin dividers for cozy sc
+========================================
+Occurrence 319:
+(92, 58, 33, 0.02), 5px 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+/* Ruled paper horizontal lines and red vertical margin dividers for cozy school-notebook aesthetics */
+.book-page.page-front {
+    z
+========================================
+Occurrence 320:
+arent 27px, rgba(139, 125, 107, 0.06) 28px),
+        #FFFDF9;
+}
+
+/* Active page subtle glow/warm highlight */
+.book-page.active-page {
+    background-color: #FFFDF0;
+    box-shadow: inset 0 0 25px rgba(244, 162, 97, 0.08), 0 12px 30px rgba(244, 162, 97, 0.06);
+}
+
+/* Handwritten class support */
+.font-h
+========================================
+Occurrence 321:
+ !important;
+}
+
+/* Introductory page layout inside Left Cover */
+.diary-sidebar-title {
+    font-size: 1.6rem; /* Slightly tightened font-size */
+    color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    line-height: 1.4;
+    border-bottom: 2px dashed rgba(244, 162, 97, 
+========================================
+Occurrence 322:
+oductory page layout inside Left Cover */
+.diary-sidebar-title {
+    font-size: 1.6rem; /* Slightly tightened font-size */
+    color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    line-height: 1.4;
+    border-bottom: 2px dashed rgba(244, 162, 97, 0.25);
+    padding-bott
+========================================
+Occurrence 323:
+x;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.3rem;
+}
+
+.diary-sidebar-note p {
+    font-size: 0.92rem; /* Optimized size */
+    color: #b26a31;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Absolute Floating Tab Bookmarks on the Left side of the book */
+.diary
+========================================
+Occurrence 324:
+t side of the book */
+.diary-tabs {
+    position: absolute;
+    left: -200px;
+    top: 60px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+
+.diary-tab {
+    background: #e6dfd3;
+    border: 2px solid #c8bda8;
+    border-right: none;
+    border-radiu
+========================================
+Occurrence 325:
+er-radius: 14px 0 0 14px; /* Rounded only on the left side */
+    padding: 0.9rem 1.1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -5px 5px 10px rgba(92, 58, 33, 
+========================================
+Occurrence 326:
+dow: -8px 8px 15px rgba(92, 58, 33, 0.15);
+}
+
+.diary-tab.active {
+    background: #FFFDF9; /* Seamless background with page craft paper */
+    border-color: #e6dfd3;
+    border-right: 2px solid #FFFDF9; /* Seamless link into left page */
+    transform: translateX(-12px); /* Extends further out when act
+========================================
+Occurrence 327:
+10px 10px 20px rgba(92, 58, 33, 0.18);
+    z-index: 101; /* Layer overlap override */
+}
+
+.tab-time {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    background: rgba(139, 125, 107, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.tab-
+========================================
+Occurrence 328:
+ 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.tab-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    tex
+========================================
+Occurrence 329:
+rder-radius: 6px;
+    transition: all 0.3s;
+}
+
+.tab-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
+}
+
+.diary-tab.active .tab-
+========================================
+Occurrence 330:
+ overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
+}
+
+.diary-tab.active .tab-time {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.diary-tab.active .tab-label {
+    color: var(--primary-color);
+}
+
+/* Page Contents Styles */
+.diary-entry-header {
+    di
+========================================
+Occurrence 331:
+idden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
+}
+
+.diary-tab.active .tab-time {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.diary-tab.active .tab-label {
+    color: var(--primary-color);
+}
+
+/* Page Contents Styles */
+.diary-entry-header {
+    display: flex;
+========================================
+Occurrence 332:
+   text-align: left;
+}
+
+.diary-tab.active .tab-time {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.diary-tab.active .tab-label {
+    color: var(--primary-color);
+}
+
+/* Page Contents Styles */
+.diary-entry-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.
+========================================
+Occurrence 333:
+}
+
+.diary-tab.active .tab-time {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.diary-tab.active .tab-label {
+    color: var(--primary-color);
+}
+
+/* Page Contents Styles */
+.diary-entry-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weigh
+========================================
+Occurrence 334:
+age Contents Styles */
+.diary-entry-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-bottom: 1.2rem;
+    border-bottom: 1px dashed rgba(139, 125, 107, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.entry-title {
+========================================
+Occurrence 335:
+er-bottom: 1px dashed rgba(139, 125, 107, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.entry-title {
+    font-size: 1.45rem; /* Tightened from 1.7rem */
+    color: var(--primary-color);
+    margin-bottom: 0.8rem; /* Tightened from 1.2rem */
+    line-height: 1.3;
+}
+
+.entry-text {
+    font-size: 0.95rem; /* Dec
+========================================
+Occurrence 336:
+ rgba(139, 125, 107, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.entry-title {
+    font-size: 1.45rem; /* Tightened from 1.7rem */
+    color: var(--primary-color);
+    margin-bottom: 0.8rem; /* Tightened from 1.2rem */
+    line-height: 1.3;
+}
+
+.entry-text {
+    font-size: 0.95rem; /* Decreased slightly from 
+========================================
+Occurrence 337:
+ /* Tightened from 1.2rem */
+    line-height: 1.3;
+}
+
+.entry-text {
+    font-size: 0.95rem; /* Decreased slightly from 1.02rem for perfect fit */
+    color: #3f4e60;
+    line-height: 1.6; /* Balanced line height */
+    margin-bottom: 1rem; /* Compact margin */
+}
+
+/* Entry Media & Polaroid Frame inside 
+========================================
+Occurrence 338:
+
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.polaroid-image-placeholder.color-pink { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.polaroid-image-placeholder.color-gold { background: linear-gradient(135deg
+========================================
+Occurrence 339:
+0,0,0,0.05);
+}
+
+.polaroid-image-placeholder.color-pink { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.polaroid-image-placeholder.color-gold { background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); }
+.polaroid-image-placeholder.color-blue { background: linear-gradient(135deg
+========================================
+Occurrence 340:
+fcb69f 100%); }
+.polaroid-image-placeholder.color-gold { background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); }
+.polaroid-image-placeholder.color-blue { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.polaroid-image-placeholder.color-green { background: linear-gradient(135de
+========================================
+Occurrence 341:
+19547b 100%); }
+.polaroid-image-placeholder.color-blue { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.polaroid-image-placeholder.color-green { background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); }
+
+.raccoon-diary-reaction {
+    width: 80px; /* Reduced from 105px to match
+========================================
+Occurrence 342:
+rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.polaroid-caption {
+    font-size: 0.85rem; /* Tightened from 0.95rem */
+    color: #4a5568;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Tactile dynamic pagination hanging on page outer edges */
+.di
+========================================
+Occurrence 343:
+  transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFDF9;
+    border: 1px solid #ebdcb9;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify
+========================================
+Occurrence 344:
+(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFDF9;
+    border: 1px solid #ebdcb9;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    b
+========================================
+Occurrence 345:
+ubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 100; /* Stays way above polaroids and text */
+}
+
+.diary-page-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(230, 57,
+========================================
+Occurrence 346:
+0.34, 1.56, 0.64, 1);
+    z-index: 100; /* Stays way above polaroids and text */
+}
+
+.diary-page-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+
+========================================
+Occurrence 347:
+-index: 100; /* Stays way above polaroids and text */
+}
+
+.diary-page-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+}
+
+.diary-page-btn.prev-btn
+========================================
+Occurrence 348:
+ way above polaroids and text */
+}
+
+.diary-page-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+}
+
+.diary-page-btn.prev-btn {
+    left: -22px; /
+========================================
+Occurrence 349:
+team-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.team-member-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem 1.5r
+========================================
+Occurrence 350:
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.team-member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(69, 123, 157, 0.15);
+}
+
+.avatar-circle-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+}
+
+.
+========================================
+Occurrence 351:
+: 0 auto 1.5rem;
+}
+
+.avatar-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(69, 123, 157, 0
+========================================
+Occurrence 352:
+tar-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(69, 123, 157, 0.2);
+    transition: all
+========================================
+Occurrence 353:
+
+
+.team-member-card:hover .avatar-emoji {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.member-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.35rem;
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* Te
+========================================
+Occurrence 354:
+ {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.35rem;
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* Telegram Video Circle Modal */
+.telegram-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    w
+========================================
+Occurrence 355:
+ 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.telegram-modal-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 440px;
+    animation: telegramScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@
+========================================
+Occurrence 356:
+}
+
+.telegram-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--prim
+========================================
+Occurrence 357:
+
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.telegram-member-name {
+    font-size: 1.8rem;
+    font-weight: 800
+========================================
+Occurrence 358:
+: 2.2rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.telegram-member-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25
+========================================
+Occurrence 359:
+var(--text-gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.telegram-member-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.telegram-mem
+========================================
+Occurrence 360:
+s ease;
+}
+
+.telegram-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.telegram-member-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.telegram-member-role {
+    font-size: 0.95rem;
+    color: #2CA5E0;
+    font-weight: 600;
+    mar
+========================================
+Occurrence 361:
+t-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.telegram-member-role {
+    font-size: 0.95rem;
+    color: #2CA5E0;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.telegram-member-details {
+  
+========================================
+Occurrence 362:
+light);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.telegram-member-superpower,
+.telegram-member
+========================================
+Occurrence 363:
+: 700;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.telegram-member-superpower,
+.telegram-member-roles {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.telegram-member-roles:last-child {
+    margin-bottom: 0;
+}
+
+.telegram-member-
+========================================
+Occurrence 364:
+t: 600;
+    margin-bottom: 1rem;
+}
+
+.telegram-member-roles:last-child {
+    margin-bottom: 0;
+}
+
+.telegram-member-quote {
+    font-style: italic;
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 1rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.telegram-member-quote::before,
+.telegram-memb
+========================================
+Occurrence 365:
+osition: relative;
+    padding: 0 1rem;
+}
+
+.telegram-member-quote::before,
+.telegram-member-quote::after {
+    content: '"';
+    font-size: 2rem;
+    color: rgba(230, 57, 70, 0.25);
+    line-height: 1;
+    position: absolute;
+}
+
+.telegram-member-quote::before {
+    left: -5px;
+    top: -5px;
+}
+
+.telegr
+========================================
+Occurrence 366:
+===== VALUES SECTION ==================== */
+.values-section {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    background: var(--bg-light);
+    border-radius: 24px;
+    padding: 2.5re
+========================================
+Occurrence 367:
+margin-bottom: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.value-card:nth-child(1) .value-icon-box { background: rgba(230, 57, 70, 0.1); color: var(--primary-color); }
+.value-card:nth-child(2) .value-icon-box { background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-ca
+========================================
+Occurrence 368:
+;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.value-card:nth-child(1) .value-icon-box { background: rgba(230, 57, 70, 0.1); color: var(--primary-color); }
+.value-card:nth-child(2) .value-icon-box { background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .valu
+========================================
+Occurrence 369:
+ { background: rgba(230, 57, 70, 0.1); color: var(--primary-color); }
+.value-card:nth-child(2) .value-icon-box { background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .value-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-ca
+========================================
+Occurrence 370:
+, 57, 70, 0.1); color: var(--primary-color); }
+.value-card:nth-child(2) .value-icon-box { background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .value-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-card-title {
+    font-siz
+========================================
+Occurrence 371:
+background: rgba(69, 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .value-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+
+========================================
+Occurrence 372:
+ 123, 157, 0.1); color: var(--secondary-color); }
+.value-card:nth-child(3) .value-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.value-card-desc 
+========================================
+Occurrence 373:
+e-icon-box { background: rgba(244, 162, 97, 0.1); color: var(--accent-color); }
+
+.value-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.value-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+
+========================================
+Occurrence 374:
+  font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.value-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ==================== NEW RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .
+========================================
+Occurrence 375:
+;
+    line-height: 1.6;
+}
+
+/* ==================== NEW RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .diary-book-wrapp
+========================================
+Occurrence 376:
+*/
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .diary-book-wrapper {
+        margin: 2rem auto 0;
+        padding: 0 15px;
+    }
+} /* Close the @media (max-wi
+========================================
+Occurrence 377:
+        height: 100%;
+        border: 1px dashed rgba(244, 162, 97, 0.3);
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+
+========================================
+Occurrence 378:
+ation: cozyFloat 4s infinite ease-in-out;
+        object-fit: contain;
+    }
+
+    .closed-cover-title {
+        font-size: 2.1rem !important;
+        color: #ebdcb9 !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.8rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6
+========================================
+Occurrence 379:
+dow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(244, 162, 97, 0.4);
+    }
+
+    .closed-cover-subtitle {
+        font-size: 0.9rem !important;
+        color: rgba(235, 220, 185, 0.75) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 2.2rem !important;
+        padding: 0 10px;
+    
+========================================
+Occurrence 380:
+em !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #ff5252 100%) !important;
+        box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4), 0 0 15px rgba(230, 57, 70, 0.2) !important;
+        animation
+========================================
+Occurrence 381:
+, 0.2) !important;
+        animation: openPulse 2s infinite ease-in-out;
+        border: none !important;
+        cursor: pointer !important;
+        color: #ffffff !important;
+    }
+
+    @keyframes openPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4); }
+   
+========================================
+Occurrence 382:
+% !important;
+        width: 24px !important;
+        transform: translateX(-50%) !important;
+        z-index: 50 !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+    }
+
+    .diary-book-wrapper.diary-fullscr
+========================================
+Occurrence 383:
+-active .book-cover-right {
+        width: 50% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #FFFDF9 !important;
+        padding: 2.2rem 2rem !important;
+        box-shadow: inset -15px 0 30px rgba(92, 58, 3
+========================================
+Occurrence 384:
+    left: -190px !important;
+        top: 60px !important;
+        width: 180px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 100 !important;
+    }
+
+   
+========================================
+Occurrence 385:
+iary-fullscreen-active .diary-tab {
+        border-radius: 14px 0 0 14px !important;
+        padding: 0.8rem 1rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        background: #e6dfd3 !important;
+        border: 2px s
+========================================
+Occurrence 386:
+h: auto !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab.active {
+        background: #FFFDF9 !important;
+        border-color: #ebdcb9 !important;
+        transform: translateX(-12px) !important;
+        z-index: 101 !important;
+    }
+
+    .diary-book-wrapper.diary-fullscr
+========================================
+Occurrence 387:
+      width: 48px !important;
+        height: 48px !important;
+        border-radius: 50% !important;
+        background: #e63946 !important;
+        color: #ffffff !important;
+        border: 3px solid #ffffff !important;
+        font-size: 28px !important;
+        font-weight: 700 !important;
+       
+========================================
+Occurrence 388:
+   }
+
+    .raccoon-diary-reaction {
+        width: 80px !important;
+    }
+
+    .team-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .team-member-card {
+        display: grid !important;
+  
+========================================
+Occurrence 389:
+mportant;
+        gap: 3rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .team-member-card {
+        display: grid !important;
+        grid-template-columns: 90px 1fr !important;
+        grid-template-areas: 
+            "avatar name"
+            "avatar role" !important;
+        align-items: center !impo
+========================================
+Occurrence 390:
+relative !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    .team-member-card:nth-child(even) {
+        grid-template-columns: 1fr 90px !important;
+        grid-template-areas: 
+            "name avatar"
+            "role avatar" !important;
+        text-align: right !import
+========================================
+Occurrence 391:
+        grid-area: name !important;
+        margin: 0 !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        color: var(--text-dark) !important;
+    }
+
+    .member-role {
+        grid-area: role !important;
+        margin: 0 !important;
+        font-size: 0.88re
+========================================
+Occurrence 392:
+important;
+    }
+
+    .member-role {
+        grid-area: role !important;
+        margin: 0 !important;
+        font-size: 0.88rem !important;
+        color: var(--primary-color) !important;
+        font-weight: 600 !important;
+    }
+
+    .telegram-video-circle {
+        width: 180px;
+        height: 18
+========================================
+Occurrence 393:
+ .member-role {
+        grid-area: role !important;
+        margin: 0 !important;
+        font-size: 0.88rem !important;
+        color: var(--primary-color) !important;
+        font-weight: 600 !important;
+    }
+
+    .telegram-video-circle {
+        width: 180px;
+        height: 180px;
+        margin-b
+========================================
+Occurrence 394:
+ius: 16px;
+    box-shadow: 0 12px 30px rgba(18, 12, 28, 0.05);
+    border: 1px solid rgba(118, 75, 162, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+     
+========================================
+Occurrence 395:
+cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+}
+
+/* Alternating organic rotation */
+.polaroid-card:nth-child(even) { transform: rotate(1.2deg); }
+.polaroid-card:nth-child(odd) { tran
+========================================
+Occurrence 396:
+ none;
+    transition: transform 0.6s ease;
+}
+
+/* Polaroid text caption */
+.polaroid-card-caption {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: #4b2d6d;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive, sans-serif;
+    pointer-events: none;
+    text-align: center;
+    white-space
+========================================
+Occurrence 397:
+d-card:hover {
+    transform: translateY(-15px) scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 20px 45px rgba(118, 75, 162, 0.16);
+    border-color: rgba(255, 107, 157, 0.25);
+    z-index: 5;
+}
+
+.polaroid-card:hover .polaroid-card-img {
+    transform: scale(1.06);
+}
+
+/* Responsive carousel styl
+========================================
+Occurrence 398:
+index: -1;
+}
+
+/* Close button styled nicely */
+.lightbox-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 55px;
+    color: rgba(255, 255, 255, 0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20020;
+    line
+========================================
+Occurrence 399:
+one;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20020;
+    line-height: 1;
+}
+
+.lightbox-close-btn:hover {
+    color: #ff6b9d;
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Giant Polaroid card container that ZOOMS and TILTS in */
+.lightbox-content {
+    backgroun
+========================================
+Occurrence 400:
+ 0, 0.55), 
+                0 0 50px rgba(118, 75, 162, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    width: 540px; /* Polaroid proportion width */
+    max-height: 82vh;
+    transform: scale(0.3) ro
+========================================
+Occurrence 401:
+);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+    transition: opacity 0.2s ease;
+}
+
+/* Polaroid handwriting caption */
+.lightbox-caption {
+    color: #4b2d6d;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Pacifico', cursive, sans-serif;
+    text-shadow: n
+========================================
+Occurrence 402:
+ghtbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+========================================
+Occurrence 403:
+);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.lightbox-nav-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #ff6b9d 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 35px rgba(255, 107, 157, 0.5);
+}
+
+/* Navigation arrows sliding entries when active */
+.lightbox
+========================================
+Occurrence 404:
+filter: blur(8px);
+}
+
+.lightbox-nav-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #ff6b9d 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 35px rgba(255, 107, 157, 0.5);
+}
+
+/* Navigation arrows sliding entries when active */
+.lightbox-prev-btn {
+    left: 40
+========================================
+Occurrence 405:
+   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-next-btn {
+    right: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+    t
+========================================
+Occurrence 406:
+ cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-next-btn {
+    right: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+    transition: transform 0.6s cub
+========================================
+Occurrence 407:
+   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-modal.active .lightbox-prev-btn,
+.lightbox-modal.active .lightbox-next-btn {
+    opacity: 1;
+    tr
+========================================
+Occurrence 408:
+ cubic-bezier(0.25, 1, 0.5, 1) 0.15s, 
+                opacity 0.6s ease 0.15s, 
+                background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.lightbox-modal.active .lightbox-prev-btn,
+.lightbox-modal.active .lightbox-next-btn {
+    opacity: 1;
+    transform: translateY(-50%) tra
+========================================
+Occurrence 409:
+ius: 16px;
+    box-shadow: 0 15px 35px rgba(18, 12, 28, 0.06);
+    border: 1px solid rgba(118, 75, 162, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    overflow: hidden;
+    padding: 16px 16px 28px 16px;
+    box-sizing: border-box;
+}
+
+.polaro
+========================================
+Occurrence 410:
+5px rgba(0, 0, 0, 0.55), 
+                0 0 50px rgba(118, 75, 162, 0.15);
+    padding: 22px 22px 35px 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid-card-transitioning.fullscreen-zoom-active .polaroid-card-img-wrapper {
+    flex: 1;
+    height: 0;             /* Flex-grow fills re
+========================================

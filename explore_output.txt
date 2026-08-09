@@ -1,0 +1,1 @@
+Found character: ID=6, Name='Волшебник', Category='fairy-tale'

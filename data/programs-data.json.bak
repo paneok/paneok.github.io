@@ -1,0 +1,600 @@
+{
+  "programs": [
+    {
+      "id": 1,
+      "name": "Анимационная программа СТАНДАРТ",
+      "slug": "standard",
+      "category": "animation",
+      "emoji": "🎉",
+      "pricing": {
+        "amount": 6000,
+        "unit": "₽/час",
+        "isCharacterPrice": true
+      },
+      "defaultCharacterId": null,
+      "description": "Знакомство, поздравление, различные игры и конкурсы, танцевальные разминки, вынос тортика, музыкальное сопровождение",
+      "fullDescription": "- Знакомство, поздравление\n- Различные игры/конкурсы\n- Танцевальные разминки\n- Вынос тортика\n- Музыкальное сопровождение",
+      "bonus": "Минигрим и шаромоделирование в подарок! Выезд по городу бесплатно.",
+      "duration": "1 час",
+      "image": "",
+      "isDefault": true,
+      "images": {
+        "main": "images/catalog/Программы/анимационная программа.jpg",
+        "gallery": [
+          "images/catalog/Программы/анимационная программа.jpg"
+        ]
+      },
+      "requiresCharacter": true
+    },
+    {
+      "id": 2,
+      "name": "Блоггерская вечеринка",
+      "slug": "blogger-party",
+      "category": "party",
+      "emoji": "📱",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 121,
+      "description": "Программа по мотивам Тик-ток, ВК, Ютуб, Лайки с челленджами и танцевальными баттлами",
+      "fullDescription": "- Программа по мотивам Тик-ток, ВК, Ютуб, Лайки\n- Челленджи, танцевальные баттлы\n- Фотопазлы блоггеров, викторины\n- Игро-танцы\n- Знакомство, поздравление, минигрим, вынос тортика",
+      "bonus": "Шаромоделирование в подарок! Подходит для детей младшего школьного возраста.",
+      "targetAge": "Младший школьный возраст",
+      "slogan": "Самая модная вечеринка!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/блоггерская вечеринка.jpg",
+        "gallery": [
+          "images/catalog/Программы/блоггерская вечеринка.jpg"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Челлендж party",
+      "slug": "challenge-party",
+      "category": "active",
+      "emoji": "🏆",
+      "pricing": {
+        "amount": 8500,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 120,
+      "description": "Забавные и смешные испытания, популярные в ТикТоке",
+      "fullDescription": "- Ведущий проводит забавные и смешные испытания, популярные в ТикТоке\n- 'Кажется, нащупал'\n- 'Укуси, лизни или ничего'\n- 'Угадай напиток'\n- 'Rabbit челлендж'\n- 'Угадай по...'\n- Танцевальные баттлы и многое другое",
+      "targetAge": "Подходит для детей и взрослых!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/челлендж пати.jpg",
+        "gallery": [
+          "images/catalog/Программы/челлендж пати.jpg"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Шоу мыльных пузырей",
+      "slug": "bubble-show",
+      "category": "show",
+      "emoji": "🫧",
+      "pricing": {
+        "amount": 10000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 117,
+      "description": "Завораживающее шоу с гигантскими мыльными пузырями",
+      "fullDescription": "- Пузыри от маленьких до гигантских\n- Трюки с пузырями\n- Дождь из пузырей\n- Скафандр из пузыря\n- Музыкальное сопровождение",
+      "bonus": "Погружение в гигантский мыльный пузырь для каждого гостя!",
+      "duration": "30 минут",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/шоу мыльных пузырей.jpg",
+        "gallery": [
+          "images/catalog/Программы/шоу мыльных пузырей.jpg"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Научное шоу",
+      "slug": "science-show",
+      "category": "show",
+      "emoji": "🧪",
+      "pricing": {
+        "amount": 5000,
+        "unit": "₽",
+        "variants": [
+          {
+            "type": "chemical",
+            "price": 5000,
+            "description": "Химическое шоу"
+          },
+          {
+            "type": "cryo",
+            "price": 6000,
+            "description": "Крио-шоу"
+          },
+          {
+            "type": "nitrogen",
+            "price": 7000,
+            "description": "Азотное шоу"
+          }
+        ]
+      },
+      "defaultCharacterId": 3,
+      "description": "Увлекательные опыты с участием детей: реагенты, вода, пена, сухой лед, жидкий азот",
+      "fullDescription": "- Увлекательные опыты с участием детей\n- Опыты с реагентами, водой, пеной\n- Опыты с сухим льдом\n- Опыты с жидким азотом\n- Ведущий-аниматор",
+      "bonus": "Диплом каждому участнику!",
+      "duration": "30 минут",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/научное шоу.jpg",
+        "gallery": [
+          "images/catalog/Программы/научное шоу.jpg"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "Тесла Шоу",
+      "slug": "tesla-show",
+      "category": "show",
+      "emoji": "⚡",
+      "pricing": {
+        "amount": 0,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 3,
+      "description": "Шоу с настоящими молниями, управление молниями голыми руками",
+      "fullDescription": "- Шоу с настоящими молниями\n- Дети участвуют в экспериментах\n- Управление молниями голыми руками\n- Электрический ускоритель\n- Человек-проводник\n- Бесконтактное зажигание ламп\n- Воспламенение бумаги\n- Заточение молнии в плазменный шар",
+      "slogan": "Настоящее волшебство, придуманное наукой!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/теслашоу.jpg",
+        "gallery": [
+          "images/catalog/Программы/теслашоу.jpg"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "Иллюзионное шоу / Фокусник",
+      "slug": "magician",
+      "category": "show",
+      "emoji": "🎩",
+      "pricing": {
+        "amount": 10000,
+        "unit": "₽",
+        "variants": [
+          {
+            "type": "standard",
+            "price": 10000,
+            "duration": "45 минут",
+            "description": "45 мин программы"
+          },
+          {
+            "type": "extended",
+            "price": 12000,
+            "duration": "60 минут",
+            "description": "45 мин + 15 мин бонус (обучение трюкам)"
+          }
+        ]
+      },
+      "defaultCharacterId": 6,
+      "description": "Интерактивное шоу от иллюзиониста с превращениями и мистическими фокусами",
+      "fullDescription": "- Интерактивное шоу от иллюзиониста\n- Превращение огня в сладости\n- Снежная буря из рук\n- Превращение мыльных пузырей в стеклянные\n- Световые эффекты\n- Исчезновение предметов\n- Знакомство с енотом-киборгом\n- Ожившая рожица на бумаге\n- Мистические фокусы",
+      "slogan": "Один из лучших иллюзионистов Сибири!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/Фокусник.jpg",
+        "gallery": [
+          "images/catalog/Программы/Фокусник.jpg"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "name": "Азотное мороженое",
+      "slug": "nitrogen-icecream",
+      "category": "food",
+      "emoji": "🍦",
+      "pricing": {
+        "amount": 0,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 3,
+      "description": "Десерт на основе молочных продуктов, сахара и жидкого азота",
+      "fullDescription": "- Десерт на основе молочных продуктов, сахара и жидкого азота\n- Дети делают мороженое своими руками\n- Различные посыпки и декор",
+      "slogan": "То, что спасет в любую жару!",
+      "portions": "15 порций",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/Мороженное.jpg",
+        "gallery": [
+          "images/catalog/Программы/Мороженное.jpg"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "name": "Роспись деревянных значков/магнитиков",
+      "slug": "badge-painting",
+      "category": "creative",
+      "emoji": "🎨",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 500
+      },
+      "defaultCharacterId": 361,
+      "description": "Роспись деревянных заготовок акриловыми красками или фломастерами",
+      "fullDescription": "- Роспись деревянных заготовок\n- Акриловые краски или фломастеры\n- На выбор можно сделать значок или магнитик\n- Шаблоны обговариваются",
+      "bonus": "Все материалы включены в стоимость!",
+      "duration": "30 минут",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/деревянные значки магнитики.jpg",
+        "gallery": [
+          "images/catalog/Программы/деревянные значки магнитики.jpg"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "name": "Слаймы",
+      "slug": "slimes",
+      "category": "creative",
+      "emoji": "🎭",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 500
+      },
+      "defaultCharacterId": 361,
+      "description": "Каждый ребенок самостоятельно делает яркий слайм, выбирает цвет и украшения",
+      "fullDescription": "- Каждый ребенок самостоятельно делает яркий слайм\n- Выбор цвета и украшений\n- Развивает моторику рук\n- Слайм можно забрать с собой",
+      "bonus": "Все материалы включены в стоимость!",
+      "pricingNote": "До 10 человек: 4000₽, каждый последующий: +300₽/чел.",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/Слаймы.jpg",
+        "gallery": [
+          "images/catalog/Программы/Слаймы.jpg"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "name": "Роспись футболок",
+      "slug": "tshirt-painting",
+      "category": "creative",
+      "emoji": "👕",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 1000
+      },
+      "defaultCharacterId": 361,
+      "description": "Каждый гость создает свою дизайнерскую футболку под руководством ведущего",
+      "fullDescription": "- Каждый гость создает свою дизайнерскую футболку\n- Руководство ведущего\n- Специальные краски по ткани\n- Футболка включена",
+      "bonus": "Все материалы включены в стоимость!",
+      "pricingNote": "4000₽ + 500₽/чел.",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/роспись футболок.jpg",
+        "gallery": [
+          "images/catalog/Программы/роспись футболок.jpg"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "name": "Овершейки",
+      "slug": "oversheiki",
+      "category": "food",
+      "emoji": "🥤",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 500
+      },
+      "defaultCharacterId": 362,
+      "description": "Дети готовят молочные коктейли, украшают стаканы глазурью и декором",
+      "fullDescription": "- Дети готовят молочные коктейли\n- Украшают стаканы глазурью и декором\n- Конфеты, взбитые сливки, зефир, печенье\n- Подходит для детей 5+",
+      "slogan": "Не устоит даже взрослый!",
+      "pricingNote": "4000₽ + 700₽/чел.",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/Овершейки.jpg",
+        "gallery": [
+          "images/catalog/Программы/Овершейки.jpg"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "name": "Роспись шопперов",
+      "slug": "shopper-painting",
+      "category": "creative",
+      "emoji": "🛍️",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 500
+      },
+      "defaultCharacterId": 361,
+      "description": "Создание дизайна на тканевой сумке-шоппере",
+      "fullDescription": "- Создание дизайна на тканевой сумке-шоппере\n- Специальные краски по ткани, которые не смываются\n- Шоппер включен",
+      "bonus": "Все материалы включены в стоимость!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/роспись шоперов.jpg",
+        "gallery": [
+          "images/catalog/Программы/роспись шоперов.jpg"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "name": "Роспись кепок",
+      "slug": "cap-painting",
+      "category": "creative",
+      "emoji": "🧢",
+      "pricing": {
+        "amount": 7000,
+        "unit": "₽",
+        "pricePerPerson": 1000
+      },
+      "defaultCharacterId": 361,
+      "description": "Декор бейсболки своими руками под руководством ведущего",
+      "fullDescription": "- Декор бейсболки своими руками\n- Руководство ведущего\n- Краски по ткани\n- Бейсболка включена",
+      "bonus": "Все материалы включены в стоимость!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/роспись кепок.jpg",
+        "gallery": [
+          "images/catalog/Программы/роспись кепок.jpg"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "name": "Дискотека в серебре / фольге",
+      "slug": "foil-disco",
+      "category": "party",
+      "emoji": "✨",
+      "pricing": {
+        "amount": 15000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 105,
+      "description": "Аниматор, тематические конкурсы, воздушная пушка, 10 кг фольгированной бумаги",
+      "fullDescription": "- Аниматор (любой персонаж)\n- Тематические конкурсы от ведущего\n- Танцевальные разминки\n- Мощная воздушная пушка, бумажный салют\n- Яркая дискотека и музыкальное сопровождение\n- 10 кг специальной фольгированной бумаги\n- Можно валяться, кувыркаться и бросаться",
+      "bonus": "Светомузыка в подарок!",
+      "duration": "30 минут",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/foil_disco.png",
+        "gallery": [
+          "images/catalog/Программы/foil_disco.png"
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "name": "Цветная дискотека",
+      "slug": "color-disco",
+      "category": "party",
+      "emoji": "🎨",
+      "pricing": {
+        "amount": 18000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 105,
+      "description": "Аниматор, конкурсы, 10-15 кг цветной бумаги под тематику праздника",
+      "fullDescription": "- Аниматор (любой персонаж)\n- Тематические конкурсы, танцевальные разминки\n- Мощная воздушная пушка, бумажный салют\n- Яркая дискотека и музыкальное сопровождение\n- 10-15 кг цветной бумаги\n- Цвет можно подобрать под тематику праздника: Леди Баг, Венсдей, Эльза и т.д.",
+      "slogan": "Активные танцы в самой яркой дискотеке года! Залог уникальности вашего праздника!",
+      "duration": "30 минут",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/color_disco.png",
+        "gallery": [
+          "images/catalog/Программы/color_disco.png"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "name": "Neon - Party",
+      "slug": "neon-party",
+      "category": "party",
+      "emoji": "🌈",
+      "pricing": {
+        "amount": 18000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 120,
+      "description": "Ведущий-аниматор, яркий неоновый аквагрим, тематические конкурсы в неоне",
+      "fullDescription": "- Ведущий - аниматор\n- Яркий неоновый аквагрим\n- Тематические конкурсы и игры в неоне\n- Ультрафиолетовая лампа\n- Воздушная пушка, яркая дискотека\n- Музыкальное сопровождение",
+      "slogan": "Хит 2023!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/neon_party.png",
+        "gallery": [
+          "images/catalog/Программы/neon_party.png"
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "name": "Поролон Party",
+      "slug": "foam-party",
+      "category": "party",
+      "emoji": "🧼",
+      "pricing": {
+        "amount": 13000,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 120,
+      "description": "Игры со 150 мягкими поролоновыми кубами",
+      "fullDescription": "- Игры со 150 мягкими поролоновыми кубами\n- Интерактив, поздравления, танцы\n- Игры на сплоченность\n- Кольцеброс, эстафеты\n- Стройка башен и замков\n- Битва на кубах\n- Музыкальное сопровождение",
+      "bonus": "В наличии более 150 кубов!",
+      "duration": "1 час",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/foam_party.png",
+        "gallery": [
+          "images/catalog/Программы/foam_party.png"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "name": "Майнкрафт",
+      "slug": "minecraft",
+      "category": "games",
+      "emoji": "⛏️",
+      "pricing": {
+        "amount": 7500,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 203,
+      "description": "Погружение в крафтовый мир, командные соревнования",
+      "fullDescription": "- Погружение в крафтовый мир\n- Командные соревнования\n- 'Путешествие в портал'\n- 'Игры со свино-зомби'\n- 'Майнкрафт пазл'\n- 'По следам крафтовых дорог'\n- 'Прятки с Эндерменом'",
+      "bonus": "Дискотека с малыми поролоновыми кубами в подарок!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/minecraft.png",
+        "gallery": [
+          "images/catalog/Программы/minecraft.png"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "name": "Among Us",
+      "slug": "among-us",
+      "category": "games",
+      "emoji": "👽",
+      "pricing": {
+        "amount": 7500,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 81,
+      "description": "Тематическая программа по мотивам игры, дети спасают корабль и ищут предателя",
+      "fullDescription": "- Тематическая программа по мотивам игры\n- Дети спасают корабль и ищут предателя\n- 'Собери карту корабля'\n- 'Починка реактора'\n- 'Возвращение щитов'\n- 'Скоростная заправка'\n- 'Осторожно, бомба!'\n- Танец 'Я - ракета'",
+      "bonus": "Тематический реквизит!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/among_us.png",
+        "gallery": [
+          "images/catalog/Программы/among_us.png"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "name": "Pop It - party",
+      "slug": "pop-it-party",
+      "category": "games",
+      "emoji": "🎮",
+      "pricing": {
+        "amount": 7500,
+        "unit": "₽/час",
+        "isCharacterPrice": false
+      },
+      "defaultCharacterId": 106,
+      "description": "Программа по мотивам популярной игрушки-антистресс",
+      "fullDescription": "- Программа по мотивам популярной игрушки-антистресс\n- Челленджи с игрушками\n- Соревнования на скорость\n- Танцевальные баттлы\n- 'Найди половинку'\n- 'Битва на пупырках'\n- Используется гигантский Pop It",
+      "slogan": "Так много Pop It вы еще не видели!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/pop_it_party.png",
+        "gallery": [
+          "images/catalog/Программы/pop_it_party.png"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "name": "Топиарий - волшебное дерево",
+      "slug": "topiary",
+      "category": "creative",
+      "emoji": "🌳",
+      "pricing": {
+        "amount": 18000,
+        "unit": "₽",
+        "pricePerPerson": 1500
+      },
+      "defaultCharacterId": 361,
+      "description": "Создание декоративного деревца из всевозможных предметов и украшений",
+      "fullDescription": "- Создание декоративного деревца\n- Из всевозможных предметов и украшений\n- Работа по шаблону или творческое оформление",
+      "bonus": "Все материалы включены в стоимость!",
+      "pricingNote": "4000₽ + 700₽/чел.",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/topiary.png",
+        "gallery": [
+          "images/catalog/Программы/topiary.png"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "name": "Сахарное бурито",
+      "slug": "sugar-burrito",
+      "category": "food",
+      "emoji": "🌯",
+      "pricing": {
+        "amount": 13000,
+        "unit": "₽",
+        "pricePerPerson": 500
+      },
+      "defaultCharacterId": 362,
+      "description": "Дети самостоятельно делают десерт: множество сладостей и сироп заворачивают в сахарную вату",
+      "fullDescription": "- Дети самостоятельно делают десерт\n- Множество сладостей и сироп заворачивают в сахарную вату\n- Начинка - мороженое",
+      "slogan": "Осторожно! Это слишком вкусно!",
+      "duration": "30 минут",
+      "portions": "До 15 порций",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/sugar_burrito.png",
+        "gallery": [
+          "images/catalog/Программы/sugar_burrito.png"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "name": "Сахарная вата",
+      "slug": "cotton-candy",
+      "category": "food",
+      "emoji": "🍭",
+      "pricing": {
+        "amount": 15000,
+        "unit": "₽"
+      },
+      "defaultCharacterId": 362,
+      "description": "Интерактив, где дети сами могут накрутить себе сахарное облако",
+      "fullDescription": "- Интерактив, где дети сами могут накрутить себе сахарное облако\n- Более 30 порций",
+      "bonus": "Каждый ребенок участвует в процессе!",
+      "image": "",
+      "images": {
+        "main": "images/catalog/Программы/cotton_candy.png",
+        "gallery": [
+          "images/catalog/Программы/cotton_candy.png"
+        ]
+      }
+    }
+  ]
+}

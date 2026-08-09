@@ -1,419 +1,10 @@
 {
   "characters": [
     {
-      "id": 14,
-      "name": "Русалочка",
-      "slug": "mermaid",
-      "category": "fairy-tale",
-      "emoji": "🧜‍♀️",
-      "images": {
-        "main": "images/catalog/Принцесса Русалочка 2.png",
-        "gallery": [
-          "images/catalog/Принцесса Русалочка 2.png",
-          "images/catalog/Принцесса Русалочка 1.jpg"
-        ]
-      },
-      "description": {
-        "short": "Прекрасная русалочка из подводного царства! Морские игры и танцы.",
-        "full": "Очаровательная русалочка проведет подводное путешествие с морскими играми, танцами и творческими занятиями."
-      },
-      "features": {
-        "age": "3-8",
-        "gender": "girls",
-        "activities": [
-          "dance",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3800,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 7000
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": false
-    },
-    {
-      "id": 8,
-      "name": "Эльза",
-      "slug": "elsa",
-      "category": "cartoon",
-      "emoji": "❄️",
-      "images": {
-        "main": "images/catalog/Холодное сердце Эльза 1.png",
-        "gallery": [
-          "images/catalog/Холодное сердце Эльза 1.png"
-        ]
-      },
-      "description": {
-        "short": "Ледяная королева Эльза! Создание снежинок, зимние танцы и волшебство.",
-        "full": "Прекрасная Эльза устроит настоящий зимний бал! Танцы, создание волшебных снежинок и исполнение любимых песен."
-      },
-      "features": {
-        "age": "3-8",
-        "gender": "girls",
-        "activities": [
-          "dance",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2,
-          3
-        ]
-      },
-      "pricing": {
-        "hourly": 4500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 8500
-          },
-          {
-            "duration": 3,
-            "price": 12000
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": true,
-      "isNew": false
-    },
-    {
-      "id": 182,
-      "name": "Алиса и Шляпник1",
-      "slug": "алиса-и-шляпник1",
-      "category": "entertainment",
-      "emoji": "🎤",
-      "images": {
-        "main": "images/catalog/Парные/Алиса и Шляпник1.png",
-        "gallery": [
-          "images/catalog/Парные/Алиса и Шляпник1.png",
-          "images/catalog/Парные/Алиса и Шляпник2.png"
-        ]
-      },
-      "description": {
-        "short": "Алиса и Шляпник1 - веселый персонаж для праздника!",
-        "full": "Алиса и Шляпник1 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики",
-        "сказки",
-        "животные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 230,
-      "name": "Пиратка 1",
-      "slug": "пиратка-1",
-      "category": "adventure",
-      "emoji": "🗺️",
-      "images": {
-        "main": "images/catalog/Пиратка 1.png",
-        "gallery": [
-          "images/catalog/Пиратка 1.png",
-          "images/catalog/Пиратка 2.png"
-        ]
-      },
-      "description": {
-        "short": "Пиратка 1 - веселый персонаж для праздника!",
-        "full": "Пиратка 1 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 103,
-      "name": "Буба2",
-      "slug": "буба2",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/Буба2.png",
-        "gallery": [
-          "images/catalog/Буба2.png"
-        ]
-      },
-      "description": {
-        "short": "Буба2 - веселый персонаж для праздника!",
-        "full": "Буба2 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 15,
-      "name": "Космонавт",
-      "slug": "astronaut",
-      "category": "adventure",
-      "emoji": "🚀",
-      "images": {
-        "main": "images/catalog/Космонавт ж.png",
-        "gallery": [
-          "images/catalog/Космонавт ж.png"
-        ]
-      },
-      "description": {
-        "short": "Бесстрашный космонавт-исследователь! Космические миссии и научные эксперименты.",
-        "full": "Отважный космонавт отправит детей в космическое путешествие! Научные эксперименты, изучение планет и звездные квесты."
-      },
-      "features": {
-        "age": "8-12",
-        "gender": "unisex",
-        "activities": [
-          "quest",
-          "creative"
-        ],
-        "duration": [
-          2,
-          3
-        ]
-      },
-      "pricing": {
-        "hourly": 4000,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 7500
-          },
-          {
-            "duration": 3,
-            "price": 10500
-          }
-        ]
-      },
-      "tags": [
-        "фантастика",
-        "нейтральные"
-      ],
-      "isPopular": true,
-      "isNew": true
-    },
-    {
-      "id": 165,
-      "name": "Скоморох 1",
-      "slug": "скоморох-1",
-      "category": "fairy-tale",
-      "emoji": "🧚",
-      "images": {
-        "main": "images/catalog/Новый год/Девочка.JPG",
-        "gallery": [
-          "images/catalog/Новый год/Девочка.JPG",
-          "images/catalog/Девочка.JPG",
-          "images/catalog/Новый год/Дополнительные герои/Скоморох 1.png",
-          "images/catalog/Новый год/Дополнительные герои/Скоморох 3.png",
-          "images/catalog/Новый год/Дополнительные герои/Скоморох 4.png",
-          "images/catalog/Новый год/Дополнительные герои/Скоморохи 2.png",
-          "images/catalog/Новый год/Дополнительные герои/Скоморохи 5.png"
-        ]
-      },
-      "description": {
-        "short": "Скоморох 1 - веселый персонаж для праздника!",
-        "full": "Скоморох 1 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "boys",
-        "activities": [
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "праздничные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 238,
-      "name": "Тедди 1",
-      "slug": "тедди-1",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/Ростовые куклы/Тедди 1.png",
-        "gallery": [
-          "images/catalog/Ростовые куклы/Тедди 1.png"
-        ]
-      },
-      "description": {
-        "short": "Тедди 1 - веселый персонаж для праздника!",
-        "full": "Тедди 1 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 191,
-      "name": "Гравити фолз",
-      "slug": "гравити-фолз",
-      "category": "entertainment",
-      "emoji": "🎤",
-      "images": {
-        "main": "images/catalog/Парные/Гравити фолз.png",
-        "gallery": [
-          "images/catalog/Парные/Гравити фолз.png",
-          "images/catalog/Парные/ДМ и СН 2.png"
-        ]
-      },
-      "description": {
-        "short": "Гравити фолз - веселый персонаж для праздника!",
-        "full": "Гравити фолз подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 1,
       "name": "Супергерой",
       "slug": "superhero",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦸‍♂️",
       "images": {
         "main": "images/catalog/Супергерл.png",
@@ -600,7 +191,7 @@
       "id": 5,
       "name": "Король Лев",
       "slug": "lion-king",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🦁",
       "images": {
         "main": "images/catalog/Дракончик.png",
@@ -653,8 +244,7 @@
       "images": {
         "main": "images/catalog/Аврора.png",
         "gallery": [
-          "images/catalog/Аврора.png",
-          "images/catalog/Волшебник.png"
+          "images/catalog/Аврора.png"
         ]
       },
       "description": {
@@ -696,7 +286,7 @@
       "id": 7,
       "name": "Человек-паук",
       "slug": "spiderman",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🕷️",
       "images": {
         "main": "images/catalog/Человек паук.jpg",
@@ -739,6 +329,54 @@
       ],
       "isPopular": true,
       "isNew": true
+    },
+    {
+      "id": 8,
+      "name": "Эльза",
+      "slug": "elsa",
+      "category": "cartoon",
+      "emoji": "❄️",
+      "images": {
+        "main": "images/catalog/Холодное сердце Эльза 1.png",
+        "gallery": [
+          "images/catalog/Холодное сердце Эльза 1.png"
+        ]
+      },
+      "description": {
+        "short": "Ледяная королева Эльза! Создание снежинок, зимние танцы и волшебство.",
+        "full": "Прекрасная Эльза устроит настоящий зимний бал! Танцы, создание волшебных снежинок и исполнение любимых песен."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": [
+          "dance",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2,
+          3
+        ]
+      },
+      "pricing": {
+        "hourly": 4500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 8500
+          },
+          {
+            "duration": 3,
+            "price": 12000
+          }
+        ]
+      },
+      "tags": [
+        "нейтральные"
+      ],
+      "isPopular": true,
+      "isNew": false
     },
     {
       "id": 9,
@@ -791,7 +429,7 @@
       "id": 10,
       "name": "Единорог",
       "slug": "unicorn",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🦄",
       "images": {
         "main": "images/catalog/Единорожка вип.png",
@@ -834,7 +472,7 @@
       "id": 11,
       "name": "Бэтмен",
       "slug": "batman",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦇",
       "images": {
         "main": "images/catalog/Бэтмен.jpg",
@@ -926,7 +564,7 @@
       "id": 13,
       "name": "Динозавр",
       "slug": "dinosaur",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🦖",
       "images": {
         "main": "images/catalog/Ростовые куклы/Динозавр.png",
@@ -968,6 +606,98 @@
         "нейтральные"
       ],
       "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 14,
+      "name": "Русалочка",
+      "slug": "mermaid",
+      "category": "fairy-tale",
+      "emoji": "🧜‍♀️",
+      "images": {
+        "main": "images/catalog/Принцесса Русалочка 2.png",
+        "gallery": [
+          "images/catalog/Принцесса Русалочка 2.png",
+          "images/catalog/Принцесса Русалочка 1.jpg"
+        ]
+      },
+      "description": {
+        "short": "Прекрасная русалочка из подводного царства! Морские игры и танцы.",
+        "full": "Очаровательная русалочка проведет подводное путешествие с морскими играми, танцами и творческими занятиями."
+      },
+      "features": {
+        "age": "3-8",
+        "gender": "girls",
+        "activities": [
+          "dance",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3800,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 7000
+          }
+        ]
+      },
+      "tags": [
+        "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": 15,
+      "name": "Космонавт",
+      "slug": "astronaut",
+      "category": "adventure",
+      "emoji": "🚀",
+      "images": {
+        "main": "images/catalog/Космонавт ж.png",
+        "gallery": [
+          "images/catalog/Космонавт ж.png"
+        ]
+      },
+      "description": {
+        "short": "Бесстрашный космонавт-исследователь! Космические миссии и научные эксперименты.",
+        "full": "Отважный космонавт отправит детей в космическое путешествие! Научные эксперименты, изучение планет и звездные квесты."
+      },
+      "features": {
+        "age": "8-12",
+        "gender": "unisex",
+        "activities": [
+          "quest",
+          "creative"
+        ],
+        "duration": [
+          2,
+          3
+        ]
+      },
+      "pricing": {
+        "hourly": 4000,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 7500
+          },
+          {
+            "duration": 3,
+            "price": 10500
+          }
+        ]
+      },
+      "tags": [
+        "фантастика",
+        "нейтральные"
+      ],
+      "isPopular": true,
       "isNew": true
     },
     {
@@ -1712,7 +1442,7 @@
       "id": 40,
       "name": "Белка Лиса",
       "slug": "squirrel-fox",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🐿️",
       "images": {
         "main": "images/catalog/Белка Лиса.png",
@@ -1851,7 +1581,7 @@
       "id": 43,
       "name": "Дарт Вейдер",
       "slug": "darth-vader",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "⚔️",
       "images": {
         "main": "images/catalog/Дарт Вейдер.png",
@@ -2620,7 +2350,7 @@
       "id": 62,
       "name": "Кукла Аннабель",
       "slug": "annabelle-doll",
-      "category": "horror",
+      "category": "film",
       "emoji": "🪆",
       "images": {
         "main": "images/catalog/Кукла Аннабель.png",
@@ -2663,7 +2393,7 @@
       "id": 63,
       "name": "Кукла Чаки",
       "slug": "chucky-doll",
-      "category": "horror",
+      "category": "film",
       "emoji": "🔪",
       "images": {
         "main": "images/catalog/Кукла Чаки.png",
@@ -2801,7 +2531,7 @@
       "id": 67,
       "name": "Супермен",
       "slug": "superman",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦸‍♂️",
       "images": {
         "main": "images/catalog/Супермен.png",
@@ -2849,7 +2579,7 @@
       "id": 68,
       "name": "Суперкот",
       "slug": "super-cat",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🐱",
       "images": {
         "main": "images/catalog/Суперкот.png",
@@ -2935,7 +2665,7 @@
       "id": 71,
       "name": "Черепашка",
       "slug": "turtle",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🐢",
       "images": {
         "main": "images/catalog/Черепашка кр.png",
@@ -3887,7 +3617,7 @@
     {
       "id": 95,
       "name": "Колдунья",
-      "slug": "witch",
+      "slug": "witch-95",
       "category": "fantasy",
       "emoji": "🧙‍♀️",
       "images": {
@@ -3932,7 +3662,7 @@
       "id": 100,
       "name": "Хаги Ваги",
       "slug": "huggy-wuggy",
-      "category": "horror",
+      "category": "film",
       "emoji": "🤗",
       "images": {
         "main": "images/catalog/Хаги Ваги 1.jpg",
@@ -4053,6 +3783,49 @@
       },
       "tags": [
         "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 103,
+      "name": "Буба2",
+      "slug": "буба2",
+      "category": "cartoon",
+      "emoji": "🎭",
+      "images": {
+        "main": "images/catalog/Буба2.png",
+        "gallery": [
+          "images/catalog/Буба2.png"
+        ]
+      },
+      "description": {
+        "short": "Буба2 - веселый персонаж для праздника!",
+        "full": "Буба2 подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": [
+          "active",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "мультики"
       ],
       "isPopular": false,
       "isNew": true
@@ -6180,8 +5953,7 @@
       "images": {
         "main": "images/catalog/Новый год/Дополнительные герои/Май литтл пони Пинки Пай.png",
         "gallery": [
-          "images/catalog/Новый год/Дополнительные герои/Май литтл пони Пинки Пай.png",
-          "images/catalog/Новый год/Дополнительные герои/Май литтл пони Искорка.png"
+          "images/catalog/Новый год/Дополнительные герои/Май литтл пони Пинки Пай.png"
         ]
       },
       "description": {
@@ -6353,8 +6125,7 @@
       "images": {
         "main": "images/catalog/Новый год/Санта и Эльфы.png",
         "gallery": [
-          "images/catalog/Новый год/Санта и Эльфы.png",
-          "images/catalog/Новый год/Дополнительные герои/Санта.jpg"
+          "images/catalog/Новый год/Санта и Эльфы.png"
         ]
       },
       "description": {
@@ -6390,6 +6161,49 @@
       "isNew": true
     },
     {
+      "id": 165,
+      "name": "Скоморох 1",
+      "slug": "скоморох-1",
+      "category": "fairy-tale",
+      "emoji": "🧚",
+      "images": {
+        "main": "images/catalog/Новый год/Девочка.JPG",
+        "gallery": [
+          "images/catalog/Новый год/Девочка.JPG"
+        ]
+      },
+      "description": {
+        "short": "Скоморох 1 - веселый персонаж для праздника!",
+        "full": "Скоморох 1 подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "boys",
+        "activities": [
+          "active",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "праздничные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
       "id": 171,
       "name": "Фъерк облачко 1",
       "slug": "фъерк-облачко-1",
@@ -6398,8 +6212,7 @@
       "images": {
         "main": "images/catalog/Фъерк облачко 1.png",
         "gallery": [
-          "images/catalog/Фъерк облачко 1.png",
-          "images/catalog/Новый год/Дополнительные герои/Фъерк облачко 1.png"
+          "images/catalog/Фъерк облачко 1.png"
         ]
       },
       "description": {
@@ -6486,8 +6299,7 @@
       "images": {
         "main": "images/catalog/Эльф м вип.png",
         "gallery": [
-          "images/catalog/Эльф м вип.png",
-          "images/catalog/Новый год/Дополнительные герои/Эльф м вип.png"
+          "images/catalog/Эльф м вип.png"
         ]
       },
       "description": {
@@ -6661,8 +6473,7 @@
       "images": {
         "main": "images/catalog/Снежная королева.png",
         "gallery": [
-          "images/catalog/Снежная королева.png",
-          "images/catalog/Новый год/Снежная королева.png"
+          "images/catalog/Снежная королева.png"
         ]
       },
       "description": {
@@ -6821,6 +6632,52 @@
       },
       "tags": [
         "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 182,
+      "name": "Алиса и Шляпник1",
+      "slug": "алиса-и-шляпник1",
+      "category": "entertainment",
+      "emoji": "🎤",
+      "images": {
+        "main": "images/catalog/Парные/Алиса и Шляпник1.png",
+        "gallery": [
+          "images/catalog/Парные/Алиса и Шляпник1.png",
+          "images/catalog/Парные/Алиса и Шляпник2.png"
+        ]
+      },
+      "description": {
+        "short": "Алиса и Шляпник1 - веселый персонаж для праздника!",
+        "full": "Алиса и Шляпник1 подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": [
+          "dance",
+          "active"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "мультики",
+        "сказки",
+        "животные"
       ],
       "isPopular": false,
       "isNew": true
@@ -7036,6 +6893,50 @@
       },
       "tags": [
         "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 191,
+      "name": "Гравити фолз",
+      "slug": "гравити-фолз",
+      "category": "entertainment",
+      "emoji": "🎤",
+      "images": {
+        "main": "images/catalog/Парные/Гравити фолз.png",
+        "gallery": [
+          "images/catalog/Парные/Гравити фолз.png",
+          "images/catalog/Парные/ДМ и СН 2.png"
+        ]
+      },
+      "description": {
+        "short": "Гравити фолз - веселый персонаж для праздника!",
+        "full": "Гравити фолз подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": [
+          "dance",
+          "active"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "мультики"
       ],
       "isPopular": false,
       "isNew": true
@@ -8249,6 +8150,50 @@
       "isNew": true
     },
     {
+      "id": 230,
+      "name": "Пиратка 1",
+      "slug": "пиратка-1",
+      "category": "adventure",
+      "emoji": "🗺️",
+      "images": {
+        "main": "images/catalog/Пиратка 1.png",
+        "gallery": [
+          "images/catalog/Пиратка 1.png",
+          "images/catalog/Пиратка 2.png"
+        ]
+      },
+      "description": {
+        "short": "Пиратка 1 - веселый персонаж для праздника!",
+        "full": "Пиратка 1 подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": [
+          "active",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
       "id": 232,
       "name": "Принцесса Рапунцель",
       "slug": "принцесса-рапунцель",
@@ -8381,7 +8326,7 @@
       "id": 236,
       "name": "Ростовая кукла Олаф",
       "slug": "ростовая-кукла-олаф",
-      "category": "horror",
+      "category": "film",
       "emoji": "👻",
       "images": {
         "main": "images/catalog/Ростовые куклы/Ростовая кукла Олаф.JPG",
@@ -8424,7 +8369,7 @@
       "id": 237,
       "name": "Ростовая кукла Сердце",
       "slug": "ростовая-кукла-сердце",
-      "category": "horror",
+      "category": "film",
       "emoji": "👻",
       "images": {
         "main": "images/catalog/placeholder.png",
@@ -8435,6 +8380,49 @@
       "description": {
         "short": "Ростовая кукла Сердце - веселый персонаж для праздника!",
         "full": "Ростовая кукла Сердце подарит незабываемые эмоции и веселье на вашем празднике!"
+      },
+      "features": {
+        "age": "3-12",
+        "gender": "unisex",
+        "activities": [
+          "active",
+          "creative"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3500,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6500
+          }
+        ]
+      },
+      "tags": [
+        "нейтральные"
+      ],
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": 238,
+      "name": "Тедди 1",
+      "slug": "тедди-1",
+      "category": "cartoon",
+      "emoji": "🎭",
+      "images": {
+        "main": "images/catalog/Ростовые куклы/Тедди 1.png",
+        "gallery": [
+          "images/catalog/Ростовые куклы/Тедди 1.png"
+        ]
+      },
+      "description": {
+        "short": "Тедди 1 - веселый персонаж для праздника!",
+        "full": "Тедди 1 подарит незабываемые эмоции и веселье на вашем празднике!"
       },
       "features": {
         "age": "3-12",
@@ -9159,9 +9147,9 @@
       "category": "cartoon",
       "emoji": "🎭",
       "images": {
-        "main": "images/catalog/Парные\\амонг ас.jpg",
+        "main": "images/catalog/Парные/амонг ас.jpg",
         "gallery": [
-          "images/catalog/Парные\\амонг ас.jpg",
+          "images/catalog/Парные/амонг ас.jpg",
           "images/catalog/placeholder.png"
         ]
       },
@@ -9640,50 +9628,6 @@
       "isNew": true
     },
     {
-      "id": 276,
-      "name": "Ведущий Мультфильмы",
-      "slug": "ведущий-мультфильмы",
-      "category": "entertainment",
-      "emoji": "🎤",
-      "images": {
-        "main": "images/catalog/Ведущий Мультфильмы.png",
-        "gallery": [
-          "images/catalog/Ведущий Мультфильмы.png"
-        ]
-      },
-      "description": {
-        "short": "Ведущий Мультфильмы - веселый персонаж для праздника!",
-        "full": "Ведущий Мультфильмы подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "5-10",
-        "gender": "boys",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 277,
       "name": "Ведущая неоновый зеленый",
       "slug": "ведущая-неоновый-зеленый",
@@ -9742,50 +9686,6 @@
       "description": {
         "short": "Ведущая оранжевая с пиджаком - веселый персонаж для праздника!",
         "full": "Ведущая оранжевая с пиджаком подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-8",
-        "gender": "girls",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 279,
-      "name": "Ведущая Поп ит",
-      "slug": "ведущая-поп-ит",
-      "category": "entertainment",
-      "emoji": "🎤",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Ведущая Поп ит - веселый персонаж для праздника!",
-        "full": "Ведущая Поп ит подарит незабываемые эмоции и веселье на вашем празднике!"
       },
       "features": {
         "age": "3-8",
@@ -9948,50 +9848,6 @@
       "isNew": true
     },
     {
-      "id": 283,
-      "name": "Ведущая Тик-ток",
-      "slug": "ведущая-тик-ток",
-      "category": "entertainment",
-      "emoji": "🎤",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Ведущая Тик-ток - веселый персонаж для праздника!",
-        "full": "Ведущая Тик-ток подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-8",
-        "gender": "girls",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 284,
       "name": "Ведущая Хаги Ваги",
       "slug": "ведущая-хаги-ваги",
@@ -10042,9 +9898,9 @@
       "category": "entertainment",
       "emoji": "🎤",
       "images": {
-        "main": "images/catalog/Новый год\\Девочка.JPG",
+        "main": "images/catalog/Новый год/Девочка.JPG",
         "gallery": [
-          "images/catalog/Новый год\\Девочка.JPG",
+          "images/catalog/Новый год/Девочка.JPG",
           "images/catalog/placeholder.png"
         ]
       },
@@ -10392,7 +10248,7 @@
       "id": 293,
       "name": "Дракончик",
       "slug": "дракончик",
-      "category": "animals",
+      "category": "animal",
       "emoji": "🦖",
       "images": {
         "main": "images/catalog/placeholder.png",
@@ -10520,50 +10376,6 @@
       },
       "tags": [
         "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 296,
-      "name": "Игра в кальмара",
-      "slug": "игра-в-кальмара",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Игра в кальмара - веселый персонаж для праздника!",
-        "full": "Игра в кальмара подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "фильмы"
       ],
       "isPopular": false,
       "isNew": true
@@ -10924,50 +10736,6 @@
       "isNew": true
     },
     {
-      "id": 307,
-      "name": "Майнкрафт Криппер",
-      "slug": "майнкрафт-криппер",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Майнкрафт Криппер - веселый персонаж для праздника!",
-        "full": "Майнкрафт Криппер подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 308,
       "name": "Майнкрафт Стив",
       "slug": "майнкрафт-стив",
@@ -11322,50 +11090,6 @@
       "isNew": true
     },
     {
-      "id": 317,
-      "name": "Мумия",
-      "slug": "мумия",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Мумия - веселый персонаж для праздника!",
-        "full": "Мумия подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 318,
       "name": "Пеппи длинный чулок",
       "slug": "пеппи-длинный-чулок",
@@ -11468,50 +11192,6 @@
       "description": {
         "short": "Пиратка 2 - веселый персонаж для праздника!",
         "full": "Пиратка 2 подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 321,
-      "name": "Принцесса золотая",
-      "slug": "принцесса-золотая",
-      "category": "fairy-tale",
-      "emoji": "👸",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Принцесса золотая - веселый персонаж для праздника!",
-        "full": "Принцесса золотая подарит незабываемые эмоции и веселье на вашем празднике!"
       },
       "features": {
         "age": "3-12",
@@ -11674,50 +11354,6 @@
       "isNew": true
     },
     {
-      "id": 325,
-      "name": "Принцесса Рапунцель",
-      "slug": "принцесса-рапунцель",
-      "category": "fairy-tale",
-      "emoji": "👸",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Принцесса Рапунцель - веселый персонаж для праздника!",
-        "full": "Принцесса Рапунцель подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 326,
       "name": "Радужный друг Блу",
       "slug": "радужный-друг-блу",
@@ -11757,50 +11393,6 @@
       },
       "tags": [
         "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 328,
-      "name": "Семейка Аддамс Венсдей",
-      "slug": "семейка-аддамс-венсдей",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Семейка Аддамс Венсдей - веселый персонаж для праздника!",
-        "full": "Семейка Аддамс Венсдей подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики"
       ],
       "isPopular": false,
       "isNew": true
@@ -11850,59 +11442,15 @@
       "isNew": true
     },
     {
-      "id": 330,
-      "name": "Семейка Аддамс Паксли",
-      "slug": "семейка-аддамс-паксли",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Семейка Аддамс Паксли - веселый персонаж для праздника!",
-        "full": "Семейка Аддамс Паксли подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "мультики"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 331,
       "name": "Скоморохи (7 шт)",
       "slug": "скоморохи-7-шт",
       "category": "cartoon",
       "emoji": "🎭",
       "images": {
-        "main": "images/catalog/Парные\\Скоморохи.png",
+        "main": "images/catalog/Парные/Скоморохи.png",
         "gallery": [
-          "images/catalog/Парные\\Скоморохи.png",
+          "images/catalog/Парные/Скоморохи.png",
           "images/catalog/placeholder.png"
         ]
       },
@@ -11983,54 +11531,10 @@
       "isNew": true
     },
     {
-      "id": 333,
-      "name": "Снежная королева",
-      "slug": "снежная-королева",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Снежная королева - веселый персонаж для праздника!",
-        "full": "Снежная королева подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 334,
       "name": "Супергерл",
       "slug": "супергерл",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦸",
       "images": {
         "main": "images/catalog/placeholder.png",
@@ -12074,7 +11578,7 @@
       "id": 335,
       "name": "Супермен",
       "slug": "супермен",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦸",
       "images": {
         "main": "images/catalog/placeholder.png",
@@ -12118,7 +11622,7 @@
       "id": 336,
       "name": "Суперкот",
       "slug": "суперкот",
-      "category": "superheroes",
+      "category": "superhero",
       "emoji": "🦸",
       "images": {
         "main": "images/catalog/placeholder.png",
@@ -12335,50 +11839,6 @@
       "isNew": true
     },
     {
-      "id": 341,
-      "name": "Футбол",
-      "slug": "футбол",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Футбол - веселый персонаж для праздника!",
-        "full": "Футбол подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 342,
       "name": "Фъерк облачко",
       "slug": "фъерк-облачко",
@@ -12517,59 +11977,15 @@
       "category": "cartoon",
       "emoji": "🎭",
       "images": {
-        "main": "images/catalog/Парные\\Хогвардс.png",
+        "main": "images/catalog/Парные/Хогвардс.png",
         "gallery": [
-          "images/catalog/Парные\\Хогвардс.png",
+          "images/catalog/Парные/Хогвардс.png",
           "images/catalog/placeholder.png"
         ]
       },
       "description": {
         "short": "Хогвардс Палумна Лавгут - веселый персонаж для праздника!",
         "full": "Хогвардс Палумна Лавгут подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "нейтральные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": 346,
-      "name": "Цифровой цирк Помни",
-      "slug": "цифровой-цирк-помни",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Цифровой цирк Помни - веселый персонаж для праздника!",
-        "full": "Цифровой цирк Помни подарит незабываемые эмоции и веселье на вашем празднике!"
       },
       "features": {
         "age": "3-12",
@@ -12910,51 +12326,6 @@
       "isNew": true
     },
     {
-      "id": 358,
-      "name": "Санта",
-      "slug": "санта",
-      "category": "cartoon",
-      "emoji": "🎭",
-      "images": {
-        "main": "images/catalog/placeholder.png",
-        "gallery": [
-          "images/catalog/placeholder.png"
-        ]
-      },
-      "description": {
-        "short": "Санта - веселый персонаж для праздника!",
-        "full": "Санта подарит незабываемые эмоции и веселье на вашем празднике!"
-      },
-      "features": {
-        "age": "3-12",
-        "gender": "unisex",
-        "activities": [
-          "dance",
-          "active",
-          "creative"
-        ],
-        "duration": [
-          1,
-          2
-        ]
-      },
-      "pricing": {
-        "hourly": 3500,
-        "packages": [
-          {
-            "duration": 2,
-            "price": 6500
-          }
-        ]
-      },
-      "tags": [
-        "фильмы",
-        "праздничные"
-      ],
-      "isPopular": false,
-      "isNew": true
-    },
-    {
       "id": 359,
       "name": "Ростовая кукла Мишка Тедди",
       "slug": "ростовая-кукла-мишка-тедди",
@@ -13001,10 +12372,10 @@
     },
     {
       "id": 360,
-      "name": "Ростовая кукла Олаф",
-      "slug": "ростовая-кукла-олаф",
-      "category": "cartoon",
-      "emoji": "🎭",
+      "name": "Аквагример",
+      "slug": "аквагример",
+      "category": "fairy-tale",
+      "emoji": "🎨",
       "images": {
         "main": "images/catalog/placeholder.png",
         "gallery": [
@@ -13012,15 +12383,13 @@
         ]
       },
       "description": {
-        "short": "Ростовая кукла Олаф - веселый персонаж для праздника!",
-        "full": "Ростовая кукла Олаф подарит незабываемые эмоции и веселье на вашем празднике!"
+        "short": "Профессиональный аквагример для создания ярких образов!",
+        "full": "Профессиональный аквагример создаст потрясающие и красочные рисунки на лицах детей с использованием качественных гипоаллергенных красок."
       },
       "features": {
-        "age": "3-12",
+        "age": "3-14",
         "gender": "unisex",
         "activities": [
-          "dance",
-          "active",
           "creative"
         ],
         "duration": [
@@ -13029,26 +12398,26 @@
         ]
       },
       "pricing": {
-        "hourly": 3500,
+        "hourly": 3000,
         "packages": [
           {
             "duration": 2,
-            "price": 6500
+            "price": 6000
           }
         ]
       },
       "tags": [
         "нейтральные"
       ],
-      "isPopular": false,
-      "isNew": true
+      "isPopular": true,
+      "isNew": false
     },
     {
       "id": 361,
-      "name": "Ростовая кукла Сердце",
-      "slug": "ростовая-кукла-сердце",
-      "category": "cartoon",
-      "emoji": "🎭",
+      "name": "Мастер Творчества / Художник",
+      "slug": "мастер-творчества-художник",
+      "category": "fairy-tale",
+      "emoji": "🖌️",
       "images": {
         "main": "images/catalog/placeholder.png",
         "gallery": [
@@ -13056,15 +12425,13 @@
         ]
       },
       "description": {
-        "short": "Ростовая кукла Сердце - веселый персонаж для праздника!",
-        "full": "Ростовая кукла Сердце подарит незабываемые эмоции и веселье на вашем празднике!"
+        "short": "Ведущий творческих мастер-классов!",
+        "full": "Опытный мастер-художник проведет увлекательный творческий мастер-класс: роспись футболок, шопперов, значков, изготовление слаймов и топиариев."
       },
       "features": {
-        "age": "3-12",
+        "age": "4-14",
         "gender": "unisex",
         "activities": [
-          "dance",
-          "active",
           "creative"
         ],
         "duration": [
@@ -13073,19 +12440,62 @@
         ]
       },
       "pricing": {
-        "hourly": 3500,
+        "hourly": 3000,
         "packages": [
           {
             "duration": 2,
-            "price": 6500
+            "price": 6000
           }
         ]
       },
       "tags": [
         "нейтральные"
       ],
-      "isPopular": false,
-      "isNew": true
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": 362,
+      "name": "Шеф-Повар / Кондитер",
+      "slug": "шеф-повар-кондитер",
+      "category": "fairy-tale",
+      "emoji": "🧑‍🍳",
+      "images": {
+        "main": "images/catalog/placeholder.png",
+        "gallery": [
+          "images/catalog/placeholder.png"
+        ]
+      },
+      "description": {
+        "short": "Ведущий кулинарных интерактивов!",
+        "full": "Настоящий шеф-повар проведет сладкие и кулинарные мастер-классы: овершейки, сахарное бурито и шоу сахарной ваты."
+      },
+      "features": {
+        "age": "4-14",
+        "gender": "unisex",
+        "activities": [
+          "creative",
+          "active"
+        ],
+        "duration": [
+          1,
+          2
+        ]
+      },
+      "pricing": {
+        "hourly": 3000,
+        "packages": [
+          {
+            "duration": 2,
+            "price": 6000
+          }
+        ]
+      },
+      "tags": [
+        "нейтральные"
+      ],
+      "isPopular": true,
+      "isNew": false
     }
   ]
 }

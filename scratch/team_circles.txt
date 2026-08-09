@@ -1,0 +1,151 @@
+1885: function initTelegramTeamCircles() {
+1886:     const cards = document.querySelectorAll('.team-member-card');
+1887:     const modal = document.getElementById('telegram-modal');
+1888:     if (cards.length === 0 || !modal) return;
+1889: 
+1890:     const closeBtn = modal.querySelector('.telegram-modal-close');
+1891:     const backdrop = modal.querySelector('.telegram-modal-backdrop');
+1892:     
+1893:     const mName = modal.querySelector('.telegram-member-name');
+1894:     const mRole = modal.querySelector('.telegram-member-role');
+1895:     const mSuperpower = modal.querySelector('.telegram-member-superpower');
+1896:     const mRoles = modal.querySelector('.telegram-member-roles');
+1897:     const mQuote = modal.querySelector('.telegram-member-quote');
+1898:     const mProgress = modal.querySelector('.progress-ring-active');
+1899:     
+1900:     let progressInterval = null;
+1901: 
+1902:     cards.forEach(card => {
+1903:         card.addEventListener('click', () => {
+1904:             const name = card.querySelector('.member-name').textContent;
+1905:             const role = card.querySelector('.member-role').textContent;
+1906:             const superpower = card.getAttribute('data-superpower') || '';
+1907:             const roles = card.getAttribute('data-roles') || '';
+1908:             const quote = card.getAttribute('data-quote') || '';
+1909:             
+1910:             // Заполняем данные
+1911:             if (mName) mName.textContent = name;
+1912:             if (mRole) mRole.textContent = role;
+1913:             if (mSuperpower) mSuperpower.textContent = superpower;
+1914:             if (mRoles) mRoles.textContent = roles;
+1915:             if (mQuote) mQuote.textContent = quote;
+1916:             
+1917:             // Анимация progress ring (круглые истории Telegram)
+1918:             if (mProgress) {
+1919:                 mProgress.style.strokeDashoffset = '301.6'; // Сброс
+1920:                 let start = Date.now();
+1921:                 const duration = 8000; // 8 секунд
+1922:                 
+1923:                 if (progressInterval) clearInterval(progressInterval);
+1924:                 
+1925:                 progressInterval = setInterval(() => {
+1926:                     let elapsed = Date.now() - start;
+1927:                     let progress = Math.min(elapsed / duration, 1);
+1928:                     let offset = 301.6 - (progress * 301.6);
+1929:                     mProgress.style.strokeDashoffset = offset;
+1930:                     
+1931:                     if (progress >= 1) {
+1932:                         clearInterval(progressInterval);
+1933:                         // Повторяем по кругу
+1934:                         setTimeout(() => {
+1935:                             if (modal.classList.contains('active')) {
+1936:                                 start = Date.now();
+1937:                                 progressInterval = setInterval(() => {
+1938:                                     let elapsed = Date.now() - start;
+1939:                                     let progress = Math.min(elapsed / duration, 1);
+1940:                                     let offset = 301.6 - (progress * 301.6);
+1941:                                     mProgress.style.strokeDashoffset = offset;
+1942:                                     if (progress >= 1) {
+1943:                                         start = Date.now(); // Loop the progress animation
+1944:                                     }
+1945:                                 }, 50);
+1946:                             }
+1947:                         }, 500);
+1948:                     }
+1949:                 }, 50);
+1950:             }
+1951:             
+1952:             // Открываем модалку
+1953:             modal.classList.add('active');
+1954:         });
+1955:     });
+1956: 
+1957:     const closeModal = () => {
+1958:         modal.classList.remove('active');
+1959:         if (progressInterval) {
+1960:             clearInterval(progressInterval);
+1961:             progressInterval = null;
+1962:         }
+1963:     };
+1964: 
+1965:     if (closeBtn) closeBtn.addEventListener('click', closeModal);
+1966:     if (backdrop) backdrop.addEventListener('click', closeModal);
+1967:     
+1968:     // Закрытие по кнопке Escape
+1969:     document.addEventListener('keydown', (e) => {
+1970:         if (e.key === 'Escape' && modal.classList.contains('active')) {
+1971:             closeModal();
+1972:         }
+1973:     });
+1974: }
+1975: 
+1976: // ==================== HOLIDAY PHOTOS GALLERY CAROUSEL ====================
+1977: const HOLIDAY_PHOTOS = [
+1978:     "-QdgmvInrQJ3qQJyc0SDQaUocMD7Jst7HeQpxkShraN4Fgv9fq6TSP2nYBh1eWpnIV417sCl.jpg",
+1979:     "-s-B3yg8ToGbaB9MhdtZZdFlMfL0XyWWn8VghdLnRjFAgWTkdy2g5JMHVejYNNDSt80y1hJFWk19rvYxN_eadZkv.jpg",
+1980:     "09rZoPO0tRn8SSvlYOYBmxmcTH3bzgKlnquuBDx07CAAGubpzrq8qSjGQhyDQnudQ3cnFwqj2qoNh14E7w2MX_3t.jpg",
+1981:     "0Z2G21wgjWMRpyr-MlFzCL3VWfaQ6dEN-XtG6t0go0x8-5U82AUOqf_UUaOPPnvA6LrWPzLVYRX7CgVa-0cNxsVd.jpg",
+1982:     "0fV0pxPCYzb2773cb8g4HXkOzzfk_6ubapsATjbcGBBEEHvZRB2t7sIxONUNXnU5zMcE-XrDiMG8iy9swfk0en2l.jpg",
+1983:     "1DsEDGjgUjNnsD2uaviyN8gycjd-pmGRrqOdFQV5s5x_Offfl9aBhXuRZE5fjRuYF6cSrMKiYDFO3li_ez-Pf-F6.jpg",
+1984:     "1Yyj-RlCqtjAib1EL-SFLedGxGpvQfmA2imPUtYRY1bpmc5E3anMFw_1Erzset45NmXmXxiS8PNmjGNs7YpN0RIZ.jpg",
+1985:     "1_BtDm7lPKzwkPxQQ10NN0fn3CZ3iI3BEbeisOU9miuUyP25XMGMlyOL9prsL8dQo_RAXdppw4ZI2dEHn8TUTnxh.jpg",
+1986:     "1cGNzAOV_IXOJfmZFyd4QGaLGafuB-n--K78_iM3V9e9_XnXnx6FO3o6hhyFOfWcLToRaI_e.jpg",
+1987:     "1o5J2oU8K_MRwfVwQHrzGZcDbNJDo1Y06rGJurQN1DK4GbQr84gxvtHCwRLbtdqOIQykfp2N7pie-79pEtyrTVHu.jpg",
+1988:     "3Eb2TODE9GVSlzTMxok8FDqDvPmQIz3SaHKU9bY5PbAQJ-tzme-lCsCxI42trmfDhkmKXGPIK8E2lR0b9eAXdyMN.jpg",
+1989:     "3NW_Ft4wGU1sFUVcGXbTgW-uCjxleGulurYYxjVjnstTlosCnOjBShTxwTdIuc5kmkPRv3Dpds6kQ9-4BCC-KYMy.jpg",
+1990:     "3epJsrrsNb2X-dwyPxB-vxsvFOz_IN1sIiaAT9AD7uLCQ-jKcXMmr6KsdZCUVynKb2_I8NE6.jpg",
+1991:     "3xB7EqPj1q13r_Y-PmTHAtNMYes34e08vXxZ7A8C0zCkr1u8ZAQPxLZ1c7jGPXTXj0enB01trjFa03738zLFN510.jpg",
+1992:     "3yuaGdQm5FnwLaq2rka8GkK12EwleY3g-zxfBKkj-KYDGCPyIF3nD9dDXQL5D6DhzMOe8D3q0ajwBybnd-9_Dv1-.jpg",
+1993:     "53PaOZMc1FL9-yacO_ZYaO75wxGJraK7AHmHEBN884DxFBVB3xmjckE42f9r7hxtRWpVR1q-RUfsCvKhxmmG6ipx.jpg",
+1994:     "5GiZt7UnclIyqfLww8r7ahQmPN9j7cFB6tpfu9qYaCyYUx6GGp0Lt0OwPqql7wlA0Syh9uQe9-4SFjaVsAY7ZdHG.jpg",
+1995:     "5PxSWH0Qep9VV6sLtF5f8-QUv0u-T6mgLpgTLHbCU2-wJrcfj1ZZ03JYdQi4vXkX1EELF2ZpVg7JbXVo-GpH-Fbm.jpg",
+1996:     "5aUOIyDnikvXUXoBQ7BrdtPkKKOM-CLi5SY_MuDNXK7ibINH_RbfBr8TewvDOKPY6L7PrYX5pqWth48MuKqJjnmQ.jpg",
+1997:     "5h1S7wRDqaRkv8bP8-OgmXbSVyb5ToWZ-akq0UsvH5gUU5BjlSgf0e1X_1n0NQrqyWiMqE58c5XAm3HBReVAPEdq.jpg",
+1998:     "5jngu-uMFNL_JocnRCim9Ed8oRNSmOSnRZMt4sj7Zc3z3DQi-B8qOjuzbNaaj5Zwq-s7YjyxTkF8ylDAKQgB8CIe.jpg",
+1999:     "6xAZvcE2mjtwWjG7EyPqEZawIn0kHPzmw8PvXX_M4TiD6ryTCdYx7e2UroCC8sErJP5pXKX7H8MOudSuWicSIMmw.jpg",
+2000:     "7PT0i8NfBVxXpeRTqe5uPe1CHgFUDgwKk4fP-Q9gVZSr0Kfas7WzV_lgM8W_0mMB69Ati_4Cj2e2Yypx-EugbXBv.jpg",
+2001:     "7Qgq6AewSqslj40TlYzZ-LorJHTS9Ly_TTMP_VHnJmpNSgBjejWB9LkCGu_wB9WWgO3MPNIri6VcO5feDX52RXKB.jpg",
+2002:     "7a4UhJxe9DtlCLGLNeqxUAm8SpG0h79uryTqF9pXZ_xC4E6O8yPIrtX6ZwRoznbIBYZ4YL1EvEMSWhG-ChtpjBhL.jpg",
+2003:     "7rUghH0sPXSE9YS9tDiwl3N3HsTi23YGud_FpgwW1oXJypzLqm2UhS1evSXEfLlcbZmE2Uue04KJd_dpH37AdBEW.jpg",
+2004:     "8vY5L4EzqkkFwiA19Xd_ujDm3gk8CSy3utcD-uaT4ucOhXO5MW4vjmG2v04Hx0mKGldKv-Jnzzav50Q5_UVCZaXL.jpg",
+2005:     "9WmhPo5gxVfLvgDuNss-GYzjkZhjXsc-2fSxnDf5JwUFw0yjZ0y7MCZ7tX40s1GNaQYTKHl8.jpg",
+2006:     "Ay4-OvD5jGdZ2ejXYsEHyJcezLxl8atbuw_6JZeTHU-eeDshYVDHxoROsGK0v6ecr-eDg4gpnGRC-bgV8aKErMUr.jpg",
+2007:     "BAFIxrhx0A6hR_pY9erbaidWD6yo2rU4tXf7-QKzeqa59IFvHNfhHNXKPrchIHeRjUoJVV3x.jpg",
+2008:     "Bpai1KLFqyxkc_N9GO9Sf1yM2YaILyyu77_ewtHRt0QzwOHbHRke5zOftxcKdqlIfhiI5g9sXdaWpTCTAjetowD8.jpg",
+2009:     "Bpjjll5ssK75oJlAN-SDGC_kXaoXbsIeZa6z_xDC3nkqlA4A4Q9zKuP6n6svyBOafwTZsherthfGc0fI4_ZYmKE1.jpg",
+2010:     "C1w6nygQYsgcDPe1zxJeixxqMdAZSZQ1UT2-_sU2U4xgvXdpGj3vgEJSeoqWrj1NT8C6MRp6m3nvbSmBRyURMhMt.jpg",
+2011:     "CX7kLmS9Ij09y3_XWlhNrxa2difLwm7BSWfXE4OYAVqMOT5ArHHoGGABoF8z2AoAdh1DLFcXMIt4zHT6K1RiYxM-.jpg",
+2012:     "CtEgiocsXeYkvTsPr830mwyipLNLbwGM3W-WFPWURhoXte8pJ7_XOAK7pm7k1K6rtbb1JvpM3Udu_Pxv1AH67bee.jpg",
+2013:     "DHnKOeLTsalz80_-TUPu9KuwMtqTGVQx1nc8gcBZhn92y-D-wytdXdmrfcP9FXwq1De-N03X.jpg",
+2014:     "DHySKb4g79p_xX4g5PBnzsvBN-9dKg-A_Pv5L0vg3bsVllEIEdO-wcLykLu4Kph0Tp3P5BrlUD4rNedYczptppNF.jpg",
+2015:     "E3aDovCBoHRJTeYZz_fYPNb962rU6A53w3ebBKNZ6kkpytoNxjuQSfh2pi-iac4g2qmZchsZQfhtDurAlwQRb7Jn.jpg",
+2016:     "E49PS2T45MFLky1Eg9rrsBEXl4jvZFHuwoy010d-ATqsAUL3vokh5ngHOXctv_5xNipWQBephwfil8FRu3sxdlOC.jpg",
+2017:     "E6HfnTjlQKMlJSnL_K_13i98O9BztCWYzOBvMfaVCaudNFz9Y6ey_erRjKqdAWS_3JjHV8wO.jpg",
+2018:     "EaeBZuNflHFBSTIEhr92EZ_xInXFNtaUZrk7JBWWZuk0LiOgjKPRAxNeERXp0BaislmXl5CPZWwzYAoXFSHI79i-.jpg",
+2019:     "Eavzt4VojLyPM0o7zHvpgei1yFPbZaNwLEWb-mPZpWKgh9kDUmHhWaeZkCDX2XrPukc-i2m4.jpg",
+2020:     "F3S67g4vdk-mI5GBIXjKCzcg0Sc1GrJY4647_fU5B3zpnfus90sck1Yp68s7L3Tvfs2mfCWaXQk0l-7uRTN-DsgK.jpg",
+2021:     "FLuNtQbQHDpo63ncPF7iTTf_XKidArkfl3LtRLeiEHC5GBteZ2rzMby8gq1oJeCi7UpVFiCitC8sE5-ilkZT59Br.jpg",
+2022:     "Fnrx5IyXCb4EZWwiqD52RSFwD2pcHWGJTqRwo4p1XshO0ItJrUe2cIQltvBkevgtYJwlxs_a_CwuIk6kktQX6rKF.jpg",
+2023:     "GRjO-nqLeFjjvxzbwZXGw3MsQ0Ms08544OLF2pb0m8oXlSOXibI3wUQq5jNr17Lehk3tktpQdZ23Zor14ZqkFww1.jpg",
+2024:     "GfCGwdhc18-ml0PSfNqUHKEhKiZD0jHmdwdM5mfEkbAT9M1t7QwqT5tf2nn2Njz7P-C-smgoHqnFTjfBfvrVvH9c.jpg",
+2025:     "GqyTXGwvRqZ4PnuDgz1OjZjGL_F5AUTEFPX3NM3T5rnB3t5ca431NGbvAnhd7poxEhGwU2Rvq60Kunau_3xSAXhI.jpg",
+2026:     "HdXl4PnjTlVs94NqGkwiEQW9BeIDiTdAEOBuRNyry2GLMKX_zQKAaobMT3KILbMzzC4ogBVANWD-Mdbf4BvCCkZ0.jpg",
+2027:     "IrEeDkPvccynI-shOLDKoBqlk1iYrwk5gfv0LuD01uxrsdXYHtupi5hrjHyMg1lFv8Bz-bJuUqLLREJgATJO6XhR.jpg",
+2028:     "IwsSFoVVdyKBKTu8iLuPsMMIixc6hn4d_fcPBHXYnuiDR3pWFYFpDH_C4_MEEOTu9JoKP5i8.jpg",
+2029:     "KDGu5uXGDcE64DIf3FyMmb32uiJ6eBJLanbk-8uf-KpZbHGR0uOXWm9V6bh1bKbZJRX0e5MfqdIqPIDd_ahZWXSG.jpg",
+2030:     "Kn_OziFox2DR0bf0v8QjHYpefQDDGYE5IjtC9eltFcxv3wP43UZlQWKWOUfgT3IksnEzlPlKl3CPAuNDL2QqqTok.jpg",
+2031:     "Kt6YOgYIlYCkIulzpIwgyrEczXGjvC4asNAPlUIdKJyqf4dwHF9fQ_7-v-zMNzM2-qBPThPjQmmDijzwu_f9MwoY.jpg",
+2032:     "KyYQwGKoWhYjOjdK_dJ_i3DM-R6rKJS_UniWFelRYAZwkOeMDoSqNAEZ1JXQEklTPUrkK9LlP4Alx5MfVIeofmFo.jpg",
+2033:     "KyxQulsEeKg4lmO8TbCvqinhWmcxChw4EcyWt8e5nkPbf8-lryv6fiDc7bEJcv4Jawom6eTjrSXf9cE1fUXKpjpd.jpg",
+2034:     "L1WG1xlyP4Z1ebgAhkMh2Ew-GflKo2o5R5u5yagmR6yANAJ_FqWEfWx8xkTQGQriR81uPfIQtjsesVAvUVsex9qW.jpg",
+2035:     "L_Pd_L_sut4YKIVG8eoFS2a-xnwRFPrkgvBVQAV0BplIQGTc_6Kwz4zZ4Jhrrvmgm2Tb-Bz9k9nSgD4lkzZZPJJc.jpg",

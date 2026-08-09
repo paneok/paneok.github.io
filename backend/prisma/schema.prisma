@@ -25,7 +25,7 @@ model Character {
   updatedAt         DateTime @updatedAt
 
   // Связи
-  orderItems        OrderItem[]
+  orderItems        OrderItemCharacter[]
   timeSlots         TimeSlot[]
 }
 

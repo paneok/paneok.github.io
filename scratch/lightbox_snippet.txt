@@ -1,0 +1,1822 @@
+Total occurrences of lightbox: 121
+Occurrence 1:
+sel-track');
+    const viewport = document.getElementById('holiday-carousel-viewport');
+    
+    // Lightbox elements
+    const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (light
+========================================
+Occurrence 2:
+ort = document.getElementById('holiday-carousel-viewport');
+    
+    // Lightbox elements
+    const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.
+========================================
+Occurrence 3:
+ay-carousel-viewport');
+    
+    // Lightbox elements
+    const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the 
+========================================
+Occurrence 4:
+  
+    // Lightbox elements
+    const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+  
+========================================
+Occurrence 5:
+const lightbox = document.getElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.que
+========================================
+Occurrence 6:
+tElementById('lightbox-modal');
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image'
+========================================
+Occurrence 7:
+    let lightboxContent = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lig
+========================================
+Occurrence 8:
+;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox
+========================================
+Occurrence 9:
+
+    let lightboxCaption = null;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxC
+========================================
+Occurrence 10:
+ll;
+    let lightboxClose = null;
+    let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector
+========================================
+Occurrence 11:
+let lightboxPrev = null;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        light
+========================================
+Occurrence 12:
+ull;
+    let lightboxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.q
+========================================
+Occurrence 13:
+boxNext = null;
+    let lightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lig
+========================================
+Occurrence 14:
+ightboxBackdrop = null;
+    
+    if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+       
+========================================
+Occurrence 15:
+ if (lightbox) {
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySe
+========================================
+Occurrence 16:
+        lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox
+========================================
+Occurrence 17:
+ightboxContent) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop')
+========================================
+Occurrence 18:
+) lightboxContent.style.display = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+ 
+========================================
+Occurrence 19:
+isplay = 'none'; // Hide the static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewpor
+========================================
+Occurrence 20:
+he static placeholder card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const 
+========================================
+Occurrence 21:
+der card
+        lightboxImg = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount
+========================================
+Occurrence 22:
+Img = lightbox.querySelector('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of uniqu
+========================================
+Occurrence 23:
+('.lightbox-image');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    
+========================================
+Occurrence 24:
+e');
+        lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos =
+========================================
+Occurrence 25:
+ion = lightbox.querySelector('.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions
+========================================
+Occurrence 26:
+.lightbox-caption');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [
+========================================
+Occurrence 27:
+on');
+        lightboxClose = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trac
+========================================
+Occurrence 28:
+se = lightbox.querySelector('.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    
+========================================
+Occurrence 29:
+.lightbox-close-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    l
+========================================
+Occurrence 30:
+-btn');
+        lightboxPrev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+
+========================================
+Occurrence 31:
+rev = lightbox.querySelector('.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    l
+========================================
+Occurrence 32:
+'.lightbox-prev-btn');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let velocity = 0;
+    let last
+========================================
+Occurrence 33:
+');
+        lightboxNext = lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let hasM
+========================================
+Occurrence 34:
+= lightbox.querySelector('.lightbox-next-btn');
+        lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    }
+    
+    if (!track || !viewport) return;
+    
+    const visiblePhotosCount = 10; // Number of unique photos to show in row
+    let realPhotos = [];
+    let realCaptions = [];
+    let trackPhotos = [];
+    let trackCaptions = [];
+    
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let hasMoved = false; // Prevents
+========================================
+Occurrence 35:
+handwritten">${trackCaptions[i]}</p>
+            `;
+            
+            // Clicking card opens Lightbox only if we didn't drag it
+            card.addEventListener('click', () => {
+                if (hasMoved || isTransitioning) return;
+                openLightbox(cardIndex, card);
+            });
+            
+            track.appendChild(card);
+        }
+    }
+    
+    // JS high-performance marquee autoscroll loop
+    function animateMarquee() {
+        if (!isMarqueeRunning || isDragging || (
+========================================
+Occurrence 36:
+tener('click', () => {
+                if (hasMoved || isTransitioning) return;
+                openLightbox(cardIndex, card);
+            });
+            
+            track.appendChild(card);
+        }
+    }
+    
+    // JS high-performance marquee autoscroll loop
+    function animateMarquee() {
+        if (!isMarqueeRunning || isDragging || (lightbox && lightbox.classList.contains('active'))) {
+            return;
+        }
+        
+        marqueeX -= 0.8; // Beautiful premium smooth speed
+        
+  
+========================================
+Occurrence 37:
+uee autoscroll loop
+    function animateMarquee() {
+        if (!isMarqueeRunning || isDragging || (lightbox && lightbox.classList.contains('active'))) {
+            return;
+        }
+        
+        marqueeX -= 0.8; // Beautiful premium smooth speed
+        
+        const trackHalfWidth = track.offsetWidth / 2;
+        if (marqueeX < -trackHalfWidth) {
+            marqueeX += trackHalfWidth;
+        } else if (marqueeX > 0) {
+            marqueeX -= trackHalfWidth;
+        }
+        
+        track.sty
+========================================
+Occurrence 38:
+ll loop
+    function animateMarquee() {
+        if (!isMarqueeRunning || isDragging || (lightbox && lightbox.classList.contains('active'))) {
+            return;
+        }
+        
+        marqueeX -= 0.8; // Beautiful premium smooth speed
+        
+        const trackHalfWidth = track.offsetWidth / 2;
+        if (marqueeX < -trackHalfWidth) {
+            marqueeX += trackHalfWidth;
+        } else if (marqueeX > 0) {
+            marqueeX -= trackHalfWidth;
+        }
+        
+        track.style.transform
+========================================
+Occurrence 39:
+k.addEventListener('pointerdown', (e) => {
+            if (isTransitioning) return;
+            if (lightbox && lightbox.classList.contains('active')) return;
+            
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            lastX = e.clientX;
+            hasMoved = false;
+            
+            isMarqueeRunning = false; // Pause JS autoscrolling
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+           
+========================================
+Occurrence 40:
+stener('pointerdown', (e) => {
+            if (isTransitioning) return;
+            if (lightbox && lightbox.classList.contains('active')) return;
+            
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            lastX = e.clientX;
+            hasMoved = false;
+            
+            isMarqueeRunning = false; // Pause JS autoscrolling
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animati
+========================================
+Occurrence 41:
+;
+            isDragging = false;
+            
+            function inertia() {
+                if (lightbox && lightbox.classList.contains('active')) {
+                    isMarqueeRunning = false;
+                    return;
+                }
+                
+                if (Math.abs(velocity) < 0.1) {
+                    if (!lightbox || !lightbox.classList.contains('active')) {
+                        isMarqueeRunning = true; // Resume JS autoscrolling
+                        animateMarquee();
+ 
+========================================
+Occurrence 42:
+  isDragging = false;
+            
+            function inertia() {
+                if (lightbox && lightbox.classList.contains('active')) {
+                    isMarqueeRunning = false;
+                    return;
+                }
+                
+                if (Math.abs(velocity) < 0.1) {
+                    if (!lightbox || !lightbox.classList.contains('active')) {
+                        isMarqueeRunning = true; // Resume JS autoscrolling
+                        animateMarquee();
+             
+========================================
+Occurrence 43:
+        }
+                
+                if (Math.abs(velocity) < 0.1) {
+                    if (!lightbox || !lightbox.classList.contains('active')) {
+                        isMarqueeRunning = true; // Resume JS autoscrolling
+                        animateMarquee();
+                    }
+                    track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                    return;
+                }
+                
+                let newX = marqueeX + velocity;
+                vel
+========================================
+Occurrence 44:
+             
+                if (Math.abs(velocity) < 0.1) {
+                    if (!lightbox || !lightbox.classList.contains('active')) {
+                        isMarqueeRunning = true; // Resume JS autoscrolling
+                        animateMarquee();
+                    }
+                    track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                    return;
+                }
+                
+                let newX = marqueeX + velocity;
+                velocity *= 0.95
+========================================
+Occurrence 45:
+         animateMarquee();
+            }
+        });
+    }
+    
+    // ==================== PREMIUM LIGHTBOX MODAL ====================
+    let lightboxIndex = 0;
+    let originalClickedCard = null; // Store reference to restore opacity on close
+    let originalTransform = '';     // Store reference to restore rotation on close
+    let isTransitioning = false;     // Prevent spam during transitions
+    let activeLightboxCard = null;  // Reference to the physical fixed clone on screen
+    let originalTra
+========================================
+Occurrence 46:
+     });
+    }
+    
+    // ==================== PREMIUM LIGHTBOX MODAL ====================
+    let lightboxIndex = 0;
+    let originalClickedCard = null; // Store reference to restore opacity on close
+    let originalTransform = '';     // Store reference to restore rotation on close
+    let isTransitioning = false;     // Prevent spam during transitions
+    let activeLightboxCard = null;  // Reference to the physical fixed clone on screen
+    let originalTrackTransform = ''; // Store the starting trac
+========================================
+Occurrence 47:
+tion on close
+    let isTransitioning = false;     // Prevent spam during transitions
+    let activeLightboxCard = null;  // Reference to the physical fixed clone on screen
+    let originalTrackTransform = ''; // Store the starting track transform matrix to prevent snapping on close
+    
+    function openLightbox(index, clickedCard) {
+        if (!clickedCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Pause autoscrolling immediately
+        isMarqueeRunning = fals
+========================================
+Occurrence 48:
+''; // Store the starting track transform matrix to prevent snapping on close
+    
+    function openLightbox(index, clickedCard) {
+        if (!clickedCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Pause autoscrolling immediately
+        isMarqueeRunning = false;
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        
+        lightboxIndex = index;
+        originalClickedCard = cl
+========================================
+Occurrence 49:
+elAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        
+        lightboxIndex = index;
+        originalClickedCard = clickedCard;
+        
+        // Save the starting track transform matrix using our JS marqueeX coordinate
+        originalTrackTransform = `translate3d(${marqueeX}px, 0px, 0px)`;
+        
+        // 2. Get original card position on screen
+        const rect = clickedCard.getBoundingClientRect();
+        
+        // 3. Create transition clone
+        co
+========================================
+Occurrence 50:
+one directly to body (solid visible flight)
+        document.body.appendChild(clone);
+        activeLightboxCard = clone;
+        
+        // 6. Force a reflow
+        clone.offsetHeight;
+        
+        // 7. Target size: 2/3 of viewport height, image fills card
+        const targetHeight = window.innerHeight * 0.67;
+        const cardAspectRatio = rect.width / rect.height;
+        let targetWidth = targetHeight * cardAspectRatio;
+        
+        // Cap width to viewport
+        const maxWidth = wind
+========================================
+Occurrence 51:
+   imgWrapper.style.width = '100%';
+        }
+        
+        // 8. Start backdrop fade in
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // 9. Animate the clone to center
+        clone.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        clone.style.top = targetTop + 'px';
+        clone.style.left = targetLeft + 'px';
+        clone.style.width = targetWidth + 'px';
+ 
+========================================
+Occurrence 52:
+  }
+        
+        // 8. Start backdrop fade in
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // 9. Animate the clone to center
+        clone.style.transition = 'all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        clone.style.top = targetTop + 'px';
+        clone.style.left = targetLeft + 'px';
+        clone.style.width = targetWidth + 'px';
+        clone.style.height = targetHeight +
+========================================
+Occurrence 53:
+nsitioning — clone stays pointer-events:none
+        //     so taps on the card pass through to the lightbox backdrop swipe handler
+        setTimeout(() => {
+            try {
+                // Keep pointerEvents: none — interaction handled by lightbox swipe handler
+            } catch (err) {
+                console.error("Error during open transition cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    // Find matching card o
+========================================
+Occurrence 54:
+eout(() => {
+            try {
+                // Keep pointerEvents: none — interaction handled by lightbox swipe handler
+            } catch (err) {
+                console.error("Error during open transition cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    // Find matching card on track that is closest to center of viewport
+    function findActiveCardOnTrack(index) {
+        const cards = track.querySelectorAll('.polaroid-
+========================================
+Occurrence 55:
+}
+        });
+        
+        return bestCard || originalClickedCard;
+    }
+    
+    function closeLightbox() {
+        if (!lightbox || !activeLightboxCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Find the current active card on the track to fly back to
+        const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+           
+========================================
+Occurrence 56:
+     return bestCard || originalClickedCard;
+    }
+    
+    function closeLightbox() {
+        if (!lightbox || !activeLightboxCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Find the current active card on the track to fly back to
+        const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overf
+========================================
+Occurrence 57:
+d || originalClickedCard;
+    }
+    
+    function closeLightbox() {
+        if (!lightbox || !activeLightboxCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        // 1. Find the current active card on the track to fly back to
+        const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+         
+========================================
+Occurrence 58:
+he current active card on the track to fly back to
+        const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+    
+========================================
+Occurrence 59:
+    const activeCard = findActiveCardOnTrack(lightboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("
+========================================
+Occurrence 60:
+tboxIndex);
+        if (!activeCard) {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } final
+========================================
+Occurrence 61:
+        document.body.style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${ma
+========================================
+Occurrence 62:
+style.overflow = '';
+            
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+========================================
+Occurrence 63:
+               if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                
+                isMarqueeRunning = 
+========================================
+Occurrence 64:
+ctiveLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+            } catch (err) {
+                console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+  
+========================================
+Occurrence 65:
+         console.error("Error removing clone:", err);
+            } finally {
+                activeLightboxCard = null;
+                track.style.transition = '';
+                track.style.transform = `translate3d(${marqueeX}px, 0px, 0px)`;
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+                isTransitioning = false;
+            }
+            return;
+        }
+        
+        // Restore opacity of any previously hidden original card
+        if
+========================================
+Occurrence 66:
+dStyle.transform : originalTransform;
+        
+        // 3. Prepare clone for flight
+        activeLightboxCard.style.pointerEvents = 'none';
+        
+        // Fade out backdrop — track stays where it is
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // 4. Fly clone from center to its current track slot (no track animation)
+        activeLightboxCard.style.transition = 'all 0.5s cubic-bezie
+========================================
+Occurrence 67:
+yle.pointerEvents = 'none';
+        
+        // Fade out backdrop — track stays where it is
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // 4. Fly clone from center to its current track slot (no track animation)
+        activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.
+========================================
+Occurrence 68:
+// Fade out backdrop — track stays where it is
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // 4. Fly clone from center to its current track slot (no track animation)
+        activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeL
+========================================
+Occurrence 69:
+  
+        // 4. Fly clone from center to its current track slot (no track animation)
+        activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLi
+========================================
+Occurrence 70:
+      activeLightboxCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, 
+========================================
+Occurrence 71:
+ezier(0.25, 1, 0.5, 1)';
+        activeLightboxCard.style.top = startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+     
+========================================
+Occurrence 72:
+ startRect.top + 'px';
+        activeLightboxCard.style.left = startRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLi
+========================================
+Occurrence 73:
+artRect.left + 'px';
+        activeLightboxCard.style.width = startRect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.p
+========================================
+Occurrence 74:
+Rect.width + 'px';
+        activeLightboxCard.style.height = startRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+      
+========================================
+Occurrence 75:
+tartRect.height + 'px';
+        activeLightboxCard.style.transform = targetTransform;
+        activeLightboxCard.classList.remove('fullscreen-zoom-active');
+        
+        // 5. Clean up, reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+        
+========================================
+Occurrence 76:
+reveal card, resume carousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+  
+========================================
+Occurrence 77:
+rousel
+        setTimeout(() => {
+            try {
+                if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+            } catch (err
+========================================
+Occurrence 78:
+               if (activeLightboxCard && activeLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+            } catch (err) {
+                console.error("Error in close tra
+========================================
+Occurrence 79:
+ctiveLightboxCard.parentNode) {
+                    activeLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+            } catch (err) {
+                console.error("Error in close transition timeout cleanup:", err);
+         
+========================================
+Occurrence 80:
+iveLightboxCard.parentNode.removeChild(activeLightboxCard);
+                }
+                activeLightboxCard = null;
+                
+                if (activeCard) {
+                    activeCard.style.opacity = '1';
+                }
+                
+                isMarqueeRunning = true;
+                animateMarquee();
+            } catch (err) {
+                console.error("Error in close transition timeout cleanup:", err);
+            } finally {
+                isTransitioning = false;
+========================================
+Occurrence 81:
+/ Choreographed double-flight navigation: slides the track and flies the cards
+    function navigateLightbox(direction) {
+        if (isTransitioning || !activeLightboxCard || !realPhotos.length) return;
+        isTransitioning = true;
+        
+        // 1. Calculate the target index
+        let nextIndex = 0;
+        if (direction === 'next') {
+            nextIndex = (lightboxIndex + 1) % realPhotos.length;
+        } else {
+            nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.
+========================================
+Occurrence 82:
+nd flies the cards
+    function navigateLightbox(direction) {
+        if (isTransitioning || !activeLightboxCard || !realPhotos.length) return;
+        isTransitioning = true;
+        
+        // 1. Calculate the target index
+        let nextIndex = 0;
+        if (direction === 'next') {
+            nextIndex = (lightboxIndex + 1) % realPhotos.length;
+        } else {
+            nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.length;
+        }
+        
+        // 2. Find the current ca
+========================================
+Occurrence 83:
+arget index
+        let nextIndex = 0;
+        if (direction === 'next') {
+            nextIndex = (lightboxIndex + 1) % realPhotos.length;
+        } else {
+            nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.length;
+        }
+        
+        // 2. Find the current card on the track and the next card on the track
+        const currentTrackCard = findActiveCardOnTrack(lightboxIndex);
+        const nextTrackCard = findActiveCardOnTrack(nextIndex);
+        
+        if (!currentTra
+========================================
+Occurrence 84:
+     nextIndex = (lightboxIndex + 1) % realPhotos.length;
+        } else {
+            nextIndex = (lightboxIndex - 1 + realPhotos.length) % realPhotos.length;
+        }
+        
+        // 2. Find the current card on the track and the next card on the track
+        const currentTrackCard = findActiveCardOnTrack(lightboxIndex);
+        const nextTrackCard = findActiveCardOnTrack(nextIndex);
+        
+        if (!currentTrackCard || !nextTrackCard) {
+            isTransitioning = false;
+            retur
+========================================
+Occurrence 85:
+ on the track and the next card on the track
+        const currentTrackCard = findActiveCardOnTrack(lightboxIndex);
+        const nextTrackCard = findActiveCardOnTrack(nextIndex);
+        
+        if (!currentTrackCard || !nextTrackCard) {
+            isTransitioning = false;
+            return;
+        }
+        
+        // 3. Capture CURRENT position of next card BEFORE any track movement
+        const startRectB = nextTrackCard.getBoundingClientRect();
+        
+        // 4. Shift track so the target
+========================================
+Occurrence 86:
+   const startRectA = currentTrackCard.getBoundingClientRect();
+        const cardToFlyBack = activeLightboxCard;
+        cardToFlyBack.style.pointerEvents = 'none';
+        
+        const computedStyleA = window.getComputedStyle(currentTrackCard);
+        const targetTransformA = computedStyleA.transform !== 'none' ? computedStyleA.transform : originalTransform;
+        
+        cardToFlyBack.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        cardToFlyBack.style.top = startRectA.top +
+========================================
+Occurrence 87:
+lone B to body and update state references
+        document.body.appendChild(cloneB);
+        activeLightboxCard = cloneB;
+        lightboxIndex = nextIndex;
+        originalClickedCard = nextTrackCard; // Update reference for exit flight
+        
+        // Force reflow
+        cloneB.offsetHeight;
+        
+        // Calculate centered dimensions: 2/3 of viewport height, image fills card
+        const targetHeight = window.innerHeight * 0.67;
+        const cardAspectRatio = startRectB.width / startRec
+========================================
+Occurrence 88:
+ references
+        document.body.appendChild(cloneB);
+        activeLightboxCard = cloneB;
+        lightboxIndex = nextIndex;
+        originalClickedCard = nextTrackCard; // Update reference for exit flight
+        
+        // Force reflow
+        cloneB.offsetHeight;
+        
+        // Calculate centered dimensions: 2/3 of viewport height, image fills card
+        const targetHeight = window.innerHeight * 0.67;
+        const cardAspectRatio = startRectB.width / startRectB.height;
+        let targetWi
+========================================
+Occurrence 89:
+ setTimeout(() => {
+            try {
+                // Keep pointerEvents: none — interaction via lightbox swipe handler
+            } catch (err) {
+                console.error("Error during Flight B landing cleanup:", err);
+            } finally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (li
+========================================
+Occurrence 90:
+inally {
+                isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLig
+========================================
+Occurrence 91:
+          isTransitioning = false;
+            }
+        }, 650);
+    }
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); 
+========================================
+Occurrence 92:
+  }
+        }, 650);
+    }
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture han
+========================================
+Occurrence 93:
+ghtbox);
+    // Backdrop click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbSt
+========================================
+Occurrence 94:
+ click removed — unified swipe/tap handler below handles close
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lb
+========================================
+Occurrence 95:
+ightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swip
+========================================
+Occurrence 96:
+entListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightbo
+========================================
+Occurrence 97:
+ => { e.stopPropagation(); navigateLightbox('prev'); });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, 
+========================================
+Occurrence 98:
+ightboxNext) {
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTrans
+========================================
+Occurrence 99:
+e.stopPropagation(); navigateLightbox('next'); });
+    }
+    
+    // Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTransitioning) return;
+            
+            const dx = endX - lbStartX;
+
+========================================
+Occurrence 100:
+// Swipe / tap gesture handler on lightbox — covers both touch (mobile) and mouse (desktop)
+    if (lightbox) {
+        let lbStartX = 0;
+        let lbStartY = 0;
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTransitioning) return;
+            
+            const dx = endX - lbStartX;
+            const dy = endY - lbStartY;
+            const absDx = 
+========================================
+Occurrence 101:
+
+        
+        // Shared logic: decide what to do based on swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTransitioning) return;
+            
+            const dx = endX - lbStartX;
+            const dy = endY - lbStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+            
+            if (absDx > 50 && absDx > absDy * 1.5) {
+                // Horizontal swipe → navig
+========================================
+Occurrence 102:
+n swipe distance
+        function handleLightboxGestureEnd(endX, endY, targetEl) {
+            if (!lightbox.classList.contains('active') || isTransitioning) return;
+            
+            const dx = endX - lbStartX;
+            const dy = endY - lbStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+            
+            if (absDx > 50 && absDx > absDy * 1.5) {
+                // Horizontal swipe → navigate (ignore if tap was on close btn)
+                if (tar
+========================================
+Occurrence 103:
+ore if tap was on close btn)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn')) return;
+                navigateLightbox(dx > 0 ? 'prev' : 'next');
+            } else if (absDx < 15 && absDy < 15) {
+                // Short tap → close (but not when tapping nav/close buttons — they handle themselves)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+           
+========================================
+Occurrence 104:
+tEl && targetEl.closest && targetEl.closest('.lightbox-close-btn')) return;
+                navigateLightbox(dx > 0 ? 'prev' : 'next');
+            } else if (absDx < 15 && absDy < 15) {
+                // Short tap → close (but not when tapping nav/close buttons — they handle themselves)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+            }
+        }
+        
+        // ── TOUCH EVENTS (mobi
+========================================
+Occurrence 105:
+ns — they handle themselves)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+            }
+        }
+        
+        // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.ad
+========================================
+Occurrence 106:
+selves)
+                if (targetEl && targetEl.closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+            }
+        }
+        
+        // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touch
+========================================
+Occurrence 107:
+closest && targetEl.closest('.lightbox-close-btn, .lightbox-nav-btn')) return;
+                closeLightbox();
+            }
+        }
+        
+        // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches
+========================================
+Occurrence 108:
+for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+    
+========================================
+Occurrence 109:
+    // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER
+========================================
+Occurrence 110:
+ientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') return; // handled by to
+========================================
+Occurrence 111:
+.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+        });
+        
+  
+========================================
+Occurrence 112:
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+        });
+        
+        lightbox.addEventListener('pointerup', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            handleLightboxGestureEnd(e.client
+========================================
+Occurrence 113:
+ve
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+        });
+        
+        lightbox.addEventListener('pointerup', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            handleLightboxGestureEnd(e.clientX, e.clientY, e.target);
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            close
+========================================
+Occurrence 114:
+          if (e.pointerType === 'touch') return; // handled by touch events above
+            handleLightboxGestureEnd(e.clientX, e.clientY, e.target);
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowR
+========================================
+Occurrence 115:
+Y, e.target);
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (
+========================================
+Occurrence 116:
+
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (instant rende
+========================================
+Occurrence 117:
+x.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (instant rendering, non-blocking)
+    selectRandomPhotos();
+    buildCarouselDOM();
+    setupKineticDrag();
+    animateMa
+========================================
+Occurrence 118:
+loseLightbox();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            navigateLightbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (instant rendering, non-blocking)
+    selectRandomPhotos();
+    buildCarouselDOM();
+    setupKineticDrag();
+    animateMarquee();
+    
+    // Fetch dynamic photos in the background (non-blocking)
+    try {
+        awa
+========================================
+Occurrence 119:
+tbox('prev');
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            navigateLightbox('next');
+        }
+    });
+    
+    // Initial build with pre-compiled photos (instant rendering, non-blocking)
+    selectRandomPhotos();
+    buildCarouselDOM();
+    setupKineticDrag();
+    animateMarquee();
+    
+    // Fetch dynamic photos in the background (non-blocking)
+    try {
+        await fetchDynamicPhotos();
+        if (!isDragging && (!lightbox || !lightbox.classList.contains('active')
+========================================
+Occurrence 120:
+ackground (non-blocking)
+    try {
+        await fetchDynamicPhotos();
+        if (!isDragging && (!lightbox || !lightbox.classList.contains('active'))) {
+            // Stop the current loop before rebuilding DOM
+            isMarqueeRunning = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            
+            selectRandomPhotos();
+            buildCarouselDOM();
+            marqueeX = 0; // R
+========================================
+Occurrence 121:
+n-blocking)
+    try {
+        await fetchDynamicPhotos();
+        if (!isDragging && (!lightbox || !lightbox.classList.contains('active'))) {
+            // Stop the current loop before rebuilding DOM
+            isMarqueeRunning = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            
+            selectRandomPhotos();
+            buildCarouselDOM();
+            marqueeX = 0; // Reset to start
+========================================

@@ -1,0 +1,100 @@
+950: }
+951: 
+952: // Initialize catalog if we're on a page with the characters grid
+953: if (document.getElementById('characters-grid')) {
+954:     const initCharactersFeatures = () => {
+955:         initializeCharactersCatalog();
+956:         initCharactersViewToggle();
+957: 
+958:         // Initialize programs renderer if programs grid exists
+959:         if (document.getElementById('programs-grid') && window.programsRenderer) {
+960:             window.programsRenderer.init();
+961:         }
+962:     };
+963: 
+964:     if (document.readyState === 'loading') {
+965:         document.addEventListener('DOMContentLoaded', initCharactersFeatures);
+966:     } else {
+967:         initCharactersFeatures();
+968:     }
+969: }
+970: 
+971: // ==================== IMAGE ZOOM WITH MOUSE FOLLOW ====================
+972: // Эффект увеличения изображения с следованием за курсором
+973: function initializeImageZoom() {
+974:     const imageContainers = document.querySelectorAll('.character-image-container');
+975: 
+976:     // Проверяем, является ли устройство сенсорным
+977:     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+978: 
+979:     imageContainers.forEach(container => {
+980:         const image = container.querySelector('.character-photo');
+981: 
+982:         if (!image) return;
+983:         if (container._zoomInitialized) return;
+984:         container._zoomInitialized = true;
+985: 
+986:         // Только для НЕ сенсорных устройств добавляем zoom эффект
+987:         if (!isTouchDevice) {
+988:             let isHovering = false;
+989: 
+990:             container.addEventListener('mouseenter', () => {
+991:                 isHovering = true;
+992:             });
+993: 
+994:             container.addEventListener('mousemove', (e) => {
+995:                 if (!isHovering) return;
+996: 
+997:                 const rect = container.getBoundingClientRect();
+998:                 const x = e.clientX - rect.left; // Позиция X внутри контейнера
+999:                 const y = e.clientY - rect.top;  // Позиция Y внутри контейнера
+1000: 
+1001:                 // Вычисляем процентное положение курсора (0-1)
+1002:                 const xPercent = x / rect.width;
+1003:                 const yPercent = y / rect.height;
+1004: 
+1005:                 // Сильное смещение для просмотра всех частей изображения
+1006:                 // При zoom 2.475 нужно большое смещение, чтобы показать края
+1007:                 const moveX = (xPercent - 0.5) * -250; // Увеличено для просмотра краев по горизонтали
+1008:                 const moveY = (yPercent - 0.5) * -350; // Увеличено для просмотра лица и ног (вертикаль важнее!)
+1009: 
+1010:                 image.style.transformOrigin = 'center center';
+1011:                 image.style.transform = `scale(2.475) translate(${moveX}px, ${moveY}px)`;
+1012:             });
+1013: 
+1014:             container.addEventListener('mouseleave', () => {
+1015:                 isHovering = false;
+1016:                 image.style.transform = 'scale(1)';
+1017:                 image.style.transformOrigin = 'center center';
+1018:             });
+1019:         }
+1020: 
+1021:         // Добавляем обработчик клика для открытия галереи (для ВСЕХ устройств)
+1022:         container.addEventListener('click', (e) => {
+1023:             console.log('Image clicked!');
+1024:             e.stopPropagation();
+1025:             const card = container.closest('.character-card');
+1026:             console.log('Card element:', card);
+1027:             const characterId = card ? card.getAttribute('data-character-id') : null;
+1028:             console.log('Character ID:', characterId);
+1029:             if (characterId) {
+1030:                 openGalleryModal(characterId);
+1031:             } else {
+1032:                 console.error('Character ID not found!');
+1033:             }
+1034:         });
+1035:     });
+1036: }
+1037: 
+1038: // ==================== GALLERY MODAL ====================
+1039: // Создаем модальное окно галереи
+1040: function createGalleryModal() {
+1041:     const modal = document.createElement('div');
+1042:     modal.className = 'gallery-modal';
+1043:     modal.innerHTML = `
+1044:         <div class="gallery-modal-overlay"></div>
+1045:         <div class="gallery-modal-content">
+1046:             <button class="gallery-close">&times;</button>
+1047: 
+1048:             <div class="gallery-body">
+1049:                 <div class="gallery-info">

@@ -3,35 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>Волшебный Праздник - Агентство Аниматоров</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Мастерская праздников "Енот в деле" — Детские праздники с душой</title>
+    <link rel="icon" href="favicon.svg?v=20260514" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20260523-hero-silhouettes">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-    <!-- noUiSlider CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
-
-    <!-- Persona Modal CSS -->
-    <link rel="stylesheet" href="css/persona-modal.css">
 </head>
-<body>
+<body class="home-presentation-page">
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="container">
                 <div class="nav-content">
                     <div class="logo">
-                        <span class="logo-text">🎉 Holiday</span>
+                        <a href="#home" class="logo-link">
+                            <img src="images/енот в деле.png" alt="Енот в деле Logo" class="logo-img">
+                            <span class="logo-text">Енот в деле</span>
+                        </a>
                     </div>
                     <ul class="nav-menu">
                         <li><a href="#home" class="nav-link">Главная</a></li>
-                        <li><a href="#characters" class="nav-link">Персонажи</a></li>
+                        <li><a href="catalog.html#characters" class="nav-link">Персонажи</a></li>
                         <li><a href="new-year.html" class="nav-link nav-link-new-year">🎄 Новый год</a></li>
-                        <li><a href="#programs" class="nav-link">Программы</a></li>
+                        <li><a href="catalog.html#programs" class="nav-link">Программы</a></li>
                         <li><a href="#contact" class="nav-link">Контакты</a></li>
                     </ul>
                     <button class="mobile-menu-btn">☰</button>
@@ -42,73 +37,60 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Particles Container -->
         <div id="particles-container" class="particles-container"></div>
+        <div class="hero-characters" aria-hidden="true"></div>
 
-        <!-- Parallax Elements (праздничные иконки, через которые "летим") -->
+        <!-- Parallax Elements -->
         <div class="parallax-container">
-            <!-- Balloons -->
             <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-1" data-speed="4.0" alt="">
             <img src="images/parallax/balloon-yellow.svg" class="parallax-item balloon balloon-2" data-speed="3.0" alt="">
             <img src="images/parallax/balloon-blue.svg" class="parallax-item balloon balloon-3" data-speed="2.0" alt="">
             <img src="images/parallax/balloon.svg" class="parallax-item balloon balloon-4" data-speed="1.0" alt="">
 
-            <!-- Cakes -->
             <img src="images/parallax/cake.svg" class="parallax-item cake cake-1" data-speed="4.0" alt="">
             <img src="images/parallax/cake.svg" class="parallax-item cake cake-2" data-speed="3.0" alt="">
             <img src="images/parallax/cake.svg" class="parallax-item cake cake-3" data-speed="2.0" alt="">
             <img src="images/parallax/cake.svg" class="parallax-item cake cake-4" data-speed="1.0" alt="">
 
-            <!-- Gifts -->
             <img src="images/parallax/gift.svg" class="parallax-item gift gift-1" data-speed="4.0" alt="">
             <img src="images/parallax/gift.svg" class="parallax-item gift gift-2" data-speed="3.0" alt="">
             <img src="images/parallax/gift.svg" class="parallax-item gift gift-3" data-speed="2.0" alt="">
             <img src="images/parallax/gift.svg" class="parallax-item gift gift-4" data-speed="1.0" alt="">
 
-            <!-- Stars -->
             <img src="images/parallax/star.svg" class="parallax-item star star-1" data-speed="4.0" alt="">
             <img src="images/parallax/star.svg" class="parallax-item star star-2" data-speed="3.0" alt="">
             <img src="images/parallax/star.svg" class="parallax-item star star-3" data-speed="2.0" alt="">
             <img src="images/parallax/star.svg" class="parallax-item star star-4" data-speed="1.0" alt="">
 
-            <!-- Hearts -->
             <img src="images/parallax/heart.svg" class="parallax-item heart heart-1" data-speed="4.0" alt="">
             <img src="images/parallax/heart.svg" class="parallax-item heart heart-2" data-speed="3.0" alt="">
             <img src="images/parallax/heart.svg" class="parallax-item heart heart-3" data-speed="2.0" alt="">
             <img src="images/parallax/heart.svg" class="parallax-item heart heart-4" data-speed="1.0" alt="">
 
-            <!-- Confetti -->
             <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-1" data-speed="4.0" alt="">
             <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-2" data-speed="3.0" alt="">
             <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-3" data-speed="2.0" alt="">
             <img src="images/parallax/confetti-strip.svg" class="parallax-item confetti confetti-4" data-speed="1.0" alt="">
 
-            <!-- Music Notes -->
             <img src="images/parallax/music-note.svg" class="parallax-item note note-1" data-speed="4.0" alt="">
             <img src="images/parallax/music-note.svg" class="parallax-item note note-2" data-speed="3.0" alt="">
             <img src="images/parallax/music-note.svg" class="parallax-item note note-3" data-speed="2.0" alt="">
             <img src="images/parallax/music-note.svg" class="parallax-item note note-4" data-speed="1.0" alt="">
-
-            <!-- Logos -->
-            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-1" data-speed="4.0" alt="Holiday Logo">
-            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-2" data-speed="3.0" alt="Holiday Logo">
-            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-3" data-speed="2.0" alt="Holiday Logo">
-            <img src="images/parallax/logo.PNG" class="parallax-item logo-item logo-4" data-speed="1.0" alt="Holiday Logo">
         </div>
 
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-greeting">Здравствуй, искатель ярких событий!</h2>
+                <h2 class="hero-greeting">Добро пожаловать в мир детских улыбок!</h2>
                 <h1 class="hero-title">
                     <span class="hero-title-main">Мастерская праздников</span>
-                    <span class="hero-title-sub">"Holiday"</span>
+                    <span class="hero-title-sub">"Енот в деле"</span>
                 </h1>
-                <p class="hero-description">Мы — команда детских аниматоров, которые любят своё дело и точно знают, что понравится вашему ребёнку!</p>
-                <p class="hero-tagline">Готовы отправиться в сказочное путешествие?</p>
+                <p class="hero-description">Мы создаем не просто шоу аниматоров, а настоящие семейные воспоминания с душой, любовью и безупречным качеством!</p>
+                <p class="hero-tagline">Готовы подарить ребенку лучший праздник?</p>
                 <div class="hero-buttons">
-                    <a href="#characters" class="btn btn-primary">Каталог персонажей</a>
-                    <a href="#programs" class="btn btn-secondary">Каталог программ</a>
-                    <a href="#contact" class="btn btn-outline">Связаться с нами</a>
+                    <a href="catalog.html" class="btn btn-primary">Подобрать праздник (Каталог)</a>
+                    <a href="#raccoon-day" class="btn btn-secondary">Наша атмосфера</a>
+                    <a href="#contact" class="btn btn-contact">Связаться с нами</a>
                 </div>
             </div>
         </div>
@@ -123,7 +105,7 @@
                     <div class="stat-label">проведенных праздников</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">29</div>
+                    <div class="stat-number">283</div>
                     <div class="stat-label">любимых персонажей</div>
                 </div>
                 <div class="stat-card">
@@ -138,396 +120,415 @@
         </div>
     </section>
 
-    <!-- Characters Section -->
-    <section id="characters" class="characters-section">
+    <!-- Raccoon Diary (Behind the Scenes) -->
+    <section id="raccoon-day" class="raccoon-diary-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Каталог персонажей</h2>
-                <p class="section-subtitle">Мы точно знаем, что понравится вашему ребенку</p>
+                <h2 class="section-title">Дневник Енота</h2>
+                <p class="section-subtitle">Три чуда и один пушистый хвост, или Как проходит наш обычный день 🦝</p>
             </div>
-
-            <!-- Filters Panel -->
-            <div class="filters-panel">
-                <div class="filters-header">
-                    <h3 class="filters-title">Фильтры</h3>
-                    <input type="text" id="search-input" class="filter-search" placeholder="Поиск персонажа...">
-                    <button class="btn-reset-filters">Сбросить все</button>
-                </div>
-
-                <div class="filters-grid">
-                    <!-- Age Filter Accordion -->
-                    <div class="filter-accordion">
-                        <button class="filter-accordion-header" data-filter="age">
-                            <span>Возраст</span>
-                            <span class="filter-accordion-icon">▼</span>
-                        </button>
-                        <div class="filter-accordion-body">
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="age" value="0-3">
-                                <span>0-3 года</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="age" value="3-5">
-                                <span>3-5 лет</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="age" value="5-8">
-                                <span>5-8 лет</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="age" value="8-12">
-                                <span>8-12 лет</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="age" value="12+">
-                                <span>12+ лет</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Gender Filter Accordion -->
-                    <div class="filter-accordion">
-                        <button class="filter-accordion-header" data-filter="gender">
-                            <span>Пол</span>
-                            <span class="filter-accordion-icon">▼</span>
-                        </button>
-                        <div class="filter-accordion-body">
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="gender" value="boys">
-                                <span>Для мальчиков</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="gender" value="girls">
-                                <span>Для девочек</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="gender" value="unisex">
-                                <span>Универсальные</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Category Filter Accordion -->
-                    <div class="filter-accordion">
-                        <button class="filter-accordion-header" data-filter="category">
-                            <span>Категория</span>
-                            <span class="filter-accordion-icon">▼</span>
-                        </button>
-                        <div class="filter-accordion-body">
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="cartoon">
-                                <span>Мультики</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="film">
-                                <span>Фильмы</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="holiday">
-                                <span>Праздничные</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="fairy-tale">
-                                <span>Сказки</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="fantasy">
-                                <span>Фантастика</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="mascot">
-                                <span>Ростовые куклы</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="superhero">
-                                <span>Супер-герои</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="neutral">
-                                <span>Нейтральные</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="category" value="animal">
-                                <span>Животные</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Activities Filter Accordion -->
-                    <div class="filter-accordion">
-                        <button class="filter-accordion-header" data-filter="activities">
-                            <span>Активность</span>
-                            <span class="filter-accordion-icon">▼</span>
-                        </button>
-                        <div class="filter-accordion-body">
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="activities" value="active">
-                                <span>Активные игры</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="activities" value="creative">
-                                <span>Творчество</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="activities" value="magic">
-                                <span>Фокусы</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="activities" value="dance">
-                                <span>Танцы</span>
-                            </label>
-                            <label class="filter-checkbox">
-                                <input type="checkbox" name="activities" value="quest">
-                                <span>Квесты</span>
-                            </label>
+            
+            <div class="diary-book-wrapper">
+                <!-- A beautiful closed leather-bound diary cover for mobile viewports -->
+                <div class="diary-closed-cover">
+                    <div class="closed-cover-leather">
+                        <div class="closed-cover-decor-corners"></div>
+                        <div class="closed-cover-emboss">
+                            <img src="енот/любит.png" alt="Влюбленный енот" class="diary-embossed-badge">
+                            <h3 class="closed-cover-title font-handwritten">Личный дневник<br>Шеф-Енота</h3>
+                            <p class="closed-cover-subtitle">Секреты создания идеальных праздников ✨</p>
+                            <button class="btn-open-diary btn btn-primary">
+                                <span>Открыть дневник 📖</span>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Price Range Filter (not in accordion) -->
-                <div class="filters-price">
-                    <h4 class="price-title">Цена (₽/час)</h4>
-                    <div id="price-slider" class="price-slider"></div>
-                    <div class="price-values">
-                        <span id="price-min">0</span> - <span id="price-max">10000</span> ₽
+                <!-- Close button for fullscreen landscape view -->
+                <button class="btn-close-fullscreen" aria-label="Закрыть дневник">×</button>
+                
+                
+
+                <div class="diary-notebook-3d">
+                    <!-- Decorative stacked pages behind to give 3D depth and thickness -->
+                    <div class="paper-stack-left"></div>
+                    <div class="paper-stack-right"></div>
+                    
+                    <!-- 1. LEFT STATIC COVER (Sidebar Navigation) -->
+                    <div class="book-cover-left">
+                        <div class="diary-page-content">
+                            <h3 class="diary-sidebar-title font-handwritten">Заметки на сегодня:</h3>
+                            <!-- Desktop-only tabs (3 steps) -->
+                            <div class="diary-tabs diary-desktop-tabs">
+                                <button class="diary-tab active" data-diary-step="1">
+                                    <span class="tab-time">08:30</span>
+                                    <span class="tab-label">Утро в Мастерской ☕</span>
+                                </button>
+                                <button class="diary-tab" data-diary-step="2">
+                                    <span class="tab-time">12:00 и 17:00</span>
+                                    <span class="tab-label">Пульс и Выход 📱✨</span>
+                                </button>
+                                <button class="diary-tab" data-diary-step="3">
+                                    <span class="tab-time">21:30</span>
+                                    <span class="tab-label">Тишина в Мастерской 🌙</span>
+                                </button>
+                            </div>
+                            
+                            <!-- Mobile-only tabs (4 steps for 4 individual pages) -->
+                            <div class="diary-tabs diary-mobile-tabs">
+                                <button class="diary-tab active" data-diary-step="1">
+                                    <span class="tab-time">08:30</span>
+                                    <span class="tab-label">Утро ☕</span>
+                                </button>
+                                <button class="diary-tab" data-diary-step="2">
+                                    <span class="tab-time">12:00</span>
+                                    <span class="tab-label">Пульс 📱</span>
+                                </button>
+                                <button class="diary-tab" data-diary-step="3">
+                                    <span class="tab-time">17:00</span>
+                                    <span class="tab-label">Выход 🎈</span>
+                                </button>
+                                <button class="diary-tab" data-diary-step="4">
+                                    <span class="tab-time">21:30</span>
+                                    <span class="tab-label">Тишина 🌙</span>
+                                </button>
+                            </div>
+                            <div class="diary-sidebar-note">
+                                <p class="font-handwritten">P.S. Каждый праздник для нас — это маленькая жизнь. Мы проживаем её вместе с вами! ✨</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sort and Results Counter -->
-            <div class="characters-toolbar">
-                <div class="results-counter">
-                    Найдено персонажей: <span id="results-count">0</span>
-                </div>
-                <div class="sort-controls">
-                    <button class="view-toggle-btn" id="view-toggle-btn" type="button" aria-label="Изменить вид карточек" title="3 карточки в ряд, вертикальные фото">
-                        <span class="view-toggle-icon">3×</span>
-                    </button>
-                    <label>Сортировка:</label>
-                    <select id="sort-select" class="sort-select">
-                        <option value="popular">По популярности</option>
-                        <option value="price-asc">По цене (возр.)</option>
-                        <option value="price-desc">По цене (убыв.)</option>
-                        <option value="name">По названию</option>
-                    </select>
-                </div>
-            </div>
+                    <!-- DECORATIVE notebook rings in the very center, on top of pages -->
+                    <div class="notebook-rings-3d">
+                        <div class="ring-3d"></div>
+                        <div class="ring-3d"></div>
+                        <div class="ring-3d"></div>
+                        <div class="ring-3d"></div>
+                        <div class="ring-3d"></div>
+                    </div>
 
-            <!-- Characters Grid (Dynamic) -->
-            <div class="characters-grid" id="characters-grid">
-                <!-- Cards will be generated dynamically from characters-data.json -->
-                <div class="loading-message">Загрузка персонажей...</div>
-            </div>
-        </div>
-    </section>
+                    <!-- 2. FLIPPABLE PAPERS (The dynamic double-sided sheets wrapped in viewport for mobile vertical slide transitions) -->
+                    <div class="diary-pages-viewport">
+                        <!-- Paper 1: Front (08:30) / Back (12:00 - 16:00) -->
+                        <div class="book-paper" id="paper-1">
+                            <!-- Front Side: Step 1 (08:30) -->
+                            <div class="book-page page-front">
+                                <div class="diary-entry-header">
+                                    <span class="entry-date">24 мая 2026</span>
+                                    <span class="entry-time">🧭 08:30</span>
+                                </div>
+                                <h3 class="entry-title font-handwritten">☕ Утро в Мастерской</h3>
+                                <p class="entry-text">В Мастерской пахнет свежезаваренным чаем и сладкой ватой. Я стою посреди костюмерной с огромным списком дел. Сегодня у нас три важных миссии, и каждая должна пройти идеально. Никаких накладок, только чистое волшебство!
+                                <br><br>
+                                Проверяю реквизит. Генераторы пузырей заряжены, плащи выглажены, сундуки собраны. Звоню Эльзе: <i>«Ваше Величество, сегодня летите к Анечке (5 лет). Мама просила быть аккуратнее с музыкой — на празднике малыши. И не забудь батарейки для пушки!»</i>
+                                <br><br>
+                                Звоню Пирату: <i>«Капитан, прием! У тебя команда из 10 сорцов. Именинник Рома обожает загадки. Карту проверил? Сундук на месте? Попутного ветра!»</i> Актеры забирают реквизит и разъезжаются. Механизм запущен!📋</p>
+                                
+                                <div class="entry-media">
+                                    <div class="polaroid-photo">
+                                        <div class="polaroid-image-placeholder color-pink">
+                                            <img src="енот/праздничный список.png" alt="Енот со списком" class="raccoon-diary-reaction">
+                                        </div>
+                                        <p class="polaroid-caption font-handwritten">Утренний инструктаж! 📋</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Back Side: Step 2 (12:00 — 16:00) -->
+                            <div class="book-page page-back">
+                                <div class="diary-entry-header">
+                                    <span class="entry-date">24 мая 2026</span>
+                                    <span class="entry-time">🧭 12:00 — 16:00</span>
+                                </div>
+                                <h3 class="entry-title font-handwritten">📱 Держать руку на пульсе</h3>
+                                <p class="entry-text">Пока волшебники на заказах, я контролирую всё на базе. Отслеживаю маршруты аниматоров, списываюсь с мамами в чатах: <i>«Эльза на месте, переодевается»</i>, <i>«Пират швартуется у вашего лофта»</i>.
+                                <br><br>
+                                Для родителей невероятно важно это спокойствие — знать, что всё под контролем, никто не опоздает, и праздник начнется точно секунда в секунду. Моя главная задача в эти часы — обеспечить полную уверенность в идеальном результате!💡</p>
+                                
+                                <div class="entry-media">
+                                    <div class="polaroid-photo">
+                                        <div class="polaroid-image-placeholder color-gold">
+                                            <img src="енот/Идея.png" alt="Енот с идеей" class="raccoon-diary-reaction">
+                                        </div>
+                                        <p class="polaroid-caption font-handwritten">Всё под контролем! 📱</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Programs Section -->
-    <section id="programs" class="programs-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Выберите программу</h2>
-                <p class="section-subtitle">Все программы доступны для заказа</p>
-            </div>
+                        <!-- Paper 2: Front (17:00) / Back (21:30) -->
+                        <div class="book-paper" id="paper-2">
+                            <!-- Front Side: Step 3 (17:00) -->
+                            <div class="book-page page-front">
+                                <div class="diary-entry-header">
+                                    <span class="entry-date">24 мая 2026</span>
+                                    <span class="entry-time">🧭 17:00</span>
+                                </div>
+                                <h3 class="entry-title font-handwritten">✨ Мой выход: Время веселья!</h3>
+                                <p class="entry-text">Откладываю графики, передаю телефон помощнику и надеваю свой лучший праздничный наряд. Сегодня еду к Максиму на 7-летие — вести большую поролоновую стройку и бумажную дискотеку!
+                                <br><br>
+                                Захожу в зал, и на меня налетает ураган из детей: <i>«Енооооот! Ты настоящий!»</i> Время летит со скоростью света. Мы строим огромные башни из кубиков и с грохотом их рушим. Устраиваем бумажный снегопад, зарываясь в бумагу с головой. Танцуем так, что сбивается дыхание! В эти два часа я не серьезный руководитель, а просто веселый Енот.🎈</p>
+                                
+                                <div class="entry-media">
+                                    <div class="polaroid-photo">
+                                        <div class="polaroid-image-placeholder color-blue">
+                                            <img src="енот/подарок.png" alt="Енот с подарком" class="raccoon-diary-reaction">
+                                        </div>
+                                        <p class="polaroid-caption font-handwritten">Строим и танцуем! 🏗️🎉</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Back Side: Step 4 (21:30) -->
+                            <div class="book-page page-back">
+                                <div class="diary-entry-header">
+                                    <span class="entry-date">24 мая 2026</span>
+                                    <span class="entry-time">🧭 21:30</span>
+                                </div>
+                                <h3 class="entry-title font-handwritten">🌙 Тишина в Мастерской</h3>
+                                <p class="entry-text">Возвращаюсь на базу. В офисе темно и тихо. Лапы гудят, хвост волочится по полу от усталости. Нет сил даже налить чаю.
+                                <br><br>
+                                Но тут на телефон летят сообщения. Фото Анечки: спит в обнимку с короной от Эльзы. Папа Ромы: <i>«Пират просто порвал зал, дети в восторге, спасибо!»</i> И видео с моего праздника, где именинник кричит, что это лучший день в жизни!
+                                <br><br>
+                                Смотрю на экран в темноте и улыбаюсь. Усталость уходит. Это огромный труд, но ради этих детских глаз и спокойных улыбок родителей я готов делать это каждый день!❤️</p>
+                                
+                                <div class="entry-media">
+                                    <div class="polaroid-photo">
+                                        <div class="polaroid-image-placeholder color-green">
+                                            <img src="енот/восторг.png" alt="Енот восторг" class="raccoon-diary-reaction">
+                                        </div>
+                                        <p class="polaroid-caption font-handwritten">Искренние улыбки! 🥰</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Programs Grid (Dynamic) -->
-            <div class="programs-grid" id="programs-grid">
-                <!-- Cards will be generated dynamically from programs-data.json -->
-                <div class="loading-message">Загрузка программ...</div>
-            </div>
-        </div>
-    </section>
+                    <!-- 3. RIGHT STATIC COVER (Polaroid Backdrop / Closing Cover) -->
+                    <div class="book-cover-right">
+                        <div class="diary-page-content right-cover-content">
+                            <div class="polaroid-spread">
+                                <div class="polaroid-photo polaroid-final-1">
+                                    <div class="polaroid-image-placeholder" style="background: linear-gradient(135deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%);">
+                                        <img src="енот/конфити.png" alt="Енот конфетти" class="raccoon-diary-reaction">
+                                    </div>
+                                    <p class="polaroid-caption font-handwritten">Улыбки детей — наша награда! ✨</p>
+                                </div>
+                                <div class="polaroid-photo polaroid-final-2">
+                                    <div class="polaroid-image-placeholder" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);">
+                                        <img src="енот/танцует.png" alt="Енот танцует" class="raccoon-diary-reaction">
+                                    </div>
+                                    <p class="polaroid-caption font-handwritten">До встречи на празднике! 🦝</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Additional Services Section (Placeholder) -->
-    <section id="additional-services" class="additional-services-section" style="display: none;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Дополнительные услуги</h2>
-                <p class="section-subtitle">Раздел в разработке</p>
-            </div>
-            <div class="placeholder-content">
-                <p>Скоро здесь появятся дополнительные услуги для вашего праздника</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advantages Section -->
-    <section class="advantages-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Наши преимущества</h2>
-                <p class="section-subtitle">Агентств много, но мы такие одни! И вот почему:</p>
-            </div>
-
-            <div class="advantages-grid">
-                <!-- Advantage 1 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">👗</div>
-                    <h3 class="advantage-title">Своя костюмерная с образами</h3>
-                    <p class="advantage-description">Наша костюмерная постоянно пополняется новыми образами, чтобы соответствовать последним трендам и пожеланиям наших клиентов</p>
-                    <a href="#" class="advantage-link">Открыть каталог →</a>
-                </div>
-
-                <!-- Advantage 2 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">📚</div>
-                    <h3 class="advantage-title">Постоянное обучение сотрудников</h3>
-                    <p class="advantage-description">Мы стремимся к совершенству, поэтому постоянно проводим различные обучающие тренинги и мастер-классы для всех членов нашей дружной команды</p>
-                    <a href="#" class="advantage-link">Посмотреть сертификаты →</a>
-                </div>
-
-                <!-- Advantage 3 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">⭐</div>
-                    <h3 class="advantage-title">Собственный штат профессиональных аниматоров</h3>
-                    <p class="advantage-description">Мы не привлекаем сторонних исполнителей, поэтому контролируем качество каждого выступления</p>
-                    <a href="#" class="advantage-link">Познакомиться поближе →</a>
-                </div>
-
-                <!-- Advantage 4 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">⏰</div>
-                    <h3 class="advantage-title">Пунктуальность и следование договоренностям</h3>
-                    <p class="advantage-description">Мы ценим ваше время и спокойствие, поэтому приезжаем на локацию за 20 мин до начала каждого мероприятия</p>
-                    <a href="#" class="advantage-link">Узнать больше →</a>
-                </div>
-
-                <!-- Advantage 5 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">🎯</div>
-                    <h3 class="advantage-title">Тематический реквизит</h3>
-                    <p class="advantage-description">Правильно подобранный игровой реквизит помогает поддержать идею праздника и индивидуализировать программу под любимого персонажа</p>
-                    <a href="#" class="advantage-link">Узнать подробнее →</a>
-                </div>
-
-                <!-- Advantage 6 -->
-                <div class="advantage-card">
-                    <div class="advantage-icon">🏢</div>
-                    <h3 class="advantage-title">Сотрудничаем с юр. лицами</h3>
-                    <p class="advantage-description">Проводим массовые мероприятия для садов, школ, управляющих компаний, торговых комплексов и организаций по безналичной оплате</p>
-                    <a href="#" class="advantage-link">Узнать условия →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Holiday Photos Interactive Gallery Section -->
+    <section id="holiday-gallery" class="holiday-gallery-section">
+        <div class="container-fluid">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Атмосфера наших праздников</h2>
+                <p class="section-subtitle">Живые эмоции, яркие костюмы и искренний восторг на реальных кадрах! 📸</p>
+            </div>
+            
+            <!-- Infinite Continuous Polaroid Ribbon -->
+            <div class="holiday-carousel-wrapper fade-in">
+                <div class="holiday-carousel-viewport" id="holiday-carousel-viewport">
+                    <div class="holiday-carousel-track" id="holiday-carousel-track">
+                        <!-- Dynamically populated by JS (initHolidayGallery) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Команда аниматоров</h2>
+                <p class="section-subtitle">Познакомьтесь с теми, кто создает искренние улыбки на праздниках</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member-card" data-member-id="1" data-quote="«Дети тонко чувствуют фальшь. Когда ты сам искренне веришь в сказку, они верят вместе с тобой!»" data-superpower="Умение найти общий язык с кем угодно за 15 секунд" data-roles="Человек-паук, Гарри Поттер, Ведущий квестов">
+                    <div class="avatar-circle-wrapper">
+                        <div class="avatar-circle">
+                            <span class="avatar-emoji">🦸‍♂️</span>
+                        </div>
+                    </div>
+                    <h3 class="member-name">Паша</h3>
+                    <p class="member-role">Ведущий аниматор (опыт 6 лет)</p>
+                </div>
+                <div class="team-member-card" data-member-id="2" data-quote="«Самое лучшее в нашей работе — видеть, как детские глазки светятся искренним восторгом и верой в чудо!»" data-superpower="Потрясающий вокал и создание волшебной бури из пузырей" data-roles="Эльза, Симка, Куколка LOL">
+                    <div class="avatar-circle-wrapper">
+                        <div class="avatar-circle">
+                            <span class="avatar-emoji">👸</span>
+                        </div>
+                    </div>
+                    <h3 class="member-name">Алина</h3>
+                    <p class="member-role">Актриса, ведущая шоу (опыт 4 года)</p>
+                </div>
+                <div class="team-member-card" data-member-id="3" data-quote="«Праздник — это интерактивный театр, где каждый ребенок является главным героем!»" data-superpower="Умопомрачительный брейк-данс в тяжелых костюмах Роботов" data-roles="Трансформер Бамблби, Нолик, Пират Флинт">
+                    <div class="avatar-circle-wrapper">
+                        <div class="avatar-circle">
+                            <span class="avatar-emoji">🤖</span>
+                        </div>
+                    </div>
+                    <h3 class="member-name">Данил</h3>
+                    <p class="member-role">Ведущий шоу и квестов (опыт 5 лет)</p>
+                </div>
+                <div class="team-member-card" data-member-id="4" data-quote="«Мы создаем не просто праздники, а семейные воспоминания, которые останутся с вами на всю жизнь»" data-superpower="Организация безумных и масштабных бумажных дискотек" data-roles="Основатель, Ведущая, Фея Динь-Динь">
+                    <div class="avatar-circle-wrapper">
+                        <div class="avatar-circle">
+                            <span class="avatar-emoji">🧚‍♀️</span>
+                        </div>
+                    </div>
+                    <h3 class="member-name">Маша</h3>
+                    <p class="member-role">Основатель, шеф-аниматор (опыт 8 лет)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram Video Circle Modal -->
+    <div class="telegram-modal" id="telegram-modal">
+        <div class="telegram-modal-backdrop"></div>
+        <div class="telegram-modal-container">
+            <div class="telegram-video-circle">
+                <div class="telegram-circle-content">
+                    <span class="telegram-circle-inner-emoji">💬</span>
+                </div>
+                <div class="telegram-circle-progress">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" class="progress-ring-bg"></circle>
+                        <circle cx="50" cy="50" r="48" class="progress-ring-active"></circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="telegram-modal-card">
+                <button class="telegram-modal-close" aria-label="Закрыть модальное окно">×</button>
+                <div class="telegram-member-info">
+                    <h3 class="telegram-member-name">Аниматор</h3>
+                    <p class="telegram-member-role">Аниматор</p>
+                    <div class="telegram-member-details">
+                        <p class="detail-label">💪 Суперсила:</p>
+                        <p class="telegram-member-superpower">Суперсила</p>
+                        <p class="detail-label">🎭 Любимые роли:</p>
+                        <p class="telegram-member-roles">Роли</p>
+                    </div>
+                    <blockquote class="telegram-member-quote">
+                        Цитата
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Мастерская «Енот в деле» — это...</h2>
+                <p class="section-subtitle">Ценности, на которых строится доверие тысяч родителей</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon-box">🛡️</div>
+                    <h3 class="value-card-title">Безопасность и гигиена</h3>
+                    <p class="value-card-desc">Все материалы сертифицированы и гипоаллергенны (мыльные пузыри, научные реагенты, бумага). Костюмы проходят дезинфекцию и чистку после каждого праздника.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon-box">🎭</div>
+                    <h3 class="value-card-title">Профессиональный состав</h3>
+                    <p class="value-card-desc">В нашей команде работают постоянные актеры с педагогическим или театральным образованием. Никаких случайных фрилансеров и скучающих аниматоров.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon-box">✨</div>
+                    <h3 class="value-card-title">Авторские сценарии</h3>
+                    <p class="value-card-desc">Мы не используем заезженные конкурсы. В каждой программе — уникальная сюжетная линия с полным вовлечением и интерактивом с детьми.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2 class="section-title">Закажите праздник</h2>
-                    <p class="contact-description">Свяжитесь с нами любым удобным способом, и мы организуем незабываемый праздник для вашего ребенка!</p>
-
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Телефон</h4>
-                                <p>+7 (999) 123-45-67</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>info@magic-party.ru</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">⏰</div>
-                            <div class="contact-text">
-                                <h4>Режим работы</h4>
-                                <p>Ежедневно с 9:00 до 21:00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form class="contact-form">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Связаться с нами</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.85);">Оставьте заявку, и мы бесплатно разработаем индивидуальный сценарий вашего праздника!</p>
+            </div>
+            <div class="contact-content-simple">
+                <div class="contact-form-wrapper" style="max-width: 600px; margin: 0 auto;">
+                    <form id="lead-form" class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка успешно принята, наш менеджер-енот свяжется с вами в течение 10 минут! 🦝'); this.reset();">
                         <div class="form-group">
-                            <input type="text" placeholder="Ваше имя" class="form-input" required>
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required placeholder="Иван">
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Телефон" class="form-input" required>
+                            <label for="phone">Номер телефона</label>
+                            <input type="tel" id="phone" required placeholder="+7 (999) 000-00-00">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email" class="form-input">
+                            <label for="date">Дата праздника (ориентировочно)</label>
+                            <input type="date" id="date">
                         </div>
-                        <div class="form-group">
-                            <textarea placeholder="Расскажите о вашем празднике" class="form-input form-textarea" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+                        <button type="submit" class="btn btn-primary btn-submit" style="width: 100%;">Отправить заявку</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Selection Bottom Bar -->
-    <div id="selection-bar" class="selection-bar">
-        <div class="container">
-            <div class="selection-bar-content">
-                <div class="selection-info">
-                    <div class="selection-summary">Ничего не выбрано</div>
-                    <div class="selection-price">0 ₽</div>
-                </div>
-                <div class="selection-actions">
-                    <button class="selection-clear-btn" onclick="window.selectionManager?.clearAll()">
-                        Очистить
-                    </button>
-                    <button class="selection-continue-btn btn btn-primary btn-disabled" disabled onclick="window.location.href='#additional-services'">
-                        Продолжить
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-text">🎉 Holiday</span>
-                    <p>Мастерская праздников с 2017 года</p>
+                    <span class="logo-text">Енот в деле</span>
+                    <p>Создаем волшебство с душой</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="#raccoon-day">О нас</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://vk.com/animator_holiday_spb" target="_blank" rel="noopener" class="social-link">VK</a>
-                    <!-- Instagram пока не указан, можно добавить позже -->
-                    <a href="https://wa.me/79944336803" target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                    <a href="https://vk.com" target="_blank" class="social-link" aria-label="ВКонтакте">VK</a>
+                    <a href="https://t.me" target="_blank" class="social-link" aria-label="Telegram">TG</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Мастерская праздников "Holiday". Все права защищены.</p>
+                <p>&copy; 2026 Мастерская праздников "Енот в деле". Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Премиальный Лайтбокс (Lightbox Modal) -->
+    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+        <div class="lightbox-backdrop"></div>
+        <button class="lightbox-close-btn" aria-label="Закрыть просмотр">×</button>
+        <button class="lightbox-nav-btn lightbox-prev-btn" aria-label="Предыдущее фото">‹</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="Просмотр фото">
+            <p class="lightbox-caption font-handwritten">Атмосфера счастья ✨</p>
+        </div>
+        <button class="lightbox-nav-btn lightbox-next-btn" aria-label="Следующее фото">›</button>
+    </div>
+
     <!-- tsParticles -->
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- noUiSlider JS -->
-    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <!-- API Client (загружается первым) -->
-    <script src="js/api-client.js"></script>
-    <!-- Persona Selection Modal -->
-    <script src="js/persona-selection-modal.js"></script>
-
-    <!-- Other scripts -->
-    <script src="js/particles-config.js"></script>
-    <script src="js/parallax.js"></script>
-    <script src="js/selection-manager.js"></script>
-    <script src="js/programs-renderer.js"></script>
-    <script src="js/characters-filter.js"></script>
-    <script src="js/characters-renderer.js"></script>
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/particles-config.js?v=20260514"></script>
+    <script src="js/parallax.js?v=20260514"></script>
+    <script src="script.js?v=20260527d"></script>
 </body>
 </html>

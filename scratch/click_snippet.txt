@@ -1,0 +1,99 @@
+  imageContainers.forEach(container => {
+        const image = container.querySelector('.character-photo');
+
+        if (!image) return;
+        if (container._zoomInitialized) return;
+        container._zoomInitialized = true;
+
+        // Только для НЕ сенсорных устройств добавляем zoom эффект
+        if (!isTouchDevice) {
+            let isHovering = false;
+
+            container.addEventListener('mouseenter', () => {
+                isHovering = true;
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isHovering) return;
+
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Позиция X внутри контейнера
+                const y = e.clientY - rect.top;  // Позиция Y внутри контейнера
+
+                // Вычисляем процентное положение курсора (0-1)
+                const xPercent = x / rect.width;
+                const yPercent = y / rect.height;
+
+                // Сильное смещение для просмотра всех частей изображения
+                // При zoom 2.475 нужно большое смещение, чтобы показать края
+                const moveX = (xPercent - 0.5) * -250; // Увеличено для просмотра краев по горизонтали
+                const moveY = (yPercent - 0.5) * -350; // Увеличено для просмотра лица и ног (вертикаль важнее!)
+
+                image.style.transformOrigin = 'center center';
+                image.style.transform = `scale(2.475) translate(${moveX}px, ${moveY}px)`;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isHovering = false;
+                image.style.transform = 'scale(1)';
+                image.style.transformOrigin = 'center center';
+            });
+        }
+
+        // Добавляем обработчик клика для открытия галереи (для ВСЕХ устройств)
+        container.addEventListener('click', (e) => {
+            console.log('Image clicked!');
+            e.stopPropagation();
+            const card = container.closest('.character-card');
+            console.log('Card element:', card);
+            const characterId = card ? card.getAttribute('data-character-id') : null;
+            console.log('Character ID:', characterId);
+            if (characterId) {
+                openGalleryModal(characterId);
+            } else {
+                console.error('Character ID not found!');
+            }
+        });
+    });
+}
+
+// ==================== GALLERY MODAL ====================
+// Создаем модальное окно галереи
+function createGalleryModal() {
+    const modal = document.createElement('div');
+    modal.className = 'gallery-modal';
+    modal.innerHTML = `
+        <div class="gallery-modal-overlay"></div>
+        <div class="gallery-modal-content">
+            <button class="gallery-close">&times;</button>
+
+            <div class="gallery-body">
+                <div class="gallery-info">
+                    <h2 class="gallery-character-name"></h2>
+                    <div class="gallery-character-description"></div>
+                    <div class="gallery-character-details">
+                        <div class="gallery-detail-item">
+                            <span class="gallery-detail-icon">👶</span>
+                            <div class="gallery-detail-content">
+                                <div class="gallery-detail-label">Возраст</div>
+                                <span class="gallery-detail-text age"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-detail-item">
+                            <span class="gallery-detail-icon">👫</span>
+                            <div class="gallery-detail-content">
+                                <div class="gallery-detail-label">Для кого</div>
+                                <span class="gallery-detail-text gender"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-detail-item">
+                            <span class="gallery-detail-icon">🎮</span>
+                            <div class="gallery-detail-content">
+                                <div class="gallery-detail-label">Активности</div>
+                                <span class="gallery-detail-text activities"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-pricing">
+                        <div class="gallery-price-main">
+                            <span

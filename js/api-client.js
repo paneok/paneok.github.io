@@ -3,16 +3,45 @@
  * Обеспечивает связь между фронтендом и REST API
  */
 class ApiClient {
-  constructor(baseUrl = 'http://localhost:3001') {
+  constructor(baseUrl = '') {
     this.baseUrl = baseUrl;
     this.isOnline = true;
     this.useFallback = true; // Использовать JSON файлы как fallback (автоматически)
+    this.charactersCache = null;
+    this.programsCache = null;
+  }
+
+  shouldUseDirectFallback(endpoint) {
+    if (!this.useFallback || this.baseUrl) {
+      return false;
+    }
+
+    return endpoint.includes('characters')
+      || endpoint.includes('programs')
+      || endpoint.includes('/api/calculator/calculate')
+      || endpoint.includes('/api/calculator/resolve');
   }
 
   /**
    * Универсальный метод для HTTP запросов
    */
   async request(endpoint, options = {}) {
+    if (this.shouldUseDirectFallback(endpoint)) {
+      this.isOnline = false;
+
+      if (endpoint.includes('characters') || endpoint.includes('programs')) {
+        return this.fallbackToJson(endpoint);
+      }
+
+      if (endpoint.includes('/api/calculator/calculate')) {
+        return this.calculatePriceFallback(options.body ? JSON.parse(options.body) : {});
+      }
+
+      if (endpoint.includes('/api/calculator/resolve')) {
+        return this.resolveConflictsFallback(options.body ? JSON.parse(options.body) : {});
+      }
+    }
+
     const url = `${this.baseUrl}${endpoint}`;
     const config = {
       ...options,
@@ -35,9 +64,25 @@ class ApiClient {
     } catch (error) {
       console.error('API Error:', error);
 
-      // Если бэкенд недоступен, пробуем fallback на JSON
+      // Если бэкенд недоступен, пробуем fallback на локальные данные
+      if (this.useFallback) {
+        if (endpoint.includes('characters') || endpoint.includes('programs')) {
+          console.warn('Falling back to JSON files');
+          return this.fallbackToJson(endpoint);
+        }
+
+        if (endpoint.includes('/api/calculator/calculate')) {
+          console.warn('Falling back to local calculator');
+          return this.calculatePriceFallback(options.body ? JSON.parse(options.body) : {});
+        }
+
+        if (endpoint.includes('/api/calculator/resolve')) {
+          console.warn('Falling back to local calculator resolution');
+          return this.resolveConflictsFallback(options.body ? JSON.parse(options.body) : {});
+        }
+      }
+
       if (this.useFallback && (endpoint.includes('characters') || endpoint.includes('programs'))) {
-        console.warn('Falling back to JSON files');
         return this.fallbackToJson(endpoint);
       }
 
@@ -52,17 +97,125 @@ class ApiClient {
     this.isOnline = false;
 
     if (endpoint.includes('characters')) {
-      const response = await fetch('data/characters-data.json');
-      const data = await response.json();
+      const data = await this.loadCharactersJson();
       // Возвращаем массив персонажей, а не весь объект
       return data.characters || [];
     } else if (endpoint.includes('programs')) {
-      const response = await fetch('data/programs-data.json');
-      const data = await response.json();
+      const data = await this.loadProgramsJson();
       return data.programs || [];
     }
 
     throw new Error('Fallback not available for this endpoint');
+  }
+
+  async loadCharactersJson() {
+    if (!this.charactersCache) {
+      const response = await fetch('data/characters-data.json');
+      this.charactersCache = await response.json();
+    }
+    return this.charactersCache;
+  }
+
+  async loadProgramsJson() {
+    if (!this.programsCache) {
+      const response = await fetch('data/programs-data.json');
+      this.programsCache = await response.json();
+    }
+    return this.programsCache;
+  }
+
+  async getLocalCharacters() {
+    const data = await this.loadCharactersJson();
+    return data.characters || [];
+  }
+
+  async getLocalPrograms() {
+    const data = await this.loadProgramsJson();
+    return data.programs || [];
+  }
+
+  async calculatePriceFallback(data = {}) {
+    this.isOnline = false;
+
+    const allCharacters = await this.getLocalCharacters();
+    const allPrograms = await this.getLocalPrograms();
+
+    const selectedCharacters = allCharacters.filter((character) =>
+      (data.selectedCharacters || []).includes(character.id)
+    );
+
+    let totalPrice = 0;
+    let totalDuration = 0;
+    const details = [];
+
+    for (const selection of (data.selectedPrograms || [])) {
+      const program = allPrograms.find((item) => item.id === selection.programId);
+      if (!program) {
+        continue;
+      }
+
+      const duration = Number(selection.duration) || 1;
+      const selectedCharacter = selectedCharacters[0] || null;
+      const defaultCharacter = program.defaultCharacterId
+        ? allCharacters.find((item) => item.id === program.defaultCharacterId) || null
+        : null;
+      const effectiveCharacter = selectedCharacter || defaultCharacter;
+
+      let price = 0;
+      if (program.pricing?.isCharacterPrice) {
+        price = (effectiveCharacter?.pricing?.hourly || 0) * duration;
+      } else {
+        const baseAmount = Number(program.pricing?.amount) || 0;
+        const perHour = String(program.pricing?.unit || '').includes('/час');
+        price = perHour ? baseAmount * duration : baseAmount;
+      }
+
+      totalPrice += price;
+      totalDuration += duration;
+      details.push({
+        type: 'program',
+        programId: program.id,
+        programName: program.name,
+        duration,
+        price,
+        characterId: effectiveCharacter?.id || null,
+        characterName: effectiveCharacter?.name || null,
+        isDefaultCharacter: !selectedCharacter && !!defaultCharacter,
+      });
+    }
+
+    if ((data.selectedPrograms || []).length === 0) {
+      for (const character of selectedCharacters) {
+        const price = Number(character.pricing?.hourly) || 0;
+        totalPrice += price;
+        totalDuration += 1;
+        details.push({
+          type: 'character',
+          characterId: character.id,
+          characterName: character.name,
+          duration: 1,
+          price,
+        });
+      }
+    }
+
+    return {
+      totalPrice,
+      totalDuration,
+      details,
+      conflicts: [],
+      hasConflicts: false,
+    };
+  }
+
+  async resolveConflictsFallback(data = {}) {
+    const result = await this.calculatePriceFallback(data);
+    return {
+      totalPrice: result.totalPrice,
+      totalDuration: result.totalDuration,
+      details: result.details,
+      timeSlots: [],
+    };
   }
 
   // ==================== Characters API ====================
@@ -264,6 +417,11 @@ class ApiClient {
    * Проверить доступность бэкенда
    */
   async healthCheck() {
+    if (!this.baseUrl) {
+      this.isOnline = false;
+      return false;
+    }
+
     try {
       await this.request('/health');
       this.isOnline = true;
@@ -293,9 +451,7 @@ window.apiClient = new ApiClient();
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', async () => {
     const isHealthy = await window.apiClient.healthCheck();
-    if (isHealthy) {
-      console.log('✅ Backend connection established');
-    } else {
+    if (!isHealthy && window.apiClient.baseUrl) {
       console.warn('⚠️ Backend is offline, using fallback mode');
       window.apiClient.useFallback = true;
     }

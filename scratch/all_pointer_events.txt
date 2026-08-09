@@ -1,0 +1,175 @@
+Line 283: pointer-events: none;
+  281:     inset: 0;
+  282:     z-index: 1;
+  283:     pointer-events: none;
+  284:     overflow: hidden;
+  285: }
+----------------------------------------
+Line 836: pointer-events: all;
+  834:     right: 10px;
+  835:     opacity: 1;
+  836:     pointer-events: all;
+  837:     transition: all 0.3s ease;
+  838: }
+----------------------------------------
+Line 865: pointer-events: none;
+  863:     transform: translateX(20px);
+  864:     transition: all 0.3s ease;
+  865:     pointer-events: none;
+  866:     padding: 0.5rem 1rem;
+  867:     font-size: 0.9rem;
+----------------------------------------
+Line 875: pointer-events: all;
+  873:     opacity: 1;
+  874:     transform: translateX(0);
+  875:     pointer-events: all;
+  876: }
+  877: 
+----------------------------------------
+Line 1184: pointer-events: none;
+  1182:     font-size: 1.5rem;
+  1183:     opacity: 0.25;
+  1184:     pointer-events: none;
+  1185:     z-index: 2;
+  1186:     animation: floatingParticles 8s infinite linear;
+----------------------------------------
+Line 1680: pointer-events: none;
+  1678:     position: fixed;
+  1679:     inset: 0;
+  1680:     pointer-events: none;
+  1681:     z-index: 1; /* выше фона, но ниже контента */
+  1682:     overflow: hidden;
+----------------------------------------
+Line 1985: pointer-events: all; /* Allow interaction */
+  1983:     height: 100%;
+  1984:     z-index: 0; /* Behind everything */
+  1985:     pointer-events: all; /* Allow interaction */
+  1986: }
+  1987: 
+----------------------------------------
+Line 1995: pointer-events: none;
+  1993:     height: 100%;
+  1994:     z-index: 1; /* Behind content but above particles */
+  1995:     pointer-events: none;
+  1996:     overflow: hidden;
+  1997:     perspective: 1200px; /* 3D перспектива именно для плавающих элементов */
+----------------------------------------
+Line 2496: pointer-events: none;
+  2494:     margin-top: -1px;
+  2495:     opacity: 0;
+  2496:     pointer-events: none;
+  2497:     transition: opacity 0.3s ease;
+  2498:     display: flex;
+----------------------------------------
+Line 2508: pointer-events: auto;
+  2506: .filter-accordion.open .filter-accordion-body {
+  2507:     opacity: 1;
+  2508:     pointer-events: auto;
+  2509:     padding: 1rem;
+  2510: }
+----------------------------------------
+Line 3201: pointer-events: all !important;
+  3199:         opacity: 1 !important;
+  3200:         transform: translateX(0) !important;
+  3201:         pointer-events: all !important;
+  3202:         font-size: 0.8rem !important;
+  3203:         padding: 0.4rem 0.8rem !important;
+----------------------------------------
+Line 4277: pointer-events: none;
+  4275:     justify-content: center;
+  4276:     opacity: 0;
+  4277:     pointer-events: none;
+  4278:     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  4279: }
+----------------------------------------
+Line 4283: pointer-events: auto;
+  4281: .calculation-modal.active {
+  4282:     opacity: 1;
+  4283:     pointer-events: auto;
+  4284: }
+  4285: 
+----------------------------------------
+Line 4531: pointer-events: none;
+  4529:     height: auto;
+  4530:     opacity: 0.3; /* Повышенная непрозрачность для идеальной видимости */
+  4531:     pointer-events: none;
+  4532:     z-index: 2; /* Слой енотов - гарантированно НАД фоном секции, но ПОД контентом */
+  4533:     filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.05));
+----------------------------------------
+Line 4622: pointer-events: none;
+  4620:     border-radius: 12px;
+  4621:     z-index: 0;
+  4622:     pointer-events: none;
+  4623:     transition: all 0.3s ease;
+  4624: }
+----------------------------------------
+Line 4693: pointer-events: none;
+  4691:     justify-content: space-around;
+  4692:     align-items: center;
+  4693:     pointer-events: none;
+  4694: }
+  4695: 
+----------------------------------------
+Line 5181: pointer-events: none;
+  5179:     justify-content: center;
+  5180:     opacity: 0;
+  5181:     pointer-events: none;
+  5182:     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  5183: }
+----------------------------------------
+Line 5187: pointer-events: auto;
+  5185: .telegram-modal.active {
+  5186:     opacity: 1;
+  5187:     pointer-events: auto;
+  5188: }
+  5189: 
+----------------------------------------
+Line 5249: pointer-events: none;
+  5247:     width: 250px;
+  5248:     height: 250px;
+  5249:     pointer-events: none;
+  5250:     transform: rotate(-90deg);
+  5251: }
+----------------------------------------
+Line 5495: pointer-events: none;
+  5493:         right: 0;
+  5494:         bottom: 0;
+  5495:         pointer-events: none;
+  5496:     }
+  5497:     .closed-cover-decor-corners::before,
+----------------------------------------
+Line 6152: pointer-events: none;
+  6150:     height: 100%;
+  6151:     object-fit: cover;
+  6152:     pointer-events: none;
+  6153:     transition: transform 0.6s ease;
+  6154: }
+----------------------------------------
+Line 6163: pointer-events: none;
+  6161:     font-weight: 600;
+  6162:     font-family: 'Pacifico', cursive, sans-serif;
+  6163:     pointer-events: none;
+  6164:     text-align: center;
+  6165:     white-space: nowrap;
+----------------------------------------
+Line 6230: pointer-events: none;
+  6228:     justify-content: center;
+  6229:     opacity: 0;
+  6230:     pointer-events: none;
+  6231:     transition: opacity 0.5s ease;
+  6232: }
+----------------------------------------
+Line 6236: pointer-events: auto;
+  6234: .lightbox-modal.active {
+  6235:     opacity: 1;
+  6236:     pointer-events: auto;
+  6237: }
+  6238: 
+----------------------------------------
+Line 6436: pointer-events: none;
+  6434:     flex-direction: column;
+  6435:     align-items: center;
+  6436:     pointer-events: none;
+  6437:     overflow: hidden;
+  6438:     padding: 16px 16px 28px 16px;
+----------------------------------------

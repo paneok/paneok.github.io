@@ -1,0 +1,72 @@
+1389:             const scale = clamp(startScale * (newDistance / startDistance), 1, 3);
+1390:             imgEl._pinchScale = scale;
+1391:             imgEl.style.transform = `scale(${scale})`;
+1392:         }
+1393:         // один палец — не трогаем, пусть работает вертикальный скролл
+1394:     }, { passive: false });
+1395: 
+1396:     container.addEventListener('touchend', function (e) {
+1397:         if (e.touches.length < 2) {
+1398:             startDistance = 0;
+1399:             // При завершении жеста всегда возвращаем картинку к исходному масштабу
+1400:             imgEl._pinchScale = 1;
+1401:             imgEl.style.transform = 'scale(1)';
+1402:             imgEl.style.transformOrigin = '50% 50%';
+1403:         }
+1404:     });
+1405: }
+1406: 
+1407: // Инициализируем zoom эффект после загрузки персонажей
+1408: if (document.readyState === 'loading') {
+1409:     document.addEventListener('DOMContentLoaded', () => {
+1410:         setTimeout(initializeImageZoom, 500);
+1411:     });
+1412: } else {
+1413:     setTimeout(initializeImageZoom, 500);
+1414: }
+1415: 
+1416: // Переинициализируем после рендеринга персонажей
+1417: if (typeof window.charactersRenderer !== 'undefined') {
+1418:     const originalMethod = window.charactersRenderer.renderCharacters.bind(window.charactersRenderer);
+1419:     window.charactersRenderer.renderCharacters = function(...args) {
+1420:         originalMethod(...args);
+1421:         setTimeout(initializeImageZoom, 100);
+1422:     };
+1423: } else {
+1424:     // Если charactersRenderer еще не определен, ждем его инициализации
+1425:     const checkRenderer = setInterval(() => {
+1426:         if (typeof window.charactersRenderer !== 'undefined') {
+1427:             clearInterval(checkRenderer);
+1428:             const originalMethod = window.charactersRenderer.renderCharacters.bind(window.charactersRenderer);
+1429:             window.charactersRenderer.renderCharacters = function(...args) {
+1430:                 originalMethod(...args);
+1431:                 setTimeout(initializeImageZoom, 100);
+1432:             };
+1433:         }
+1434:     }, 100);
+1435: }
+1436: 
+1437: 
+1438: // ==================== DYNAMIC BACKGROUND RACCOONS GENERATOR ====================
+1439: const RACCOON_IMAGES = [
+1440:     'енот/Идея.png',
+1441:     'енот/Спит.png',
+1442:     'енот/большой палец вверх.png',
+1443:     'енот/восторг.png',
+1444:     'енот/доволен НГ.png',
+1445:     'енот/конфити.png',
+1446:     'енот/любит.png',
+1447:     'енот/пицца.png',
+1448:     'енот/подарок.png',
+1449:     'енот/подмигивает.png',
+1450:     'енот/праздничный список.png',
+1451:     'енот/смеется.png',
+1452:     'енот/смущение.png',
+1453:     'енот/танцует.png',
+1454:     'енот/тихо НГ.png',
+1455:     'енот/тортик.png'
+1456: ];
+1457: 
+1458: function randomizeBackgroundRaccoons() {
+1459:     const sections = document.querySelectorAll('.characters-section, .programs-section, .advantages-section, .contact-section');
+1460:     

@@ -9,19 +9,31 @@ class ParallaxEffect {
         this.currentY = 0;
         this.isMouseInside = false; // Флаг: мышь внутри hero-секции
         this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.startTime = performance.now();
         this.lastTime = this.startTime;
+        this.isHeroVisible = true; // Флаг видимости секции Hero на экране
 
         // Флаг для первого кадра: распределяем все иконки по траекториям с разной фазой
         this._initialPhaseAssigned = false;
 
         // ВКЛЮЧАЕМ эффекты только если есть hero и элементы
-        if (this.heroSection && this.parallaxItems.length > 0) {
+        if (this.heroSection && this.parallaxItems.length > 0 && !this.prefersReducedMotion) {
             this.init();
         }
     }
 
     init() {
+        // Подключаем IntersectionObserver для динамической приостановки анимации вне экрана
+        if ('IntersectionObserver' in window && this.heroSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    this.isHeroVisible = entry.isIntersecting;
+                });
+            }, { threshold: 0.01 }); // запускаем, даже если виден тонкий край в 1%
+            observer.observe(this.heroSection);
+        }
+
         // Для всех устройств включаем эффект "полет сквозь фигурки"
         this.setupMobileStarfield();
 
@@ -30,6 +42,12 @@ class ParallaxEffect {
     }
 
     animate() {
+        // Оптимизация: если вкладка фоновая или секция ушла из зоны видимости, полностью прекращаем перерасчеты
+        if (document.hidden || !this.isHeroVisible) {
+            requestAnimationFrame(() => this.animate());
+            return;
+        }
+
         const now = performance.now();
 
         // Единый эффект "летим сквозь элементы" для всех устройств
@@ -154,20 +172,10 @@ class ParallaxEffect {
         });
     }
 
-    // ===== MOBILE STARFIELD EFFECT (используем как общий "полёт сквозь иконки") =====
     setupMobileStarfield() {
-        // Увеличиваем количество фигурок: клонируем существующие элементы один раз
-        const container = this.heroSection.querySelector('.parallax-container');
-        if (container && !this._mobileClonesCreated) {
-            const originals = Array.from(this.parallaxItems);
-            originals.forEach((item) => {
-                const clone = item.cloneNode(true);
-                clone.classList.add('mobile-clone');
-                container.appendChild(clone);
-            });
-            this._mobileClonesCreated = true;
-            this.parallaxItems = this.heroSection.querySelectorAll('.parallax-item');
-        }
+        // Убрали клонирование элементов для оптимизации производительности (32 оригинальных элементов более чем достаточно).
+        // Это сокращает количество циклов и операций рендеринга в 2 раза!
+
 
         // Центруем все элементы и отключаем их собственные CSS-анимации/transition,
         // чтобы они не "тянулись" обратно к центру

@@ -1,0 +1,101 @@
+813: async function initializeCharactersCatalog() {
+814:     try {
+815:         const isNewYearPage = document.body.classList.contains('new-year-page');
+816: 
+817:         // Load characters data
+818:         const allCharacters = await charactersRenderer.loadCharacters();
+819: 
+820:         let initialCharacters = allCharacters;
+821:         if (isNewYearPage) {
+822:             // Оставляем только новогодних персонажей для отдельной страницы
+823:             initialCharacters = allCharacters.filter(isNewYearCharacter);
+824: 
+825:             // Кастомная сортировка: пары, затем чередование ДМ/Сн, затем остальные
+826:             initialCharacters = sortNewYearCharacters(initialCharacters);
+827: 
+828:             charactersRenderer.characters = initialCharacters;
+829:             charactersRenderer.filteredCharacters = [...initialCharacters];
+830:         }
+831: 
+832:         // Обновляем счетчик "любимых персонажей" в блоке статистики (если он есть на странице)
+833:         const favoriteCount = allCharacters.length;
+834:         updateFavoriteCharactersStat(favoriteCount);
+835: 
+836:         // Initialize filter system только на основной странице каталога
+837:         if (!isNewYearPage) {
+838:             charactersFilter = new CharactersFilter(charactersRenderer);
+839:         }
+840: 
+841:         // Initial render
+842:         charactersRenderer.renderCharacters(initialCharacters);
+843: 
+844:         console.log('Characters catalog initialized successfully!');
+845:     } catch (error) {
+846:         console.error('Error initializing characters catalog:', error);
+847:         charactersRenderer.showError();
+848:     }
+849: }
+850: 
+851: // Обновляет отображение количества "любимых персонажей" в блоке статистики
+852: function updateFavoriteCharactersStat(count) {
+853:     const statCards = document.querySelectorAll('.stat-card');
+854:     statCards.forEach(card => {
+855:         const labelEl = card.querySelector('.stat-label');
+856:         const numberEl = card.querySelector('.stat-number');
+857:         if (!labelEl || !numberEl) return;
+858: 
+859:         if (labelEl.textContent.trim().includes('любимых персонажей')) {
+860:             numberEl.textContent = count;
+861:             // Если анимация счетчика уже проигралась, проигрываем заново с новым значением
+862:             if (card.dataset.animated === 'true') {
+863:                 animateCounter(numberEl, String(count), 1500);
+864:             }
+865:         }
+866:     });
+867: }
+868: 
+869: // Инициализирует динамическую загрузку статистики на страницах без каталога персонажей
+870: async function initDynamicStats() {
+871:     const statsGrid = document.querySelector('.stats-grid');
+872:     if (!statsGrid) return;
+873:     
+874:     // Если на странице нет сетки персонажей, но есть счетчики, загружаем данные для синхронизации
+875:     if (!document.getElementById('characters-grid')) {
+876:         try {
+877:             const response = await fetch('data/characters-data.json');
+878:             if (response.ok) {
+879:                 const data = await response.json();
+880:                 if (data && Array.isArray(data.characters)) {
+881:                     updateFavoriteCharactersStat(data.characters.length);
+882:                 }
+883:             }
+884:         } catch (error) {
+885:             console.error('Error loading dynamic statistics:', error);
+886:         }
+887:     }
+888: }
+889: 
+890: // Characters grid view toggle (3 per row → 4 per row → 4 per row with square photos)
+891: function initCharactersViewToggle() {
+892:     const grid = document.getElementById('characters-grid');
+893:     const toggleBtn = document.getElementById('view-toggle-btn');
+894:     const section = grid ? grid.closest('.characters-section') : null;
+895: 
+896:     if (!grid || !toggleBtn) return;
+897: 
+898:     const modes = [
+899:         {
+900:             classes: ['view-3'],
+901:             label: '3×',
+902:             title: '3 карточки в ряд, вертикальные фото',
+903:             wide: false
+904:         },
+905:         {
+906:             classes: ['view-4'],
+907:             label: '4×',
+908:             title: '4 карточки в ряд, вертикальные фото',
+909:             wide: true
+910:         },
+911:         {
+912:             classes: ['view-4', 'view-4-square'],
+913:             label: '4□',

@@ -50,7 +50,9 @@ async function seed() {
           slug: char.slug,
           category: char.category || 'Другие',
           hourlyPrice: char.pricing?.hourly || 0,
-          description: char.description || '',
+          description: typeof char.description === 'object' && char.description !== null
+            ? (char.description.short || char.description.full || '')
+            : (char.description || ''),
           mainImage: char.images?.main || '',
           gallery: char.images?.gallery ? JSON.stringify(char.images.gallery) : JSON.stringify([]),
           availablePrograms: char.availablePrograms ? JSON.stringify(char.availablePrograms) : JSON.stringify([]),
@@ -93,8 +95,12 @@ async function seed() {
           priceUnit: prog.pricing?.unit || '₽',
           isCharacterPrice: prog.pricing?.isCharacterPrice || false,
           defaultCharacterId: prog.defaultCharacterId || null,
-          description: prog.description || '',
-          fullDescription: prog.fullDescription || '',
+          description: typeof prog.description === 'object' && prog.description !== null
+            ? (prog.description.short || prog.description.full || '')
+            : (prog.description || ''),
+          fullDescription: typeof prog.fullDescription === 'object' && prog.fullDescription !== null
+            ? (prog.fullDescription.short || prog.fullDescription.full || '')
+            : (prog.fullDescription || ''),
           bonus: prog.bonus || null,
           duration: prog.duration || null,
           targetAge: prog.targetAge || null,

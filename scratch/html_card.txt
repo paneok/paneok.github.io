@@ -1,0 +1,84 @@
+Total occurrences: 9
+section-subtitle">Сделайте ваш праздник ещё ярче и беззаботнее с нашими праздничными услугами</p>
+            </div>
+            <div class="additional-services-grid">
+                <article class="character-card additional-service-card" data-service-id="2">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 50%, #667eea 100%);">
+                            <img src="images/catalog/Ведущая серебро пайетка 1.png" alt="Фотозона" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 2, name: 'Фотозона', pricing: { amount: 8000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div
+============================================================
+       <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="3">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);">
+                            <img src="images/catalog/Программы/Аквагрим.jpg" alt="Аквагрим" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 3, name: 'Аквагрим', pricing: { amount: 6000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-s
+============================================================
+       <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="4">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);">
+                            <img src="images/catalog/Программы/анимационная программа.jpg" alt="Фигуры из шаров" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 4, name: 'Фигуры из шаров', pricing: { amount: 2500, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                        
+============================================================
+       <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="6">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+                            <img src="images/catalog/Сладкоежка.png" alt="Сладкий стол" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 6, name: 'Сладкий стол', pricing: { amount: 7000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="additional-s
+============================================================
+       <span class="price-currency">₽/шт</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="character-card additional-service-card" data-service-id="8">
+                    <div class="character-image-container">
+                        <div class="character-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <img src="images/catalog/Программы/Бьюти бар.jpg" alt="Бьюти-бар" class="character-photo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/catalog/placeholder.png';">
+                        </div>
+                        <div class="character-overlay">
+                            <button type="button" class="btn btn-select additional-service-action" onclick="window.selectionManager?.toggleService({ id: 8, name: 'Бьюти-бар', pricing: { amount: 10000, unit: '₽/шт' } })">
+                                <span class="btn-select-checkbox">✓</span>
+                                <span class="btn-select-text">Выбрать</span>
+                            </button>
+                            <div class="addition
+============================================================

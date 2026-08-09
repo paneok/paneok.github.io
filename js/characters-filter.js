@@ -7,16 +7,21 @@ class CharactersFilter {
             age: [],
             gender: [],
             category: [],
-            activities: [],
-            priceMin: 0,
-            priceMax: 10000
+            activities: []
         };
-
-        this.priceSlider = null;
         this.debounceTimer = null;
 
         this.initializeFilters();
         this.initializeAccordions();
+    }
+
+    normalizeCategory(category) {
+        const aliases = {
+            'superheroes': 'superhero',
+            'animals': 'animal'
+        };
+
+        return aliases[category] || category;
     }
 
     initializeAccordions() {
@@ -41,9 +46,6 @@ class CharactersFilter {
     }
 
     initializeFilters() {
-        // Initialize price slider
-        this.initPriceSlider();
-
         // Search input
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
@@ -77,41 +79,6 @@ class CharactersFilter {
                 this.resetFilters();
             });
         }
-    }
-
-    // Initialize noUiSlider for price range
-    initPriceSlider() {
-        const sliderElement = document.getElementById('price-slider');
-        if (!sliderElement || typeof noUiSlider === 'undefined') {
-            console.warn('Price slider element or noUiSlider library not found');
-            return;
-        }
-
-        this.priceSlider = noUiSlider.create(sliderElement, {
-            start: [0, 10000],
-            connect: true,
-            step: 100,
-            range: {
-                'min': 0,
-                'max': 10000
-            },
-            format: {
-                to: (value) => Math.round(value),
-                from: (value) => Math.round(value)
-            }
-        });
-
-        // Update price display and filter
-        this.priceSlider.on('update', (values) => {
-            document.getElementById('price-min').textContent = values[0];
-            document.getElementById('price-max').textContent = values[1];
-        });
-
-        this.priceSlider.on('change', (values) => {
-            this.filters.priceMin = parseInt(values[0]);
-            this.filters.priceMax = parseInt(values[1]);
-            this.applyFilters();
-        });
     }
 
     // Update checkbox filters (age, gender, category, activities)
@@ -162,7 +129,7 @@ class CharactersFilter {
             filtered = filtered.filter(char => {
                 return char.name.toLowerCase().includes(this.filters.search) ||
                        char.description.short.toLowerCase().includes(this.filters.search) ||
-                       char.tags.some(tag => tag.toLowerCase().includes(this.filters.search));
+                       (char.tags || []).some(tag => tag.toLowerCase().includes(this.filters.search));
             });
         }
 
@@ -185,7 +152,7 @@ class CharactersFilter {
         // Category filter
         if (this.filters.category.length > 0) {
             filtered = filtered.filter(char => {
-                return this.filters.category.includes(char.category);
+                return this.filters.category.includes(this.normalizeCategory(char.category));
             });
         }
 
@@ -197,12 +164,6 @@ class CharactersFilter {
                 });
             });
         }
-
-        // Price filter
-        filtered = filtered.filter(char => {
-            return char.pricing.hourly >= this.filters.priceMin &&
-                   char.pricing.hourly <= this.filters.priceMax;
-        });
 
         // Update renderer
         this.renderer.filteredCharacters = filtered;
@@ -247,13 +208,6 @@ class CharactersFilter {
         this.filters.gender = [];
         this.filters.category = [];
         this.filters.activities = [];
-
-        // Reset price slider
-        if (this.priceSlider) {
-            this.priceSlider.set([0, 10000]);
-        }
-        this.filters.priceMin = 0;
-        this.filters.priceMax = 10000;
 
         // Reset sort
         const sortSelect = document.getElementById('sort-select');

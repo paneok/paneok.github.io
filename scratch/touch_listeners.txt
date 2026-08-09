@@ -1,0 +1,158 @@
+Total occurrences: 9
+Occurrence 1:
+image-container');
+
+    // Проверяем, является ли устройство сенсорным
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    imageContainers.forEach(container => {
+        const image = container.querySelector('.character-photo');
+
+        if (!image) return;
+        if (container._zoomInitialized) return;
+        container._zoomInitialized = true;
+
+        // Только для НЕ сенсорных устройств добавляем zoom эффект
+        if (!isTouchDevice) {
+            let isHovering = false;
+
+            container.addEventListener('mouseenter', () => {
+                isHovering =
+========================================
+Occurrence 2:
+====================
+function setupPinchToZoomForGalleryImage(imgEl) {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (!isTouchDevice || !imgEl) return;
+
+    // Навешиваем жесты на контейнер, чтобы ловить касания по всей области фото
+    const container = imgEl.closest('.gallery-main-image') || imgEl;
+
+    // Не навешиваем обработчики повторно
+    if (container._pinchZoomEnabled) return;
+    container._pinchZoomEnabled = true;
+
+    imgEl._pinchScale = 1;
+    let startDistance = 0;
+    let startScale = 1;
+
+    const clamp = (val, min, max) => Math.min(max, Math
+========================================
+Occurrence 3:
+t2.clientX) / 2,
+        y: (t1.clientY + t2.clientY) / 2,
+    });
+
+    container.addEventListener('touchstart', function (e) {
+        // один палец — даём обычный скролл страницы
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            startDistance = getDistance(e.touches[0], e.touches[1]);
+            startScale = imgEl._pinchScale || 1;
+
+            // Смещаем центр масштабирования к точке между пальцами
+            const mid = getMidpoint(e.touches[0], e.touches[1]);
+            const rect = imgEl.getBoundingClientRect();
+            const originX = ((mid.x - rect.left) / 
+========================================
+Occurrence 4:
+= `${originX}% ${originY}%`;
+        }
+    }, { passive: false });
+
+    container.addEventListener('touchmove', function (e) {
+        if (e.touches.length === 2 && startDistance > 0) {
+            e.preventDefault();
+            const newDistance = getDistance(e.touches[0], e.touches[1]);
+            const scale = clamp(startScale * (newDistance / startDistance), 1, 3);
+            imgEl._pinchScale = scale;
+            imgEl.style.transform = `scale(${scale})`;
+        }
+        // один палец — не трогаем, пусть работает вертикальный скролл
+    }, { passive: false });
+
+    container.addEventListener(
+========================================
+Occurrence 5:
+ем, пусть работает вертикальный скролл
+    }, { passive: false });
+
+    container.addEventListener('touchend', function (e) {
+        if (e.touches.length < 2) {
+            startDistance = 0;
+            // При завершении жеста всегда возвращаем картинку к исходному масштабу
+            imgEl._pinchScale = 1;
+            imgEl.style.transform = 'scale(1)';
+            imgEl.style.transformOrigin = '50% 50%';
+        }
+    });
+}
+
+// Инициализируем zoom эффект после загрузки персонажей
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(
+========================================
+Occurrence 6:
+
+        
+        // ── TOUCH EVENTS (mobile) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.
+========================================
+Occurrence 7:
+) ──────────────────────────────────────────
+        // touchend always fires on the same target as touchstart — reliable for gesture tracking.
+        // pointer-events:none on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { pa
+========================================
+Occurrence 8:
+on the clone makes touches pass through to the lightbox element.
+        lightbox.addEventListener('touchstart', (e) => {
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+         
+========================================
+Occurrence 9:
+ = e.touches[0].clientY;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', (e) => {
+            const t = e.changedTouches[0];
+            handleLightboxGestureEnd(t.clientX, t.clientY, e.target);
+        }, { passive: true });
+        
+        // ── POINTER EVENTS (desktop mouse only, avoid double-firing on touch) ──
+        lightbox.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') return; // handled by touch events above
+            lbStartX = e.clientX;
+            lbStartY = e.clientY;
+        });
+        
+        lightbox.addE
+========================================

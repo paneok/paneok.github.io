@@ -2,19 +2,24 @@
 function initParticles() {
     const heroSection = document.querySelector('.hero');
     const particlesContainer = document.getElementById('particles-container');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!particlesContainer || typeof confetti === 'undefined') {
+    if (!particlesContainer || typeof confetti === 'undefined' || !heroSection || isTouchDevice || prefersReducedMotion) {
         console.warn('Particles container or confetti library not found');
         return;
     }
 
+    if (window.__particlesInitialized) {
+        return;
+    }
+    window.__particlesInitialized = true;
+
     // Configuration for continuous confetti effect
-    const duration = 60 * 1000; // 60 seconds
-    const animationEnd = Date.now() + duration;
     const defaults = {
-        startVelocity: 15,
+        startVelocity: 12,
         spread: 360,
-        ticks: 100,
+        ticks: 80,
         zIndex: 0,
         disableForReducedMotion: true
     };
@@ -25,13 +30,11 @@ function initParticles() {
 
     // Create continuous confetti particles (background ambient)
     const interval = setInterval(function() {
-        const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-            return clearInterval(interval);
+        if (document.hidden) {
+            return;
         }
 
-        const particleCount = 2; // Reduced for background
+        const particleCount = 1;
 
         // Launch confetti from random positions
         confetti({
@@ -43,8 +46,8 @@ function initParticles() {
             },
             colors: ['#667eea', '#764ba2', '#f093fb', '#ff6b9d', '#ffd700', '#ff8fab'],
             shapes: ['circle', 'square'],
-            scalar: randomInRange(0.4, 0.8),
-            drift: randomInRange(-0.4, 0.4)
+            scalar: randomInRange(0.35, 0.65),
+            drift: randomInRange(-0.25, 0.25)
         });
 
         // Add some stars
@@ -57,16 +60,11 @@ function initParticles() {
             },
             colors: ['#ffd700', '#fff', '#ffed4e'],
             shapes: ['star'],
-            scalar: randomInRange(0.5, 1),
-            drift: randomInRange(-0.3, 0.3)
+            scalar: randomInRange(0.45, 0.8),
+            drift: randomInRange(-0.2, 0.2)
         });
 
-    }, 600); // Slower for background effect
-
-    // Restart particles after duration
-    setTimeout(() => {
-        initParticles();
-    }, duration);
+    }, 1200);
 
     // ==================== INTERACTIVE EFFECTS ====================
 
@@ -104,51 +102,7 @@ function initParticles() {
             });
         });
 
-        // Mouse move creates trailing confetti
-        let lastMouseMove = 0;
-        heroSection.addEventListener('mousemove', function(e) {
-            const now = Date.now();
-            // Throttle to every 200ms
-            if (now - lastMouseMove < 200) return;
-            lastMouseMove = now;
-
-            const rect = heroSection.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-
-            // Small trailing effect on mouse move
-            confetti({
-                particleCount: 3,
-                spread: 30,
-                origin: { x, y },
-                colors: ['#667eea', '#f093fb', '#ffd700'],
-                shapes: ['circle'],
-                scalar: randomInRange(0.3, 0.6),
-                startVelocity: 10,
-                ticks: 50,
-                gravity: 0.8,
-                zIndex: 0
-            });
-        });
-
-        // Extra burst when entering hero section
-        heroSection.addEventListener('mouseenter', function(e) {
-            const rect = heroSection.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-
-            confetti({
-                particleCount: 30,
-                spread: 60,
-                origin: { x, y },
-                colors: ['#667eea', '#764ba2', '#f093fb', '#ff6b9d', '#ffd700'],
-                shapes: ['circle', 'square', 'star'],
-                scalar: randomInRange(0.6, 1.2),
-                startVelocity: 25,
-                ticks: 100,
-                zIndex: 0
-            });
-        });
+        window.addEventListener('beforeunload', () => clearInterval(interval), { once: true });
     }
 }
 
