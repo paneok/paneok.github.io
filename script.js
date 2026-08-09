@@ -2259,7 +2259,7 @@ async function fetchDynamicPhotos() {
     }
 }
 
-async function initHolidayGallery() {
+async function initHolidayGalleryLegacy() {
     const track = document.getElementById('holiday-carousel-track');
     const viewport = document.getElementById('holiday-carousel-viewport');
     
@@ -2947,6 +2947,118 @@ async function initHolidayGallery() {
     } catch (e) {
         console.warn("Failed background fetch of dynamic photos:", e);
     }
+}
+
+// Lightweight gallery: native scrolling on the page and a simple lightbox.
+// The previous marquee duplicated cards and kept a requestAnimationFrame loop
+// running continuously, which was costly on desktop and unreliable on phones.
+function initHolidayGallery() {
+    const track = document.getElementById('holiday-carousel-track');
+    const viewport = document.getElementById('holiday-carousel-viewport');
+    const lightbox = document.getElementById('lightbox-modal');
+    if (!track || !viewport || !lightbox) return;
+
+    const photosSource = activeHolidayPhotos.length ? activeHolidayPhotos : HOLIDAY_PHOTOS;
+    const photos = photosSource.slice(0, 10);
+    const captions = photos.map((_, index) => RANDOM_CAPTIONS[index % RANDOM_CAPTIONS.length]);
+    const image = lightbox.querySelector('.lightbox-image');
+    const caption = lightbox.querySelector('.lightbox-caption');
+    const closeButton = lightbox.querySelector('.lightbox-close-btn');
+    const previousButton = lightbox.querySelector('.lightbox-prev-btn');
+    const nextButton = lightbox.querySelector('.lightbox-next-btn');
+    const backdrop = lightbox.querySelector('.lightbox-backdrop');
+    let currentIndex = 0;
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+
+    track.replaceChildren();
+    track.style.transform = '';
+    track.style.transition = '';
+
+    // A single duplicate set lets the CSS animation loop seamlessly. Unlike
+    // the former implementation, there is no permanent JavaScript animation
+    // frame, drag inertia, or clone flight calculation on every frame.
+    [...photos, ...photos].forEach((photo, cardPosition) => {
+        const index = cardPosition % photos.length;
+        const card = document.createElement('button');
+        card.className = 'polaroid-card';
+        card.type = 'button';
+        card.dataset.cardIndex = String(index);
+        card.setAttribute('aria-label', `Открыть фото: ${captions[index]}`);
+        card.innerHTML = `
+            <span class="polaroid-card-img-wrapper">
+                <img class="polaroid-card-img" src="images/fotoprazdnik/${photo}" alt="${captions[index]}" loading="lazy" decoding="async">
+            </span>
+            <span class="polaroid-card-caption font-handwritten">${captions[index]}</span>
+        `;
+
+        let downX = 0;
+        card.addEventListener('pointerdown', (event) => { downX = event.clientX; });
+        card.addEventListener('click', (event) => {
+            if (Math.abs(event.clientX - downX) > 8) return;
+            openLightbox(index);
+        });
+        track.append(card);
+    });
+
+    function renderLightbox() {
+        image.src = `images/fotoprazdnik/${photos[currentIndex]}`;
+        image.alt = captions[currentIndex];
+        caption.textContent = captions[currentIndex];
+    }
+
+    function openLightbox(index) {
+        currentIndex = index;
+        renderLightbox();
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton?.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+        currentIndex = (currentIndex + direction + photos.length) % photos.length;
+        renderLightbox();
+    }
+
+    closeButton?.addEventListener('click', closeLightbox);
+    backdrop?.addEventListener('click', closeLightbox);
+    previousButton?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        navigateLightbox(-1);
+    });
+    nextButton?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        navigateLightbox(1);
+    });
+
+    lightbox.addEventListener('touchstart', (event) => {
+        const touch = event.touches[0];
+        pointerStartX = touch.clientX;
+        pointerStartY = touch.clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (event) => {
+        if (!lightbox.classList.contains('active')) return;
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - pointerStartX;
+        const deltaY = touch.clientY - pointerStartY;
+        if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            navigateLightbox(deltaX < 0 ? 1 : -1);
+        }
+    }, { passive: true });
+
+    document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') navigateLightbox(-1);
+        if (event.key === 'ArrowRight') navigateLightbox(1);
+    });
 }
 
 // Инициализация всех компонентов при загрузке страницы

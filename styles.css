@@ -7136,6 +7136,119 @@ body.modal-open {
     box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25) !important;
 }
 
+/* ==================== LIGHTWEIGHT HOLIDAY CAROUSEL ==================== */
+.holiday-carousel-viewport {
+    overflow: hidden !important;
+    padding: 24px 0 34px !important;
+}
+
+.holiday-carousel-track {
+    width: max-content !important;
+    gap: 20px !important;
+    transform: translate3d(0, 0, 0) !important;
+    animation: holiday-marquee 72s linear infinite !important;
+    will-change: transform;
+}
+
+.holiday-carousel-wrapper:hover .holiday-carousel-track,
+.holiday-carousel-wrapper:focus-within .holiday-carousel-track {
+    animation-play-state: paused !important;
+}
+
+@keyframes holiday-marquee {
+    to { transform: translate3d(calc(-50% - 10px), 0, 0); }
+}
+
+.polaroid-card {
+    flex: 0 0 clamp(250px, 22vw, 320px) !important;
+    height: 390px !important;
+    appearance: none;
+    border: 1px solid rgba(124, 58, 237, 0.12) !important;
+    cursor: pointer;
+}
+
+.polaroid-card:nth-child(n) { transform: rotate(0deg) !important; }
+.polaroid-card:hover { transform: translateY(-6px) !important; }
+
+@media (max-width: 768px) {
+    .holiday-carousel-viewport { padding: 18px 0 28px !important; }
+    .holiday-carousel-track { gap: 14px !important; animation-duration: 58s !important; }
+    .polaroid-card { flex-basis: 72vw !important; height: 330px !important; }
+    .polaroid-card-caption { font-size: 0.92rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .holiday-carousel-track { animation-play-state: paused !important; }
+}
+
+/* ==================== COMPACT RESPONSIVE HEADER ==================== */
+.nav-content {
+    display: grid !important;
+    grid-template-columns: auto auto minmax(0, 1fr) auto !important;
+    gap: clamp(0.65rem, 1.5vw, 1.5rem) !important;
+    min-height: 72px;
+    padding: 0.55rem 0 !important;
+}
+
+.logo-link { gap: 0.45rem !important; white-space: nowrap; }
+.logo-img { width: 62px !important; height: 62px !important; margin: 0 !important; transform: none !important; }
+.header.scrolled .logo-img { width: 52px !important; height: 52px !important; margin: 0 !important; transform: none !important; }
+.logo-text { font-size: 1.28rem !important; line-height: 1.1; }
+
+.nav-location-badge {
+    margin: 0 !important;
+    padding: 0.32rem 0.6rem !important;
+    font-size: 0.76rem !important;
+}
+
+.nav-menu {
+    min-width: 0;
+    justify-content: center;
+    gap: clamp(0.8rem, 1.55vw, 1.8rem) !important;
+}
+
+.nav-link { white-space: nowrap; font-size: 0.94rem; }
+
+.header-contacts { gap: 0.55rem !important; }
+.header-phone { font-size: 0.9rem !important; }
+.header-messengers { display: flex; gap: 0.4rem; }
+.header-messenger {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.header-messenger:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2); }
+.header-messenger-whatsapp { background: #25d366; }
+
+@media (max-width: 1180px) {
+    .nav-location-badge { display: none; }
+    .nav-content { grid-template-columns: auto minmax(0, 1fr) auto !important; }
+    .nav-menu { gap: 1rem !important; }
+}
+
+@media (max-width: 980px) {
+    .header-phone { display: none; }
+}
+
+@media (max-width: 768px) {
+    .nav-content { display: flex !important; min-height: 62px; padding: 0.35rem 0 !important; }
+    .logo-img, .header.scrolled .logo-img { width: 48px !important; height: 48px !important; }
+    .logo-text { font-size: 1.08rem !important; }
+    .header-contacts { display: flex !important; margin-left: auto; }
+    .header-messenger { width: 34px; height: 34px; }
+    .mobile-menu-btn { margin-left: 0.15rem; min-width: 44px; min-height: 44px; }
+}
+
 /* ==================== DIARY: MOBILE HORIZONTAL PAGES ==================== */
 @media (max-width: 768px) {
     .diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
