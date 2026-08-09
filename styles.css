@@ -7625,9 +7625,62 @@ body.modal-open {
         height: 60px !important;
     }
     .logo-text { font-size: 1rem !important; }
-    .header-messenger { width: 32px !important; height: 32px !important; }
+    .header-messenger { width: 36px !important; height: 36px !important; }
     .header-messenger svg { width: 17px; height: 17px; }
 }
+
+/* ==================== UI/UX PRO MAX AUDIT POLISH ==================== */
+/* 1. Global Focus-Visible Outline */
+:focus-visible {
+    outline: 3px solid #FFD000 !important;
+    outline-offset: 3px !important;
+    border-radius: 6px !important;
+}
+
+/* 2. Minimum Touch Targets for Touch Ergonomics (min 44x44px) */
+.whatsapp-float,
+.social-link,
+.mobile-menu-btn,
+.diary-page-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 3. Hero Social Proof Trust Badge */
+.hero-trust-badge {
+    margin-top: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.trust-divider {
+    opacity: 0.6;
+}
+
+/* 4. Raccoon Diary Swipe Hint */
+.diary-swipe-hint {
+    margin-top: 0.6rem;
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
 
 
 
