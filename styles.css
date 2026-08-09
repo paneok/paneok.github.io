@@ -7502,6 +7502,89 @@ body.modal-open {
     box-shadow: 0 15px 40px rgba(255, 208, 0, 0.6) !important;
 }
 
+/* ==================== HEADER: COMPACT BAR + OVERHANG LOGO ==================== */
+.header,
+.navbar {
+    overflow: visible !important;
+}
+
+.nav-content,
+.header.scrolled .nav-content {
+    min-height: 64px !important;
+    padding: 0 !important;
+}
+
+.logo {
+    position: relative;
+    z-index: 2;
+    height: 64px;
+}
+
+.logo-link {
+    position: relative;
+    height: 64px !important;
+    padding-left: 86px;
+    gap: 0 !important;
+}
+
+/* The image is removed from the layout flow, so the bar stays compact while
+   the raccoon intentionally hangs below its lower edge. */
+.logo-img,
+.header.scrolled .logo-img {
+    position: absolute;
+    left: 0;
+    bottom: -29px;
+    width: 82px !important;
+    height: 82px !important;
+    margin: 0 !important;
+    transform: none !important;
+    z-index: 2;
+}
+
+.logo-text {
+    font-size: 1.18rem !important;
+    line-height: 1 !important;
+}
+
+.header-messengers { gap: 0.45rem !important; }
+.header-messenger {
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.header-messenger svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.header-messenger-max svg { width: 23px; height: 23px; }
+
+/* The location badge is intentionally absent: three stable columns prevent
+   the menu and messenger group from competing for the same horizontal slot. */
+.nav-content {
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+}
+.nav-menu { justify-self: center; }
+.header-contacts { justify-self: end; }
+
+@media (max-width: 768px) {
+    .nav-content,
+    .header.scrolled .nav-content { min-height: 58px !important; }
+    .logo,
+    .logo-link { height: 58px !important; }
+    .logo-link { padding-left: 62px; }
+    .logo-img,
+    .header.scrolled .logo-img {
+        bottom: -14px;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .logo-text { font-size: 1rem !important; }
+    .header-messenger { width: 32px !important; height: 32px !important; }
+    .header-messenger svg { width: 17px; height: 17px; }
+}
+
 
 
 
