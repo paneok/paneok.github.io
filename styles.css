@@ -7502,6 +7502,50 @@ body.modal-open {
     box-shadow: 0 15px 40px rgba(255, 208, 0, 0.6) !important;
 }
 
+/* ==================== COMPACT VERTICAL RHYTHM ====================
+   A consistent rhythm keeps the long landing page lively without making
+   adjacent content feel crowded. */
+.stats-section { padding: 3rem 0 !important; }
+
+.raccoon-diary-section,
+.holiday-gallery-section,
+.team-section,
+.values-section { padding: 4rem 0 !important; }
+
+.contact-section { padding: 4.5rem 0 !important; }
+
+.section-header { margin-bottom: 2.25rem !important; }
+.section-title { margin-bottom: 0.6rem !important; }
+.section-subtitle { line-height: 1.5 !important; }
+
+.stats-grid,
+.values-grid { gap: 1.25rem !important; }
+.stat-card { padding: 1.25rem 0.5rem !important; }
+
+.team-grid,
+.values-grid { margin-top: 2rem !important; }
+.team-member-card { padding: 1.5rem 1.25rem !important; }
+
+.hero-description { margin-bottom: 0.7rem !important; }
+.hero-tagline { margin-bottom: 1.35rem !important; }
+.hero-buttons { gap: 0.7rem !important; }
+
+.contact-section .section-subtitle { margin-bottom: 1.75rem !important; }
+.contact-form-wrapper { padding: 2rem 2.25rem !important; }
+
+@media (max-width: 768px) {
+    .stats-section { padding: 2.25rem 0 !important; }
+    .raccoon-diary-section,
+    .holiday-gallery-section,
+    .team-section,
+    .values-section,
+    .contact-section { padding: 3rem 0 !important; }
+    .section-header { margin-bottom: 1.5rem !important; }
+    .team-grid,
+    .values-grid { margin-top: 1.5rem !important; }
+    .contact-form-wrapper { padding: 1.5rem 1.15rem !important; }
+}
+
 /* ==================== HEADER: COMPACT BAR + OVERHANG LOGO ==================== */
 .header,
 .navbar {
