@@ -7370,6 +7370,139 @@ body.modal-open {
     }
 }
 
+/* ==================== CONTACT FORM & SECTION REDESIGN ==================== */
+.contact-section {
+    background: linear-gradient(135deg, #4C1D95 0%, #6D28D9 50%, #7C3AED 100%) !important;
+    padding: 6rem 0 !important;
+    color: white !important;
+}
+
+.contact-section .section-title,
+.contact-section .contact-title {
+    color: #FFFFFF !important;
+    background: none !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    margin-bottom: 0.8rem !important;
+}
+
+.contact-section .section-subtitle,
+.contact-section .contact-subtitle {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 1.15rem !important;
+    text-align: center !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.contact-form-wrapper {
+    max-width: 580px !important;
+    margin: 0 auto !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 24px !important;
+    padding: 2.5rem 2.8rem !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35) !important;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.4rem !important;
+    text-align: left !important;
+}
+
+.contact-form label {
+    display: block !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98rem !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.contact-form .form-input,
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="date"] {
+    width: 100% !important;
+    display: block !important;
+    padding: 1rem 1.3rem !important;
+    font-size: 1.05rem !important;
+    border-radius: 14px !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1E1B4B !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.contact-form .form-input:focus,
+.contact-form input:focus {
+    outline: none !important;
+    border-color: #FFD000 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 4px rgba(255, 208, 0, 0.4), 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.contact-form .form-consent {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.7rem !important;
+    font-size: 0.88rem !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: left !important;
+    line-height: 1.5 !important;
+}
+
+.contact-form .form-consent label {
+    display: inline !important;
+    font-weight: 400 !important;
+    font-size: 0.88rem !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    margin-bottom: 0 !important;
+}
+
+.contact-form .form-consent input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    margin-top: 0.15rem !important;
+    accent-color: #FFD000 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+}
+
+.contact-form .form-consent a {
+    color: #FFD000 !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+}
+
+.contact-form .btn-submit {
+    width: 100% !important;
+    padding: 1.1rem 2rem !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, #FFD000 0%, #F59E0B 100%) !important;
+    color: #1E1B4B !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 10px 30px rgba(255, 208, 0, 0.45) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.contact-form .btn-submit:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 40px rgba(255, 208, 0, 0.6) !important;
+}
+
+
 
 
 
