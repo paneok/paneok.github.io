@@ -1,0 +1,8 @@
+# robots.txt for paneok.github.io / Енот в деле
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /editor.html
+Disallow: /backend/
+
+Sitemap: https://paneok.github.io/sitemap.xml

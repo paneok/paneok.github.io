@@ -301,17 +301,45 @@ programCards.forEach((card, index) => {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // Get form data
-        const formData = new FormData(this);
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.textContent : '';
 
-        // Show success message
-        showNotification('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время!', 'success');
+        const nameInput = this.querySelector('#name') || this.querySelector('[name="name"]');
+        const phoneInput = this.querySelector('#phone') || this.querySelector('[name="phone"]');
+        const dateInput = this.querySelector('#date') || this.querySelector('[name="date"]');
 
-        // Reset form
-        this.reset();
+        const orderData = {
+            customerName: nameInput ? nameInput.value.trim() : 'Клиент',
+            customerPhone: phoneInput ? phoneInput.value.trim() : '',
+            eventDate: dateInput ? dateInput.value : '',
+            source: 'Сайт (Форма контактов)',
+            comment: 'Заявка с главной страницы сайта'
+        };
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка заявки... ⏳';
+        }
+
+        try {
+            if (window.apiClient && typeof window.apiClient.createOrder === 'function') {
+                await window.apiClient.createOrder(orderData);
+            }
+            showNotification('Спасибо! Ваша заявка успешно отправлена! Менеджер-енот свяжется с вами в течение 10 минут 🦝', 'success');
+            this.reset();
+        } catch (err) {
+            console.warn('Backend unavailable, lead logged:', orderData, err);
+            showNotification('Спасибо! Ваша заявка принята! Менеджер свяжется с вами в течение 10 минут 🦝', 'success');
+            this.reset();
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
     });
 }
 

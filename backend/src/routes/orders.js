@@ -3,8 +3,19 @@ import prisma from '../config/database.js';
 
 const router = express.Router();
 
-// GET /api/orders - Получить все заказы
-router.get('/', async (req, res, next) => {
+// Admin Authentication Middleware
+const requireAdminAuth = (req, res, next) => {
+  const adminKey = req.headers['x-admin-key'] || req.query.adminKey;
+  const expectedKey = process.env.ADMIN_API_KEY || 'enot-secret-admin-key-2026';
+  
+  if (adminKey === expectedKey) {
+    return next();
+  }
+  return res.status(401).json({ error: 'Unauthorized: Admin authentication required to access orders' });
+};
+
+// GET /api/orders - Получить все заказы (только для админа)
+router.get('/', requireAdminAuth, async (req, res, next) => {
   try {
     const { status } = req.query;
 
@@ -39,8 +50,8 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// GET /api/orders/:id - Получить заказ по ID
-router.get('/:id', async (req, res, next) => {
+// GET /api/orders/:id - Получить заказ по ID (только для админа)
+router.get('/:id', requireAdminAuth, async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -169,8 +180,8 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// PUT /api/orders/:id - Обновить заказ
-router.put('/:id', async (req, res, next) => {
+// PUT /api/orders/:id - Обновить заказ (только для админа)
+router.put('/:id', requireAdminAuth, async (req, res, next) => {
   try {
     const { id } = req.params;
     const data = req.body;
@@ -206,8 +217,8 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
-// PATCH /api/orders/:id/status - Обновить статус заказа
-router.patch('/:id/status', async (req, res, next) => {
+// PATCH /api/orders/:id/status - Обновить статус заказа (только для админа)
+router.patch('/:id/status', requireAdminAuth, async (req, res, next) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
@@ -228,8 +239,8 @@ router.patch('/:id/status', async (req, res, next) => {
   }
 });
 
-// DELETE /api/orders/:id - Удалить заказ
-router.delete('/:id', async (req, res, next) => {
+// DELETE /api/orders/:id - Удалить заказ (только для админа)
+router.delete('/:id', requireAdminAuth, async (req, res, next) => {
   try {
     const { id } = req.params;
 

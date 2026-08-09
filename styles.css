@@ -6836,3 +6836,122 @@ body.modal-open {
     transition: none !important;
 }
 
+/* Location Badge & Header Contacts */
+.nav-location-badge {
+    background: rgba(255, 107, 107, 0.12);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.header-contacts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-phone {
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.header-phone:hover {
+    color: var(--primary-color);
+}
+
+.whatsapp-btn-header {
+    background: #25D366;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn-header:hover {
+    background: #1EBE57;
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    color: white;
+}
+
+/* 152-FZ Form Consent Checkbox */
+.form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.contact-form .form-consent {
+    color: #666;
+}
+
+.form-consent input[type="checkbox"] {
+    margin-top: 0.15rem;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.form-consent a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+    .header-contacts {
+        display: none;
+    }
+}
+
+

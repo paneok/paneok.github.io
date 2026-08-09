@@ -2,8 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мастерская праздников "Енот в деле" — Детские праздники с душой</title>
+    <meta name="description" content="Мастерская праздников «Енот в деле» — организация незабываемых детских праздников, аниматоры, шоу-программы и сказочные персонажи с выездом по Москве и МО.">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Мастерская праздников 'Енот в деле' — Детские праздники с душой">
+    <meta property="og:description" content="Более 280 персонажей, уникальные шоу-программы, сертифицированный реквизит и аниматоры с педагогическим образованием!">
+    <meta property="og:image" content="images/енот в деле.png">
+    <meta property="og:url" content="https://paneok.github.io/">
     <link rel="icon" href="favicon.svg?v=20260514" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css?v=20260523-hero-silhouettes">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +27,7 @@
                         <a href="#home" class="logo-link">
                             <img src="images/енот в деле.png" alt="Енот в деле Logo" class="logo-img">
                             <span class="logo-text">Енот в деле</span>
+                            <span class="nav-location-badge">📍 СПб и ЛО</span>
                         </a>
                     </div>
                     <ul class="nav-menu">
@@ -29,6 +37,10 @@
                         <li><a href="catalog.html#programs" class="nav-link">Программы</a></li>
                         <li><a href="#contact" class="nav-link">Контакты</a></li>
                     </ul>
+                    <div class="header-contacts">
+                        <a href="tel:+79944336803" class="header-phone">+7 (994) 433-68-03</a>
+                        <a href="https://wa.me/79944336803?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA" target="_blank" rel="noopener noreferrer" class="whatsapp-btn-header">💬 WhatsApp</a>
+                    </div>
                     <button class="mobile-menu-btn">☰</button>
                 </div>
             </div>
@@ -467,18 +479,22 @@
             </div>
             <div class="contact-content-simple">
                 <div class="contact-form-wrapper" style="max-width: 600px; margin: 0 auto;">
-                    <form id="lead-form" class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка успешно принята, наш менеджер-енот свяжется с вами в течение 10 минут! 🦝'); this.reset();">
+                    <form id="lead-form" class="contact-form">
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
-                            <input type="text" id="name" required placeholder="Иван">
+                            <input type="text" id="name" name="name" required placeholder="Иван">
                         </div>
                         <div class="form-group">
                             <label for="phone">Номер телефона</label>
-                            <input type="tel" id="phone" required placeholder="+7 (999) 000-00-00">
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 000-00-00">
                         </div>
                         <div class="form-group">
                             <label for="date">Дата праздника (ориентировочно)</label>
-                            <input type="date" id="date">
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-consent">
+                            <input type="checkbox" id="consent-check" required checked>
+                            <label for="consent-check">Нажимая кнопку, вы даете согласие на обработку <a href="#" onclick="alert('Политика конфиденциальности: Мы гарантируем полную конфиденциальность и обработку персональных данных строго в соответствии с 152-ФЗ.'); return false;">персональных данных</a>.</label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-submit" style="width: 100%;">Отправить заявку</button>
                     </form>
@@ -525,6 +541,9 @@
 
     <!-- tsParticles -->
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/79944336803?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">💬</a>
 
     <!-- Scripts -->
     <script src="js/particles-config.js?v=20260514"></script>

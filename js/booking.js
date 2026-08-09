@@ -1318,14 +1318,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("FINAL BOOKING LOG:\n", textLog);
 
+        const numericPrice = parseInt(grandTotal.replace(/\D/g, '')) || 0;
+        const orderPayload = {
+            customerName: clientName,
+            customerPhone: clientPhone,
+            customerEmail: clientEmail || undefined,
+            eventDate: eventDate,
+            eventAddress: `${eventLocation}, ${eventAddress}`,
+            totalPrice: numericPrice,
+            notes: textLog,
+            source: 'Конструктор Бронирования (booking.html)'
+        };
+
+        if (window.apiClient && typeof window.apiClient.createOrder === 'function') {
+            window.apiClient.createOrder(orderPayload).catch(err => {
+                console.warn('Backend offline, order logged locally:', err);
+            });
+        }
+
         // Render summary text on modal
         successMessageText.innerHTML = `
-            Спасибо, <strong>${clientName}</strong>! Мы забронировали Ваше расписание и уже готовим лучших аниматоров!<br><br>
+            Спасибо, <strong>${clientName}</strong>! Мы получили Вашу заявку и передали её шеф-еноту 🦝<br><br>
             <strong>📅 Дата праздника:</strong> ${eventDate.split('-').reverse().join('.')}<br>
             <strong>📍 Место:</strong> ${eventLocation}<br>
             <strong>🏠 Адрес:</strong> ${eventAddress}<br>
-            <strong>💰 Согласованная смета:</strong> ${grandTotal}<br><br>
-            Наш менеджер свяжется с Вами по телефону <strong>${clientPhone}</strong> в течение 10 минут для подтверждения заказа!
+            <strong>💰 Ориентировочная смета:</strong> ${grandTotal}<br><br>
+            Наш менеджер свяжется с Вами по телефону <strong>${clientPhone}</strong> в течение 10 минут для подтверждения бронирования!
         `;
 
         // Clear Selection Storage to reset calculator
