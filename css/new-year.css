@@ -1,0 +1,63 @@
+/* ========================================================================== 
+   NEW YEAR PAGE & SNOW
+   ========================================================================== */
+
+body.new-year-page {
+    background: #151F34;
+}
+
+.new-year-page .snow-container {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.new-year-page .header,
+.new-year-page main,
+.new-year-page .footer {
+    position: relative;
+    z-index: 2;
+}
+
+.new-year-page .snowflake {
+    position: absolute;
+    top: -12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 14px rgba(255, 255, 255, .9);
+    animation: newYearSnowfall linear infinite;
+}
+
+@keyframes newYearSnowfall {
+    0% { transform: translate3d(0, -12px, 0); }
+    100% { transform: translate3d(var(--snow-x, 0px), 110vh, 0); }
+}
+
+.new-year-page .new-year-hero {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #16213E 0%, #253B73 52%, #4B2A75 100%);
+    color: #fff;
+}
+
+.new-year-page .new-year-hero-content,
+.new-year-page .new-year-characters {
+    position: relative;
+    z-index: 2;
+}
+
+.new-year-page .new-year-title { color: #fff; }
+.new-year-page .new-year-subtitle { color: rgba(255, 255, 255, .9); }
+
+.new-year-page .footer {
+    background: rgba(21, 31, 52, .95);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .new-year-page .snowflake { width: 6px; height: 6px; }
+}

@@ -1,0 +1,304 @@
+/* ==========================================================================
+   HERO SECTION & PARALLAX COMPONENT
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 35%, #9333EA 65%, #A78BFA 100%);
+    overflow: hidden;
+    perspective: 1200px;
+}
+
+.particles-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.parallax-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.parallax-item {
+    position: absolute;
+    opacity: 0.85;
+    transition: transform 0.1s ease-out;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Background Character Cutouts Positioning */
+.hero-characters {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    clip-path: inset(0);
+}
+
+/* Decorative layers must never escape the hero and cover later sections. */
+.parallax-container {
+    overflow: hidden;
+    clip-path: inset(0);
+}
+
+.hero-character {
+    position: absolute;
+    display: block;
+    width: clamp(130px, 17vw, 300px);
+    height: auto;
+    opacity: 0;
+    filter:
+        saturate(1.35)
+        contrast(0.72)
+        brightness(1.18)
+        blur(0.2px)
+        drop-shadow(0 18px 28px rgba(255, 255, 255, 0.12))
+        drop-shadow(0 22px 38px rgba(0, 0, 0, 0.18));
+    mix-blend-mode: screen;
+    transform-origin: center bottom;
+    transform: translate3d(0, 0, 0) scale(1);
+    animation: characterFloat 7s ease-in-out infinite;
+    user-select: none;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-character.hero-character-loaded {
+    opacity: var(--hero-character-opacity, 0.7);
+}
+
+.hero-character-left {
+    left: clamp(-56px, -3vw, -18px);
+    bottom: clamp(18px, 8vh, 90px);
+    width: clamp(160px, 19vw, 330px);
+    animation-delay: -1.2s;
+}
+
+.hero-character-right {
+    right: clamp(-58px, -3.2vw, -20px);
+    bottom: clamp(12px, 7vh, 80px);
+    width: clamp(170px, 20vw, 350px);
+    animation-delay: -3s;
+}
+
+.hero-character-top-right {
+    right: clamp(92px, 12vw, 230px);
+    top: clamp(78px, 14vh, 140px);
+    width: clamp(130px, 13vw, 220px);
+    opacity: 0.22;
+    animation-delay: -4.5s;
+}
+
+.hero-character-bottom-left {
+    left: clamp(46px, 8vw, 150px);
+    bottom: clamp(-58px, -5vh, -24px);
+    width: clamp(125px, 12vw, 205px);
+    opacity: 0.2;
+    animation-delay: -2.3s;
+}
+
+.hero-character-bottom-right {
+    right: clamp(48px, 8vw, 160px);
+    bottom: clamp(-58px, -5vh, -24px);
+    width: clamp(122px, 12vw, 200px);
+    opacity: 0.2;
+    animation-delay: -5.4s;
+}
+
+@keyframes characterFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0) scale(1.015);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    user-select: none;
+}
+
+.hero-greeting {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--accent-color);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-title {
+    margin-bottom: 1.2rem;
+}
+
+.hero-title-main {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.hero-title-sub {
+    display: block;
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: var(--accent-color);
+    font-weight: 400;
+    margin-top: 0.2rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    opacity: 0.95;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+}
+
+/* Hero CTA Buttons */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.hero-buttons .btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+    min-height: 52px;
+}
+
+/* Social Proof & Trust Badge */
+.hero-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 0.65rem 1.6rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.trust-divider {
+    opacity: 0.6;
+}
+
+/* Responsive Hero */
+@media (max-width: 1024px) {
+    .hero-character {
+        opacity: 0.48;
+        width: clamp(110px, 18vw, 210px);
+    }
+
+    .hero-character-left {
+        left: -52px;
+        bottom: 8vh;
+    }
+
+    .hero-character-right {
+        right: -58px;
+        bottom: 7vh;
+    }
+
+    .hero-character-top-right {
+        right: 9vw;
+        top: 12vh;
+        opacity: 0.42;
+    }
+
+    .hero-character-bottom-left,
+    .hero-character-bottom-right {
+        opacity: 0.42;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 3rem;
+    }
+
+    .hero-title-main {
+        font-size: 2.2rem;
+    }
+
+    .hero-title-sub {
+        font-size: 2.1rem;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-character-left,
+    .hero-character-right {
+        display: block;
+        width: clamp(118px, 33vw, 170px);
+        bottom: 1rem;
+    }
+
+    .hero-character-left {
+        left: -38px;
+    }
+
+    .hero-character-right {
+        right: -44px;
+    }
+
+    .hero-character-top-right,
+    .hero-character-bottom-left,
+    .hero-character-bottom-right {
+        display: none;
+    }
+}

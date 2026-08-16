@@ -794,6 +794,95 @@ body.booking-page {
     border-radius: 16px !important;
 }
 
+/* Success / calculation modal. These rules used to come from the monolithic
+   stylesheet; keep them on the booking page so the hidden success state is
+   not rendered as plain text at the bottom of the document. */
+.booking-page .calculation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .22s ease, visibility 0s linear .22s;
+}
+
+.booking-page .calculation-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.booking-page .calculation-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .62);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.booking-page .calculation-modal-content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 760px);
+    max-height: min(90vh, 760px);
+    overflow: auto;
+    border: 1px solid rgba(108, 92, 231, .18);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, .28);
+}
+
+.booking-page .calculation-modal-header,
+.booking-page .calculation-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.booking-page .calculation-modal-header {
+    border-bottom: 1px solid var(--booking-border);
+}
+
+.booking-page .calculation-modal-header h2 {
+    margin: 0;
+    color: var(--booking-text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+}
+
+.booking-page .calculation-modal-close {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: var(--booking-text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.booking-page .calculation-modal-body {
+    padding: 1.5rem;
+}
+
+.booking-page .calculation-modal-footer {
+    justify-content: flex-end;
+    border-top: 1px solid var(--booking-border);
+}
+
+body.booking-page.modal-open {
+    overflow: hidden;
+}
+
 /* ==========================================================================
    RESPONSIVE STYLES
    ========================================================================== */

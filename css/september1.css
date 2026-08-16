@@ -1,0 +1,1269 @@
+/* ========================================================================== 
+   1 ST SEPTEMBER (ДЕНЬ ЗНАНИЙ) STYLES
+   Custom design system and components for September 1st Landing Page.
+   ========================================================================== */
+
+.september1-page {
+    background: #fdfbf7;
+    color: #1e1b4b;
+}
+
+/* Hero Section */
+.september1-hero {
+    position: relative;
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, rgba(30, 27, 75, 0.85) 0%, rgba(79, 70, 229, 0.8) 50%, rgba(124, 58, 237, 0.85) 100%);
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.september1-hero-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.38;
+    background-size: cover;
+    background-position: center top;
+    transition: opacity 0.5s ease;
+}
+
+.september1-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.september1-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.september1-hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.september1-hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.94);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* Hero Trust Chips */
+.september1-hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.2rem;
+}
+
+.september1-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.september1-hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .september1-hero {
+        padding: 4.25rem 0 2.25rem;
+    }
+
+    .september1-hero-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .september1-hero-badge { order: 1; margin-bottom: .85rem; }
+    .september1-hero-title { order: 2; margin-bottom: .85rem; font-size: clamp(2rem, 10vw, 2.35rem); }
+    .september1-hero-subtitle { order: 3; margin-bottom: 1.25rem; font-size: 1rem; }
+    .september1-hero-cta { order: 4; gap: .7rem; margin-bottom: 1.25rem; }
+    .september1-hero-chips { order: 5; gap: .5rem; margin-bottom: 0; }
+    .september1-chip { padding: .36rem .7rem; font-size: .8rem; }
+    .september1-chip:nth-child(n + 4) { display: none; }
+    .btn-september1-primary,
+    .september1-hero-cta .btn-secondary { width: 100%; justify-content: center; }
+}
+
+.btn-september1-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-september1-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(245, 158, 11, 0.55);
+}
+
+/* Feature Cards Section */
+.september1-features {
+    padding: 4.5rem 0;
+    background: #ffffff;
+}
+
+.september1-section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #1e1b4b;
+    margin-bottom: 0.75rem;
+}
+
+.september1-section-subtitle {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #64748b;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+}
+
+.september1-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.september1-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem 1.6rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.september1-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.september1-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.september1-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e1b4b;
+    margin-bottom: 0.6rem;
+}
+
+.september1-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #475569;
+}
+
+/* Age Segmentation Tabs */
+.september1-tabs-wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.september1-tab-btn {
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    border: 2px solid #e2e8f0;
+    background: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.september1-tab-btn.active,
+.september1-tab-btn:hover {
+    border-color: #7c3aed;
+    background: #7c3aed;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
+}
+
+.september1-tab-content {
+    display: none;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2.2rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.september1-tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Package Cards */
+.september1-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.8rem;
+}
+
+.september1-pkg-card {
+    position: relative;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.september1-pkg-card.popular {
+    border-color: #7c3aed;
+    box-shadow: 0 12px 35px rgba(124, 58, 237, 0.18);
+}
+
+.september1-pkg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.september1-pkg-badge {
+    position: absolute;
+    top: -14px;
+    right: 20px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.september1-pkg-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1e1b4b;
+    margin-bottom: 0.4rem;
+}
+
+.september1-pkg-price {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #7c3aed;
+    margin-bottom: 1.2rem;
+}
+
+.september1-pkg-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.september1-pkg-list li {
+    font-size: 0.92rem;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.september1-pkg-list li::before {
+    content: "✓";
+    color: #10b981;
+    font-weight: 800;
+}
+
+.september1-pkg-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    border-radius: 999px;
+    background: #7c3aed;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.25s ease;
+}
+
+.september1-pkg-btn:hover {
+    background: #6d28d9;
+}
+
+/* Trust Factors Section */
+.september1-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.september1-trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f8fafc;
+    padding: 1.4rem;
+    border-radius: 16px;
+    border: 1px solid #edf2f7;
+}
+
+.september1-trust-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.september1-trust-text h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: #1e1b4b;
+}
+
+.september1-trust-text p {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* =============================================
+   KINDERGARTEN HIGHLIGHT BLOCK
+   ============================================= */
+.september1-kinder-section {
+    padding: 4.5rem 0;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 40%, #fff7ed 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.september1-kinder-section::before {
+    content: "🌟";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 10rem;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.september1-kinder-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 820px) {
+    .september1-kinder-inner { grid-template-columns: 1fr; }
+}
+
+.september1-kinder-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(245, 158, 11, 0.18);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #92400e;
+    letter-spacing: 0.4px;
+    margin-bottom: 1rem;
+}
+
+.september1-kinder-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.september1-kinder-text {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+
+.september1-kinder-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.september1-kinder-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+.september1-kinder-feature span:first-child {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.september1-kinder-visual {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    border-radius: 28px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(245, 158, 11, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.september1-kinder-visual-emoji {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: kinderFloat 3s ease-in-out infinite;
+}
+
+@keyframes kinderFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.september1-kinder-visual h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.september1-kinder-visual p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+}
+
+/* =============================================
+   CATALOG FILTER CTA — reuses .btn-primary / .btn-secondary from components.css
+   Extra spacing only
+   ============================================= */
+.september1-catalog-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.8rem;
+}
+
+/* =============================================
+   PROGRAM CARDS — Vibrant & Block-based (per skill: ui-ux-pro-max)
+   Each age group has its own bold accent color.
+   Skill: Fredoka headings, Nunito body, 48px+ gaps, large type (32px+),
+          bold hover with color shift (200–300ms), block layout.
+   ============================================= */
+
+/* Import Fredoka + Nunito (playful/friendly per skill recommendation) */
+.september1-programs-section {
+    padding: 5rem 0;
+    background: #f8fafc;
+}
+
+.september1-programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .september1-programs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .september1-programs-grid { grid-template-columns: 1fr; }
+}
+
+.september1-program-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+}
+
+/* Bold color accent per age group — left border + top strip */
+.september1-program-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--card-accent);
+    border-radius: 24px 24px 0 0;
+}
+
+/* Faint large emoji watermark in background */
+.september1-program-card::after {
+    content: var(--card-watermark, '');
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 7rem;
+    opacity: 0.06;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.september1-program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px var(--card-shadow, rgba(0,0,0,0.1));
+    border-color: var(--card-accent);
+}
+
+/* Per-card color themes */
+.september1-program-card--1klass {
+    --card-accent: #f59e0b;
+    --card-shadow: rgba(245,158,11,0.2);
+    --card-watermark: '🎒';
+    --card-badge-bg: #fef3c7;
+    --card-badge-color: #92400e;
+    --card-btn-bg: #f59e0b;
+    --card-btn-hover: #d97706;
+}
+
+.september1-program-card--24klass {
+    --card-accent: #7c3aed;
+    --card-shadow: rgba(124,58,237,0.2);
+    --card-watermark: '🕵️';
+    --card-badge-bg: #ede9fe;
+    --card-badge-color: #5b21b6;
+    --card-btn-bg: #7c3aed;
+    --card-btn-hover: #5b21b6;
+}
+
+.september1-program-card--57klass {
+    --card-accent: #0ea5e9;
+    --card-shadow: rgba(14,165,233,0.2);
+    --card-watermark: '🎮';
+    --card-badge-bg: #e0f2fe;
+    --card-badge-color: #0369a1;
+    --card-btn-bg: #0ea5e9;
+    --card-btn-hover: #0284c7;
+}
+
+/* Card 4: whole-school dark gradient */
+.september1-program-card--school {
+    --card-accent: #f59e0b;
+    --card-shadow: rgba(245,158,11,0.25);
+    --card-watermark: '🎉';
+    --card-badge-bg: rgba(255,255,255,0.15);
+    --card-badge-color: #fde68a;
+    --card-btn-bg: #f59e0b;
+    --card-btn-hover: #d97706;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%);
+    color: #fff;
+}
+
+.september1-program-card--school .september1-program-title { color: #fff; }
+.september1-program-card--school .september1-program-desc  { color: rgba(255,255,255,0.8); }
+.september1-program-card--school .september1-program-meta span {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+}
+.september1-program-card--school .september1-theme-tag {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* Theme tags — pill list of selectable program names */
+.september1-program-themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.2rem 0;
+}
+
+.september1-theme-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #374151;
+    background: #f1f5f9;
+    border: 1.5px solid #e2e8f0;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.september1-program-card:hover .september1-theme-tag {
+    background: rgba(255,255,255,0.7);
+    border-color: var(--card-accent);
+}
+
+/* 4-column grid variant */
+.september1-programs-grid--4col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+    .september1-programs-grid--4col { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .september1-programs-grid--4col { grid-template-columns: 1fr; }
+}
+
+.september1-program-age {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    background: var(--card-badge-bg);
+    color: var(--card-badge-color);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-radius: 999px;
+    align-self: flex-start;
+}
+
+.september1-program-emoji {
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.september1-program-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.september1-program-desc {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+    flex: 1;
+    margin: 0;
+}
+
+.september1-program-meta {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.september1-program-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+}
+
+.september1-program-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--card-btn-bg);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.september1-program-btn:hover {
+    background: var(--card-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px var(--card-shadow);
+}
+
+/* Wide card — full-width CTA strip for "several classes" */
+.september1-program-cta-strip {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+    border-radius: 24px;
+    padding: 2.4rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.september1-program-cta-strip::before {
+    content: '🏫';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9rem;
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .september1-program-cta-strip { flex-direction: column; align-items: flex-start; padding: 2rem; gap: 1.5rem; }
+}
+
+.september1-program-cta-strip-content { flex: 1; }
+
+.september1-program-cta-strip-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-radius: 999px;
+    margin-bottom: 0.8rem;
+}
+
+.september1-program-cta-strip h3 {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.6rem;
+    line-height: 1.2;
+}
+
+.september1-program-cta-strip p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 580px;
+}
+
+.september1-program-cta-strip-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.september1-program-cta-strip-meta {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.september1-program-cta-strip-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.1);
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+}
+
+.btn-strip-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.8rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px rgba(245,158,11,0.35);
+}
+
+.btn-strip-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(245,158,11,0.5);
+}
+
+.btn-strip-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.4rem;
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    transition: background 0.2s ease;
+}
+
+.btn-strip-secondary:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* =============================================
+   BENEFITS STRIP ("вам останется только собрать детей")
+   ============================================= */
+.september1-benefits-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .september1-benefits-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .september1-benefits-strip { grid-template-columns: 1fr; }
+}
+
+.september1-benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.1rem 1.3rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #334155;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.september1-benefit:hover {
+    border-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124,58,237,0.08);
+}
+
+.september1-benefit-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+/* =============================================
+   PROGRAM CHOOSER — compact, readable cards
+   ============================================= */
+.september1-programs-section {
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    background: #f7f8fc !important;
+}
+
+.september1-programs-kicker {
+    margin: 0 0 0.6rem;
+    color: #6d28d9;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.september1-programs-section .september1-section-title {
+    max-width: 720px;
+    margin: 0 auto 0.7rem;
+}
+
+.september1-programs-section .september1-section-subtitle {
+    max-width: 640px;
+    margin-bottom: 2.4rem;
+    color: #52637b;
+}
+
+.september1-programs-grid--4col {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.15rem;
+    margin-bottom: 0;
+}
+
+.september1-programs-section .september1-program-card {
+    --card-accent: #7c3aed;
+    --card-shadow: rgba(124, 58, 237, 0.14);
+    min-height: 430px;
+    padding: 1.45rem;
+    gap: 1rem;
+    background: #ffffff;
+    border: 1px solid #e5e9f1;
+    border-top: 4px solid var(--card-accent);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    cursor: default;
+    overflow: visible;
+}
+
+.september1-programs-section .september1-program-card::before,
+.september1-programs-section .september1-program-card::after {
+    display: none;
+}
+
+.september1-programs-section .september1-program-card:hover {
+    transform: translateY(-4px);
+    border-color: #d8deea;
+    border-top-color: var(--card-accent);
+    box-shadow: 0 16px 32px var(--card-shadow);
+}
+
+.september1-program-card--1klass {
+    --card-accent: #d97706;
+    --card-shadow: rgba(217, 119, 6, 0.15);
+}
+
+.september1-program-card--24klass {
+    --card-accent: #7c3aed;
+    --card-shadow: rgba(124, 58, 237, 0.15);
+}
+
+.september1-program-card--57klass {
+    --card-accent: #0284c7;
+    --card-shadow: rgba(2, 132, 199, 0.15);
+}
+
+.september1-programs-section .september1-program-age {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    color: var(--card-accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    white-space: normal;
+}
+
+.september1-programs-section .september1-program-title {
+    margin: 0;
+    color: #132052;
+    font-size: clamp(1.1rem, 1.35vw, 1.3rem);
+    line-height: 1.25;
+}
+
+.september1-programs-section .september1-program-desc {
+    flex: initial;
+    margin: 0;
+    color: #52637b;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.september1-program-list {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    color: #334155;
+    font-size: 0.83rem;
+    line-height: 1.35;
+    list-style: none;
+}
+
+.september1-program-list li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.september1-program-list li::before {
+    position: absolute;
+    top: 0.42rem;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background: var(--card-accent);
+    border-radius: 50%;
+    content: '';
+}
+
+.september1-programs-section .september1-program-meta {
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
+    border-top: 1px solid #e7ebf2;
+}
+
+.september1-programs-section .september1-program-meta span {
+    padding: 0;
+    background: transparent;
+    color: #667085;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.september1-programs-section .september1-program-meta span + span::before {
+    margin-right: 0.45rem;
+    color: #98a2b3;
+    content: '·';
+}
+
+.september1-programs-section .september1-program-btn {
+    align-self: stretch;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.72rem 1rem;
+    border-radius: 12px;
+    font-size: 0.88rem;
+}
+
+.september1-programs-section .september1-program-card--school {
+    --card-accent: #fbbf24;
+    --card-shadow: rgba(49, 46, 129, 0.28);
+    background: linear-gradient(145deg, #172554 0%, #312e81 100%);
+    border-color: transparent;
+    border-top-color: #fbbf24;
+}
+
+.september1-programs-section .september1-program-card--school .september1-program-age {
+    color: #fde68a;
+}
+
+.september1-programs-section .september1-program-card--school .september1-program-title,
+.september1-programs-section .september1-program-card--school .september1-program-desc,
+.september1-programs-section .september1-program-card--school .september1-program-list,
+.september1-programs-section .september1-program-card--school .september1-program-meta span {
+    color: #ffffff;
+}
+
+.september1-programs-section .september1-program-card--school .september1-program-meta {
+    border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.september1-programs-section .september1-program-card--school .september1-program-meta span + span::before {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 1200px) {
+    .september1-programs-grid--4col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .september1-programs-section .september1-section-subtitle {
+        margin-bottom: 1.75rem;
+    }
+
+    .september1-programs-grid--4col {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+
+    .september1-programs-section .september1-program-card {
+        min-height: 0;
+        padding: 1.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .september1-programs-section .september1-program-card {
+        transition: none;
+    }
+}
+
+/* =============================================
+   B2B PAGE POLISH — school approval, venues and form
+   ============================================= */
+.september1-b2b-proof {
+    padding: clamp(3.5rem, 6vw, 5rem) 0;
+    background: #ffffff;
+    border-block: 1px solid #e9edf3;
+}
+
+.september1-b2b-proof-head .september1-section-subtitle {
+    margin-bottom: 2.25rem;
+}
+
+.september1-b2b-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    background: #dce3ee;
+    border: 1px solid #dce3ee;
+    border-radius: 18px;
+}
+
+.september1-b2b-item {
+    min-height: 210px;
+    padding: 1.5rem;
+    background: #ffffff;
+}
+
+.september1-b2b-number,
+.september1-card-index {
+    display: inline-block;
+    margin-bottom: 1.1rem;
+    color: #6d28d9;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.september1-b2b-item h3 {
+    margin: 0 0 0.65rem;
+    color: #132052;
+    font-size: 1.08rem;
+    line-height: 1.3;
+}
+
+.september1-b2b-item p {
+    margin: 0;
+    color: #52637b;
+    font-size: 0.91rem;
+    line-height: 1.55;
+}
+
+.september1-venue-card {
+    min-height: 235px;
+    padding: 1.65rem;
+    background: #ffffff;
+    border-color: #e5e9f1;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.september1-venue-card:hover {
+    transform: translateY(-4px);
+    border-color: #cfc5fb;
+    box-shadow: 0 14px 30px rgba(79, 70, 229, 0.1);
+}
+
+.september1-pkg-meta {
+    margin: 0 0 1.2rem;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.september1-kinder-feature::before {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    background: #d97706;
+    border-radius: 50%;
+    content: '';
+}
+
+.september1-kinder-visual-label {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.september1-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.september1-form-status {
+    min-height: 1.4em;
+    margin: 0.9rem 0 0;
+    color: #52637b;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.september1-benefit-number {
+    flex: 0 0 auto;
+    color: #6d28d9;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.contact-form select.form-input {
+    appearance: auto;
+}
+
+@media (max-width: 980px) {
+    .september1-b2b-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .september1-b2b-grid,
+    .september1-form-grid { grid-template-columns: 1fr; }
+
+    .september1-b2b-item { min-height: 0; }
+}

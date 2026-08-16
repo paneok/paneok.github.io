@@ -18,6 +18,14 @@ class ProgramsRenderer {
    */
   async init() {
     await this.loadPrograms();
+
+    // URL Parameter filter detection (e.g. ?filter=den-znaniy from September 1st page)
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter');
+    if (filterParam === 'den-znaniy' || filterParam === '1-sentyabrya') {
+      this.activeTagFilter = '1 сентября';
+    }
+
     this.renderPrograms(); // Render all programs on init
   }
 
@@ -83,6 +91,23 @@ class ProgramsRenderer {
     } else {
       // No character selected or character has no program bindings in data
       availablePrograms = this.programs;
+    }
+
+    // Apply tag filter (e.g. from ?filter=den-znaniy URL param)
+    if (this.activeTagFilter) {
+      const tag = this.activeTagFilter.toLowerCase();
+      const tagMatched = availablePrograms.filter(p =>
+        (p.tags || []).some(t => t.toLowerCase().includes(tag)) ||
+        (p.name || '').toLowerCase().includes(tag) ||
+        (p.description?.short || '').toLowerCase().includes(tag)
+      );
+      // Show tag-matched programs first, rest after
+      const tagUnmatched = availablePrograms.filter(p =>
+        !(p.tags || []).some(t => t.toLowerCase().includes(tag)) &&
+        !(p.name || '').toLowerCase().includes(tag) &&
+        !(p.description?.short || '').toLowerCase().includes(tag)
+      );
+      availablePrograms = [...tagMatched, ...tagUnmatched];
     }
 
     // Render available programs

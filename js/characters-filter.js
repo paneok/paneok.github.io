@@ -79,6 +79,21 @@ class CharactersFilter {
                 this.resetFilters();
             });
         }
+
+        // URL Parameter filter detection (e.g. ?filter=den-znaniy or ?search=1%20сентября)
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterParam = urlParams.get('filter');
+        const searchParam = urlParams.get('search');
+
+        if (filterParam === 'den-znaniy' || filterParam === '1-sentyabrya') {
+            this.filters.search = '1 сентября';
+            if (searchInput) searchInput.value = '1 сентября';
+            setTimeout(() => this.applyFilters(), 150);
+        } else if (searchParam) {
+            this.filters.search = searchParam.toLowerCase().trim();
+            if (searchInput) searchInput.value = searchParam;
+            setTimeout(() => this.applyFilters(), 150);
+        }
     }
 
     // Update checkbox filters (age, gender, category, activities)

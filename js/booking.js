@@ -1377,4 +1377,54 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 250);
         }
     });
+
+    // Dynamic Header Holiday Button Sync
+    async function initDynamicHeaderHolidayButton() {
+        const holidayLinks = document.querySelectorAll('.nav-link-new-year, .nav-item-new-year, .holiday-header-btn');
+        if (holidayLinks.length === 0) return;
+
+        let calendarEvents = [];
+        try {
+            const res = await fetch('data/holiday-calendar.json');
+            if (res.ok) {
+                const data = await res.json();
+                if (data && data.events && data.events.length > 0) {
+                    calendarEvents = data.events;
+                }
+            }
+        } catch (e) {
+            console.warn('Calendar JSON fetch failed:', e);
+        }
+
+        if (calendarEvents.length === 0) return;
+
+        const now = new Date();
+        const curMonth = now.getMonth() + 1;
+        const curDay = now.getDate();
+
+        let activeEvent = null;
+        for (const ev of calendarEvents) {
+            let inRange = false;
+            if (ev.monthStart <= ev.monthEnd) {
+                inRange = (curMonth > ev.monthStart || (curMonth === ev.monthStart && curDay >= ev.dayStart)) &&
+                          (curMonth < ev.monthEnd || (curMonth === ev.monthEnd && curDay <= ev.dayEnd));
+            } else {
+                inRange = (curMonth > ev.monthStart || (curMonth === ev.monthStart && curDay >= ev.dayStart)) ||
+                          (curMonth < ev.monthEnd || (curMonth === ev.monthEnd && curDay <= ev.dayEnd));
+            }
+            if (inRange) {
+                activeEvent = ev;
+                break;
+            }
+        }
+
+        if (activeEvent) {
+            holidayLinks.forEach(link => {
+                link.textContent = activeEvent.title;
+                link.setAttribute('href', activeEvent.fallbackUrl || `prazdniki/${activeEvent.slug}.html`);
+            });
+        }
+    }
+
+    initDynamicHeaderHolidayButton();
 });

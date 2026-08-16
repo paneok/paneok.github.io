@@ -1,0 +1,287 @@
+/* ==========================================================================
+   HOLIDAY GALLERY - CONTINUOUS INFINITE POLAROID MARQUEE CAROUSEL
+   ========================================================================== */
+
+.holiday-gallery-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf8ff 100%);
+    position: relative;
+    overflow: hidden;
+    /* The gallery remains a normal document section, so the page can scroll
+       behind the lightbox on desktop and touch devices. */
+    isolation: isolate;
+}
+
+.holiday-gallery-section .container-fluid {
+    width: 100%;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Scroll Viewport */
+.holiday-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 30px 0;
+    cursor: default;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.holiday-carousel-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+/* Continuous scrolling track */
+.holiday-carousel-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    will-change: transform;
+    touch-action: pan-y;
+    /* Two identical card sets are rendered by JS; moving by half their width
+       creates a seamless, continuously playing carousel. */
+    animation: holiday-carousel-scroll 42s linear infinite;
+    animation-play-state: running;
+}
+
+@keyframes holiday-carousel-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Polaroid Card - Large, clear & premium */
+.polaroid-card {
+    flex: 0 0 360px;
+    height: 460px;
+    background: #ffffff;
+    padding: 16px 16px 28px 16px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(18, 12, 28, 0.05);
+    border: 1px solid rgba(118, 75, 162, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+}
+
+/* Alternating organic rotation */
+.polaroid-card:nth-child(even) { transform: rotate(1.2deg); }
+.polaroid-card:nth-child(odd) { transform: rotate(-1.2deg); }
+
+/* Card Image Wrapper */
+.polaroid-card-img-wrapper {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: #f7f5fa;
+}
+
+.polaroid-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: transform 0.6s ease;
+}
+
+/* Polaroid text caption */
+.polaroid-card-caption {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: #4b2d6d;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive, sans-serif;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Premium Hover Effect */
+.polaroid-card:hover {
+    transform: translateY(-15px) scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 20px 45px rgba(118, 75, 162, 0.16);
+    border-color: rgba(255, 107, 157, 0.25);
+    z-index: 5;
+}
+
+.polaroid-card:hover .polaroid-card-img {
+    transform: scale(1.06);
+}
+
+/* Responsive carousel styles */
+@media (max-width: 1024px) {
+    .polaroid-card {
+        flex: 0 0 300px;
+        height: 400px;
+        padding: 14px 14px 24px 14px;
+    }
+    .polaroid-card-caption {
+        font-size: 1.05rem;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .holiday-gallery-section {
+        padding: 50px 0;
+    }
+    .polaroid-card {
+        flex: 0 0 260px;
+        height: 350px;
+        padding: 12px 12px 20px 12px;
+    }
+    .polaroid-card-caption {
+        font-size: 0.95rem;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid-card {
+        flex: 0 0 220px;
+        height: 310px;
+    }
+}
+
+/* ==================== LIGHTBOX MODAL & NAVIGATION ARROWS ==================== */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    /* Do not lock document scrolling while a card is expanded. */
+    touch-action: pan-y;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    touch-action: pan-y;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .holiday-carousel-track {
+        animation-duration: 120s;
+    }
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.85);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20010;
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.lightbox-close-btn:hover {
+    color: #FFFFFF;
+    transform: scale(1.15);
+}
+
+/* Large glassmorphic navigation arrows */
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 42px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 20010;
+    padding: 0;
+    user-select: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-nav-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #ff6b9d 100%);
+    border-color: transparent;
+    color: #FFFFFF;
+    box-shadow: 0 0 35px rgba(255, 107, 157, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev-btn {
+    left: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-30px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.lightbox-next-btn {
+    right: 40px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.lightbox-modal.active .lightbox-prev-btn,
+.lightbox-modal.active .lightbox-next-btn {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 768px) {
+    .lightbox-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+    .lightbox-prev-btn { left: 15px; }
+    .lightbox-next-btn { right: 15px; }
+}
+
+@media (max-width: 480px) {
+    .lightbox-nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .lightbox-prev-btn { left: 8px; }
+    .lightbox-next-btn { right: 8px; }
+}

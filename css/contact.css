@@ -1,0 +1,239 @@
+/* ==========================================================================
+   CONTACT SECTION, GLASSFORM & FOOTER COMPONENT
+   ========================================================================== */
+
+.contact-section .page-decor-raccoon {
+    display: none !important;
+}
+
+.contact-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #4C1D95 0%, #6D28D9 50%, #7C3AED 100%);
+    color: #FFFFFF;
+}
+
+.contact-section .section-title {
+    color: #FFFFFF;
+    background: none;
+    -webkit-text-fill-color: #FFFFFF;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.contact-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.15rem;
+}
+
+.contact-form-wrapper {
+    max-width: 580px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2.8rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.4rem;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .form-input,
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="date"] {
+    width: 100%;
+    display: block;
+    padding: 1rem 1.3rem;
+    font-size: 1.05rem;
+    border-radius: var(--radius-md);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form .form-input:focus,
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(255, 208, 0, 0.4), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form .form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-top: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.contact-form .form-consent label {
+    display: inline;
+    font-weight: 400;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 0;
+}
+
+.contact-form .form-consent input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.15rem;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.contact-form .form-consent a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.contact-form .btn-submit {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--gold-color) 100%);
+    color: var(--text-dark);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 208, 0, 0.45);
+}
+
+.contact-form .btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 208, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    .contact-section { padding: 3rem 0; }
+
+    .contact-section .section-title { font-size: 2rem; }
+
+    .contact-section .section-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .contact-form-wrapper {
+        width: 100%;
+        padding: 1.5rem 1.15rem;
+        border-radius: 18px;
+    }
+
+    .contact-form .form-input,
+    .contact-form input[type="text"],
+    .contact-form input[type="tel"],
+    .contact-form input[type="date"] {
+        min-height: 52px;
+        padding: 0.85rem 1rem;
+        font-size: 1rem;
+    }
+
+    .contact-form .form-consent { margin-bottom: 1.25rem; }
+    .contact-form .form-consent input[type="checkbox"] { width: 20px; height: 20px; }
+    .contact-form .btn-submit { min-height: 54px; font-size: 1.05rem; }
+
+    .whatsapp-float {
+        right: 16px;
+        bottom: max(16px, env(safe-area-inset-bottom));
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Floating WhatsApp Widget */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: #FFFFFF;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+}
+
+/* Footer */
+.footer {
+    background: #0F172A;
+    color: #FFFFFF;
+    padding: 3rem 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo .logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: #94A3B8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #FFFFFF;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1E293B;
+    color: #64748B;
+    font-size: 0.9rem;
+}

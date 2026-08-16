@@ -1,0 +1,617 @@
+/* ==========================================================================
+   RACCOON DIARY COMPONENT (EXACT 3D BOOK, OPENING & PAGE FLIP ANIMATIONS)
+   ========================================================================== */
+
+.raccoon-diary-section {
+    padding: 6rem 0;
+    background: radial-gradient(circle at 80% 20%, rgba(244, 162, 97, 0.08), transparent 40%), #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-close-fullscreen,
+.fullscreen-rotate-hint {
+    display: none !important;
+}
+
+.diary-book-wrapper {
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* 1. Closed Cover Design (Default State for Desktop & Mobile) */
+.diary-closed-cover {
+    display: block !important;
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1200px;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+}
+
+.closed-cover-leather {
+    width: 100%;
+    height: 660px;
+    background: linear-gradient(135deg, #8b5a2b 0%, #5c3a21 100%);
+    border-radius: 20px 24px 24px 20px;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        inset 3px 0 10px rgba(255,255,255,0.15),
+        inset -3px 0 10px rgba(0,0,0,0.4);
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid rgba(0,0,0,0.25);
+}
+
+.closed-cover-leather::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    background: rgba(244, 162, 97, 0.4);
+    box-shadow: 0 0 10px rgba(244, 162, 97, 0.6);
+    z-index: 2;
+}
+
+.closed-cover-decor-corners {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.closed-cover-decor-corners::before,
+.closed-cover-decor-corners::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #ebdcb9;
+    z-index: 2;
+}
+
+.closed-cover-decor-corners::before {
+    top: 12px;
+    right: 12px;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 0 8px 0 0;
+}
+
+.closed-cover-decor-corners::after {
+    bottom: 12px;
+    right: 12px;
+    border-top: none;
+    border-left: none;
+    border-radius: 0 0 8px 0;
+}
+
+.closed-cover-emboss {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgba(244, 162, 97, 0.3);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.diary-embossed-badge {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+    animation: cozyFloat 4s infinite ease-in-out;
+    object-fit: contain;
+}
+
+.closed-cover-title {
+    font-size: 2.1rem !important;
+    color: #ebdcb9 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.8rem !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(244, 162, 97, 0.4);
+}
+
+.closed-cover-subtitle {
+    font-size: 0.9rem !important;
+    color: rgba(235, 220, 185, 0.75) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 2.2rem !important;
+    padding: 0 10px;
+}
+
+.btn-open-diary {
+    padding: 12px 24px !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff5252 100%) !important;
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4), 0 0 15px rgba(230, 57, 70, 0.2) !important;
+    animation: openPulse 2s infinite ease-in-out;
+    border: none !important;
+    cursor: pointer !important;
+    color: #ffffff !important;
+}
+
+@keyframes openPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(230, 57, 70, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(230, 57, 70, 0.6), 0 0 20px rgba(230, 57, 70, 0.3); }
+}
+
+/* 2. OPENING TRANSITION CLASSES (.diary-shifting & .diary-opening) */
+.diary-book-wrapper.diary-shifting .closed-cover-leather {
+    transform: translateX(50%) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.diary-book-wrapper.diary-opening .closed-cover-leather {
+    transform: translateX(50%) rotateY(-140deg) scale(0.9) !important;
+    opacity: 0 !important;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease !important;
+}
+
+/* 3. Open 3D Notebook (Hidden when cover is closed) */
+.diary-notebook-3d {
+    display: none !important;
+}
+
+/* 4. ACTIVE OPEN DIARY STATE (.diary-fullscreen-active) */
+.diary-book-wrapper.diary-fullscreen-active {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 1000px !important;
+    margin: 4rem auto 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    overflow: visible !important;
+    z-index: 10 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-closed-cover {
+    display: none !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: 660px !important;
+    max-width: 1000px !important;
+    background: linear-gradient(135deg, #8b5a2b 0%, #5c3a21 100%) !important;
+    border-radius: 24px !important;
+    padding: 12px !important;
+    box-shadow: 0 35px 80px rgba(92, 58, 33, 0.35), inset 0 0 40px rgba(0, 0, 0, 0.4) !important;
+    perspective: 2000px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    animation: bookOpenRotate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+@keyframes bookOpenRotate {
+    0% {
+        transform: scale(0.3) rotate(0deg) !important;
+        opacity: 0 !important;
+    }
+    100% {
+        transform: scale(1) rotate(0deg) !important;
+        opacity: 1 !important;
+    }
+}
+
+.diary-book-wrapper.diary-fullscreen-active .paper-stack-left,
+.diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+    display: block !important;
+    position: absolute !important;
+    width: calc(50% - 16px) !important;
+    height: calc(100% - 32px) !important;
+    top: 16px !important;
+    background: #FFFDF9 !important;
+    border: 1px solid #ebdcb9 !important;
+    border-radius: 12px !important;
+    z-index: 0 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .paper-stack-left {
+    left: 16px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: -2px 2px 0 #ebdcb9, -4px 4px 0 #ebdcb9, -6px 6px 0 #d9cbb2 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .paper-stack-right {
+    right: 16px !important;
+    left: auto !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    box-shadow: 2px 2px 0 #ebdcb9, 4px 4px 0 #ebdcb9, 6px 6px 0 #d9cbb2 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .notebook-rings-3d {
+    display: flex !important;
+    position: absolute !important;
+    top: 25px !important;
+    bottom: 25px !important;
+    left: 50% !important;
+    width: 24px !important;
+    transform: translateX(-50%) !important;
+    z-index: 50 !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .ring-3d {
+    width: 16px !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    background: linear-gradient(90deg, #7f8c8d 0%, #bdc3c7 45%, #ffffff 55%, #7f8c8d 100%) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .book-cover-left,
+.diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+    width: 50% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #FFFDF9 !important;
+    padding: 2.2rem 2rem !important;
+    box-shadow: inset -15px 0 30px rgba(92, 58, 33, 0.08) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .book-cover-left {
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    border-right: 1px dashed rgba(139, 125, 107, 0.15) !important;
+    align-items: stretch !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .book-cover-right {
+    border-top-right-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
+    border-left: 1px dashed rgba(139, 125, 107, 0.15) !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .book-cover-left .diary-sidebar-title {
+    display: block !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 0.8rem !important;
+    color: var(--secondary-color) !important;
+    text-align: center !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-sidebar-note {
+    display: block !important;
+    margin-top: auto !important;
+    padding: 0.8rem !important;
+    background: rgba(244, 162, 97, 0.06) !important;
+    border: 1px dashed rgba(244, 162, 97, 0.35) !important;
+    border-radius: 16px !important;
+}
+
+/* Hide mobile tabs on Desktop, show desktop tabs on Desktop */
+.diary-mobile-tabs {
+    display: none !important;
+}
+
+.diary-desktop-tabs {
+    display: flex !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-desktop-tabs {
+    position: absolute !important;
+    left: -168px !important;
+    top: 60px !important;
+    width: 170px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 100 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-tab {
+    border-radius: 14px 0 0 14px !important;
+    padding: 0.8rem 1rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    background: #e6dfd3 !important;
+    border: 2px solid #c8bda8 !important;
+    border-right: none !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .diary-tab.active {
+    background: #FFFDF9 !important;
+    border-color: #ebdcb9 !important;
+    border-right: 4px solid #FFFDF9 !important;
+    transform: translateX(8px) !important;
+    box-shadow: -8px 8px 20px rgba(92, 58, 33, 0.18) !important;
+    z-index: 101 !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .tab-label {
+    font-size: 0.88rem !important;
+    text-align: left !important;
+    width: 100% !important;
+    font-weight: 700 !important;
+    color: var(--text-dark) !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .tab-time {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--text-gray) !important;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .book-paper {
+    display: block !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    width: calc(50% - 12px) !important;
+    height: calc(100% - 24px) !important;
+    transform-origin: left center !important;
+    transform-style: preserve-3d !important;
+    z-index: 1;
+}
+
+.diary-book-wrapper.diary-fullscreen-active .btn-close-fullscreen {
+    display: flex !important;
+    position: absolute !important;
+    top: -24px !important;
+    right: -24px !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: #e63946 !important;
+    color: #ffffff !important;
+    border: 3px solid #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+    cursor: pointer !important;
+    z-index: 200 !important;
+}
+
+/* Page Flipping 3D Keyframe Animations */
+.book-paper.flip-forward {
+    animation: flipForward 0.95s cubic-bezier(0.645, 0.045, 0.355, 1) forwards !important;
+}
+
+.book-paper.flip-backward {
+    animation: flipBackward 0.95s cubic-bezier(0.645, 0.045, 0.355, 1) forwards !important;
+}
+
+@keyframes flipForward {
+    0% {
+        transform: rotateY(0deg);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+    30% {
+        transform: rotateY(-60deg) rotateZ(-3deg) scale(1.03) translateZ(10px);
+        box-shadow: 20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    70% {
+        transform: rotateY(-120deg) rotateZ(3deg) scale(1.03) translateZ(10px);
+        box-shadow: -20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    100% {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+}
+
+@keyframes flipBackward {
+    0% {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+    30% {
+        transform: rotateY(-120deg) rotateZ(3deg) scale(1.03) translateZ(10px);
+        box-shadow: -20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    70% {
+        transform: rotateY(-60deg) rotateZ(-3deg) scale(1.03) translateZ(10px);
+        box-shadow: 20px 25px 40px rgba(92, 58, 33, 0.15);
+        z-index: 15;
+    }
+    100% {
+        transform: rotateY(0deg);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+}
+
+.book-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    padding: 2.2rem 2.2rem 3rem 2.2rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: inset 3px 0 15px rgba(92, 58, 33, 0.02), 5px 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.book-page.page-front {
+    z-index: 2;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: 
+        linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+        linear-gradient(to left, transparent 38px, rgba(230, 57, 70, 0.18) 39px, rgba(230, 57, 70, 0.18) 40px, transparent 41px),
+        repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.06) 28px),
+        #FFFDF9;
+}
+
+.book-page.page-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background: 
+        linear-gradient(to left, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 6%, transparent 8%, transparent 100%),
+        linear-gradient(to right, transparent 38px, rgba(230, 57, 70, 0.18) 39px, rgba(230, 57, 70, 0.18) 40px, transparent 41px),
+        repeating-linear-gradient(transparent, transparent 27px, rgba(139, 125, 107, 0.06) 28px),
+        #FFFDF9;
+}
+
+.entry-title {
+    font-size: 1.45rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.entry-text {
+    font-size: 0.95rem;
+    color: #3f4e60;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.entry-media {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.polaroid-photo {
+    background: #ffffff;
+    padding: 0.6rem 0.6rem 1.2rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    transform: rotate(-3deg);
+    display: inline-block;
+}
+
+.polaroid-image-placeholder {
+    width: 170px;
+    height: 125px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.raccoon-diary-reaction {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+.polaroid-caption {
+    font-size: 0.85rem;
+    color: #4a5568;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.diary-page-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFDF9;
+    border: 1px solid #ebdcb9;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(92, 58, 33, 0.1);
+    z-index: 100;
+}
+
+.diary-page-btn.prev-btn { left: -22px; }
+.diary-page-btn.next-btn { right: -22px; }
+
+/* ==================== MOBILE SINGLE-PAGE SLIDER (≤ 768px) ==================== */
+@media (max-width: 768px) {
+    .diary-desktop-tabs {
+        display: none !important;
+    }
+
+    .diary-mobile-tabs {
+        display: flex !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-notebook-3d {
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: 520px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .book-cover-left {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-mobile-tabs {
+        position: static !important;
+        width: 100% !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        gap: 8px !important;
+    }
+
+    .diary-book-wrapper.diary-fullscreen-active .diary-tab {
+        border-radius: 14px !important;
+        border-right: 2px solid #c8bda8 !important;
+    }
+}

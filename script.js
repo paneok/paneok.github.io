@@ -167,7 +167,10 @@ const navMenu = document.querySelector('.nav-menu');
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        const isOpen = navMenu.classList.contains('active');
+        mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
     });
 }
 
@@ -310,30 +313,50 @@ if (contactForm) {
         const nameInput = this.querySelector('#name') || this.querySelector('[name="name"]');
         const phoneInput = this.querySelector('#phone') || this.querySelector('[name="phone"]');
         const dateInput = this.querySelector('#date') || this.querySelector('[name="date"]');
+        const classInfoInput = this.querySelector('#class-info') || this.querySelector('[name="class-info"]');
+        const childrenCountInput = this.querySelector('#children-count') || this.querySelector('[name="children-count"]');
+        const venueInput = this.querySelector('#venue') || this.querySelector('[name="venue"]');
+        const formStatus = this.querySelector('.september1-form-status');
+        const classInfo = classInfoInput ? classInfoInput.value.trim() : '';
+        const childrenCount = childrenCountInput ? childrenCountInput.value.trim() : '';
+        const venue = venueInput ? venueInput.value.trim() : '';
+        const isSeptemberLanding = document.body.classList.contains('september1-page');
+        const requestDetails = [
+            classInfo && `Класс / возраст детей: ${classInfo}`,
+            childrenCount && `Количество детей: ${childrenCount}`,
+            venue && `Площадка: ${venue}`
+        ].filter(Boolean);
+        const requestNote = requestDetails.join('. ');
 
         const orderData = {
             customerName: nameInput ? nameInput.value.trim() : 'Клиент',
             customerPhone: phoneInput ? phoneInput.value.trim() : '',
             eventDate: dateInput ? dateInput.value : '',
-            source: 'Сайт (Форма контактов)',
-            comment: 'Заявка с главной страницы сайта'
+            source: isSeptemberLanding ? 'Лендинг «1 сентября»' : 'Сайт (Форма контактов)',
+            comment: requestNote || (isSeptemberLanding ? 'Заявка с лендинга «1 сентября»' : 'Заявка с главной страницы сайта'),
+            notes: requestNote
         };
 
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка заявки... ⏳';
         }
+        if (formStatus) formStatus.textContent = 'Отправляем заявку…';
 
         try {
-            if (window.apiClient && typeof window.apiClient.createOrder === 'function') {
-                await window.apiClient.createOrder(orderData);
+            if (!window.apiClient || typeof window.apiClient.createOrder !== 'function') {
+                throw new Error('API client is unavailable');
             }
-            showNotification('Спасибо! Ваша заявка успешно отправлена! Менеджер-енот свяжется с вами в течение 10 минут 🦝', 'success');
+            await window.apiClient.createOrder(orderData);
+            const successMessage = 'Спасибо! Заявка отправлена. Менеджер свяжется с вами для уточнения деталей.';
+            showNotification(successMessage, 'success');
+            if (formStatus) formStatus.textContent = successMessage;
             this.reset();
         } catch (err) {
-            console.warn('Backend unavailable, lead logged:', orderData, err);
-            showNotification('Спасибо! Ваша заявка принята! Менеджер свяжется с вами в течение 10 минут 🦝', 'success');
-            this.reset();
+            console.error('Could not submit contact form:', err);
+            const errorMessage = 'Не удалось отправить заявку. Проверьте интернет или напишите нам в мессенджер.';
+            showNotification(errorMessage, 'error');
+            if (formStatus) formStatus.textContent = errorMessage;
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
@@ -605,48 +628,66 @@ emojis.forEach(emoji => {
     });
 });
 
-// ==================== SNOW FROM NEW YEAR BUTTON ====================
+// ==================== SEASONAL PARTICLES FROM HEADER BUTTON ====================
+function getSeasonalParticleSymbols(slug) {
+    if (slug) {
+        if (slug.includes('znaniy') || slug.includes('osen')) return ['🍁', '🍂', '🍃', '✏️'];
+        if (slug.includes('helloween')) return ['🎃', '🦇', '👻', '✨'];
+        if (slug.includes('novy-god') || slug.includes('rozhdestvo') || slug.includes('kanikuly')) return ['❄', '✨', '⭐'];
+        if (slug.includes('maslenitsa')) return ['🥞', '☀️', '✨'];
+        if (slug.includes('8-marta') || slug.includes('vesny')) return ['🌷', '🌸', '✨'];
+        if (slug.includes('23-fevralya')) return ['🛡️', '⭐', '🎖️'];
+        if (slug.includes('vypusknoy') || slug.includes('zvonok')) return ['🎓', '🔔', '🎈', '✨'];
+        if (slug.includes('detey') || slug.includes('neptuna') || slug.includes('lagern')) return ['🎈', '☀️', '💦', '✨'];
+    }
+
+    // Default seasonal symbols by month if no slug specified
+    const month = new Date().getMonth() + 1;
+    if (month === 8 || month === 9 || month === 10) return ['🍁', '🍂', '🍃'];
+    if (month === 12 || month === 1 || month === 2) return ['❄', '✨', '⭐'];
+    if (month >= 3 && month <= 5) return ['🌸', '🌷', '✨'];
+    return ['🎈', '☀️', '✨'];
+}
+
 function createSnowFromButton() {
     const newYearButton = document.querySelector('.nav-link-new-year');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const header = document.querySelector('.header');
 
     if (!newYearButton || !header) {
-        console.log('New Year button or header not found');
         return;
     }
 
-    // Если включён мобильный/вертикальный layout (видна кнопка-бургер), снег отключаем,
-    // так как кнопка "Новый год" спрятана в выпадающем меню
+    // Если включён мобильный/вертикальный layout, эффекты отключаем
     const mobileMenuVisible = mobileMenuBtn && window.getComputedStyle(mobileMenuBtn).display !== 'none';
     if (mobileMenuVisible || window.innerWidth <= 768) {
         return;
     }
 
-    // Добавляем CSS для снежинок, если его ещё нет
+    // Добавляем CSS для падающих элементов кнопки
     if (!document.querySelector('#button-snow-styles')) {
         const snowStyle = document.createElement('style');
         snowStyle.id = 'button-snow-styles';
         snowStyle.textContent = `
             .button-snowflake {
-                position: absolute; /* внутри header */
-                font-size: 10px; /* базовый размер, дальше уменьшаем/варьируем через inline-стили */
+                position: absolute;
+                font-size: 12px;
                 color: #ffffff;
                 pointer-events: none;
                 z-index: 5;
                 opacity: 0;
-                text-shadow: 0 0 6px rgba(255,255,255,0.9);
+                text-shadow: 0 0 6px rgba(255,255,255,0.8);
                 will-change: transform, opacity;
                 animation-fill-mode: forwards;
             }
 
             @keyframes buttonSnowFall {
                 0% {
-                    transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0) rotate(0deg);
                     opacity: 1;
                 }
                 100% {
-                    transform: translate3d(var(--drift, 0px), var(--fall-distance, 80px), 0);
+                    transform: translate3d(var(--drift, 0px), var(--fall-distance, 80px), 0) rotate(var(--spin, 180deg));
                     opacity: 0;
                 }
             }
@@ -654,7 +695,6 @@ function createSnowFromButton() {
         document.head.appendChild(snowStyle);
     }
 
-    // Флаг, чтобы перестать сыпать снег при прокрутке вниз
     let snowActive = true;
     const stopOffset = (header.offsetHeight || 80) * 1.2;
 
@@ -664,9 +704,8 @@ function createSnowFromButton() {
         }
     });
 
-    // МЕТЕЛЬНЫЙ РЕЖИМ: очень частое появление снежинок (только пока snowActive === true)
-    const minInterval = 40;  // минимальная пауза между "порциями" снега
-    const maxInterval = 120; // максимальная пауза
+    const minInterval = 50;
+    const maxInterval = 140;
 
     function spawnSnowflake() {
         if (!snowActive) return;
@@ -674,19 +713,19 @@ function createSnowFromButton() {
         const buttonRect = newYearButton.getBoundingClientRect();
         const headerRect = header.getBoundingClientRect();
 
-        // За один вызов создаём небольшую "порцию" снежинок
-        const batchCount = 4 + Math.floor(Math.random() * 4); // 4–7 снежинок за раз
+        const symbols = window.currentHolidayParticleSymbols || getSeasonalParticleSymbols(window.currentActiveHolidaySlug);
+        const batchCount = 3 + Math.floor(Math.random() * 4);
 
         for (let i = 0; i < batchCount; i++) {
             const snowflake = document.createElement('div');
             snowflake.className = 'button-snowflake';
-            snowflake.textContent = '❄';
+            const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+            snowflake.textContent = symbol;
 
-            // Мелкие снежинки для эффекта метели
-            const size = 5 + Math.random() * 3; // 5–8 px
+            const isEmoji = symbol !== '❄';
+            const size = isEmoji ? (11 + Math.random() * 6) : (5 + Math.random() * 4);
             snowflake.style.fontSize = `${size}px`;
 
-            // Позиционируем снежинку относительно header, чтобы она оставалась только в шапке
             const randomX = Math.random() * buttonRect.width;
             const startX = (buttonRect.left - headerRect.left) + randomX;
             const startY = (buttonRect.bottom - headerRect.top) - 6 + Math.random() * 6;
@@ -694,19 +733,19 @@ function createSnowFromButton() {
             snowflake.style.left = `${startX}px`;
             snowflake.style.top = `${startY}px`;
 
-            // Падаем только в пределах высоты шапки
-            const duration = 900 + Math.random() * 900;          // 0.9–1.8 секунды
-            const drift = (Math.random() - 0.5) * 140;           // лёгкий дрейф влево/вправо
+            const duration = 1000 + Math.random() * 1000;
+            const drift = (Math.random() - 0.5) * 140;
             const maxFall = Math.max(40, headerRect.height - 10);
             const fallDistance = 40 + Math.random() * (maxFall - 40);
+            const spin = (Math.random() - 0.5) * 360;
 
             snowflake.style.animation = `buttonSnowFall ${duration}ms linear forwards`;
             snowflake.style.setProperty('--drift', `${drift}px`);
             snowflake.style.setProperty('--fall-distance', `${fallDistance}px`);
+            snowflake.style.setProperty('--spin', `${spin}deg`);
 
             header.appendChild(snowflake);
 
-            // Удаляем снежинку после анимации
             setTimeout(() => {
                 if (snowflake.parentNode) {
                     snowflake.parentNode.removeChild(snowflake);
@@ -714,14 +753,12 @@ function createSnowFromButton() {
             }, duration + 200);
         }
 
-        // Планируем появление следующей порции снега, пока мы ещё в шапке
         if (snowActive) {
             const nextDelay = minInterval + Math.random() * (maxInterval - minInterval);
             setTimeout(spawnSnowflake, nextDelay);
         }
     }
 
-    // Запускаем непрерывный "дождь" из снежинок только в области header
     spawnSnowflake();
 }
 
@@ -1011,38 +1048,33 @@ function initializeImageZoom() {
         if (container._zoomInitialized) return;
         container._zoomInitialized = true;
 
-        // Только для НЕ сенсорных устройств добавляем zoom эффект
+        // Плавное увеличение без слежения за курсором: постоянный transform
+        // устраняет дёрганье и лишние перерасчёты на каждом mousemove.
         if (!isTouchDevice) {
-            let isHovering = false;
-
+            let frame = 0;
+            let pointerX = 0.5;
+            let pointerY = 0.5;
             container.addEventListener('mouseenter', () => {
-                isHovering = true;
+                image.style.transition = 'transform .15s ease-out';
+                image.style.transform = 'scale(2.475)';
             });
-
-            container.addEventListener('mousemove', (e) => {
-                if (!isHovering) return;
-
+            container.addEventListener('mousemove', (event) => {
                 const rect = container.getBoundingClientRect();
-                const x = e.clientX - rect.left; // Позиция X внутри контейнера
-                const y = e.clientY - rect.top;  // Позиция Y внутри контейнера
-
-                // Вычисляем процентное положение курсора (0-1)
-                const xPercent = x / rect.width;
-                const yPercent = y / rect.height;
-
-                // Сильное смещение для просмотра всех частей изображения
-                // При zoom 2.475 нужно большое смещение, чтобы показать края
-                const moveX = (xPercent - 0.5) * -250; // Увеличено для просмотра краев по горизонтали
-                const moveY = (yPercent - 0.5) * -350; // Увеличено для просмотра лица и ног (вертикаль важнее!)
-
-                image.style.transformOrigin = 'center center';
-                image.style.transform = `scale(2.475) translate(${moveX}px, ${moveY}px)`;
+                pointerX = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+                pointerY = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+                if (frame) return;
+                frame = requestAnimationFrame(() => {
+                    image.style.transformOrigin = `${(pointerX * 100).toFixed(1)}% ${(pointerY * 100).toFixed(1)}%`;
+                    image.style.transform = 'scale(2.475)';
+                    frame = 0;
+                });
             });
-
             container.addEventListener('mouseleave', () => {
-                isHovering = false;
+                if (frame) cancelAnimationFrame(frame);
+                frame = 0;
+                image.style.transition = 'transform .28s ease-out';
                 image.style.transform = 'scale(1)';
-                image.style.transformOrigin = 'center center';
+                image.style.transformOrigin = '50% 50%';
             });
         }
 
@@ -1142,6 +1174,8 @@ function getGalleryModal() {
 }
 
 // Открываем галерею для конкретного персонажа
+let activeGalleryKeyboardHandler = null;
+
 function openGalleryModal(characterId) {
     console.log('Opening gallery for character:', characterId);
 
@@ -1258,6 +1292,10 @@ function openGalleryModal(characterId) {
     const closeModal = () => {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        if (activeGalleryKeyboardHandler) {
+            document.removeEventListener('keydown', activeGalleryKeyboardHandler);
+            activeGalleryKeyboardHandler = null;
+        }
     };
 
     // Установить ID персонажа для кнопки выбора
@@ -1353,8 +1391,13 @@ function openGalleryModal(characterId) {
         if (e.key === 'Escape') closeModal();
     };
 
-    document.removeEventListener('keydown', handleKeyboard);
-    document.addEventListener('keydown', handleKeyboard);
+    // Re-opening the modal must replace the previous handler rather than
+    // accumulating a new closure on every open.
+    if (activeGalleryKeyboardHandler) {
+        document.removeEventListener('keydown', activeGalleryKeyboardHandler);
+    }
+    activeGalleryKeyboardHandler = handleKeyboard;
+    document.addEventListener('keydown', activeGalleryKeyboardHandler);
 
     // Настраиваем pinch-to-zoom для основной фотографии на мобильных
     setupPinchToZoomForGalleryImage(mainImage);
@@ -1484,7 +1527,12 @@ const RACCOON_IMAGES = [
 ];
 
 function randomizeBackgroundRaccoons() {
-    const sections = document.querySelectorAll('.characters-section, .programs-section, .advantages-section, .contact-section');
+    document.querySelectorAll('.contact-section .page-decor-raccoon').forEach(el => el.remove());
+    // Контактная форма должна оставаться чистой: декоративные изображения
+    // в ней перекрывают поля и показываются поверх секции на мобильных.
+    const sections = document.querySelectorAll(
+        '.stats-section, .raccoon-diary-section, .holiday-gallery-section, .team-section, .values-section'
+    );
     
     sections.forEach((section, sectionIndex) => {
         // 1. Очищаем старых енотов
@@ -1495,7 +1543,9 @@ function randomizeBackgroundRaccoons() {
         const sectionHeight = section.offsetHeight || section.scrollHeight || 600;
         
         // 3. Количество енотов
-        const count = Math.max(1, Math.round(sectionHeight / 700));
+        // Несколько равномерно распределённых енотов вместо одного
+        // случайного элемента на весь блок.
+        const count = Math.min(8, Math.max(2, Math.round(sectionHeight / 400)));
         
         // Перемешиваем и создаем
         const shuffledImages = [...RACCOON_IMAGES].sort(() => Math.random() - 0.5);
@@ -1972,6 +2022,7 @@ function initTelegramTeamCircles() {
     const mRoles = modal.querySelector('.telegram-member-roles');
     const mQuote = modal.querySelector('.telegram-member-quote');
     const mProgress = modal.querySelector('.progress-ring-active');
+    const mEmoji = modal.querySelector('.telegram-circle-inner-emoji');
     
     let progressInterval = null;
 
@@ -1989,10 +2040,14 @@ function initTelegramTeamCircles() {
             if (mSuperpower) mSuperpower.textContent = superpower;
             if (mRoles) mRoles.textContent = roles;
             if (mQuote) mQuote.textContent = quote;
+            // Показываем эмодзи-аватар из карточки
+            const cardEmoji = card.querySelector('.avatar-emoji');
+            if (mEmoji && cardEmoji) mEmoji.textContent = cardEmoji.textContent;
             
             // Анимация progress ring (круглые истории Telegram)
             if (mProgress) {
-                mProgress.style.strokeDashoffset = '301.6'; // Сброс
+                const ringMax = 289; // 2*PI*r, r=46
+                mProgress.style.strokeDashoffset = ringMax; // Сброс
                 let start = Date.now();
                 const duration = 8000; // 8 секунд
                 
@@ -2001,7 +2056,7 @@ function initTelegramTeamCircles() {
                 progressInterval = setInterval(() => {
                     let elapsed = Date.now() - start;
                     let progress = Math.min(elapsed / duration, 1);
-                    let offset = 301.6 - (progress * 301.6);
+                    let offset = ringMax - (progress * ringMax);
                     mProgress.style.strokeDashoffset = offset;
                     
                     if (progress >= 1) {
@@ -2013,7 +2068,7 @@ function initTelegramTeamCircles() {
                                 progressInterval = setInterval(() => {
                                     let elapsed = Date.now() - start;
                                     let progress = Math.min(elapsed / duration, 1);
-                                    let offset = 301.6 - (progress * 301.6);
+                                    let offset = ringMax - (progress * ringMax);
                                     mProgress.style.strokeDashoffset = offset;
                                     if (progress >= 1) {
                                         start = Date.now(); // Loop the progress animation
@@ -2906,19 +2961,7 @@ async function initHolidayGalleryLegacy() {
             handleLightboxGestureEnd(e.clientX, e.clientY, e.target);
         });
     }
-    
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox || !lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-            navigateLightbox('prev');
-        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
-            navigateLightbox('next');
-        }
-    });
-    
+
     // Initial build with pre-compiled photos (instant rendering, non-blocking)
     selectRandomPhotos();
     buildCarouselDOM();
@@ -3013,14 +3056,12 @@ function initHolidayGallery() {
         renderLightbox();
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
         closeButton?.focus();
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
     }
 
     function navigateLightbox(direction) {
@@ -3080,10 +3121,71 @@ function initHolidayGallery() {
     });
 }
 
+async function initDynamicHeaderHolidayButton() {
+    const holidayLinks = document.querySelectorAll('.nav-link-new-year, .nav-item-new-year, .holiday-header-btn');
+    if (holidayLinks.length === 0) return;
+
+    let calendarEvents = [];
+
+    try {
+        const res = await fetch('data/holiday-calendar.json?v=20260810-header-holiday', { cache: 'no-store' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.events && data.events.length > 0) {
+                calendarEvents = data.events;
+            }
+        }
+    } catch (e) {
+        console.warn('Calendar JSON fetch failed, using fallback rules:', e);
+    }
+
+    if (calendarEvents.length === 0) {
+        calendarEvents = [
+            { slug: 'novy-god', title: '🎄 Новый год', monthStart: 11, dayStart: 18, monthEnd: 1, dayEnd: 15, fallbackUrl: 'new-year.html' },
+            { slug: 'maslenitsa', title: '🥞 Масленица', monthStart: 2, dayStart: 1, monthEnd: 3, dayEnd: 2, fallbackUrl: 'catalog.html?filter=maslenitsa' },
+            { slug: '23-fevralya', title: '🛡️ 23 февраля', monthStart: 2, dayStart: 10, monthEnd: 2, dayEnd: 24, fallbackUrl: 'catalog.html?filter=23-fevralya' },
+            { slug: '8-marta', title: '🌷 8 марта', monthStart: 2, dayStart: 25, monthEnd: 3, dayEnd: 9, fallbackUrl: 'catalog.html?filter=8-marta' },
+            { slug: 'vypusknoy-v-detskom-sadu', title: '🎓 Выпускной', monthStart: 4, dayStart: 15, monthEnd: 6, dayEnd: 5, fallbackUrl: 'catalog.html?category=vypusknoy' },
+            { slug: 'den-znaniy', title: '🍁 1 сентября', monthStart: 8, dayStart: 1, monthEnd: 9, dayEnd: 5, fallbackUrl: 'den-znaniy.html' },
+            { slug: 'helloween', title: '🎃 Хэллоуин', monthStart: 10, dayStart: 1, monthEnd: 11, dayEnd: 1, fallbackUrl: 'catalog.html?filter=helloween' }
+        ];
+    }
+
+    const now = new Date();
+    const curMonth = now.getMonth() + 1; // 1-12
+    const curDay = now.getDate();
+
+    let activeEvent = null;
+    for (const ev of calendarEvents) {
+        let inRange = false;
+        if (ev.monthStart <= ev.monthEnd) {
+            inRange = (curMonth > ev.monthStart || (curMonth === ev.monthStart && curDay >= ev.dayStart)) &&
+                      (curMonth < ev.monthEnd || (curMonth === ev.monthEnd && curDay <= ev.dayEnd));
+        } else {
+            inRange = (curMonth > ev.monthStart || (curMonth === ev.monthStart && curDay >= ev.dayStart)) ||
+                      (curMonth < ev.monthEnd || (curMonth === ev.monthEnd && curDay <= ev.dayEnd));
+        }
+        if (inRange) {
+            activeEvent = ev;
+            break;
+        }
+    }
+
+    if (activeEvent) {
+        window.currentActiveHolidaySlug = activeEvent.slug;
+        window.currentHolidayParticleSymbols = getSeasonalParticleSymbols(activeEvent.slug);
+        holidayLinks.forEach(link => {
+            link.textContent = activeEvent.title;
+            link.setAttribute('href', activeEvent.fallbackUrl || `prazdniki/${activeEvent.slug}.html`);
+        });
+    }
+}
+
 // Инициализация всех компонентов при загрузке страницы
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initNavbarLogo();
+        initDynamicHeaderHolidayButton();
         initRaccoonDiary();
         initTelegramTeamCircles();
         initDynamicStats();
@@ -3093,6 +3195,7 @@ if (document.readyState === 'loading') {
     });
 } else {
     initNavbarLogo();
+    initDynamicHeaderHolidayButton();
     initRaccoonDiary();
     initTelegramTeamCircles();
     initDynamicStats();

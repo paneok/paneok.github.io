@@ -5,7 +5,42 @@ function initParticles() {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!particlesContainer || typeof confetti === 'undefined' || !heroSection || isTouchDevice || prefersReducedMotion) {
+    // Keep the interaction working when the optional CDN library is blocked
+    // (common on a local server or with an ad blocker).
+    if (typeof window.confetti === 'undefined') {
+        window.confetti = ({ particleCount = 24, origin = { x: .5, y: .5 }, colors = ['#764ba2', '#ff6b9d', '#ffd700'], scalar = 1 } = {}) => {
+            if (!document.body) return;
+            if (!document.getElementById('local-confetti-styles')) {
+                const style = document.createElement('style');
+                style.id = 'local-confetti-styles';
+                style.textContent = `
+                    .local-confetti-piece { position: fixed; width: 8px; height: 12px; pointer-events: none; z-index: 1201; animation: local-confetti-fall var(--fall-time) ease-out forwards; }
+                    @keyframes local-confetti-fall { to { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--spin)); } }
+                `;
+                document.head.append(style);
+            }
+            const count = Math.min(80, Math.max(1, Math.round(particleCount)));
+            for (let i = 0; i < count; i += 1) {
+                const piece = document.createElement('i');
+                const angle = Math.random() * Math.PI * 2;
+                const distance = (80 + Math.random() * 220) * scalar;
+                piece.className = 'local-confetti-piece';
+                piece.style.left = `${origin.x * 100}%`;
+                piece.style.top = `${origin.y * 100}%`;
+                piece.style.background = colors[i % colors.length];
+                piece.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+                piece.style.setProperty('--dy', `${Math.sin(angle) * distance + 140}px`);
+                piece.style.setProperty('--spin', `${Math.round(Math.random() * 900 - 450)}deg`);
+                piece.style.setProperty('--fall-time', `${1.1 + Math.random() * .8}s`);
+                document.body.append(piece);
+                window.setTimeout(() => piece.remove(), 2200);
+            }
+        };
+    }
+
+    // Touch devices still need the interactive burst on tap. Only the
+    // continuous ambient stream is skipped there to avoid unnecessary work.
+    if (!particlesContainer || typeof confetti === 'undefined' || !heroSection || prefersReducedMotion) {
         console.warn('Particles container or confetti library not found');
         return;
     }
@@ -29,7 +64,7 @@ function initParticles() {
     }
 
     // Create continuous confetti particles (background ambient)
-    const interval = setInterval(function() {
+    const interval = isTouchDevice ? null : setInterval(function() {
         if (document.hidden) {
             return;
         }
@@ -85,7 +120,7 @@ function initParticles() {
                 scalar: randomInRange(0.8, 1.5),
                 startVelocity: 30,
                 ticks: 120,
-                zIndex: 0
+                zIndex: 1200
             });
 
             // Add stars burst
@@ -98,11 +133,13 @@ function initParticles() {
                 scalar: randomInRange(1, 2),
                 startVelocity: 35,
                 ticks: 150,
-                zIndex: 0
+                zIndex: 1200
             });
         });
 
-        window.addEventListener('beforeunload', () => clearInterval(interval), { once: true });
+        if (interval) {
+            window.addEventListener('beforeunload', () => clearInterval(interval), { once: true });
+        }
     }
 }
 

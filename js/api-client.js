@@ -19,7 +19,8 @@ class ApiClient {
     return endpoint.includes('characters')
       || endpoint.includes('programs')
       || endpoint.includes('/api/calculator/calculate')
-      || endpoint.includes('/api/calculator/resolve');
+      || endpoint.includes('/api/calculator/resolve')
+      || endpoint.includes('/api/orders');
   }
 
   /**
@@ -39,6 +40,10 @@ class ApiClient {
 
       if (endpoint.includes('/api/calculator/resolve')) {
         return this.resolveConflictsFallback(options.body ? JSON.parse(options.body) : {});
+      }
+
+      if (endpoint.includes('/api/orders')) {
+        return this.createOrderFallback(options.body ? JSON.parse(options.body) : {});
       }
     }
 
@@ -80,14 +85,37 @@ class ApiClient {
           console.warn('Falling back to local calculator resolution');
           return this.resolveConflictsFallback(options.body ? JSON.parse(options.body) : {});
         }
-      }
 
-      if (this.useFallback && (endpoint.includes('characters') || endpoint.includes('programs'))) {
-        return this.fallbackToJson(endpoint);
+        if (endpoint.includes('/api/orders')) {
+          console.warn('Falling back to local order logging');
+          return this.createOrderFallback(options.body ? JSON.parse(options.body) : {});
+        }
       }
 
       throw error;
     }
+  }
+
+  createOrderFallback(data = {}) {
+    this.isOnline = false;
+    console.warn('Order recorded in offline fallback mode:', data);
+    try {
+      const savedOrders = JSON.parse(localStorage.getItem('pending_orders') || '[]');
+      savedOrders.push({
+        ...data,
+        id: `local_${Date.now()}`,
+        createdAt: new Date().toISOString(),
+        status: 'new'
+      });
+      localStorage.setItem('pending_orders', JSON.stringify(savedOrders));
+    } catch (e) {
+      console.warn('LocalStorage unavailable for order fallback:', e);
+    }
+    return {
+      success: true,
+      orderId: `local_${Date.now()}`,
+      message: 'Заявка принята в офлайн-режиме'
+    };
   }
 
   /**
