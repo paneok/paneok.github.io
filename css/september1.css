@@ -520,6 +520,268 @@
     background: #f8fafc;
 }
 
+/* =========================================================
+   FULL-WIDTH ALTERNATING PROGRAM ROWS (ZIG-ZAG)
+   ========================================================= */
+.september1-programs-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.september1-program-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.september1-program-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px var(--row-shadow, rgba(15, 23, 42, 0.12));
+    border-color: var(--row-accent);
+}
+
+/* Reverse layout for alternating items (desktop) */
+.september1-program-row--reverse {
+    grid-template-columns: 1.15fr 1fr;
+}
+
+.september1-program-row--reverse .september1-row-media {
+    order: 2;
+}
+
+.september1-program-row--reverse .september1-row-content {
+    order: 1;
+}
+
+/* Row media */
+.september1-row-media {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    height: 100%;
+    background: #0f172a;
+    overflow: hidden;
+}
+
+.september1-row-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.september1-program-row:hover .september1-row-img {
+    transform: scale(1.05);
+}
+
+.september1-row-badge {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Row content */
+.september1-row-content {
+    padding: clamp(1.8rem, 3.5vw, 2.8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.september1-row-age-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    background: var(--row-badge-bg, #f1f5f9);
+    color: var(--row-badge-color, #1e293b);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-radius: 999px;
+    align-self: flex-start;
+}
+
+.september1-row-title {
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.september1-row-desc {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.september1-row-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.september1-row-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.september1-row-list li span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.september1-row-meta {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.september1-row-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 0.32rem 0.75rem;
+    border-radius: 999px;
+}
+
+.september1-row-action {
+    margin-top: 0.4rem;
+}
+
+.september1-row-action .september1-program-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    background: var(--row-btn-bg, #f59e0b);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px var(--row-shadow, rgba(0,0,0,0.1));
+}
+
+.september1-row-action .september1-program-btn:hover {
+    background: var(--row-btn-hover, #d97706);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px var(--row-shadow, rgba(0,0,0,0.2));
+}
+
+/* Color palettes per row theme */
+.september1-program-row--1klass {
+    --row-accent: #f59e0b;
+    --row-shadow: rgba(245, 158, 11, 0.22);
+    --row-badge-bg: #fef3c7;
+    --row-badge-color: #92400e;
+    --row-btn-bg: #f59e0b;
+    --row-btn-hover: #d97706;
+}
+
+.september1-program-row--24klass {
+    --row-accent: #7c3aed;
+    --row-shadow: rgba(124, 58, 237, 0.22);
+    --row-badge-bg: #ede9fe;
+    --row-badge-color: #5b21b6;
+    --row-btn-bg: #7c3aed;
+    --row-btn-hover: #6d28d9;
+}
+
+.september1-program-row--57klass {
+    --row-accent: #0284c7;
+    --row-shadow: rgba(2, 132, 199, 0.22);
+    --row-badge-bg: #e0f2fe;
+    --row-badge-color: #0369a1;
+    --row-btn-bg: #0284c7;
+    --row-btn-hover: #0369a1;
+}
+
+.september1-program-row--school {
+    --row-accent: #4f46e5;
+    --row-shadow: rgba(79, 70, 229, 0.25);
+    --row-badge-bg: #e0e7ff;
+    --row-badge-color: #3730a3;
+    --row-btn-bg: #4f46e5;
+    --row-btn-hover: #4338ca;
+}
+
+/* Responsive (Mobile & Tablet) */
+@media (max-width: 860px) {
+    .september1-programs-rows {
+        gap: 1.5rem;
+    }
+
+    .september1-program-row,
+    .september1-program-row--reverse {
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+    }
+
+    .september1-program-row--reverse .september1-row-media {
+        order: 0;
+    }
+
+    .september1-program-row--reverse .september1-row-content {
+        order: 1;
+    }
+
+    .september1-row-media {
+        min-height: 240px;
+        height: 240px;
+    }
+
+    .september1-row-content {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .september1-row-action .september1-program-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .september1-programs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -1,78 +1,266 @@
 /* ==========================================================================
-   TEAM SECTION — ANIMATOR CARDS + TELEGRAM VIDEO CIRCLE MODAL
+   TEAM SECTION — REVERSE INFINITE VIDEO CIRCLE MARQUEE CAROUSEL
    ========================================================================== */
 
 .team-section {
-    padding: 6rem 0;
-    background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-.team-member-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 80px 0;
+    background: linear-gradient(180deg, #fbf8ff 0%, #f1f5f9 100%);
     position: relative;
-    border: 1px solid rgba(0,0,0,0.03);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.team-section .container-fluid {
+    width: 100%;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.team-section .section-header {
+    text-align: center;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Scroll Viewport */
+.team-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Gradient fade at edges */
+.team-carousel-wrapper::before,
+.team-carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(40px, 8vw, 120px);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.team-carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #fbf8ff 0%, rgba(251, 248, 255, 0) 100%);
+}
+
+.team-carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #f1f5f9 0%, rgba(241, 245, 249, 0) 100%);
+}
+
+.team-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0 36px;
+    cursor: grab;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.team-carousel-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+/* Continuous scrolling track — moving to the RIGHT (reverse of holiday gallery) */
+.team-carousel-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    will-change: transform;
+    touch-action: pan-y;
+    animation: team-carousel-scroll-reverse 36s linear infinite;
+}
+
+.team-carousel-track:hover,
+.team-carousel-viewport.is-dragging .team-carousel-track {
+    animation-play-state: paused;
+}
+
+@keyframes team-carousel-scroll-reverse {
+    from { transform: translate3d(-50%, 0, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+/* Team Video Card — Telegram Video Story Aesthetic */
+.team-member-card {
+    flex: 0 0 290px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.8rem 1.4rem 1.6rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    position: relative;
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
 }
 
 .team-member-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(69, 123, 157, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(124, 58, 237, 0.18);
+    border-color: rgba(124, 58, 237, 0.3);
 }
 
+/* Video Circle in Card */
 .avatar-circle-wrapper {
     position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1.5rem;
+    width: 136px;
+    height: 136px;
+    margin: 0 auto 1.15rem;
+    padding: 4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0088cc 0%, #25d366 50%, #7c3aed 100%);
+    box-shadow: 0 8px 24px rgba(0, 136, 204, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-member-card:hover .avatar-circle-wrapper {
+    transform: scale(1.06);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.4);
 }
 
 .avatar-circle {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: #0f172a;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(69, 123, 157, 0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid #ffffff;
     overflow: hidden;
+    position: relative;
 }
 
-.avatar-emoji {
-    font-size: 3.5rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-    transition: transform 0.4s ease;
+.avatar-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+    pointer-events: none;
 }
 
-.team-member-card:hover .avatar-emoji {
-    transform: scale(1.15) rotate(5deg);
+.team-member-card:hover .avatar-photo {
+    transform: scale(1.1);
+}
+
+/* Play button overlay on circle */
+.avatar-play-hint {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.avatar-play-hint-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: #0088cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    padding-left: 3px;
+    transform: scale(0.85);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-member-card:hover .avatar-play-hint {
+    opacity: 1;
+}
+
+.team-member-card:hover .avatar-play-hint-icon {
+    transform: scale(1);
+}
+
+/* Badge on circle */
+.avatar-badge-emoji {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    border: 2px solid #ffffff;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+}
+
+.team-member-card:hover .avatar-badge-emoji {
+    transform: scale(1.15) rotate(12deg);
+}
+
+/* Video badge pill on card */
+.team-video-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.65rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .member-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.35rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1e1b4b;
+    margin-bottom: 0.25rem;
 }
 
 .member-role {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    font-weight: 500;
+    font-size: 0.88rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.member-cta-hint {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #7c3aed;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+}
+
+.team-member-card:hover .member-cta-hint {
+    transform: translateX(3px);
 }
 
 /* ==================== TELEGRAM VIDEO CIRCLE MODAL ==================== */
@@ -102,7 +290,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.72);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
@@ -114,7 +302,7 @@
     flex-direction: column;
     align-items: center;
     width: 90%;
-    max-width: 420px;
+    max-width: 440px;
 }
 
 /* Story circle (Telegram Video Circle style) */
@@ -123,21 +311,41 @@
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    overflow: visible;
     margin-bottom: -36px;
     z-index: 5;
-}
-
-.telegram-circle-content {
-    width: 210px;
-    height: 210px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: linear-gradient(135deg, #7C3AED 0%, #9333EA 50%, #F59E0B 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 20px 50px rgba(124, 58, 237, 0.4);
+}
+
+.telegram-circle-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0, 136, 204, 0.45);
+    border: 4px solid #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.telegram-circle-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: none;
+}
+
+.telegram-circle-inner-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .telegram-circle-inner-emoji {
@@ -148,17 +356,26 @@
 /* Animated progress ring (Telegram stories) */
 .telegram-circle-progress {
     position: absolute;
-    top: -8px;
-    left: -8px;
-    width: 226px;
-    height: 226px;
+    top: -6px;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
     pointer-events: none;
+    z-index: 4;
+}
+
+.telegram-circle-progress svg {
+    width: 100%;
+    height: 100%;
+    display: block;
     transform: rotate(-90deg);
+    transform-origin: center center;
+    overflow: visible;
 }
 
 .progress-ring-bg {
     fill: transparent;
-    stroke: rgba(255, 255, 255, 0.15);
+    stroke: rgba(255, 255, 255, 0.2);
     stroke-width: 4px;
 }
 
@@ -172,33 +389,28 @@
     transition: stroke-dashoffset 0.1s linear;
 }
 
-/* LIVE badge */
+/* LIVE / Video badge */
 .tg-live-badge {
     position: absolute;
     bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    background: #e63946;
+    background: #0088cc;
     color: #ffffff;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 1.5px;
-    padding: 3px 10px;
+    letter-spacing: 1px;
+    padding: 3px 12px;
     border-radius: 20px;
     border: 2px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
-    animation: livePulse 1.5s infinite;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
     white-space: nowrap;
+    z-index: 6;
 }
 
 @keyframes cozyFloat {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(-8px); }
-}
-
-@keyframes livePulse {
-    0%, 100% { box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4); }
-    50%       { box-shadow: 0 4px 20px rgba(230, 57, 70, 0.7); }
 }
 
 @keyframes telegramScale {
@@ -259,9 +471,9 @@
 
 .telegram-member-role {
     font-size: 0.85rem;
-    color: #2CA5E0;
+    color: #0088cc;
     font-weight: 700;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1.2px;
 }
@@ -275,19 +487,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-}
-
-/* Row with icon + text */
-.tg-detail-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-}
-
-.tg-detail-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    margin-top: 2px;
 }
 
 .detail-label {
@@ -343,127 +542,20 @@
     box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 992px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .team-section {
-        padding: 4rem 0;
-    }
-
-    .team-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 3rem !important;
-        margin-top: 2rem !important;
-    }
-
+@media (max-width: 640px) {
     .team-member-card {
-        display: grid !important;
-        grid-template-columns: 90px 1fr !important;
-        grid-template-areas:
-            "avatar name"
-            "avatar role" !important;
-        align-items: center !important;
-        text-align: left !important;
-        gap: 0.25rem 1.25rem !important;
-        padding: 1.25rem !important;
-        background: #ffffff !important;
-        border-radius: 20px !important;
-        box-shadow: 0 8px 25px rgba(69, 123, 157, 0.08) !important;
-        border: 1px dashed rgba(69, 123, 157, 0.15) !important;
+        flex: 0 0 260px;
+        padding: 1.5rem 1.2rem;
     }
-
-    .team-member-card:nth-child(even) {
-        grid-template-columns: 1fr 90px !important;
-        grid-template-areas:
-            "name avatar"
-            "role avatar" !important;
-        text-align: right !important;
-    }
-
-    .team-member-card:not(:last-child)::after {
-        content: "" !important;
-        position: absolute !important;
-        bottom: -1.75rem !important;
-        left: 15% !important;
-        right: 15% !important;
-        height: 16px !important;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20' fill='none' stroke='%23457b9d' stroke-width='2' stroke-linecap='round' stroke-dasharray='3,3'%3E%3Cpath d='M0,10 Q15,0 30,10 T60,10 T90,10 T120,10'/%3E%3C/svg%3E") !important;
-        background-size: 100% 100% !important;
-        opacity: 0.45 !important;
-    }
-
+    
     .avatar-circle-wrapper {
-        grid-area: avatar !important;
-        width: 90px !important;
-        height: 90px !important;
-        margin: 0 !important;
+        width: 120px;
+        height: 120px;
     }
-
-    .team-member-card .avatar-emoji {
-        font-size: 2.5rem !important;
-    }
-
-    .member-name {
-        grid-area: name !important;
-        margin: 0 !important;
-        font-size: 1.25rem !important;
-        font-weight: 700 !important;
-        color: var(--text-dark) !important;
-    }
-
-    .member-role {
-        grid-area: role !important;
-        margin: 0 !important;
-        font-size: 0.88rem !important;
-        color: var(--primary-color) !important;
-        font-weight: 600 !important;
-    }
-
-    .telegram-video-circle {
+    
+    .telegram-story-circle {
         width: 180px;
         height: 180px;
-        margin-bottom: -30px;
-    }
-
-    .telegram-circle-progress {
-        width: 190px;
-        height: 190px;
-    }
-
-    .telegram-circle-inner-emoji {
-        font-size: 5rem;
-    }
-
-    .telegram-modal-card {
-        border-radius: 20px;
-        padding: 3.5rem 1.5rem 2rem;
-    }
-
-    .telegram-member-name {
-        font-size: 1.5rem;
-    }
-
-    .telegram-member-role {
-        font-size: 0.85rem;
-    }
-
-    .telegram-member-details {
-        padding: 1rem;
-    }
-
-    .telegram-member-superpower,
-    .telegram-member-roles {
-        font-size: 0.9rem;
-    }
-
-    .telegram-member-quote {
-        font-size: 0.95rem;
+        margin-bottom: -28px;
     }
 }

@@ -2007,11 +2007,72 @@ function initRaccoonDiary() {
     setStep(1);
 }
 
-// ==================== TELEGRAM TEAM CIRCLES INTERACTIVITY ====================
+// ==================== TEAM REVERSE CAROUSEL & VIDEO CIRCLES ====================
+function initTeamCarousel() {
+    const track = document.getElementById('team-carousel-track');
+    const viewport = document.getElementById('team-carousel-viewport');
+    if (!track || !viewport) return;
+
+    // Clone cards once or twice to ensure a seamless infinite marquee
+    const originalCards = Array.from(track.querySelectorAll('.team-member-card'));
+    if (originalCards.length > 0 && track.children.length === originalCards.length) {
+        // Clone twice so there are 3 sets, ensuring smooth infinite loop on all screen widths
+        originalCards.forEach(card => {
+            track.appendChild(card.cloneNode(true));
+        });
+        originalCards.forEach(card => {
+            track.appendChild(card.cloneNode(true));
+        });
+    }
+
+    // Drag / Swipe handling
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let dragDistance = 0;
+
+    viewport.addEventListener('mousedown', (e) => {
+        isDown = true;
+        dragDistance = 0;
+        viewport.classList.add('is-dragging');
+        startX = e.pageX - viewport.offsetLeft;
+        scrollLeft = viewport.scrollLeft;
+    });
+
+    viewport.addEventListener('mouseleave', () => {
+        isDown = false;
+        viewport.classList.remove('is-dragging');
+    });
+
+    viewport.addEventListener('mouseup', () => {
+        isDown = false;
+        viewport.classList.remove('is-dragging');
+    });
+
+    viewport.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - viewport.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        dragDistance += Math.abs(walk);
+        viewport.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mark drag distance on viewport to prevent modal open on drag
+    viewport.addEventListener('click', (e) => {
+        if (dragDistance > 8) {
+            e.stopPropagation();
+            dragDistance = 0;
+        }
+    }, true);
+}
+
 function initTelegramTeamCircles() {
-    const cards = document.querySelectorAll('.team-member-card');
+    initTeamCarousel();
+
+    const track = document.getElementById('team-carousel-track');
     const modal = document.getElementById('telegram-modal');
-    if (cards.length === 0 || !modal) return;
+    if (!modal) return;
 
     const closeBtn = modal.querySelector('.telegram-modal-close');
     const backdrop = modal.querySelector('.telegram-modal-backdrop');
@@ -2023,84 +2084,121 @@ function initTelegramTeamCircles() {
     const mQuote = modal.querySelector('.telegram-member-quote');
     const mProgress = modal.querySelector('.progress-ring-active');
     const mEmoji = modal.querySelector('.telegram-circle-inner-emoji');
+    const mPhoto = modal.querySelector('#telegram-modal-photo') || modal.querySelector('.telegram-circle-inner-photo');
+    const mVideo = modal.querySelector('#telegram-modal-video') || modal.querySelector('.telegram-circle-video');
+    const mWaBtn = modal.querySelector('#telegram-modal-whatsapp') || modal.querySelector('.tg-cta-btn');
     
     let progressInterval = null;
+    const ringMax = 289; // 2 * PI * r (r=46)
 
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const name = card.querySelector('.member-name').textContent;
-            const role = card.querySelector('.member-role').textContent;
-            const superpower = card.getAttribute('data-superpower') || '';
-            const roles = card.getAttribute('data-roles') || '';
-            const quote = card.getAttribute('data-quote') || '';
-            
-            // Заполняем данные
-            if (mName) mName.textContent = name;
-            if (mRole) mRole.textContent = role;
-            if (mSuperpower) mSuperpower.textContent = superpower;
-            if (mRoles) mRoles.textContent = roles;
-            if (mQuote) mQuote.textContent = quote;
-            // Показываем эмодзи-аватар из карточки
-            const cardEmoji = card.querySelector('.avatar-emoji');
-            if (mEmoji && cardEmoji) mEmoji.textContent = cardEmoji.textContent;
-            
-            // Анимация progress ring (круглые истории Telegram)
-            if (mProgress) {
-                const ringMax = 289; // 2*PI*r, r=46
-                mProgress.style.strokeDashoffset = ringMax; // Сброс
-                let start = Date.now();
-                const duration = 8000; // 8 секунд
-                
-                if (progressInterval) clearInterval(progressInterval);
-                
-                progressInterval = setInterval(() => {
-                    let elapsed = Date.now() - start;
-                    let progress = Math.min(elapsed / duration, 1);
-                    let offset = ringMax - (progress * ringMax);
-                    mProgress.style.strokeDashoffset = offset;
-                    
-                    if (progress >= 1) {
-                        clearInterval(progressInterval);
-                        // Повторяем по кругу
-                        setTimeout(() => {
-                            if (modal.classList.contains('active')) {
-                                start = Date.now();
-                                progressInterval = setInterval(() => {
-                                    let elapsed = Date.now() - start;
-                                    let progress = Math.min(elapsed / duration, 1);
-                                    let offset = ringMax - (progress * ringMax);
-                                    mProgress.style.strokeDashoffset = offset;
-                                    if (progress >= 1) {
-                                        start = Date.now(); // Loop the progress animation
-                                    }
-                                }, 50);
-                            }
-                        }, 500);
-                    }
-                }, 50);
-            }
-            
-            // Открываем модалку
-            modal.classList.add('active');
-        });
-    });
-
-    const closeModal = () => {
+    function closeModal() {
         modal.classList.remove('active');
         if (progressInterval) {
             clearInterval(progressInterval);
             progressInterval = null;
         }
-    };
+        if (mVideo) {
+            mVideo.pause();
+            mVideo.currentTime = 0;
+            mVideo.src = '';
+            mVideo.style.display = 'none';
+        }
+        if (mProgress) {
+            mProgress.style.strokeDashoffset = ringMax;
+        }
+    }
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (backdrop) backdrop.addEventListener('click', closeModal);
-    
-    // Закрытие по кнопке Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
+    });
+
+    // Delegate click on track (works for original and cloned cards)
+    const container = track || document;
+    container.addEventListener('click', (e) => {
+        const card = e.target.closest('.team-member-card');
+        if (!card) return;
+
+        const name = card.getAttribute('data-name') || card.querySelector('.member-name')?.textContent || 'Аниматор';
+        const role = card.querySelector('.member-role')?.textContent || '';
+        const superpower = card.getAttribute('data-superpower') || '';
+        const roles = card.getAttribute('data-roles') || '';
+        const quote = card.getAttribute('data-quote') || '';
+        const videoSrc = card.getAttribute('data-video') || '';
+        
+        // Fill data
+        if (mName) mName.textContent = name;
+        if (mRole) mRole.textContent = role;
+        if (mSuperpower) mSuperpower.textContent = superpower;
+        if (mRoles) mRoles.textContent = roles;
+        if (mQuote) mQuote.textContent = quote;
+        
+        // WhatsApp button prefill
+        if (mWaBtn) {
+            const encodedText = encodeURIComponent(`Здравствуйте! Хочу заказать праздник с аниматором (${name}).`);
+            mWaBtn.href = `https://wa.me/79944336803?text=${encodedText}`;
+        }
+
+        const cardImg = card.querySelector('.avatar-photo');
+        const cardEmoji = card.querySelector('.avatar-badge-emoji') || card.querySelector('.avatar-emoji');
+
+        // Reset display
+        if (mProgress) mProgress.style.strokeDashoffset = ringMax;
+        if (progressInterval) clearInterval(progressInterval);
+
+        // Check if there is a video source
+        if (videoSrc && mVideo) {
+            if (mPhoto) mPhoto.style.display = 'none';
+            if (mEmoji) mEmoji.style.display = 'none';
+            mVideo.style.display = 'block';
+            mVideo.src = videoSrc;
+            mVideo.play().catch(() => {});
+
+            mVideo.ontimeupdate = () => {
+                if (mVideo.duration) {
+                    const progress = mVideo.currentTime / mVideo.duration;
+                    const offset = ringMax - (progress * ringMax);
+                    if (mProgress) mProgress.style.strokeDashoffset = offset;
+                }
+            };
+        } else {
+            // Photo story fallback with smooth progress ring animation
+            if (mVideo) {
+                mVideo.style.display = 'none';
+                mVideo.pause();
+                mVideo.src = '';
+            }
+
+            if (mPhoto && cardImg) {
+                mPhoto.src = cardImg.src;
+                mPhoto.alt = name;
+                mPhoto.style.display = 'block';
+                if (mEmoji) mEmoji.style.display = 'none';
+            } else if (mEmoji && cardEmoji) {
+                mEmoji.textContent = cardEmoji.textContent;
+                mEmoji.style.display = 'block';
+                if (mPhoto) mPhoto.style.display = 'none';
+            }
+
+            // Animated progress ring (8s story loop)
+            let start = Date.now();
+            const duration = 8000;
+            progressInterval = setInterval(() => {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const offset = ringMax - (progress * ringMax);
+                if (mProgress) mProgress.style.strokeDashoffset = offset;
+
+                if (progress >= 1) {
+                    start = Date.now(); // Loop story progress
+                }
+            }, 50);
+        }
+
+        modal.classList.add('active');
     });
 }
 

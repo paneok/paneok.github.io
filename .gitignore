@@ -35,3 +35,16 @@ build/
 *.zip
 *.tar.gz
 scratch/
+
+# Python & Backups
+__pycache__/
+*.pyc
+*.bak
+*.backup*
+debug_beget.py
+check_sizes.py
+verify_beget_deploy.py
+find_heavy_folders.py
+backup_styles.py
+fast_compress_all_images.py
+tools/
